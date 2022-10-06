@@ -1,0 +1,24 @@
+site_name: Durango Retro
+nav:
+ - Home: index.md
+ - About: about.md
+ - The Hardware: 
+    SDd/Chihuahua: hardware/chiguagua.md
+    Durango: hardware/durango.md
+    veracruz: hardware/veracruz.md
+    Abandoned Projects: hardware/abandoned_projects.md
+ - The Software:
+    Sofware: software/software.md
+ - Contribute: https://github.com/durangoretro/
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/durangoretro/
+theme:
+  name: material
+  nav_style: dark
+  language: es
+  logo: assets/logo.png
+  palette:
+    scheme: slate
+    accent: indigo
