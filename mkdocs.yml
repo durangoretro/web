@@ -1,24 +1,36 @@
 site_name: Durango Retro
+site_description: Durango Computer Web
+site_author: Durango Computer Team
 nav:
  - Home: index.md
  - About: about.md
  - The Hardware: 
-    SDd/Chihuahua: hardware/chiguagua.md
-    Durango: hardware/durango.md
-    veracruz: hardware/veracruz.md
-    Abandoned Projects: hardware/abandoned_projects.md
+    - SDd/Chihuahua: hardware/chiguagua.md
+    - Durango: hardware/durango.md
+    - veracruz: hardware/veracruz.md
+    - Abandoned Projects: hardware/abandoned_projects.md
  - The Software:
-    Sofware: software/software.md
+    - Sofware: software/software.md
  - Contribute: https://github.com/durangoretro/
 extra:
   social:
     - icon: fontawesome/brands/github 
       link: https://github.com/durangoretro/
+  generator: false
+copyright: Copyright &copy; 2020 - 2022 Durango Computer Team
+repo_url: https://github.com/durangoretro/web
 theme:
   name: material
   nav_style: dark
-  language: es
+  features:
+    - navigation.tabs
   logo: assets/logo.png
   palette:
     scheme: slate
     accent: indigo
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - footnotes
+  - pymdownx.superfences
