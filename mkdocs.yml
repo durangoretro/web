@@ -18,6 +18,7 @@ extra:
       link: https://github.com/durangoretro/
   generator: false
 copyright: Copyright &copy; 2020 - 2022 Durango Computer Team
+repo_name: durangoretro/web
 repo_url: https://github.com/durangoretro/web
 theme:
   name: material
