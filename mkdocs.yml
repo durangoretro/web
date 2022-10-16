@@ -21,6 +21,7 @@ copyright: Copyright &copy; 2020 - 2022 Durango Computer Team
 repo_url: https://github.com/durangoretro/web
 theme:
   name: material
+  custom_dir: theme
   nav_style: dark
   features:
     - navigation.tabs
