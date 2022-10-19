@@ -4,13 +4,17 @@ site_author: Durango Computer Team
 nav:
  - Home: index.md
  - About: about.md
+ - Getting Started: started.md
+ - FAQ: faq.md
  - The Hardware: 
+    - Hardware: hardware/hardware.md
     - SDd/Chihuahua: hardware/chiguagua.md
     - Durango: hardware/durango.md
-    - veracruz: hardware/veracruz.md
+    - Veracruz: hardware/veracruz.md
     - Abandoned Projects: hardware/abandoned_projects.md
  - The Software:
     - Sofware: software/software.md
+ - Community: community.md
  - Contribute: https://github.com/durangoretro/
 extra:
   social:
