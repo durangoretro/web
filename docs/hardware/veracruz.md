@@ -9,6 +9,9 @@ The ultimate goal is to reach the 3M benchmark (1 MiB of memory, 1 Mpixel on scr
 * **Jalisco**: 9 MHz 65C816 workstation with 1360 x 768 px. colour display[^2]
 * **Tabasco**: Top of the range 13.5 MHz 65C816 workstation with high resolution colour display[^2]
 
+!!! info
+    This Project is under construction; is only in design and definition stage and is not ready yet.
+
 ## Veracruz Basic Specs
 
 * CPU: 65C816 @ 5 MHz
