@@ -8,12 +8,23 @@ nav:
  - FAQ: faq.md
  - The Hardware: 
     - Hardware: hardware/hardware.md
-    - SDd/Chihuahua: hardware/chiguagua.md
     - Durango: hardware/durango.md
     - Veracruz: hardware/veracruz.md
-    - Abandoned Projects: hardware/abandoned_projects.md
  - The Software:
     - Sofware: software/software.md
+    - FirmWare: software/firmware.md
+    - Games: software/games.md
+ - Development & Tools:
+    - Development: tools/development.md
+    - Tools: tools/tools.md
+    - Emulator (Perdita): tools/perdita.md
+    - Durango Lib: tools/durangolib.md
+    - Docker: tools/docker.md
+    - Durango Code: tools/durangocode.md
+ - Other Projects:
+    - Other Projects: other/other.md
+    - Future Projects: other/future.md
+    - Abandoned Projects: other/abandoned.md
  - Community: community.md
  - Contribute: https://github.com/durangoretro/
 extra:
@@ -30,7 +41,7 @@ theme:
   nav_style: dark
   features:
     - navigation.tabs
-  logo: assets/logo.png
+  logo: assets/img/logo.png
   palette:
     scheme: slate
     accent: indigo
