@@ -24,6 +24,13 @@ You can see in Kicad an image similar to:
 <figcaption>Durango PCB with components</figcaption>
 </figure>
 
+
+## Bill of Materials
+### Durango Main Board
+
+### Keyboard & Gamepads Board
+
+
 Here you can find the Cartidge for built each Rom:
 
 [https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
