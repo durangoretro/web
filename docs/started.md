@@ -27,6 +27,52 @@ You can see in Kicad an image similar to:
 
 ## Bill of Materials
 ### Durango Main Board
+#### Sockets
+* 14 pins (x9)
+* 16 pins (x19)
+* 20 pins (x5)
+* 28 pins (x1)
+* 40 pins (x1)
+
+#### Analog devices
+* 10  uF (x2)
+* 100 nF (x2)
+* 100 uF (x3)
+* 470 uF (x1)
+* 68  pF (x1)
+* 1N4148 (x5)
+* BC548  (x6)
+
+#### Integrateds
+* 24.576 MHz (x1)
+* 62C02    (x1)
+* 27C256   (x1)
+* 74HC157  (x4)
+* 74HC132  (x1)
+* 74HC00   (x1)
+* 74HC139  (x2)
+* 74HC688  (x1)
+* 74HC74   (x1)
+* 74HC32   (x1)
+* 74HC4040 (x3)
+* 74HC02   (x1)
+* 74HC21   (x1)
+* 74HC85   (x2)
+* 74HC175  (x1)
+* 74HC86   (x2)
+* 74HC245  (x3)
+* 74HC257  (x4)
+* 74HC574  (x1)
+* 74HC166  (x1)
+* 74HC20   (x1)
+* 74HC174  (x1)
+* 74HC367  (x1)
+
+### Others
+* Red LED (x1)
+* Green LED (x1)
+* Buzzer (x1)
+* Button (x2)
 
 ### Keyboard & Gamepads Board
 
