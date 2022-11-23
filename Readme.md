@@ -39,3 +39,14 @@ Later, run mkdocs using pipenv:
 ```bash
 pipenv run mkdocs serve
 ```
+
+### Generate and Upload to GH-Pages
+
+To Generate and upload to github Pages only you need to do is:
+
+1. Checkout last version of ```gh-pages``` branch.
+2. Run next command
+
+```bash
+pipenv run mkdocs gh-deploy
+```
