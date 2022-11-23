@@ -45,7 +45,8 @@ pipenv run mkdocs serve
 To Generate and upload to github Pages only you need to do is:
 
 1. Checkout last version of ```gh-pages``` branch.
-2. Run next command
+2. return to master branch
+3. Run next command
 
 ```bash
 pipenv run mkdocs gh-deploy
