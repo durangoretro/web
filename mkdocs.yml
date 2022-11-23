@@ -14,6 +14,7 @@ nav:
     - Sofware: software/software.md
     - FirmWare: software/firmware.md
     - Games: software/games.md
+    - Roms: software/roms.md
  - Development & Tools:
     - Development: tools/development.md
     - Tools: tools/tools.md
