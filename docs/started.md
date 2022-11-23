@@ -86,6 +86,11 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 ## Durango Cartridge
 
+<figure markdown>
+![Durango Cartridge](assets/img/cart.jpg)
+<figcaption>Durango Cartridge</figcaption>
+</figure>
+
 Here you can find the Cartridge for built each Rom:
 
 [https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
