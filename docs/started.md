@@ -24,9 +24,8 @@ You can see in Kicad an image similar to:
 <figcaption>Durango PCB with components</figcaption>
 </figure>
 
+## Bill of Materials (Durango Main Board)
 
-## Bill of Materials
-### Durango Main Board
 #### Sockets
 * 14 pins (x9)
 * 16 pins (x19)
@@ -79,13 +78,19 @@ You can see in Kicad an image similar to:
 The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
 
 <figure markdown>
-![Durango KeyBoard & Gamepad Board](assets/img/keyboard.jpg)
+![Durango KeyBoard & Gamepad Board](assets/img/keyboard.png)
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
-Here you can find the Cartidge for built each Rom:
+#### Bill Of Materials (Keyboard & Gamepads Board)
+
+### Durango Cartridge
+
+Here you can find the Cartridge for built each Rom:
 
 [https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
+
+#### Bill Of Materials (Durango Cartridge)
 
 
 ## Built Software for Durango
