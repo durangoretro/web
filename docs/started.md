@@ -76,6 +76,12 @@ You can see in Kicad an image similar to:
 
 ### Keyboard & Gamepads Board
 
+The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
+
+<figure markdown>
+![Durango KeyBoard & Gamepad Board](assets/img/keyboard.jpg)
+<figcaption>Durango KeyBoard & Gamepad Board</figcaption>
+</figure>
 
 Here you can find the Cartidge for built each Rom:
 
