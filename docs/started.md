@@ -5,6 +5,10 @@ template: overrides/home.html
 
 Here you cand find information about how to Start with the Durango Computer
 
+## Description
+Durango is build up of two pcb boards: The actual [SBC](https://en.wikipedia.org/wiki/Single-board_computer) board, 
+and a peripheral board with a keyboard and two gamepads sockets. The peripheral board can be build to support either NES gamepads or Megadrive gamepads
+
 ## Built your own Durango
 
 IF you want to Create a new Durango Computer, you need to download the Blueprints and obtain the components; you can find the blueprints in the next link.
@@ -24,7 +28,7 @@ You can see in Kicad an image similar to:
 <figcaption>Durango PCB with components</figcaption>
 </figure>
 
-### Bill of Materials (Durango Main Board)
+### Durango SBC Board. Bill of Materials
 
 #### Sockets
 * 14 pins (x9)
@@ -73,7 +77,7 @@ You can see in Kicad an image similar to:
 * Buzzer (x1)
 * Button (x2)
 
-## Keyboard & Gamepads Board
+### Durango Keyboard & Gamepads Board. Bill of Materials (NES flavour)
 
 The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
 
