@@ -72,12 +72,39 @@ You can see in Kicad an image similar to:
 * 74HC367  (x1)
 
 #### Others
-* Red LED (x1)
+* Red LED   (x1)
 * Green LED (x1)
-* Buzzer (x1)
-* Button (x2)
+* Buzzer    (x1)
+* Button    (x2)
 
 ### Durango Keyboard & Gamepads Board. Bill of Materials (NES flavour)
+
+### Board
+* PCB [Download Kicad files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
+
+#### Sockets
+* 14 pins (x1)
+* 16 pins (x3)
+* 20 pins (x1)
+
+#### Analog devices
+* Diode 4148 (x8)
+* RN 220K    (x2)
+* RN 10K     (x1)
+
+### Connectors
+* NES Socket  (x2)
+* Button DIP-4 6x6x7mm (x40)
+* IOx         (x1)
+* TO COMPUTER (x1)
+
+#### Integrateds
+* 74HC138 (x1)
+* 74HC86  (x1)
+* 74HC174 (x1)
+* 74HC245 (x1)
+* 74HC595 (x2)
+
 
 The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
 
