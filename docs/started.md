@@ -30,6 +30,10 @@ You can see in Kicad an image similar to:
 
 ### Durango SBC Board. Bill of Materials
 
+
+#### Board
+* PCB [Download Kicad files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
+
 #### Sockets
 * 14 pins (x9)
 * 16 pins (x19)
