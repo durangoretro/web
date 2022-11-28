@@ -78,8 +78,14 @@ You can see in Kicad an image similar to:
 * Button    (x2)
 
 ### Durango Keyboard & Gamepads Board. Bill of Materials (NES flavour)
+The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
 
-### Board
+<figure markdown>
+![Durango KeyBoard & Gamepad Board](assets/img/top5x8kbd.png)
+<figcaption>Durango KeyBoard & Gamepad Board</figcaption>
+</figure>
+
+#### Board
 * PCB [Download Kicad files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
 #### Sockets
@@ -105,15 +111,6 @@ You can see in Kicad an image similar to:
 * 74HC245 (x1)
 * 74HC595 (x2)
 
-
-The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
-
-<figure markdown>
-![Durango KeyBoard & Gamepad Board](assets/img/keyboard.png)
-<figcaption>Durango KeyBoard & Gamepad Board</figcaption>
-</figure>
-
-### Bill Of Materials (Keyboard & Gamepads Board)
 
 ## Durango Cartridge
 
