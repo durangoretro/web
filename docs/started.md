@@ -129,6 +129,18 @@ Here you can find the Cartridge for built each Rom:
 
 ### Bill Of Materials (Durango Cartridge)
 
+### Cartridge configuration
+|Tipo|Modelo|Capacidad|JP1|JP2|R1|R2|
+-------------------------------------
+|EPROM|27C64|8 KiB|-|-|0|0|
+|EPROM|27C128|16 KiB|-|-|0|0|
+|EPROM|27C256|32 KiB|ON|-|-|0|
+|EPROM|27C512 (lower)|64 KiB|ON|up|-|-|
+|EPROM|27C512 (upper)|64 KiB|ON|-|-|0|
+|EEPROM|27C64|8 KiB|-|-|0|-|
+|EEPROM|27C256|32 KiB|-|down|0|-|
+|FLASH|29F256|32 KiB|ON|-|-|0|
+
 ## Built Software for Durango
 
 If you want to built your own Durango Software (like Games or applications), you don't need a Durango to Built Software.
