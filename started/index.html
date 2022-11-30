@@ -320,6 +320,9 @@
                 
     <h1 id="getting-started">Getting Started</h1>
 <p>Here you cand find information about how to Start with the Durango Computer</p>
+<h2 id="description">Description</h2>
+<p>Durango is build up of two pcb boards: The actual <a href="https://en.wikipedia.org/wiki/Single-board_computer">SBC</a> board, 
+and a peripheral board with a keyboard and two gamepads sockets. The peripheral board can be build to support either NES gamepads or Megadrive gamepads</p>
 <h2 id="built-your-own-durango">Built your own Durango</h2>
 <p>IF you want to Create a new Durango Computer, you need to download the Blueprints and obtain the components; you can find the blueprints in the next link.</p>
 <p><a href="https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full">https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full</a></p>
@@ -331,7 +334,11 @@
 <p><img alt="Durango Computer" src="../assets/img/durango1.jpg" /></p>
 <figcaption>Durango PCB with components</figcaption>
 </figure>
-<h3 id="bill-of-materials-durango-main-board">Bill of Materials (Durango Main Board)</h3>
+<h3 id="durango-sbc-board-bill-of-materials">Durango SBC Board. Bill of Materials</h3>
+<h4 id="board">Board</h4>
+<ul>
+<li>PCB <a href="https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full">Download Kicad files</a></li>
+</ul>
 <h4 id="sockets">Sockets</h4>
 <ul>
 <li>14 pins (x9)</li>
@@ -378,18 +385,48 @@
 </ul>
 <h4 id="others">Others</h4>
 <ul>
-<li>Red LED (x1)</li>
+<li>Red LED   (x1)</li>
 <li>Green LED (x1)</li>
-<li>Buzzer (x1)</li>
-<li>Button (x2)</li>
+<li>Buzzer    (x1)</li>
+<li>Button    (x2)</li>
 </ul>
-<h2 id="keyboard-gamepads-board">Keyboard &amp; Gamepads Board</h2>
+<h3 id="durango-keyboard-gamepads-board-bill-of-materials-nes-flavour">Durango Keyboard &amp; Gamepads Board. Bill of Materials (NES flavour)</h3>
 <p>The KeyBoard &amp; GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).</p>
 <figure>
-<p><img alt="Durango KeyBoard &amp; Gamepad Board" src="../assets/img/keyboard.png" /></p>
+<p><img alt="Durango KeyBoard &amp; Gamepad Board" src="../assets/img/top5x8kbd.png" /></p>
 <figcaption>Durango KeyBoard &amp; Gamepad Board</figcaption>
 </figure>
-<h3 id="bill-of-materials-keyboard-gamepads-board">Bill Of Materials (Keyboard &amp; Gamepads Board)</h3>
+<h4 id="board_1">Board</h4>
+<ul>
+<li>PCB <a href="https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd">Download Kicad files</a></li>
+</ul>
+<h4 id="sockets_1">Sockets</h4>
+<ul>
+<li>14 pins (x1)</li>
+<li>16 pins (x3)</li>
+<li>20 pins (x1)</li>
+</ul>
+<h4 id="analog-devices_1">Analog devices</h4>
+<ul>
+<li>Diode 4148 (x8)</li>
+<li>RN 220K    (x2)</li>
+<li>RN 10K     (x1)</li>
+</ul>
+<h3 id="connectors">Connectors</h3>
+<ul>
+<li>NES Socket  (x2)</li>
+<li>Button DIP-4 6x6x7mm (x40)</li>
+<li>IOx         (x1)</li>
+<li>TO COMPUTER (x1)</li>
+</ul>
+<h4 id="integrateds_1">Integrateds</h4>
+<ul>
+<li>74HC138 (x1)</li>
+<li>74HC86  (x1)</li>
+<li>74HC174 (x1)</li>
+<li>74HC245 (x1)</li>
+<li>74HC595 (x2)</li>
+</ul>
 <h2 id="durango-cartridge">Durango Cartridge</h2>
 <figure>
 <p><img alt="Durango Cartridge" src="../assets/img/cart.jpg" /></p>
@@ -398,6 +435,101 @@
 <p>Here you can find the Cartridge for built each Rom:</p>
 <p><a href="https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p">https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p</a></p>
 <h3 id="bill-of-materials-durango-cartridge">Bill Of Materials (Durango Cartridge)</h3>
+<h3 id="cartridge-configuration">Cartridge configuration</h3>
+<p>ROM Chip compatibles and Configuration.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Type</th>
+<th align="center">Model</th>
+<th align="center">Capacity</th>
+<th align="center">JP1</th>
+<th align="center">JP2</th>
+<th align="center">R1</th>
+<th align="center">R2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">EPROM</td>
+<td align="center">27C64</td>
+<td align="center">8KB</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">EPROM</td>
+<td align="center">27C128</td>
+<td align="center">16KB</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">EPROM</td>
+<td align="center">27C256</td>
+<td align="center">32KB</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">EPROM</td>
+<td align="center">27C512 (lower)</td>
+<td align="center">64KB</td>
+<td align="center">ON</td>
+<td align="center">UP</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">EPROM</td>
+<td align="center">27C512 (upper)</td>
+<td align="center">64KB</td>
+<td align="center">ON</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">EEPROM</td>
+<td align="center">28C64</td>
+<td align="center">8KB</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">EEPROM</td>
+<td align="center">28C256</td>
+<td align="center">32KB</td>
+<td align="center">-</td>
+<td align="center">DOWN</td>
+<td align="center">0</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">FLASH</td>
+<td align="center">29F256</td>
+<td align="center">32KB</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JP1: Jumper 1</li>
+<li>JP2: Jumper 2</li>
+<li>R1: Resistor 1 connected</li>
+<li>R2: Resistor 2 connected</li>
+</ul>
 <h2 id="built-software-for-durango">Built Software for Durango</h2>
 <p>If you want to built your own Durango Software (like Games or applications), you don't need a Durango to Built Software.</p>
 <p>We built some Tools for improve the development of software with Durango. Like:</p>
