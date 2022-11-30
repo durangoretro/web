@@ -3,7 +3,7 @@
 ## Roms to download
 
 * arkanoid.bin [ROM](../assets/bin/arkanoid.bin)[src](https://github.com/durangoretro/arkanoid)
-* basic.dux [ROM](../assets/bin/ehbasic.dux)[src]()
+* basic.dux [ROM](../assets/bin/basic.dux)[src]()
 * durango-test.bin [ROM](../assets/bin/durango-test.bin)[src]()
 * gamepads.bin [ROM](../assets/bin/gamepads.bin)[src](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s)
 * keyboard_tester.bin [ROM](../assets/bin/keyboard_tester.bin)[src](https://github.com/durangoretro/durango_demos/blob/main/keyboard_tester.c)
