@@ -11,7 +11,7 @@ and a peripheral board with a keyboard and two gamepads sockets. The peripheral 
 
 ## Built your own Durango
 
-IF you want to Create a new Durango Computer, you need to download the Blueprints and obtain the components; you can find the blueprints in the next link.
+If you want to Create a new Durango Computer, you need to download the Blueprints and obtain the components; you can find the blueprints in the next link.
 
 [https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
 
