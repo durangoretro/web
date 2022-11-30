@@ -20,4 +20,4 @@ In this web page, you can find all the information about this project; from the 
 
 Of course there is more; we are triying to create all the tools, software and libraries needed to develop new software using modern tools like Docker images or creating user friendly libraries.
 
-
+This project is made with the colaboration of [La Jaquería](https://lajaqueria.org).
