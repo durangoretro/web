@@ -98,17 +98,17 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 * 20 pins (x1)
 
 #### Passive devices
-* Diode 4148 (x8)
-* RN 220K    (x2)
-* RN 10K     (x1)
+* Diode 4148        (x8)
+* RN 8x 9-pin 220K  (x2)
+* RN 8x 9-pin 10K   (x1)
 
 ### Connectors
-* NES Socket  (x2)
-* Button DIP-4 6x6x7mm (x40)
-* IOx         (x1)
-* TO COMPUTER (x1)
+* NES Socket       (x2)
+* Tactile Switch DIP-4 6x6x7mm (x40)
+* IDC 16(2x8) pin  (x2)
+* TO COMPUTER      (x1)
 
-#### Integrateds
+#### Integrated Circuits
 * 74HC138 (x1)
 * 74HC86  (x1)
 * 74HC174 (x1)
