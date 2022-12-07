@@ -94,7 +94,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 #### Sockets
 * 14 pins (x1)
-* 16 pins (x3)
+* 16 pins (x4)
 * 20 pins (x1)
 
 #### Analog devices
