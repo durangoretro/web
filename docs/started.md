@@ -125,7 +125,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 Here you can find the Cartridge for built each Rom:
 
-PCB  [JLPCB ZIP](assets/bin/pending.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
+PCB  [JLPCB ZIP](assets/bin/cart28p1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
 
 ### Bill Of Materials (Durango Cartridge)
 
