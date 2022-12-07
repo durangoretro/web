@@ -99,8 +99,8 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 #### Passive devices
 * Diode 4148        (x8)
-* RN 8x 9-pin 220K  (x2)
-* RN 8x 9-pin 10K   (x1)
+* RN 8x9-pin 220K  (x1)
+* RN 8x9-pin 10K   (x1)
 
 ### Connectors
 * NES Socket       (x2)
