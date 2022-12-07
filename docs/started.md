@@ -89,7 +89,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
-#### Board
+#### Top Board (keypad & gamepads)
 * PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
 #### Sockets
