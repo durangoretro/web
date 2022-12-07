@@ -97,7 +97,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 * 16 pins (x4)
 * 20 pins (x1)
 
-#### Analog devices
+#### Passive devices
 * Diode 4148 (x8)
 * RN 220K    (x2)
 * RN 10K     (x1)
