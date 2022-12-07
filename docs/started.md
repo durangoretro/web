@@ -32,7 +32,7 @@ You can see in Kicad an image similar to:
 
 
 #### Board
-* PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
+* PCB [JLPCB ZIP](assets/bin/pending.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
 
 #### Sockets
 * 14 pins (x9)
@@ -90,7 +90,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 </figure>
 
 #### Board
-* PCB [Download Kicad files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
+* PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
 #### Sockets
 * 14 pins (x1)
@@ -125,7 +125,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 Here you can find the Cartridge for built each Rom:
 
-[https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
+PCB  [JLPCB ZIP](assets/bin/pending.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
 
 ### Bill Of Materials (Durango Cartridge)
 
