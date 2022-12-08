@@ -115,6 +115,13 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 * 74HC245 (x1)
 * 74HC595 (x2)
 
+### Assembly instructions
+* Mount diodes: D11, D12, D13, D4, D15, D16, D17, D18
+* Mount sockets: U9 U13, U12, U1, U34, U55
+* Mount resistors: RN11, RN3
+* Mount IDC: J1, J2
+* Mount NES sockets: J33, J54
+* Mount switches: SW1 to SW40
 
 ## Durango Cartridge
 
