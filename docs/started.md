@@ -89,7 +89,7 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
-#### Top Board (keypad & gamepads)
+#### Top Board (keypad & NES gamepads)
 * PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
 #### Sockets
@@ -122,6 +122,19 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 * Mount IDC: J1, J2
 * Mount NES sockets: J33, J54
 * Mount switches: SW1 to SW40
+
+
+#### Top Board (keypad & MD gamepads)
+* PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
+
+### Assembly instructions
+* Mount diodes: D11, D12, D13, D4, D15, D16, D17, D18
+* Mount sockets: U9 U13, U12, U1, U26, U24, U45
+* Mount resistors: RN11, RN3
+* Mount IDC: J1, J2
+* Mount DE9: J23, J44
+* Mount switches: SW1 to SW40
+
 
 ## Durango Cartridge
 
