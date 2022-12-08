@@ -127,6 +127,28 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 #### Top Board (keypad & MD gamepads)
 * PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
+#### Sockets
+* 14 pins (x1)
+* 16 pins (x3)
+* 20 pins (x3)
+
+#### Passive devices
+* Diode 4148        (x8)
+* RN 8x9-pin 220K  (x1)
+* RN 8x9-pin 10K   (x1)
+
+### Connectors
+* DE9 Socket       (x2)
+* Tactile Switch DIP-4 6x6x7mm (x40)
+* IDC 16(2x8) pin  (x2)
+* TO COMPUTER      (x1)
+
+#### Integrated Circuits
+* 74HC138 (x1)
+* 74HC86  (x1)
+* 74HC174 (x2)
+* 74HC245 (x3)
+
 ### Assembly instructions
 * Mount diodes: D11, D12, D13, D4, D15, D16, D17, D18
 * Mount sockets: U9 U13, U12, U1, U26, U24, U45
