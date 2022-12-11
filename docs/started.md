@@ -117,7 +117,8 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 ### Assembly instructions
 * Mount diodes: D11, D12, D13, D4, D15, D16, D17, D18
-* Mount sockets: U9 U13, U12, U1, U34, U55
+* Mount sockets: U9 U13, U12, U1
+* Mount sockets: U34, U55
 * Mount resistors: RN11, RN3
 * Mount IDC: J1, J2
 * Mount NES sockets: J33, J54
@@ -133,8 +134,8 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 * 20 pins (x3)
 
 #### Passive devices
-* Diode 4148        (x8)
-* RN 8x9-pin 220K  (x1)
+* Diode 1N4148        (x8)
+* RN 8x9-pin 220K  (x2)
 * RN 8x9-pin 10K   (x1)
 
 ### Connectors
@@ -151,8 +152,9 @@ The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect Ga
 
 ### Assembly instructions
 * Mount diodes: D11, D12, D13, D4, D15, D16, D17, D18
-* Mount sockets: U9 U13, U12, U1, U26, U24, U45
-* Mount resistors: RN11, RN3
+* Mount sockets: U9 U13, U12, U1, 
+* MOunt sockets: U26, U24, U45
+* Mount resistors: RN11, RN22, RN3
 * Mount IDC: J1, J2
 * Mount DE9: J23, J44
 * Mount switches: SW1 to SW40
