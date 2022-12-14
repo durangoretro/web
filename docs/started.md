@@ -32,7 +32,7 @@ You can see in Kicad an image similar to:
 
 
 #### Board
-* PCB [JLPCB ZIP](assets/bin/pending.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
+* PCB [JLPCB ZIP](assets/bin/durango-x1-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
 
 #### Sockets
 * 14 pins (x9)
