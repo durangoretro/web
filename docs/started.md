@@ -41,7 +41,26 @@ You can see in Kicad an image similar to:
 * 28 pins (x1)
 * 40 pins (x1)
 
-#### Analog devices
+### Resistors
+* 27   (x1)
+* 68   (x2)
+* 120  (x1)
+* 150  (x1)
+* 330  (x1)
+* 470  (x3)
+* 680  (x2)
+* 1K   (x3)
+* 1K2  (x1)
+* 3K3  (x4)
+* 4K7  (x1)
+* 5K6  (x1)
+* 6K8  (x2)
+* 12K  (x3)
+* 22K  (x3)
+* 39K  (x1)
+* 220K (x3)
+
+#### Other Passive devices
 * 10  uF (x2)
 * 100 nF (x2)
 * 100 uF (x3)
