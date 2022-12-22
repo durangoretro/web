@@ -59,6 +59,9 @@ You can see in Kicad an image similar to:
 * 22K  (x3)
 * 39K  (x1)
 * 220K (x3)
+* RN 4x5-pin 4K7 (x1)
+* RN 8x9-pin 3K3 (x1)
+
 
 #### Other Passive devices
 * 10  uF (x2)
