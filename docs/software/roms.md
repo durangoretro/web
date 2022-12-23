@@ -2,13 +2,9 @@
 
 ## Roms to download
 
-* arkanoid.bin [ROM](../assets/bin/arkanoid.bin)[src](https://github.com/durangoretro/arkanoid)
-* basic.dux [ROM](../assets/bin/basic.dux)[src]()
-* durango-test.bin [ROM](../assets/bin/durango-test.bin)[src]()
-* gamepads.bin [ROM](../assets/bin/gamepads.bin)[src](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s)
-* keyboard_tester.bin [ROM](../assets/bin/keyboard_tester.bin)[src](https://github.com/durangoretro/durango_demos/blob/main/keyboard_tester.c)
-* pacman.bin [ROM](../assets/bin/pacman.bin)[src]()
-* pong.bin [ROM](../assets/bin/pong.bin)[src](https://github.com/durangoretro/durango_demos/blob/main/pong.s)
-* telesketch.bin [ROM](../assets/bin/telesketch.bin)[src](https://github.com/durangoretro/telesketch)
-* witch.bin [ROM](../assets/bin/witch.bin)[src](https://github.com/durangoretro/witch)
-* fulltest.dux [ROM](../assets/bin/fulltest.dux)[src]()
+* _basic.dux_ [ROM](../assets/bin/basic.dux); [Source Code](): EhBasic Interpreter; with this ROm you can run BASIC programs in your Durango.
+* _durango-test.bin_ [ROM](../assets/bin/durango-test.bin); [Source Code](): Durango Basic Test
+* _gamepads.bin_ [ROM](../assets/bin/gamepads.bin); [Source Code](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s): Durango gamepads Tets
+* _keyboard_tester.bin_ [ROM](../assets/bin/keyboard_tester.bin)[Source Code](https://github.com/durangoretro/durango_demos/blob/main/keyboard_tester.c): Durango KeyBoard Tester.
+
+* _fulltest.dux_ [ROM](../assets/bin/fulltest.dux); [Source Code](): Full Test for DUrango; use debug key for change ROM test.

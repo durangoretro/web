@@ -1,5 +1,5 @@
-site_name: Durango Retro
-site_description: Durango Computer Web
+site_name: Durango Retro Computer
+site_description: Home of the Durango Computer Project. Create a 8 bit home computer with modern tools.
 site_author: Durango Computer Team
 nav:
  - Home: index.md
@@ -9,10 +9,8 @@ nav:
  - The Hardware: 
     - Hardware: hardware/hardware.md
     - Durango: hardware/durango.md
-    - Veracruz: hardware/veracruz.md
  - The Software:
-    - Sofware: software/software.md
-    - FirmWare: software/firmware.md
+    - Software: software/software.md
     - Games: software/games.md
     - Roms: software/roms.md
  - Development & Tools:
@@ -43,6 +41,7 @@ theme:
   features:
     - navigation.tabs
   logo: assets/img/logo.png
+  favicon: assets/img/favicon.png
   palette:
     scheme: slate
     accent: indigo
