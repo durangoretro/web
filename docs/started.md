@@ -6,75 +6,77 @@ template: overrides/home.html
 Here you cand find information about how to Start with the Durango Computer
 
 ## Description
-Durango is build up of two pcb boards: The actual [SBC](https://en.wikipedia.org/wiki/Single-board_computer) board, 
-and a peripheral board with a keyboard and two gamepads sockets. The peripheral board can be build to support either NES gamepads or Megadrive gamepads
+Durango is made from two PCBs: The actual [SBC](https://en.wikipedia.org/wiki/Single-board_computer), 
+and a peripheral board with a keyboard and two gamepads sockets. The peripheral board can be built to support either NES gamepads or Megadrive/Genesis gamepads (including Atari VCS/2600-style joysticks).
 
 ## Build your own Durango
 
-If you want to Create a new Durango Computer, you need to download the Blueprints and obtain the components; you can find the blueprints in the next link.
+If you want to create a new Durango computer, you need to download the blueprints and obtain the components; you can find the blueprints in the following link:
 
 [https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
 
-To open the blueprints, you need the [Kicad](https://www.kicad.org/) application.
+To open the blueprints you need the [KiCad](https://www.kicad.org/) application.
 
-You will need the Symbols library for this project:
+You will need the symbols library for this project:
 
 [https://github.com/zuiko21/minimOS/tree/master/hard/kicad/symbols](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/symbols)
 
-You can see in Kicad an image similar to:
+You can render in Kicad an image similar to:
 
 <figure markdown>
 ![Durango Computer](assets/img/durango1.jpg)
 <figcaption>Durango PCB with components</figcaption>
 </figure>
 
-### Durango SBC Board. Bill of Materials
+### Durango Main Board. Bill of Materials
 
 
 #### Board
-* PCB [JLPCB ZIP](assets/bin/durango-x1-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
+* PCB [Gerbers for JLCPCB](assets/bin/durango-x1-zuiko21.zip) [KiCad source files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
 
 #### Sockets
-* 14 pins (x9)
-* 16 pins (x19)
-* 20 pins (x5)
-* 28 pins (x1)
-* 40 pins (x1)
+* 14-pin (x9)
+* 16-pin (x19)
+* 20-pin (x5)
+* 28-pin (x1)
+* 40-pin (x1)
 
-### Resistors
-* 27   (x1) (RED VIOLET BLACK)
+#### Resistors (all 1/8 Watt unless noted otherwise)
+* 27   (x1) (RED VIOLET BLACK) 1/2 Watt
 * 68   (x2) (BLUE GREY BLACK)
 * 120  (x1) (BROWN RED  BROWN)
-* 150  (x1) (BROWN GREEN BROW)
-* 330  (x1) (ORANGE ORANGE BROW)
-* 470  (x3) (YELLOW VIOLET BROW)
+* 150  (x1) (BROWN GREEN BROWN)
+* 330  (x1) (ORANGE ORANGE BROWN)
+* 470  (x3) (YELLOW VIOLET BROWN)
 * 680  (x2) (BLUE GREY BROW)
-* 1K   (x3) (BROW BLACK RED)
-* 1K2  (x1) (BROW RED  RED)
+* 1K   (x3) (BROWN BLACK RED)
+* 1K2  (x1) (BROWN RED  RED)
 * 3K3  (x4) (ORANGE ORANGE RED)
 * 5K6  (x1) (GREEN BLUE RED)
 * 6K8  (x2) (BLUE GREY RED)
-* 12K  (x3) (BROW RED ORANGE)
+* 12K  (x3) (BROWN RED ORANGE)
 * 22K  (x3) (RED RED ORANGE)
 * 39K  (x1) (ORANGE WHITE ORANGE)
 * 220K (x3) (RED RED YELLOW)
-* RN 4x5-pin 4K7 (x1)
-* RN 8x9-pin 3K3 (x1)
 
+#### Resistor networks
+* 4x 4K7, 5-pin (x1)
+* 8x 3K3, 9-pin (x1)
 
-#### Other Passive devices
-* 10 pF  (x1)
+#### Capacitors
 * 68 pF  (x1)
-* 22 nF  (x1)
-* 0.1 uF (x5)
-* 10 uF  (x2)
-* 100 uF (x3)
-* 470 uF (x1)
-* 1N4148 (x5)
-* BC548  (x6)
+* 0.1 uF (x5)     _three of them for the **optional** composite-PAL output_
+* 10 µF  (x2) 25V _any rating 10 Volts or more will do, preferably as small as possible_
+* 100 µF (x3) 10V
+* 470 µF (x1) 10V
 
-#### Integrateds
-* 24.576 MHz (x1)
+#### Semiconductors
+* 1N4148         (x5)
+* BC548B         (x6) _or any other small-signal NPN transistor (e.g. 2N3904, but check pinout!)_
+* Red 3 mm LED   (x1)
+* Green 3 mm LED (x1)
+
+#### Integrated Circuits
 * 74HC00   (x1)
 * 74HC02   (x1)
 * 74HC20   (x1)
@@ -95,22 +97,27 @@ You can see in Kicad an image similar to:
 * 74HC574  (x1)
 * 74HC688  (x1)
 * 74HC4040 (x3)
-* 62C02    (x1)
-* 27C256   (x1)
+* 65C02    (x1)
+* 27C256   (x1) _for the ROM cartridge_
 
-### Optional
-* AD724    (x1)
-* 4.43 MHz (x1)
+#### Oscillator can
+* 24.576 MHz (x1)
 
 #### Others
-* Red LED        (x1)
-* Green LED      (x1)
-* Buzzer         (x1)
-* Tactile switch (x2)
-* IDC            (x1)
+* Piezo Buzzer               (x1)
+* 6x6x21 mm Tactile switch   (x2)
+* IDC shrouded 16-pin header (x1)
+* SCART 21-pin connector     (x1)
+* 3x RCA socket              (x1) _optional_
+
+#### _Optional_ for composite PAL output
+* 10 pF            (x1) 
+* 22 nF            (x1)
+* AD724            (x1) _**surface-mounted device**_
+* 4.43 MHz crystal (x1)
 
 ### Durango Keyboard & Gamepads Board. Bill of Materials (NES flavour)
-The KeyBoard & GamePads Board, allow to use a integrated KeyBoard and connect GamePads (MegaDrive/Atari 2600 or NES GamePads Compatible).
+The Keyboard & Gamepads Board provides an integrated keyboard and two Gamepad ports (MegaDrive/Genesis/Atari 2600 or NES-type gamepad options).
 
 <figure markdown>
 ![Durango KeyBoard & Gamepad Board](assets/img/top5x8kbd.png)
