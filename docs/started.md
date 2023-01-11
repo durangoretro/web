@@ -7,7 +7,7 @@ Here you cand find information about how to Start with the Durango Computer
 
 ## Description
 Durango is made from two PCBs: The actual [SBC](https://en.wikipedia.org/wiki/Single-board_computer), 
-and a peripheral board with a keyboard and two gamepads sockets. The peripheral board can be built to support either NES gamepads or Megadrive/Genesis gamepads (including Atari VCS/2600-style joysticks).
+and a peripheral board with a keyboard and two gamepad sockets. The peripheral board can be built to support either NES gamepads or Megadrive/Genesis gamepads (including Atari VCS/2600-style joysticks).
 
 ## Build your own Durango
 
@@ -32,7 +32,7 @@ You can render in Kicad an image similar to:
 
 
 #### Board
-* PCB [Gerbers for JLCPCB](assets/bin/durango-x1-zuiko21.zip) [KiCad source files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
+* PCB [Gerbers for JLCPCB ordering](assets/bin/durango-x1-zuiko21.zip) [KiCad source files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)
 
 #### Sockets
 * 14-pin (x9)
@@ -124,24 +124,24 @@ The Keyboard & Gamepads Board provides an integrated keyboard and two Gamepad po
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
-#### Top Board (keypad & NES gamepads)
-* PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
+#### Top Board (keyboard & NES gamepads)
+* PCB [Gerbers for JLCPCB ordering](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [KiCad source files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
 #### Sockets
-* 14 pins (x1)
-* 16 pins (x4)
-* 20 pins (x1)
+* 14-pin (x1)
+* 16-pin (x4)
+* 20-pin (x1)
 
 #### Passive devices
-* Diode 4148        (x8)
-* RN 8x9-pin 220K  (x1)
-* RN 8x9-pin 10K   (x1)
+* 1N4148 diode                     (x8)
+* Resistor network 8x 220K, 9-pin  (x1)
+* Resistor network 8x 10K,  9-pin  (x1)
 
-### Connectors
-* NES Socket       (x2)
+### Other
+* NES Socket                   (x2)
 * Tactile Switch DIP-4 6x6x7mm (x40)
-* IDC 16(2x8) pin  (x2)
-* TO COMPUTER      (x1)
+* IDC Shrouded 16-pin header   (x2)  _2x8_
+* 8-pin socket, long pins      (x2)  _might use a single unit in 2x8 configuration, if available_
 
 #### Integrated Circuits
 * 74HC138 (x1)
@@ -159,25 +159,26 @@ The Keyboard & Gamepads Board provides an integrated keyboard and two Gamepad po
 * Mount NES sockets: J33, J54
 * Mount switches: SW1 to SW40
 
+### Durango Keyboard & Gamepads Board. Bill of Materials (MD/Genesis/VCS flavour)
 
-#### Top Board (keypad & MD gamepads)
-* PCB [JLPCB ZIP](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
+#### Top Board (keyboard & MD gamepads)
+* PCB [Gerbers for JLCPCB ordering](assets/bin/top5.8kbd1v1.0-zuiko21.zip) [KiCad source files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/top5x8kbd)
 
 #### Sockets
-* 14 pins (x1)
-* 16 pins (x3)
-* 20 pins (x3)
+* 14-pin (x1)
+* 16-pin (x3)
+* 20-pin (x3)
 
 #### Passive devices
-* Diode 1N4148        (x8)
-* RN 8x9-pin 220K  (x2)
-* RN 8x9-pin 10K   (x1)
+* 1N4148 diode                     (x8)
+* Resistor network 8x 220K, 9-pin  (x1)
+* Resistor network 8x 10K,  9-pin  (x1)
 
 ### Connectors
-* DE9 Socket       (x2)
+* DE9 Socket                   (x2)
 * Tactile Switch DIP-4 6x6x7mm (x40)
-* IDC 16(2x8) pin  (x2)
-* TO COMPUTER      (x1)
+* IDC Shrouded 16-pin header   (x2)  _2x8_
+* 8-pin socket, long pins      (x2)  _might use a single unit in 2x8 configuration, if available_
 
 #### Integrated Circuits
 * 74HC138 (x1)
@@ -202,32 +203,30 @@ The Keyboard & Gamepads Board provides an integrated keyboard and two Gamepad po
 <figcaption>Durango Cartridge</figcaption>
 </figure>
 
-Here you can find the Cartridge for built each Rom:
+Here you can find the ROM Cartridge:
 
-PCB  [JLPCB ZIP](assets/bin/cart28p1v1.0-zuiko21.zip) [SRC Kicad](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
+PCB  [Gerbers for JLCPCB ordering](assets/bin/cart28p1v1.0-zuiko21.zip) [KiCad source files](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/cartridges/cart28p)
 
-### Bill Of Materials (Durango Cartridge)
+### Bill Of Materials (28-pin Durango Cartridge)
 
 ### Cartridge configuration
 
-ROM Chip compatibles and Configuration.
+You may leave 3K3 resistors in R1 & R2 positions, with pin headers on JP1 & JP2, for easy ROM type switching. On the other hand, if a particular cartridge is to be used with a single type of ROM chip, it may be permanently wired as follows:
 
+_Suitable ROM chips and jumper Configuration_
 
 |  Type  |      Model     | Capacity | JP1 |  JP2 | R1 | R2 |
 |:------:|:--------------:|:--------:|:---:|:----:|:--:|:--:|
 | EPROM  |          27C64 |      8KB |  -  | -    | 0  | 0  |
 | EPROM  |         27C128 |     16KB |  -  | -    | 0  | 0  |
-| EPROM  |         27C256 |     32KB |  -  | -    | -  | 0  |
+| EPROM  |         27C256 |     32KB |  ON | -    | -  | 0  |
 | EPROM  | 27C512 (lower) |     64KB |  ON | UP   | -  | -  |
-| EPROM  | 27C512 (upper) |     64KB |  ON | -    | -  | -  |
+| EPROM  | 27C512 (upper) |     64KB |  ON | *    | -  | -  |
 | EEPROM |          28C64 |      8KB |  -  | -    | 0  | -  |
 | EEPROM |         28C256 |     32KB |  -  | DOWN | 0  | -  |
 | FLASH  |         29F256 |     32KB |  -  | -    | -  | 0  |
 
-* JP1: Jumper 1
-* JP2: Jumper 2
-* R1: Resistor 1 connected
-* R2: Resistor 2 connected
+**0** = jumper wire, **-** = not connected.
 
 ## Built Software for Durango
 
@@ -236,7 +235,7 @@ If you want to built your own Durango Software (like Games or applications), you
 We built some Tools for improve the development of software with Durango. Like:
 
 * Emulator
-* Friendly Use C Library (Durango Lib)
+* Developer-friendly C Library (Durango Lib)
 * Durango Docker Image
 * Visual Studio Code Extensión (Durango Code)
 
