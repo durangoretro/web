@@ -12,11 +12,17 @@ Durango is an Open Source and Open hardware project to create a Retro computer s
 
 
 <figure markdown>
-![Durango Computer](assets/img/durango1.jpg)
+![Durango Computer](assets/img/durangoprototipe.png)
 <figcaption>Durango Computer</figcaption>
 </figure>
 
 In this web page you can find all the information about this project; from the creation of a new Durango computer using the schematics, Software created or all the sowftware tools created to develop new programs and games for this computer.
+
+<figure markdown>
+![Durango Computer](assets/img/Durango01.jpg)
+<figcaption>Durango Computer With KeyBoard 
+<br/>and controller Interface</figcaption>
+</figure>
 
 Of course there is more; we are trying to create all the tools, software and libraries needed to develop new software using modern tools like Docker images or creating user friendly libraries.
 
