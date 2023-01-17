@@ -19,7 +19,7 @@ No. Currently it's in development stage and there is no plan to sell any Durango
 
 ### Do I need a Durango Computer for Develop for this platform?
 
-No. We provide Development Tools to create your own durango Software, like an Emulator, a C Library and even a Docker Image containing all the Tools for development.
+No. We provide Development Tools to create your own Durango Software, like an Emulator, a C Library and even a Docker Image containing all the Tools for development.
 
 ### Can I contribute for this Project?
 

@@ -24,7 +24,7 @@ You will need the symbols library for this project:
 You can render in Kicad an image similar to:
 
 <figure markdown>
-![Durango Computer](assets/img/durango1.jpg)
+![Durango Computer](assets/img/durangopcb.png)
 <figcaption>Durango PCB with components</figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ You can render in Kicad an image similar to:
 The Keyboard & Gamepads Board provides an integrated keyboard and two Gamepad ports (MegaDrive/Genesis/Atari 2600 or NES-type gamepad options).
 
 <figure markdown>
-![Durango KeyBoard & Gamepad Board](assets/img/top5x8kbd.png)
+![Durango KeyBoard & Gamepad Board](assets/img/keyboard.png)
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
