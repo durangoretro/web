@@ -9,6 +9,9 @@ nav:
  - The Hardware: 
     - Hardware: hardware/hardware.md
     - Durango: hardware/durango.md
+    - KeyBoard: hardware/keyboard.md
+    - Cartridge: hardware/cartidge.md
+    - Development Cartridge: hardware/dev_cart.md
  - The Software:
     - Software: software/software.md
     - Games: software/games.md

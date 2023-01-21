@@ -16,4 +16,4 @@ Of course everyone can become part of the Durango Computer Team, due to the open
 | **Zuiko21** | **Emiliollbb** | **Zerasul** |
 |:-----------:|:-----------:|:--------------:|
 |    ![zuiko21](assets/img/zuiko21.png)         |     ![Emiliollbb](assets/img/emiliollbb.png)        |       ![Zerasul](assets/img/zerasul.jpg)         |
-|   Main Author of Durango   |  Born in the 80's, always looking for cool projects to learn from    |    Zerasul is a Software Engineer that loves the retro world. He is always looking for a new gadget or creating new software.     |
+|   6502 Guru. Father of Durango-X   |  Born in the 80's, always looking for cool projects to learn from    |    Zerasul is a Software Engineer that loves the retro world.    |
