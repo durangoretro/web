@@ -1,3 +1,6 @@
+---
+template: overrides/home.html
+---
 # Troubleshooting guide
 
 Since the **Durango-X** computer is based on off-the-shelf components, it's a _rather complex_ circuit.

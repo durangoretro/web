@@ -3,7 +3,7 @@ template: overrides/home.html
 ---
 # Getting Started
 
-Here you cand find information about how to Start with the Durango Computer
+Here you can find information about how to Start with the Durango Computer
 
 ## Description
 Durango is made from two PCBs: The actual [SBC](https://en.wikipedia.org/wiki/Single-board_computer), 

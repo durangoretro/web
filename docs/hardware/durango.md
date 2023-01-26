@@ -1,5 +1,10 @@
 # Durango
 
+<figure markdown>
+![Durango Computer](../assets/img/durangoprototipe.png)
+<figcaption>Durango Computer</figcaption>
+</figure>
+
 Originally born as a 6502 tester without any specific chips, soon became a full-featured home computer with integrated video output
 Range
 
