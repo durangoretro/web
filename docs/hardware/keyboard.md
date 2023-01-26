@@ -7,7 +7,7 @@
 
 Using the "Expansion connector", you can connect up to 16 devices; one of these devices, is the KeyBoard and controller interface board.
 
-With this interface you can use an 40 key; keyboard, and you can use two flavous:
+With this interface you can use an 40 key; keyboard, and you can use two flavours:
 
 * NES Flavour; you can connect two NES controllers pad using NES connectors.
 * MD/Atari flavour; you can connect two Mega Drive/Atari controllers using DE-9 connectors.
