@@ -48,7 +48,8 @@ theme:
   favicon: assets/img/favicon.png
   palette:
     scheme: slate
-    accent: indigo
+    accent: blue
+    primary: purple
 markdown_extensions:
   - attr_list
   - md_in_html
