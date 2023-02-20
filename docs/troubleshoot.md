@@ -15,4 +15,3 @@ Check **power supply** and power _switch_, if fitted. Measuring the voltage acro
 _as low as 4.5 V_ (prototypes have been running OK at a mere 4.25 V, even less!)
 
 ## Power LED lights up, but no sound or picture
-

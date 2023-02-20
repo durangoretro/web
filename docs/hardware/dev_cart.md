@@ -5,8 +5,8 @@
 <figcaption>Durango Development RAM Cartridge</figcaption>
 </figure>
 
-The Durango Development RAM Cartridge, allows to load Programs using an SD Card interface, or using an aditional RAM to store the program.
+The Durango Development RAM Cartridge, allows to load Programs using an SD Card interface, or using an additional RAM to store the program.
 
-This Cartridge adds an aditional 32KB static RAM to Durango.
+This Cartridge adds an additional 32KB static RAM to Durango.
 
-Also, you can use this cartridge to load programs from an SD Card.
+Also, you can use this cartridge to load programs using _nanolink_ interface. You can send programs to Durango using a _Raspberry Pi_ connected using GPIO.
