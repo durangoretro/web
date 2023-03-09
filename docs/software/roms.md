@@ -1,10 +1,76 @@
 # ROMS
 
+Here you can find information about Durango's ROMs, like programs or utilities.
+
 ## Roms to download
 
-* _basic.dux_ [ROM](../assets/bin/basic.dux); [Source Code](): EhBasic Interpreter; with this ROm you can run BASIC programs in your Durango. It contains Durango specific Basic commands.
-* _durango-test.bin_ [ROM](../assets/bin/durango-test.bin); [Source Code](): Durango Basic Test
-* _gamepads.bin_ [ROM](../assets/bin/gamepads.bin); [Source Code](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s): Durango gamepads Tets
-* _keyboard_tester.bin_ [ROM](../assets/bin/keyboard_tester.bin)[Source Code](https://github.com/durangoretro/durango_demos/blob/main/keyboard_tester.c): Durango KeyBoard Tester.
+You can download the Binary ROM, or see the source code.
 
-* _fulltest.dux_ [ROM](../assets/bin/fulltest.dux); [Source Code](): Full Test for DUrango; use debug key for change ROM test.
+### EhBasic
+
+<figure markdown>
+![Durango EhBasic](../assets/img/basicdur.png)
+<figcaption>Durango Ehbasic</figcaption>
+</figure>
+
+_basic.dux_: EhBasic Interpreter; with this ROm you can run BASIC programs in your Durango. It contains Durango specific Basic commands.
+
+
+* [ROM](../assets/bin/basicgr.dux);
+* [Source Code]()
+
+More information for Ehbasic interpreter:
+
+* [EHBasic Manual](http://retro.hansotten.nl/uploads/leedavison/Enhanced_6502_BASIC_reference_manual.pdf).
+* [Durango Specific Basic Commands](ehbasic.md)
+
+
+### Nano Python: Durango Python Interpreter (PoC)
+
+### Nano Boot (Load Programs From Raspberry Pi)
+
+With this ROM, you can load programs using NanoLink interface connected to a Raspberry Pi.
+
+* [ROM](../assets/bin/nanoboot.dux).
+* [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/cargador.s).
+
+For more information, please see [Raspberry Pi Server tool Section](http://localhost:8000/tools/tools/#raspberry-pi-durango-servernano-boot).
+
+### GamePads Test
+
+<figure markdown>
+![Durango EhBasic](../assets/img/gamepads.png)
+<figcaption>Durango Gamepads Test</figcaption>
+</figure>
+
+* _gamepads.bin_ : Durango Gamepad Testing; Press Gamepads buttons to check that is working.
+
+* [ROM](../assets/bin/gamepads.bin).
+* [Source Code](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s).
+
+### KeyBoard Tester
+
+
+<figure markdown>
+![Durango EhBasic](../assets/img/keyboard_test.png)
+<figcaption>Durango KeyBoard Test</figcaption>
+</figure>
+
+* _keyboard_tester.bin_ : Durango KeyBoard Tester. Press keyboard buttons to check that is working properly. This test is compatible with Keyboard and gamepad interface.
+
+* [ROM](../assets/bin/keyboard_tester.bin).
+* [Source Code](https://github.com/durangoretro/durango_demos/blob/main/keyboard_tester.c).
+
+### Durango Full Test
+
+<figure markdown>
+![Durango EhBasic](../assets/img/fulltest.png)
+<figcaption>Durango Full Test</figcaption>
+</figure>
+
+* _fulltest.dux_ : Full Test for Durango; use NMI (F2 on perdita) key for change ROM test.
+
+* [ROM](../assets/bin/fulltest.dux).
+* [Source Code]().
+
+For more information about Full test, please check [Full test documentation Page](fulltest.md).
