@@ -34,6 +34,8 @@ For more information about Rescomp, please see the Source Code:
 
 [https://github.com/durangoretro/rescomp](https://github.com/durangoretro/rescomp)
 
+## Raspberry Pi Durango Server(nano boot)
+
 ## CC65
 
 _CC65_, is a freeware C compiler and other tools to work with 6502 microprocessor.
@@ -43,3 +45,9 @@ You can use this compiler to create all the ROMS or, use the tools included to h
 For more information about CC65, check CC65 Web Page:
 
 [https://cc65.github.io/](https://cc65.github.io/)
+
+## XA65 assembler
+
+XA is a high-speed, two-pass portable cross-assembler. It understands mnemonics and generates code for NMOS 6502s.
+
+For more information about XA65, please see the [project's web page](http://www.floodgap.com/retrotech/xa/).
