@@ -5,7 +5,7 @@ In order to support _Durango-X_'s **graphic, colour and sound** capabilities, ne
 
 ## CONIO interface
 
-The standalone EhBASIC interpreter for Durango-X is supplied with a suitable minimal _firmware_, mostly around the `CONIO` function as supplied in
+The standalone EhBASIC interpreter for Durango-X is supplied with a suitable minimal _firmware_, mostly around the `CONIO` function as included in
 [the minimOS Operating System](https://github.com/zuiko21/minimOS/tree/master/OS). There is similar CONIO support in
 [DurangoLib](https://github.com/durangoretro/DurangoLib/blob/main/asm/conio.s) C library.
 
@@ -19,7 +19,7 @@ Clears the screen. _If an alternative screen is on display, will set that as the
 
 Equivalent to `PRINT CHR$(12);`
 
-### `LOCATE c, r`
+### `LOCATE c,r`
 
 Moves the printing position to column `c` and row `r`; acceptable values are 0...15 in colour mode, and 0...31 in HIRES.
 
@@ -34,16 +34,15 @@ Equivalent to `PRINT CHR$(18);CHR$(32+i);`
 
 ### `PAPER p`
 
-Sets background ("paper") colour to `p`; values go thru `MOD 16` to become **0...15**, as per the [standard Durango-X palette](). _In HIRES mode, colours are internally set
-but NOT displayed in any way until back into colour mode_.
+Sets background ("paper") colour to `p`; same restrictions as above apply.
 
 Equivalent to `PRINT CHR$(20);CHR$(32+i);`
 
 ### `CURSOR n`
 
-Enables (for any non-zero `n`) or disables (when `n` is zero) the cursor.
+Enables (for any _odd_ `n`) or disables (when `n` is zero or _even_) the cursor.
 
-Equivalent to `PRINT CHR$(19);` (enable) and `PRINT CHR$(21);` (disable)
+Equivalent to `PRINT CHR$(17);` (enable) and `PRINT CHR$(19);` (disable)
 
 ## Video modes
 
@@ -55,8 +54,8 @@ Sets video mode according to the following table:
 * `1`: colour mode, inverse video
 * `2`: HIRES mode, standard video (default mode in EhBASIC)
 * `3`: HIRES mode, inverse video
-* `4`: greyscale mode, standard video (_**NOT yet implemented**_)
-* `5`: greyscale mode, inverse video (_**NOT yet implemented**_)
+* `4`: greyscale mode, standard video (_**value NOT yet accepted**_)
+* `5`: greyscale mode, inverse video (_**value NOT yet accepted**_)
 
 Equivalent to `POKE $DF80, (PEEK($DF80) AND %00110000) OR ((n AND 3)<<6) OR (-8*(n<4))` _(...phew!)_
 
@@ -68,12 +67,12 @@ a `CLS` or equivalent command must be issued.
 **WARNINGS:**
 
 * In order to _write_ on any screen besides the standard 3, `Memory size` MUST be properly set **at boot time**, otherwise EhBASIC may crash! Suitable values are:
-* * `16384` (or `$4000`) allows use of screens **2 and 3**
-* * `8192` (or `$2000`) allows use of screens **1, 2 and 3**
-* * `4096` (or `$1000`) allows use of **any** screen. _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used; `CONIO` automatically accounts for that.
+  * `16384` (or `$4000`) allows use of screens **2 and 3**
+  * `8192` (or `$2000`) allows use of screens **1, 2 and 3**
+  * `4096` (or `$1000`) allows use of **any** screen... including **0**.  _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used;_ `CONIO` automatically accounts for that.
 * _Graphic commands_ do NOT take into account the `CONIO` pointers, thus will draw into the screen _on display_ at once. **They won't respect the _upper half_ of `SCREEN 0`**, either.
 
-Equivalent to `POKE $DF80, (PEEK($DF80) AND %11000000) OR ((n AND 3)<<4) OR 8
+Equivalent to `POKE $DF80, (PEEK($DF80) AND %11000000) OR (n<<4) OR 8`
 
 ## Sound and other time-related commands
 
@@ -104,12 +103,12 @@ and 0...255 in HIRES (this mode will also do `c MOD 2`, thus only _odd_ colour v
 
 ### `LINE x1,y1,x2,y2,c`
 
-Draws a **line** of colour `c` (from the [standard Durango-X palette]()) from screen coordinates `x1,y1` to `x2,y2`; the usual restrictions apply.
+Draws a **line** of colour `c` from screen coordinates `x1,y1` to `x2,y2`; the usual restrictions apply.
 
 ### `CIRCLE x,y,r,c`
 
-Draws a **circle** of colour `c` (from the [standard Durango-X palette]()) and radius `r` centered at screen coordinates `x,y`; besides the usual restrictions,
-the whole circle **must** fit inside the screen, otherwise a `Illegal Function Call` error is generated.
+Draws a **circle** of colour `c` and radius `r` centered at screen coordinates `x,y`; besides the usual restrictions,
+the whole circle **must** fit inside the screen, otherwise an `Illegal Function Call` error is generated.
 
 ### `RECT x1,y1,x2,y2,c`
 
