@@ -19,7 +19,7 @@ Clears the screen. _If an alternative screen is on display, will set that as the
 
 Equivalent to `PRINT CHR$(12);`
 
-### `LOCATE _c_, _r_`
+### `LOCATE c, r`
 
 Moves the printing position to column `c` and row `r`; acceptable values are 0...15 in colour mode, and 0...31 in HIRES.
 
@@ -39,3 +39,23 @@ but NOT displayed in any way until back into colour mode_.
 
 Equivalent to `PRINT CHR$(20);CHR$(32+i);`
 
+### `CURSOR n`
+
+Enables (for any non-zero `n`) or disables (when `n` is zero) the cursor.
+
+Equivalent to `PRINT CHR$(19);` (enable) and `PRINT CHR$(21);` (disable)
+
+## Sound and other time-related commands
+
+### `BEEP d,p`
+
+Plays a note of pitch `p` (integer value 0...42, chromatic scale from F3 to B6) for `d`/50 seconds.
+
+In case a similar sentence is found on a _ZX-Spectrum_ programme, it must be rewritten in Durango-X EhBASIC as `BEEP d/50,p+7`
+
+### `PAUSE n`
+
+Waits for `n` _IRQ system interrupts_ to happen, or until any key is pressed. _Current version is limited to 255, thus a little more than a second_.
+If `n` is zero, it waits for any key to be pressed, without any time limit.
+
+In case a similar sentence is found on a _ZX-Spectrum_ programme, it must be rewritten in Durango-X EhBASIC as `PAUSE n*5`
