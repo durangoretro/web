@@ -1,7 +1,7 @@
 # _Durango-X_ specific EhBASIC commands
 
-[**EhBASIC** from the late Lee Davidson](http://forum.6502.org/viewforum.php?f=5) is intended as a generic, _console-type_ BASIC interpreter. In order to support
-_Durango-X_'s **graphic, colour and sound** capabilities, new commands have been added.
+[**EhBASIC** from the late Lee Davidson](http://forum.6502.org/viewforum.php?f=5) is intended as a generic, _console-type_ BASIC interpreter for 6502 systems.
+In order to support _Durango-X_'s **graphic, colour and sound** capabilities, new commands have been added.
 
 ## CONIO interface
 
@@ -11,7 +11,7 @@ The standalone EhBASIC interpreter for Durango-X is supplied with a suitable min
 
 `CONIO` acts as a **terminal emulator**; for easier parsing, most _control codes_ are **single-byte**, thus the [standard CONIO features](conio.md) are accessible
 thru a mixture of **traditional ASCII, `bash` shortcut keys and ZX-Spectrum codes**. _All of them are accessible via standard `PRINT CHR$()` BASIC sentences_, but
-a few of them have beed granted nre BASIC commands for convenience:
+a few of them have beed granted new BASIC commands for convenience:
 
 ### `CLS`
 
@@ -19,7 +19,7 @@ Clears the screen. _If an alternative screen is on display, will set that as the
 
 Equivalent to `PRINT CHR$(12);`
 
-### `LOCATE c,r`
+### `LOCATE _c_, _r_`
 
 Moves the printing position to column `c` and row `r`; acceptable values are 0...15 in colour mode, and 0...31 in HIRES.
 
