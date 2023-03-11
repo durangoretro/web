@@ -1,12 +1,12 @@
-# ROMS
+# ROMs
 
 Here you can find information about Durango's ROMs, like programs or utilities.
 
-## Roms to download
+## ROMs to download
 
 You can download the Binary ROM, or see the source code.
 
-### EhBasic
+### EhBASIC
 
 <figure markdown>
 ![Durango EhBASIC](../assets/img/basicdur.png)
@@ -29,12 +29,12 @@ More information for Ehbasic interpreter:
 
 ### Nano Boot (Load Boot Code From Raspberry Pi or SD card)
 
-With this ROM you can load _ROM images_ using the NanoLink interface connected to a Raspberry Pi, or from a ROM image in an SD card. _Needs the Development Cartridge_.
+With this ROM you can load _ROM images_ using the NanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
 
 * [ROM](../assets/bin/nanoboot.dux).
 * [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/rom.s).
 
-For more information, please see [Raspberry Pi Server tool Section](../tools/tools.md#raspberry-pi-durango-servernano-boot).
+For more information, please see [Raspberry Pi Server tool Section](../tools/tools.md#raspberry-pi-durango-servernano-boot) and the [ROM images in SD card section]()
 
 ### GamePads Test
 
