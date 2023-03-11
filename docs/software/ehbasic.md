@@ -45,6 +45,36 @@ Enables (for any non-zero `n`) or disables (when `n` is zero) the cursor.
 
 Equivalent to `PRINT CHR$(19);` (enable) and `PRINT CHR$(21);` (disable)
 
+## Video modes
+
+### `MODE n`
+
+Sets video mode according to the following table:
+
+* `0`: colour mode, standard video
+* `1`: colour mode, inverse video
+* `2`: HIRES mode, standard video (default mode in EhBASIC)
+* `3`: HIRES mode, inverse video
+* `4`: greyscale mode, standard video (_**NOT yet implemented**_)
+* `5`: greyscale mode, inverse video (_**NOT yet implemented**_)
+
+Equivalent to `POKE $DF80, (PEEK($DF80) AND %00110000) OR ((n AND 3)<<6) OR (-8*(n<4))` _(...phew!)_
+
+### `SCREEN n`
+
+Selects one out of four available screens in Durango-X (default=**3** at `$6000`) for _display_. In order to actually _write text_ to the selected screen,
+a `CLS` or equivalent command must be issued.
+
+**WARNINGS:**
+
+* In order to _write_ on any screen besides the standard 3, `Memory size` MUST be properly set **at boot time**, otherwise EhBASIC may crash! Suitable values are:
+* * `16384` (or `$4000`) allows use of screens **2 and 3**
+* * `8192` (or `$2000`) allows use of screens **1, 2 and 3**
+* * `4096` (or `$1000`) allows use of **any** screen. _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used; `CONIO` automatically accounts for that.
+* _Graphic commands_ do NOT take into account the `CONIO` pointers, thus will draw into the screen _on display_ at once. **They won't respect the _upper half_ of `SCREEN 0`**, either.
+
+Equivalent to `POKE $DF80, (PEEK($DF80) AND %11000000) OR ((n AND 3)<<4) OR 8
+
 ## Sound and other time-related commands
 
 ### `BEEP d,p`
@@ -59,8 +89,6 @@ Waits for `n` _IRQ system interrupts_ to happen, or until any key is pressed. _C
 If `n` is zero, it waits for any key to be pressed, without any time limit.
 
 In case a similar sentence is found on a _ZX-Spectrum_ programme, it must be rewritten in Durango-X EhBASIC as `PAUSE n*5`
-
-## Video modes
 
 ## Graphic commands
 
