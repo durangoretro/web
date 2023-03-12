@@ -67,9 +67,9 @@ a `CLS` or equivalent command must be issued.
 **WARNINGS:**
 
 * In order to _write_ on any screen besides the standard 3, `Memory size` MUST be properly set **at boot time**, otherwise EhBASIC may crash! Suitable values are:
-  - `16384` (or `$4000`) allows use of screens **2 and 3**
-  - `8192` (or `$2000`) allows use of screens **1, 2 and 3**
-  - `4096` (or `$1000`) allows use of **any** screen... including **0**.  _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used;_ `CONIO` automatically accounts for that.
+	- `16384` (or `$4000`) allows use of screens **2 and 3**
+	- `8192` (or `$2000`) allows use of screens **1, 2 and 3**
+	- `4096` (or `$1000`) allows use of **any** screen... including **0**.  _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used;_ `CONIO` automatically accounts for that.
 * _Graphic commands_ do NOT take into account the `CONIO` pointers, thus will draw into the screen _on display_ at once. **They won't respect the _upper half_ of `SCREEN 0`**, either.
 
 Equivalent to `POKE $DF80, (PEEK($DF80) AND %11000000) OR (n<<4) OR 8`
