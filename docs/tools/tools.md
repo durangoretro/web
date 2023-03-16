@@ -36,6 +36,51 @@ For more information about Rescomp, please see the Source Code:
 
 ## Raspberry Pi Durango Server(nano boot)
 
+You can use Durango nanolink interface, to send a program to be loaded. You can use the [Durango Nano Boot ROM](../software/roms.md#nano-boot-load-programs-from-raspberry-pi), to load a program using the Raspberry Pi GPIOs, and the nanolink interface.
+
+The nanoLink Interface its in the upper side of the durango board.
+
+<figure markdown>
+![Durango nanolink interface](../assets/img/nanolink.png)
+<figcaption>Durango Nanolink Interface</figcaption>
+</figure>
+
+This Server uses the next GPIOs:
+
+* 34: GND (G)
+* 36: CLK (C)
+* 40: DAT (D)
+
+Or on BCM:
+
+* 16: CLK
+* 20: DAT
+* 21: GND
+
+You need to compile the source code downloaded from:
+
+[https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/server.c](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/server.c)
+
+to compile this program you need the library ```wiringpi```:
+
+```bash
+sudo apt-get install wiringpi
+```
+
+After installing you can compile the program.
+
+```bash
+gcc -lwiringPi server.c -o nanoserver
+```
+
+To use this program, launch and write in the prompt the file name you want to upload.
+
+Remember to load the nanoboot rom on Durango first.
+
+!!! warning "Under Development"
+
+    This software is under development and we are working to improve it. Of course, you can contribute in the github repository.
+
 ## CC65
 
 _CC65_, is a freeware C compiler and other tools to work with 6502 microprocessor.
