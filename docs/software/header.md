@@ -27,20 +27,23 @@ regular ROM.
 
 A simple 256-byte block must be provided _in front_ of any ROM image in order to be properly identified and linked to other images on the device.
 
-|Offset|Size|Contents|Description|
-|------|----|--------|-----------|
-|0     |1   |$00     |Magic number #1 (`NUL`)|
-|1     |2   |`dX`    |Signature (`dX`=Standard Durango-X ROM-image)|
-|3     |4   |`****`  |_**Reserved**_|
-|7     |1   |$0D     |Magic number #2 (`CR`)|
-|8     |_n_ |_filename_|C-string with filename|
-|8+_n_ |1   |$00     |`NUL`-termination for the above|
-|9+_n_ |_m_ |_comment_|C-string with **optional** comment (_n_+_m_ ≤ **238** in current version)|
-|9+_n_+_m_|1|$00     |`NUL`-termination for the above (**mandatory:** if no comment is present, _two_ `NUL`s are expected after _filename_)|
-|10+_n_+_m_|?|_usually_ $FF|_**padding**_|
-|248   |2   |_time_  |Last modification time in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
-|250   |2   |_date_  |Last modification date in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
-|252   |4   |**file size**|Includes the 256-byte header. _Unlikely to be over 64 KiB, the last two bytes may be used as **Magic numbers** as well ($00)._
+|Offset|Size (bytes)|Contents      |Description|
+|------|------------|--------------|-----------|
+|0     |1           |$00           |Magic number #1 (`NUL`)|
+|1     |2           |`dX`          |Signature (`dX`=Standard Durango-X ROM-image)|
+|3     |4           |`****`        |_**Reserved**_|
+|7     |1           |$0D           |Magic number #2 (`CR`)|
+|8     |_n_         |_Filename_    |C-string with filename|
+|8+_n_ |1           |$00           |`NUL`-termination for the above|
+|9+_n_ |_m_         |_Comment_     |C-string with **optional** comment (_n_+_m_ ≤ **220** in current version)|
+|9+_n_+_m_|1        |$00           |`NUL`-termination for the above (**mandatory:** if no comment is present, _two_ `NUL`s are expected after _filename_)|
+|10+_n_+_m_|_220-n-m_|_usually_ $FF|_**padding**_|
+|230   |8           |_User Field 2_|**8-char** string, usually library commit hash|
+|238   |2           |_Version_     |_Little-endian_ 16-bit `%vvvvrrrrppbbbbbb`, where `v` is version number, `r` revision, `b` build and `p` phase (`%00`=alpha, `%01`=beta, `%10`=Release Candidate, `%11`=final)|
+|240   |8           |_User Field 2_|**8-char** string, usually main code commit hash|
+|248   |2           |_Time_        |Last modification time in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
+|250   |2           |_Date_        |Last modification date in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
+|252   |4           |**file size** |Includes the 256-byte header. _Unlikely to be over 64 KiB, the last two bytes may be used as **Magic numbers** as well ($00)._
 
-Note that **additional _metadata_** may be included just before the _time_ field (offset < 248), as long as a tighter limit is set to _filename+comment_
+Note that **additional _metadata_** may be included just before the _user field 2_ (offset < 230), as long as a tighter limit is set to _filename+comment_
 total length.
