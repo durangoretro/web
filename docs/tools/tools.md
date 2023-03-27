@@ -34,28 +34,27 @@ For more information about Rescomp, please see the Source Code:
 
 [https://github.com/durangoretro/rescomp](https://github.com/durangoretro/rescomp)
 
-## Raspberry Pi Durango Server(nano boot)
+## Raspberry Pi Durango Server (nanoBoot)
 
-You can use Durango nanolink interface, to send a program to be loaded. You can use the [Durango Nano Boot ROM](../software/roms.md#nano-boot-load-programs-from-raspberry-pi), to load a program using the Raspberry Pi GPIOs, and the nanolink interface.
+You can use the Durango nanoLink interface to load a program. You may use the [Durango nanoBoot ROM](../software/roms.md#nano-boot-load-programs-from-raspberry-pi) to load a program using the Raspberry Pi GPIO thru the nanoLink interface.
 
 The nanoLink Interface its in the upper side of the durango board.
 
 <figure markdown>
 ![Durango nanolink interface](../assets/img/nanolink.png)
-<figcaption>Durango Nanolink Interface</figcaption>
+<figcaption>Durango nanoLink Interface</figcaption>
 </figure>
 
-This Server uses the next GPIOs:
+This server uses the following GPIO pins:
 
 * 34: GND (G)
 * 36: CLK (C)
-* 40: DAT (D)
+* 38: DAT (D)
 
-Or on BCM:
+Or on BCM notation:
 
 * 16: CLK
 * 20: DAT
-* 21: GND
 
 You need to compile the source code downloaded from:
 
@@ -75,7 +74,7 @@ gcc -lwiringPi server.c -o nanoserver
 
 To use this program, launch and write in the prompt the file name you want to upload.
 
-Remember to load the nanoboot rom on Durango first.
+Remember to stick the nanoBoot ROM on Durango first.
 
 !!! warning "Under Development"
 
@@ -93,6 +92,6 @@ For more information about CC65, check CC65 Web Page:
 
 ## XA65 assembler
 
-XA is a high-speed, two-pass portable cross-assembler. It understands mnemonics and generates code for NMOS 6502s, CMOS 65C02 and the 65C816.
+XA is a high-speed, two-pass portable cross-assembler. It understands mnemonics and generates code for NMOS 6502s, CMOS 65C02s and the 65C816.
 
 For more information about XA65, please see the [project's web page](http://www.floodgap.com/retrotech/xa/).
