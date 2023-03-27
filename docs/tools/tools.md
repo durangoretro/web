@@ -4,7 +4,7 @@ Durango have some Tools that can help you to create software.
 
 ## Rescomp
 
-Rescomp, is a java application Based on [SGDK](https://github.com/Stephane-D/SGDK)`s rescomp. This Java Based tool allows to generate all the binary information to import any resource (image, sprite...) also, this tool allows you to sign any ROM created for Durango.
+Rescomp is a java application Based on [SGDK](https://github.com/Stephane-D/SGDK)`s rescomp. This Java Based tool allows to generate all the binary information to import any resource (image, sprite...) also, this tool allows you to sign any ROM created for Durango.
 
 To Run _rescomp_ you can use the next approach.
 
@@ -83,7 +83,7 @@ Remember to load the nanoboot rom on Durango first.
 
 ## CC65
 
-_CC65_, is a freeware C compiler and other tools to work with 6502 microprocessor.
+_CC65_ is a freeware C compiler and other tools to work with 6502 microprocessor.
 
 You can use this compiler to create all the ROMS or, use the tools included to helps you the development of the software used for Durango.
 
@@ -93,6 +93,6 @@ For more information about CC65, check CC65 Web Page:
 
 ## XA65 assembler
 
-XA is a high-speed, two-pass portable cross-assembler. It understands mnemonics and generates code for NMOS 6502s.
+XA is a high-speed, two-pass portable cross-assembler. It understands mnemonics and generates code for NMOS 6502s, CMOS 65C02 and the 65C816.
 
 For more information about XA65, please see the [project's web page](http://www.floodgap.com/retrotech/xa/).
