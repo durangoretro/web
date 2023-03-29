@@ -1,6 +1,6 @@
 # Durango Development Tools
 
-Durango have some Tools that can help you to create software.
+Durango has several **tools** that can help you creating software.
 
 ## Rescomp
 
