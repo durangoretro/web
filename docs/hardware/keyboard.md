@@ -5,11 +5,11 @@
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
-Using the "Expansion connector", you can connect up to 16 devices; one of these devices, is the KeyBoard and controller interface board.
+Using the "Expansion connector" you can daisy-chain up to 16 devices; some peripherals may integrate several of these devices, like the **Keyboard and Gamepad controller** interface board.
 
-With this interface you can use an 40 key; keyboard, and you can use two flavours:
+This board provides a **40-key keyboard** and **_two_ gamepad ports**, which are available in _two flavours_:
 
-* NES Flavour; you can connect two NES controllers pad using NES connectors.
-* MD/Atari flavour; you can connect two Mega Drive/Atari controllers using DE-9 connectors.
+* NES Flavour; you can connect up to two NES controllers pad using NES connectors.
+* MD/Atari flavour; you can connect up to two Mega Drive/Genesis/Atari controllers using DE-9 connectors.
 
-This keyboard interface, is compatible with Spectrum electronic schema (you can connect to a ZX spectrum using the middle connectors).
+The keyboard interface is _electrically compatible with the **Sinclair ZX Spectrum**_ keyboard matrix; room for the 5-pin and 8-pin sockets is provided in the board, allowing the use of a Sinclair _or any other compatible **5x8 matrix** keyboard_. With suitable connectors, the keys on the board may be connected to a ZX Spectrum, too!
