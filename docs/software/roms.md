@@ -27,9 +27,9 @@ More information for Ehbasic interpreter:
 
 ### Nano Python: Durango Python Interpreter (PoC) _under development_
 
-### Nano Boot (Load Boot Code From Raspberry Pi or SD card)
+### nanoBoot (bootstrap firmware For Raspberry Pi or SD card)
 
-With this ROM you can load _ROM images_ using the NanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
+With this ROM you can load _ROM images_ using the nanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
 
 * [ROM](../assets/bin/nanoboot.dux).
 * [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/rom.s).
