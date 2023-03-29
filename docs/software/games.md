@@ -1,6 +1,6 @@
 # Games
 
-Here you can find Roms Games to download, and his Source Code.
+Here you can download ROM images with games, and their Source Code.
 
 ## Games to Download
 
