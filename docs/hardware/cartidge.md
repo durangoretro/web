@@ -5,10 +5,10 @@
 <figcaption>Durango Cartridge</figcaption>
 </figure>
 
-The Durango cartridge store the ROM Memory to load any program or game for durango.
+The Durango cartridge hosts the ROM chip containing any program or game for the **Durango-X** computer.
 
-You can use EPROM, EEPROM or Flash chip to store the Durango Program.
+You can use EPROM, EEPROM or Flash chips to store the software.
 
-You can Store up to 32KB of ROM memory. But you can use BankSwitching to store more information.
+Durango-X has up to 32KB of ROM address space, but you can use _BankSwitching_ to store more information, with a suitable cartridge.
 
-For more information about Durango cartridge please refer to [Getting Started](../started/).
+For more information about Durango-X cartridges please refer to [Getting Started](../started/).
