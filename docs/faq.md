@@ -1,5 +1,7 @@
 ---
-template: overrides/home.html
+hide:
+  - navigation
+  - toc
 ---
 # Frequently Asked Questions (FAQ)
 

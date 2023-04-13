@@ -1,5 +1,7 @@
 ---
-template: overrides/home.html
+hide:
+  - navigation
+  - toc
 ---
 # About Durango Project
 
