@@ -26,12 +26,28 @@ If measured voltage is way too low, and the power supply is trusted, check _resi
 
 ## Power LED lights up, but no sound or picture
 
+* If an oscilloscope or a _very good_ multimeter is available, check for a **~24.5 MHz** signal at **U15 pin 10** (74HC4040). If no good signal there: suspect  **X1**.
+* If there is, check for a somewhat asymmetric **~15.7 kHz** signal at **U15 pin 15**. If not: suspect **U15**. If frequency is _exactly 12 kHz_: suspect **U17** (74HC21) as well.
+* Check for a _quite asymmetric_ **~50 Hz** signal at **U19 pin 12**. If not: suspect **U19** but if _more like 30.6 Hz_: suspect **U17** too.
+* Check for **~15.7 kHz** at **U18 pin 6** and for **~50 Hz** at **U20 pin 6**. Suspect these chips in case of failure. Those signals should show up (inverted) at **U22 pins 11 and 14**, respectively.
+
 ## Garbage is displayed, but no further activity
 
-## Erratic behaviour (LEDs flashing, garbage on screen, chirpy sounds)
+* Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should stay low for a split second and then become (and **stay**) high_.
+	* If it doesn't, but the computer operates normally after pressing the `RESET` button: suspect **C1**, perhaps **R3**.
+	* If `RESET` button shows no effect _(including the `ERROR` LED lit while held)_: suspect **U8** (74HC132).
+* If an oscilloscope or a _good_ multimeter is available, check for a **~1.5 MHz** signal at `VCLK` (**U1** _CPU_ pin 37). If no good signal there: suspect  **U16** (74HC02).
+* Try another cartridge and/or **U2** _SRAM_. If no better: suspect **U9** (74HC00).
 
-Check **U10** (74HC139)
+## Erratic behaviour (LEDs flashing, garbage on screen, chirpy sounds...)
+
+Suspect **U10** (74HC139)
 
 ## Software appears to start up, but no keyboard of gamepad effect
 
-Check `ERROR` LED. If lit, suspect **U** (74HC74). Otherwise check **U** (74HC132) and **U** (74HC4040)
+Check `ERROR` LED. If lit: suspect **U12** (74HC74). Otherwise suspect **U8** (74HC132) or **U14** (74HC4040)
+
+## Poor/no keyboard/gamepad response and/or erratic timing on some software
+
+This is likely to be an [interrupt problem]().
+
