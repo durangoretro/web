@@ -23,11 +23,9 @@ nav:
     - Emulator (Perdita): tools/perdita.md
     - Durango Lib: tools/durangolib.md
     - Docker: tools/docker.md
-    - Durango Code: tools/durangocode.md
  - Other Projects:
     - Other Projects: other/other.md
     - Future Projects: other/future.md
-    - Abandoned Projects: other/abandoned.md
  - Community: community.md
  - Contribute: https://github.com/durangoretro/
 extra:

@@ -8,4 +8,3 @@ Here, you can find information for all the tools and programs used for develop n
 * [Perdita (Emulator)](perdita.md): Durango Emulator (Perdita); allows to run ROMs and dump information using this emulator.
 * [Durango Lib](durangolib.md): Durango Computer Lib; _C-based_ Library to create new Software for Durango.
 * [Docker](docker.md): Docker image with all the Durango tools.
-* [Durango Code](durangocode.md): Visual Studio Code Extension for use with Durango.

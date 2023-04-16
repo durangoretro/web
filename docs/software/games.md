@@ -62,7 +62,7 @@ _pong.dux_ . Pong Game for Durango. This is a Two Player Game. Compatible with G
 
 _telesketch.dux_ : Etch-a-sketch  Durango Game. Press AWSD to draw the line.
 
-* [ROM](../assets/bin/telesketch.bin)
+* [ROM](../assets/bin/telesketch.dux)
 * [Source Code](https://github.com/durangoretro/telesketch).
 
 ### Columns
