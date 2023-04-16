@@ -3,7 +3,7 @@
 ## Description
 
 In its original form, the **Durango-X** home computer has very limited I/O: a single-bit _beeper_, the _interrupt enable_ port and, most importantly,
-the _built-in **video output**_. But almost any other device can be connected via the **expansion bus**, which is an 8-bit _parallel_ bus with **16 addresses**,
+the _built-in **video output**_. But almost any other device can be connected via the **_IOx_ expansion bus**, which is an 8-bit _parallel_ bus with **16 addresses**,
 for easy _daisy-chaining_ of peripherals.
 
 The main PCB bears a single  **IOx** connector; but the proposed _keyboard+gamepads interface_ (which, incidentally, connects to the main PCB thru that) has
