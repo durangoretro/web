@@ -1,4 +1,4 @@
-# Durango-X _IOx_ expansion bus
+# IOx expansion bus
 
 ## Description
 
@@ -19,7 +19,7 @@ connectors for testing purposes. If a board has more than one _IOx_ socket, they
 
 |  | Bottom row | Top row | Shroud |
 |--|------------|---------|--------|
-| #|############|#########|#       |
+| #|   #####    |  #####  |#       |
 | #|   `+5V`    |  `PD0`  |#       |
 | #|   `BA0`    |  `PD1`  |#       |
 | #|   `BA1`    |  `PD2`  |#       |
@@ -28,7 +28,7 @@ connectors for testing purposes. If a board has more than one _IOx_ socket, they
 | #|   `/WE`    |  `PD5`  |#       |
 | #|   `/SEL`   |  `PD6`  |#       |
 | #|   `GND`    |  `PD7`  |#       |
-| #|############|#########|#       |
+| #|   #####    |  #####  |#       |
 
 ## Signal descriptions
 
