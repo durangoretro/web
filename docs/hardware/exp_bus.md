@@ -17,18 +17,23 @@ connectors for testing purposes. If a board has more than one _IOx_ socket, they
 
 **IOx** connector seen from above _(component side):_
 
-|  | Bottom row | Top row | Shroud |
-|--|------------|---------|--------|
-| #|   #####    |  #####  |#       |
-| #|   `+5V`    |  `PD0`  |#       |
-| #|   `BA0`    |  `PD1`  |#       |
-| #|   `BA1`    |  `PD2`  |#       |
-|  |   `BA2`    |  `PD3`  |#       |
-|  |   `BA3`    |  `PD4`  |#       |
-| #|   `/WE`    |  `PD5`  |#       |
-| #|   `/SEL`   |  `PD6`  |#       |
-| #|   `GND`    |  `PD7`  |#       |
-| #|   #####    |  #####  |#       |
+|  | Bottom |  Top  | Shroud |
+|--|--------|-------|--------|
+| #| #####  | ##### |#       |
+| #| `+5V`  | `PD0` |#       |
+| #| `BA0`  | `PD1` |#       |
+| #| `BA1`  | `PD2` |#       |
+|  | `BA2`  | `PD3` |#       |
+|  | `BA3`  | `PD4` |#       |
+| #| `/WE`  | `PD5` |#       |
+| #| `/SEL` | `PD6` |#       |
+| #| `GND`  | `PD7` |#       |
+| #| #####  | ##### |#       |
+
+### _Sidecar_ connector
+
+Besides the IDC socket, Durango-X has a _right-angle pin socket_ for bigger peripherals which should lay levelled with the main PCB.
+**Pinout is the same, although _with the bottom and top rows swapped_**.
 
 ## Signal descriptions
 
