@@ -19,7 +19,7 @@ Range
 * **CPU**: 65C02 @ 1.536 MHz
 * **ROM**: up to 32 KiB cartridge slot (more with bank switching)
 * **RAM**: 32 KiB
-* **Expansion connector**: [parallel 8-bit bus with 16 addresses](exp_bus/) for keyboards, joysticks etc.
+* **Expansion connector**: [parallel 8-bit bus with 16 addresses](exp_bus.md) for keyboards, joysticks etc.
 * **Video output**: via CCIR (PAL) TV thru RGB SCART connector
     Also available as options: composite video (greyscale/HIRES only), Sync-on-Green and Component Video outputs
 
