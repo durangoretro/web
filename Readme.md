@@ -1,6 +1,6 @@
 # Durango Retro Web Page
 
-This is the Web Page for Durango Retro. Is Built with [MkDocs](https://www.mkdocs.org/).
+This is the Web Page for Durango Retro. It's Built with [MkDocs](https://www.mkdocs.org/).
 
 ## Run this web in local:
 
