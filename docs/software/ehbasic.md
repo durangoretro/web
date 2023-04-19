@@ -27,7 +27,7 @@ Equivalent to `PRINT CHR$(23);CHR$(32+r);CHR$(32+c);`
 
 ### `INK i`
 
-Sets foreground ("ink") colour to `i`; values go thru `MOD 16` to become **0...15**, as per the [standard Durango-X palette](). _In HIRES mode, colours are internally set
+Sets foreground ("ink") colour to `i`; values go thru `MOD 16` to become **0...15**, as per the [standard Durango-X palette](../hardware/palette.md). _In HIRES mode, colours are internally set
 but NOT displayed in any way until back into colour mode_.
 
 Equivalent to `PRINT CHR$(18);CHR$(32+i);`
@@ -98,7 +98,7 @@ Unlike the ZX-Spectrum, though, the _origin of coordinates_ is at **top left** o
 
 ### `PLOT x,y,c`
 
-Draws a **pixel** of colour `c` (from the [standard Durango-X palette]()) on screen coordinates `x,y`; acceptable values are 0...127 in colour mode,
+Draws a **pixel** of colour `c` (from the [standard Durango-X palette](../hardware/palette.md)) on screen coordinates `x,y`; acceptable values are 0...127 in colour mode,
 and 0...255 in HIRES (this mode will also do `c MOD 2`, thus only _odd_ colour values will display the pixel, otherwise is _cleared_).
 
 ### `LINE x1,y1,x2,y2,c`
