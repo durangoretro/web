@@ -9,7 +9,7 @@ simultaneous use of **16 colours** on the screen. Unlike some old computers like
 |Decimal|Hex|Binary|Name   |HTML equivalent|
 |-------|---|------|-------|---------------|
 |0      |$0 |%0000 |Black  | \#000000      |
-|1      |$1 |%0001 |Green  | \#00AA00      |
+|1      |$1 |%0001 |Green  | <span style="background-color:#00aa00">\# 00AA00</span>      |
 |2      |$2 |%0010 |Red    | \#FF0000      |
 |3      |$3 |%0011 |Orange | \#FFAA00      |
 |4      |$4 |%0100 |Dark green| \#005500   |
