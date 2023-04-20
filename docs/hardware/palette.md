@@ -20,7 +20,7 @@ simultaneous use of **16 colours** on the screen. Unlike some old computers like
 |9      |$9 |%1001 |Sky    |<span style="background-color:#00AAFF;color:black">\#00AAFF</span>|
 |10     |$A |%1010 |Magenta|<span style="background-color:#FF00FF;color:white">\#FF00FF</span>|
 |11     |$B |%1011 |Pink   |<span style="background-color:#FFAAFF;color:black">\#FFAAFF</span>|
-|12     |$C |%1100 |Azur   |<span style="background-color:#0055FF;color:white">\#0055FF</span>|
+|12     |$C |%1100 |Azure  |<span style="background-color:#0055FF;color:white">\#0055FF</span>|
 |13     |$D |%1101 |Cyan   |<span style="background-color:#00FFFF;color:black">\#00FFFF</span>|
 |14     |$E |%1110 |Fuchsia|<span style="background-color:#FF55FF;color:white">\#FF55FF</span>|
 |15     |$F |%1111 |White  |<span style="background-color:#FFFFFF;color:black">\#FFFFFF</span>|
