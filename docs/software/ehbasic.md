@@ -64,13 +64,13 @@ Equivalent to `POKE $DF80, (PEEK($DF80) AND %00110000) OR ((n AND 3)<<6) OR (-8*
 Selects one out of four available screens in Durango-X (default=**3** at `$6000`) for _display_. In order to actually _write text_ to the selected screen,
 a `CLS` or equivalent command must be issued.
 
-**WARNINGS:**
+!!! warning
 
-* In order to _write_ on any screen besides the standard 3, `Memory size` MUST be properly set **at boot time**, otherwise EhBASIC may crash! Suitable values are:
-	- `16384` (or `$4000`) allows use of screens **2 and 3**
-	- `8192` (or `$2000`) allows use of screens **1, 2 and 3**
-	- `4096` (or `$1000`) allows use of **any** screen, including **0**.  _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used;_ `CONIO` automatically accounts for that.
-* _Graphic commands_ do NOT take into account the `CONIO` pointers, thus will draw into the screen _on display_ at once. **They won't respect the _upper half_ of `SCREEN 0`**, either.
+	* In order to _write_ on any screen besides the standard 3, `Memory size` MUST be properly set **at boot time**, otherwise EhBASIC may crash! Suitable values are:
+		- `16384` (or `$4000`) allows use of screens **2 and 3**
+		- `8192` (or `$2000`) allows use of screens **1, 2 and 3**
+		- `4096` (or `$1000`) allows use of **any** screen, including **0**.  _Since zeropage, stack and system variables live in this area, only the **bottom half** of the screen will be used;_ `CONIO` automatically accounts for that.
+	* _Graphic commands_ do NOT take into account the `CONIO` pointers, thus will draw into the screen _on display_ at once. **They won't respect the _upper half_ of `SCREEN 0`**, either.
 
 Equivalent to `POKE $DF80, (PEEK($DF80) AND %11000000) OR (n<<4) OR 8`
 
@@ -112,6 +112,7 @@ the whole circle **must** fit inside the screen, otherwise an `Illegal Function 
 
 ### `RECT x1,y1,x2,y2,c`
 
-_This is **NOT working** on the current version_. Intended to draw a filled rectangle, the command will be accepted (and its parameters checked!) but
-nothing will be drawn on screen.
+!!! bug
+
+	_This is **NOT working** on the current version_. Intended to draw a filled rectangle, the command will be accepted (and its parameters checked!) but nothing will be drawn on screen.
 
