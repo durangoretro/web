@@ -6,24 +6,24 @@ simultaneous use of **16 colours** on the screen. Unlike some old computers like
 
 ## Palette colour list
 
-|Decimal|Hex|Binary|Name   |HTML equivalent|
-|-------|---|------|-------|---------------|
-|0      |$0 |%0000 |Black  |<span style="background-color:#000000;color:white">\#000000</span>|
-|1      |$1 |%0001 |Green  |<span style="background-color:#00AA00;color:black">\#00AA00</span>|
-|2      |$2 |%0010 |Red    |<span style="background-color:#FF0000;color:white">\#FF0000</span>|
-|3      |$3 |%0011 |Orange |<span style="background-color:#FFAA00;color:black">\#FFAA00</span>|
-|4      |$4 |%0100 |Dark green|<span style="background-color:#005500;color:white">\#005500</span>|
-|5      |$5 |%0101 |Lime   |<span style="background-color:#00FF00;color:black">\#00FF00</span>|
-|6      |$6 |%0110 |Brick  |<span style="background-color:#FF5500;color:white">\#FF5500</span>|
-|7      |$7 |%0111 |Yellow |<span style="background-color:#FFFF00;color:black">\#FFFF00</span>|
-|8      |$8 |%1000 |Blue   |<span style="background-color:#0000FF;color:white">\#0000FF</span>|
-|9      |$9 |%1001 |Sky    |<span style="background-color:#00AAFF;color:black">\#00AAFF</span>|
-|10     |$A |%1010 |Magenta|<span style="background-color:#FF00FF;color:white">\#FF00FF</span>|
-|11     |$B |%1011 |Pink   |<span style="background-color:#FFAAFF;color:black">\#FFAAFF</span>|
-|12     |$C |%1100 |Azure  |<span style="background-color:#0055FF;color:white">\#0055FF</span>|
-|13     |$D |%1101 |Cyan   |<span style="background-color:#00FFFF;color:black">\#00FFFF</span>|
-|14     |$E |%1110 |Fuchsia|<span style="background-color:#FF55FF;color:white">\#FF55FF</span>|
-|15     |$F |%1111 |White  |<span style="background-color:#FFFFFF;color:black">\#FFFFFF</span>|
+|Decimal|Hex |Binary |Name   |HTML equivalent|
+|-------|----|-------|-------|---------------|
+|0      |`$0`|`%0000`|Black  |<span style="background-color:#000000;color:white">`\#000000</span>|
+|1      |`$1`|`%0001`|Green  |<span style="background-color:#00AA00;color:black">\#00AA00</span>|
+|2      |`$2`|`%0010`|Red    |<span style="background-color:#FF0000;color:white">\#FF0000</span>|
+|3      |`$3`|`%0011`|Orange |<span style="background-color:#FFAA00;color:black">\#FFAA00</span>|
+|4      |`$4`|`%0100`|Dark green|<span style="background-color:#005500;color:white">\#005500</span>|
+|5      |`$5`|`%0101`|Lime   |<span style="background-color:#00FF00;color:black">\#00FF00</span>|
+|6      |`$6`|`%0110`|Brick  |<span style="background-color:#FF5500;color:white">\#FF5500</span>|
+|7      |`$7`|`%0111`|Yellow |<span style="background-color:#FFFF00;color:black">\#FFFF00</span>|
+|8      |`$8`|`%1000`|Blue   |<span style="background-color:#0000FF;color:white">\#0000FF</span>|
+|9      |`$9`|`%1001`|Sky    |<span style="background-color:#00AAFF;color:black">\#00AAFF</span>|
+|10     |`$A`|`%1010`|Magenta|<span style="background-color:#FF00FF;color:white">\#FF00FF</span>|
+|11     |`$B`|`%1011`|Pink   |<span style="background-color:#FFAAFF;color:black">\#FFAAFF</span>|
+|12     |`$C`|`%1100`|Azure  |<span style="background-color:#0055FF;color:white">\#0055FF</span>|
+|13     |`$D`|`%1101`|Cyan   |<span style="background-color:#00FFFF;color:black">\#00FFFF</span>|
+|14     |`$E`|`%1110`|Fuchsia|<span style="background-color:#FF55FF;color:white">\#FF55FF</span>|
+|15     |`$F`|`%1111`|White  |<span style="background-color:#FFFFFF;color:black">\#FFFFFF</span>|
 
 This palette is designed in a way that changing the _Least Significant Bit_ will produce a
 _noticeable luminance change_, thus providing **adequate contrast**.
