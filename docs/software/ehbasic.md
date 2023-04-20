@@ -138,7 +138,7 @@ to the BASIC prompt _without any LOAD attempt_.
 
 ### `SAVE`
 
-Syntax and operation is the same as `LOAD`: use `$` for **Directory listing** or a **_complete_ filename** for saving. _No parameters_.
+Syntax and operation is the same as `LOAD`: use `$` for **Directory listing** or a **_complete_ filename** for saving, when prompted. _No parameters_.
 
 Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers.
 
