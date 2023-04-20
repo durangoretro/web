@@ -121,7 +121,7 @@ the whole circle **must** fit inside the screen, otherwise a `Function call Erro
 !!! note
 
 	In its standard form, Durango-X _has no mass-storage device_. But several options are available, including an **SD card reader** on the _Development Cartridge_ (plus a similar _sidecar_ SD reader, under development) and, of course, the _host filesystem_ when running under the **Perdita** emulator thru the **Virtual Serial Port**.
-	A **plug-in system** has been developed to include the appropriate _driver_ when assembling the EhBASIC binary, thru the option `-DAUXIO=_driver.s_`, but there might be differences in use depending on the chosen device.
+	A **plug-in system** has been developed to include a [**suitable _driver_**]() when assembling the EhBASIC binary, thru the option `-DAUXIO=path-to-driver.s`, but there might be differences in use depending on the chosen device.
 	
 ### `LOAD`
 
