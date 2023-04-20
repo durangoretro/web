@@ -108,7 +108,7 @@ Draws a **line** of colour `c` from screen coordinates `x1,y1` to `x2,y2`; the u
 ### `CIRCLE x,y,r,c`
 
 Draws a **circle** of colour `c` and radius `r` centered at screen coordinates `x,y`; besides the usual restrictions,
-the whole circle **must** fit inside the screen, otherwise an `Illegal Function Call` error is generated.
+the whole circle **must** fit inside the screen, otherwise a `Function call Error` is generated.
 
 ### `RECT x1,y1,x2,y2,c`
 
