@@ -25,15 +25,22 @@ simultaneous use of **16 colours** on the screen. Unlike some old computers like
 |14     |$E |%1110 |Fuchsia|<span style="background-color:#FF55FF;color:white">\#FF55FF</span>|
 |15     |$F |%1111 |White  |<span style="background-color:#FFFFFF;color:black">\#FFFFFF</span>|
 
+This palette is designed in a way that changing the _Least Significant Bit_ will produce a
+_noticeable luminance change_, thus providing **adequate contrast**.
+
+!!! Note
+
+	Depending on your display and component tolerances, some colours may differ in practice -- 	**dark green** in particular will usually look _darker_, thus minimising the difference between colours where this bit changes.
+
 ## Display format
 
-In all video modes, Durango-X uses a **linear framebuffer**. Its dimensions being _powers of 2_, any screen position is easily computed into
-the corresponding memory address.
+In all video modes, Durango-X uses a **linear framebuffer**. Its dimensions being _powers of 2_,
+any screen position is easily computed into the corresponding memory address.
 
 ### Colour mode
 
-Display memory follows the **"chunky"** model -- all bits defining a pixel are packed together into the same byte. At 4 bpp, _two pixels are
-encoded on every byte_:
+Display memory follows the **"chunky"** model -- all bits defining a pixel are packed together into
+the same byte. At 4 bpp, _two pixels are encoded on every byte_:
 
 |128|64|32|16|8|4|2|1|
 |---|--|--|--|-|-|-|-|
