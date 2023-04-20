@@ -116,3 +116,32 @@ the whole circle **must** fit inside the screen, otherwise an `Illegal Function 
 
 	_This is **NOT working** on the current version_. Intended to draw a filled rectangle, the command will be accepted (and its parameters checked!) but nothing will be drawn on screen.
 
+## LOADing and SAVing programs
+
+!!! note
+
+	In its standard form, Durango-X _has no mass-storage device_. But several options are available, including an **SD card reader** on the _Development Cartridge_ (plus a similar _sidecar_ SD reader, under development) and, of course, the _host filesystem_ when running under the **Perdita** emulator thru the **Virtual Serial Port**.
+	A **plug-in system** has been developed to include the appropriate _driver_ when assembling the EhBASIC binary, thru the option `-DAUXIO=_driver.s_`, but there might be differences in use depending on the chosen device.
+	
+### `LOAD`
+
+After issuing this command, if the device is available it will propmt asking for a `Filename`. If a _matching file_ is found, it will load;
+otherwise, a `Function call Error` will be issued. **Partial filenames** are thus supported. _No parameters are used_.
+
+If `$` is stated as _filename_, then a **Directory listing** is displayed (with _executable binaries_ preceded by a `*`) and will return
+to the BASIC prompt _without any LOAD attempt_.
+
+!!! warning
+
+	If `LOAD` succeeds finding a file, **the program previously stored in RAM will be DELETED**. If a _Directory listing_ is requested via `$`
+	or no matching file is found, the previous program will stay in RAM.
+
+### `SAVE`
+
+Syntax and operation is the same as `LOAD`: use `$` for **Directory listing** or a **_complete_ filename** for saving. _No parameters_.
+
+Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers.
+
+!!! note
+
+	Saving in _Perdita_ thru **VSP** (default) does NOT support `$` _directory listings_, nor _partial filenames_.
