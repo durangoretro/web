@@ -46,6 +46,10 @@ The _Durango project_ allows to build your computer under **several configuratio
 * **RGB-SCART (recommended option)**: will display colour _on RGB mode only_, as composite output needs the PAL encoder.
 * Sync-on-green: suitable for some monitors, especially the **Sony PVM range**, via RCA connectors. _Note that greyscale mode is not available_.
 
+!!! note
+
+	Future revisions of the _Durango-X_ board will replace the _Sync-on-green_ option by a **Component video** output, which is both suitable for the _PVM monitors_ and more **modern TV sets**, lacking SCART socket.
+
 ### PAL encoder option
 
 * with PAL encoder (AD724): _composite output_ may be in colour.
