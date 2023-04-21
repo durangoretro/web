@@ -48,9 +48,9 @@ Besides the IDC socket, Durango-X has a _right-angle pin socket_ for bigger peri
 
 !!! warning
 
-	The maximum current draw for peripheral boards (350 mA) is based on the **USB standard** guaranteed 500 mA, minus _Durango-X_ maximum power rating (about 150 mA at 5V). _While most power supplies will exceed the guaranteed minimum, **caution is advised if going over 350 mA _total_** as the PCB layout and tracks aren't intended for high intensities.
+	The maximum current draw for peripheral boards (350 mA) is based on the **USB standard** guaranteed 500 mA, minus _Durango-X_ maximum power rating (about 150 mA at 5V). _While many power supplies are able to exceed this guaranteed minimum_, **caution is advised if your preipheral setup is going over 350 mA _total_** as the PCB layout and tracks aren't intended for high intensities.
 	
-	As always, the use of **quality, brand-name power adapters** is _highly recommended_, both for _output quality_ and **safety**.
+	As always, the use of **quality, brand-name power adapters** is _highly recommended_, both for _output stability_ and **safety** reasons.
 
 ### Signal timing
 
