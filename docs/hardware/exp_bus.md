@@ -39,7 +39,7 @@ Besides the IDC socket, Durango-X has a _right-angle pin socket_ for bigger peri
 
 |Signal|Description|Direction (rel. CPU)|Notes|
 |------|-----------|--------------------|-----|
-|`+5V` |Power      |Output              |Most peripherals could power from this line. _Maximum recommended power draw: **350 mA (combined)**_.|
+|`+5V` |Power      |Output              |Most peripherals could take power from this line. _Maximum recommended power draw: **350 mA (combined)**_.|
 |`GND` |Ground     |Output              |Mandatory connection, even is the peripheral is self-powered.|
 |`PD0-PD7`|Peripheral Data Bus|Input/Output|**Must** be kept in _high-impedance_ state when `/SEL` is high.|
 |`BA0-BA3`|Buffered Address Bus|Output  |Constantly exposing the CPU's lower address bits.|
@@ -66,8 +66,9 @@ In most cases, a **74HC138** decoder is all that's needed.
 
 ## Port assignations
 
-In order to avoid conflicts, **no attached peripherals should _share_ any address**, especially when expected to _write_ to the bus. Note that the _Read/Write line_
-may be used as an extra address, if properly decoded.
+In order to avoid conflicts, **no attached peripherals should _share_ any address**, especially when expected to _write_ to the bus. Note that the _Read/Write line_ may be used as an extra address, if properly decoded.
+
+A common address may be shared between peripherals, however, as long as they are **never connected _at the same time_**.
 
 Here follows a list of _currently produced or projected **peripheral addresses**_. This will be _frequently updated_.
 
@@ -84,8 +85,11 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$5`   |I/O       |**FREE**  |-|
 |`$6`   |I/O       |**FREE**  |-|
 |`$7`   |I/O       |**FREE**  |-|
-|`$8`   |I/O       |**FREE**  |-|
-|`$9`   |I/O       |**FREE**  |-|
+|`$8`   |write     |_Static RAM storage_|Address High Latch|
+|`$0`   |read      |**FREE**  |-|
+|`$9`   |write     |_Static RAM storage_|Address Low Latch|
+|`$0`   |read      |**FREE**  |-|
+|`$A`   |I/O       |_Static RAM storage_|Data I/O|
 |`$A`   |I/O       |_PASK_ parallel port|Data I/O _(currently input only)_|
 |`$B`   |write     |Matrix Keyboard|Select column|
 |`$B`   |read      |Matrix Keyboard|Read rows  |
