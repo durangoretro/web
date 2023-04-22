@@ -32,6 +32,8 @@ extra:
   social:
     - icon: fontawesome/brands/github 
       link: https://github.com/durangoretro/
+    - icon: fontawesome/brands/discord 
+      link: https://discord.gg/2PNcatsHnn
   generator: false
 copyright: Copyright &copy; 2020 - 2023 Durango Computer Team
 repo_name: durangoretro/web
