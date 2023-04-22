@@ -1,6 +1,7 @@
 site_name: Durango Retro Computer
 site_description: Home of the Durango Computer Project. Create a 8 bit home computer with modern tools.
 site_author: Durango Computer Team
+site_url: https://www.durangoretro.com/
 nav:
  - Home: index.md
  - About: about.md
