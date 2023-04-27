@@ -14,48 +14,40 @@ As a _firmware module_, `CONIO` (**CON**sole **I**nput/**O**utput) needs some ba
 * A minimal **interrupt handler** which, besides any application-specific needs, should increment the `ticks` counter and call the _keyboard scanning_ routine.
 * Basic **initialisation** for all of the above.
 
+You can check an example of the software package installation for CONIO support on the
+[_standalone_ version of EhBASIC](https://github.com/zuiko21/minimOS/blob/master/forge/eh_basic/ehbasic_sa.s)
+from address `$E000` on the binary file (label name: `reset`).
+
 ## Supported features
 
-`CONIO` supports both **HIRES** and **colour** modes, displaying **32 x 32 or 16 x 16 characters** respectively.
+**CONIO** supports both **HIRES** and **colour** modes, displaying **32 x 32 or 16 x 16 characters** respectively.
 _All four screen areas are supoported_ and, in case of the first area (`$0000-$1FFF`) where _zeropage & stack_ reside,
 it's automatically **limited to the bottom half of the screen** to protect the important system variables.
 
 Being a _bitmap-only_ display, **alternative glyphs** for the font are supported; just change a pointer to a
 _2 KiB font definition_ of your choice (256 chars of 8x8 pixels).
 
+!!! note
+
+	These features have **no support from the CONIO _interface_**, and will need to _manually_ set some **memory addresses**
+	and/or **hardware registers**.
+
+## Character set
+
+`CONIO` makes use of a slighlty custom variant of [**ISO/IEC 8859-1**](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
+for convenience and localisation reasons. Main differences are:
+
+* _C1 control codes_, **undefined** on the standard, are used by:
+*	*	The **Sinclair ZX Spectrum _semi-graphic_** characters (128-143, $80-$8F)
+*	*	_Selected Greek for Maths_ from $E0-$EF of **code page 437** (144-159, $90-$9F)
+
+Other differences:
+
+*	_Non-Breaking space_ (160, $A0) is replaced by a **hollow square/rectangle** (code 128/$80 _Spectrum graphic_ might be used as a substitute)
+* _Currency symbol_ (164, $A4) is replaced by the **Euro sign** from ISO 8859-15.
+
 # _Old page contents below_
-Focused on limited resource platforms, the standard **character set** for minimOS
-had to satisfy the following:
 
-- **Single-byte** sequences (for easier/faster parsing).
-- Reasonably compliant to actual standards for convenient **compatibility**.
-- Support for **Spanish** characters... plus some other _personal interests_ of mine.
-
-Another consideration was trying to match the text-LCD modules charset as much as
-possible.
-
-Currently, it is _mostly_ based on **ISO 8859-1**. It does however include the
-**Euro** sign from 8859-15, replacing the ill-fitted _currency_ character.
-
-On the other hand, as _C1 control codes_ were not defined on that standard, those
-were replaced with the following characters from other architectures:
-
-- 128-143 ($80-$8F) are the **Sinclair ZX Spectrum _semi-graphic_** characters.
-- 144-159 ($90-$9F) come from $E0-$EF of **code page 437** (_selected Greek for Maths_)
-but with four substitutions for equal or similar glyphs (vgr. using _Eszett_
-instead of _Beta_). These alterations are filled with some other characters from
-CP437 in the range $F0-$FF which were deemed interesting, like the **check mark**
-(actually derived from the _radical sign_), **approximation** and **_non-strict_
-inequalities**.
- 
-Up to 190 ($BE) there are some differences from ISO 8859-1. Beyond that, they are just
-the same -- and also like _Windows-1252_, for that matter.
-
-The aforementioned differences include:
-
-- _Non-Breaking space_ (160, $A0) is replaced by a **hollow square/rectangle**. Where
-needed, its functionality may be provided by code 128/$80 Spectrum graphic (which
-shows up as a blank space anyway).
 - _Soft hyphen_ (173, $AD) is replaced by the (seldom found on single-byte encodings!)
 **slashed equal**.
 - _Cedilla_ (184, $B8) is not needed as Iberian & Gallic keyboards have the
@@ -69,6 +61,20 @@ _lowercase **oe** ligature_ (from ISO 8859-**15**) and the **eng** character
 respectively. Note that the _uppercase **oe** ligature_, like the _uppercase Y
 with diaeresis_ are **not** kept from ISO 8859-15 as their lowercase counterparts
 may be acceptable substitutes for their (rare) appearances.
+
+
+
+
+
+
+but with four substitutions for equal or similar glyphs (vgr. using _Eszett_
+instead of _Beta_). These alterations are filled with some other characters from
+CP437 in the range $F0-$FF which were deemed interesting, like the **check mark**
+(actually derived from the _radical sign_), **approximation** and **_non-strict_
+inequalities**.
+ 
+Up to 190 ($BE) there are some differences from ISO 8859-1. Beyond that, they are just
+the same -- and also like _Windows-1252_, for that matter.
 
 ## non-ASCII character table
 
