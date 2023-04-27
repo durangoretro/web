@@ -84,7 +84,8 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$4`   |I/O       |_Virtual Serial Port_|Configuration|
 |`$5`   |I/O       |**FREE**  |-|
 |`$6`   |I/O       |**FREE**  |-|
-|`$7`   |I/O       |**FREE**  |-|
+|`$7`   |write     |_nanoLink_ output|`D0=SERDAT`, `D1=SERCLK`|
+|`$7`   |read      |**FREE**  |-|
 |`$8`   |write     |_Static RAM storage_|Address High Latch|
 |`$0`   |read      |**FREE**  |-|
 |`$9`   |write     |_Static RAM storage_|Address Low Latch|
