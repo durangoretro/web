@@ -101,8 +101,10 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$E`   |I/O       |**FREE**  |-|
 |`$F`   |I/O       |**FREE**  |-|
 
-\*) Not a real _hardware_ device, but some software (especially _in development_) may access these ports.
+!!! note
+
+	The _Virtual Serial Port_ is **not** a real _hardware_ device, but some software (especially _in development_) may access these ports.
 
 !!! warning
 
-	The **nanoLink** output port and the _PASK keyboard/paralell port_ are **incompatible** and should NOT be connected at the same time!
+	The **Static RAM card** and the _PASK keyboard/paralell port_ are **incompatible** and should NOT be connected at the same time!
