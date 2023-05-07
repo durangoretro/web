@@ -1,4 +1,4 @@
-# Durango cartridge
+# Durango-X cartridges
 
 <figure markdown>
 ![Durango Cartridge](../assets/img/cart.jpg)
@@ -14,7 +14,7 @@ Durango-X has up to **32 KiB** of ROM address space, but you could use _bankswit
 Currently, two kinds of cartridges have been developed:
 
 * The standard **mini-cartridge** (suitable for most EPROMs, EEPROMs and _Flash_ chips, up to 32 KiB) as pictured above.
-* The [**Development Cartridge**](devcart.md), which adds 32 KiB _shadow_ RAM plus an **SD Card reader**.
+* The [**Development Cartridge**](dev_cart.md), which adds 32 KiB _shadow_ RAM plus an **SD Card reader**.
 
 Also _under development_ is a **multi-cartridge**, which will hold more than a ROM image, cycling between them simply by hitting the `RESET` button.
 
