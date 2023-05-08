@@ -8,7 +8,7 @@ simultaneous use of **16 colours** on the screen. Unlike some old computers like
 
 |Decimal|Hex |Binary |Name   |HTML equivalent|
 |-------|----|-------|-------|---------------|
-|0      |`$0`|`%0000`|Black  |<span style="background-color:#000000;color:white">`\#000000`</span>|
+|0      |`$0`|`%0000`|Black  |<span style="background-color:#000000;color:white">\#000000</span>|
 |1      |`$1`|`%0001`|Green  |<span style="background-color:#00AA00;color:black">\#00AA00</span>|
 |2      |`$2`|`%0010`|Red    |<span style="background-color:#FF0000;color:white">\#FF0000</span>|
 |3      |`$3`|`%0011`|Orange |<span style="background-color:#FFAA00;color:black">\#FFAA00</span>|
