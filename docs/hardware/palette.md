@@ -34,7 +34,7 @@ _noticeable luminance change_, thus providing **adequate contrast**.
 
 ### Palette file
 
-You may [download a GIMP palette file](../assets/durango-x.gpl) with the colours available on _Durango-X_ for
+You may [download a GIMP palette file](../assets/bin/durango-x.gpl) with the colours available on _Durango-X_ for
 convenient **artwork creation**.
 
 ## Display format
