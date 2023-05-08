@@ -1,6 +1,6 @@
 # Durango colour palette
 
-The _Durango-X_ and _Durango-S_ colour computers have a **colour display mode** of 128 x 128 pixels. Using _4 bits per pixel_, it allows the
+The _Durango-X_ and _Durango-S_ colour computers have a **colour display mode** with **128 x 128 pixels**. Using _4 bits per pixel_, it allows the
 simultaneous use of **16 colours** on the screen. Unlike some old computers like the _ZX-Spectrum_, _Commodore 64_, _MSX_ etc
 **there are no restrictions** about how many different colours may appear in a certain area.
 
@@ -31,6 +31,11 @@ _noticeable luminance change_, thus providing **adequate contrast**.
 !!! Note
 
 	Depending on your display and component tolerances, some colours may differ in practice -- 	**dark green** in particular will usually look _darker_, thus minimising the difference between colours where this bit changes.
+
+### Palette file
+
+You may [download a GIMP palette file](../assets/durango-x.gpl) with the colours available on _Durango-X_ for
+convenient **artwork creation**.
 
 ## Display format
 
