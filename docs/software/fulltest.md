@@ -1,6 +1,6 @@
 # Full Test
 
-The **Full Test ROM** contains some useful tests to check that your Durango is working properly. Here you can find information about each test.
+The **Full Test ROM** contains useful tests to check that your Durango is working properly. Here you can find information about each test.
 
 First of all, you need to know that you can switch between tests using the **NMI button** of your Durango, or `F2` if you are running on Perdita Emulator.
 
@@ -16,6 +16,7 @@ First of all, you need to know that you can switch between tests using the **NMI
 </figure>
 
 The first test checks that the built-in features of the Durango board are working. This test checks the following features:
+
 	* Zeropage test: exhaustive test of this **essential** memory area. A brief high-pitched _chirp_ is heard.
 	* Address lines and mirroring test: looks for _shorts_ on the CPU and/or MUX address lines. Hardly noticeable.
 	* RAM test: The whole 32 K is tested, which takes about one second. A moving pattern of vertical white bars can be seen on the screen.
