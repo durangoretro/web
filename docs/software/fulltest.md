@@ -23,7 +23,7 @@ The first test checks that the built-in features of the Durango board are workin
 	* ROM test: the ROM _checksum_ is verified and the **Durango-X logo** is shown if passed; otherwise, `ROM` in the middle of a flashing screen will show up.
 	* Line and Frame Blanking test: checks that these signals can be read by the CPU at `$DF88`. If everything is OK, you will see the letters `L F` in green on the top left corner. If _vertical_ blanking is not reported, the `F` will show up in **red**; _orange_ letters mean timing is way off, or even the _horizontal_ blanking is not reported (usually much less of an issue). _Some flashing on the screen may be noticed during this test_.
 	* Video mode port: Out of 8 bits, **only 6** are actually _functional_; and just **the upper 4 are _needed_ to be readable**. The colour of each bit is coded as follows:
-		-	GREEN: **required** _and_ readable (the 4 leftmost dots MUST be green)
+		- GREEN: **required** _and_ readable (the 4 leftmost dots MUST be green)
 		- CYAN: readable but not required (some _mods_ may allow this to happen)
 		- MAGENTA: **not required** and neither readable (usually the 4 rightmost dots, repeated below for convenience)
 		- RED: _required_ but **not readable**. _This is a malfunction in any case_ and will show up repeated below.
