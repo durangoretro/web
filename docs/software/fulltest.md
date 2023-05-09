@@ -12,7 +12,7 @@ First of all, you need to know that you can switch between tests using the **NMI
 
 <figure markdown>
 ![Durango test](../assets/img/fulltest-leyend.png)
-<figcaption>Durango test With Legend</figcaption>
+<figcaption>Durango test with legend</figcaption>
 </figure>
 
 The first test checks that the built-in features of the Durango board are working. This test checks the following features:
@@ -57,25 +57,25 @@ Where `@` means LED _on_ and `.` means LED _off_. Each state lasts ~0.3 seconds,
 
 <figure markdown>
 ![Durango Game Pad test](../assets/img/minigamepadtest.png)
-<figcaption>Durango Gamepad Test</figcaption>
+<figcaption>Durango Gamepad test</figcaption>
 </figure>
 
-With this test, You can see if all the buttons are working properly on your gamepad. Each time you press a gamepad button, you can see the red dot on screen.
+With this test, You can see if all the buttons are working properly on your gamepad. Each time you press a gamepad button, you can see the red dot on screen. Gamepad 1 is shown _at bottom in blue_, while Gamepad 2 is _at top in pink_.
 
-## KeyBoard Test
+## Keyboard Test
 
 <figure markdown>
-![Durango KeyBoard test](../assets/img/minikeyboardtest.png)
-<figcaption>Durango Keyboard Test</figcaption>
+![Durango Keyboard test](../assets/img/minikeyboardtest.png)
+<figcaption>Durango Keyboard test</figcaption>
 </figure>
 
-With this test, you can see if all the keys of your keyboard are working properly. Each time you press a key, you can see the corresponding dot on screen changing its colour from cyan to red.
+With this test, you can see if all the keys of your keyboard are working properly. Each time you press a key, you can see the corresponding dot on screen changing its colour from red to cyan.
 
 ## Colour Test Chart
 
 <figure markdown>
 ![Durango Colour test chart](../assets/img/colorsynctest.png)
-<figcaption>Durango Colour Test Chart</figcaption>
+<figcaption>Durango Colour test chart</figcaption>
 </figure>
 
 This test is intended for proper adjustment of `RV127` and `RV128` on Durango-X's main board. All colours are shown as a reference.
@@ -85,7 +85,7 @@ _See [Video Output calibration](vdu_calib.md) for details_.
 
 <figure markdown>
 ![Durango HIRES test chart](../assets/img/highrestest.png)
-<figcaption>Durango High Resolution Test Chart</figcaption>
+<figcaption>Durango High Resolution test chart</figcaption>
 </figure>
 
 This test is intended for proper adjustment of `RV231` on Durango-X's main board, only affecting _HIRES_ mode.
