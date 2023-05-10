@@ -23,11 +23,12 @@ There is definitely quite a bit of **tolerance** on the IRQ pulse length, althou
 ### Long interrupt pulses
 
 Unless you're dealing with a _really short_ ISR, the IRQ pulse can be **way** longer than the specified value without too much trouble.
-_Note that the [Durango Hardware test](../software/fulltest.md) uses a minimal ISR for testing, thus might fail the test without any other apparent issues._
+_Note that the [Durango-X Hardware test](../software/fulltest.md) uses a minimal ISR for testing, thus might **fail** the test
+without any other apparent issues._
 In **extreme** cases, though, the IRQ pulse may last _longer_ than the ISR itself, thus **triggering a second time** at once. Again, this is hardly
 an issue, save for any interrupt-based timing being thrown off.
 
-If you suspect about this, and are able to run [EhBASIC](), you may try the following code to check the _interrupt timing_:
+If you suspect about this, and are able to run [EhBASIC](../software/rhbasic.md), you may `RUN` the following code to check the _interrupt timing_:
 
 ```
 1 PRINT DEEK($206)/250;CHR$(1);:GOTO 1
@@ -37,3 +38,15 @@ Which should print the _system time_  scrolling **in seconds**, in a remarkably 
 
 In order to _shorten the IRQ pulse_, the value of `R26` (nominally **100 K**) and/or `C8` (**68 pF**) should be _reduced_ -- usually the former is preferred, as a second resistor _in parallel_ with `R26` will do.
 _Note that the use of a 74HC**T**132 for `U8` (instead of the recommended **HC**) will effectively **stretch** the pulse to about **twice** its length_.
+
+### Short interrupt pulses
+
+On the other hand, this is more likely to cause problems. Unlike the _NMI_, the 6502 samples the **IRQ** line _after_ the end of every instruction;
+some opocodes may take **up to 7 clock cycles or ~4.6 µs** -- anything _shorter_ during the execution of such instructions might be **missed**.
+_Surprisingly, the current **Hardware test** code runs pretty short opcodes, thus being quite tolerant about this_.
+
+As mentioned, losing interrupts frequently might have the effect of **impairing (or completely _disabling_) the keyboard/gamepad response**,
+besides any timing alterations. Once again, the EhBASIC code above (if you're able to type it!) will check this for sure.
+
+Similarly, the _opposite_ remedies are suitable in this case: _augmenting_ the value of `R26` and/or `C8` (you may place another capacitor
+_in parallel_ for that matter).
