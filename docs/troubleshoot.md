@@ -49,5 +49,5 @@ Check `ERROR` LED. If lit: suspect **U12** (74HC74). Otherwise suspect **U8** (7
 
 ## Poor/no keyboard/gamepad response and/or erratic timing on some software
 
-This is likely to be an [interrupt problem]().
+This is likely to be an [interrupt problem](hardware/irq.md).
 
