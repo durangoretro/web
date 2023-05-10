@@ -28,7 +28,7 @@ without any other apparent issues._
 In **extreme** cases, though, the IRQ pulse may last _longer_ than the ISR itself, thus **triggering a second time** at once. Again, this is hardly
 an issue, save for any interrupt-based timing being thrown off.
 
-If you suspect about this, and are able to run [EhBASIC](../software/rhbasic.md), you may `RUN` the following code to check the _interrupt timing_:
+If you suspect about this, and are able to run [EhBASIC](../software/ehbasic.md), you may `RUN` the following code to check the _interrupt timing_:
 
 ```
 1 PRINT DEEK($206)/250;CHR$(1);:GOTO 1
