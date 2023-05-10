@@ -28,7 +28,7 @@ The first test checks that the built-in features of the Durango board are workin
 	- MAGENTA: **not required** and neither readable (usually the 4 rightmost dots, repeated below for convenience)
 	- RED: _required_ but **not readable**. _This is a malfunction in any case_ and will show up repeated below.
 * NMI test: After the `NMI` text appears, you have about _2 seconds_ to press the NMI button as many times as you like (a _faint click_ will be heard every time), then a dot for every _detected_ hit will be displayed. _Without button **debouncing**, more dots than the number of hits will appear_, but this is normal. _Less dots than the number of hits is a malfunction_.
-* Interrupt test: This test counts the number of interrupts in a time period (~129 ms); the screen will flash while doing it. If the number of interrupts differs from the expected one (**32**) _give or take one_, the test fails. Please check [troubleshoot](../troubleshoot.md) section for more information.
+* Interrupt test: This test counts the number of interrupts in a time period (~129 ms); the screen will flash while doing it. If the number of interrupts differs from the expected one (**32**) _give or take one_, the test fails. Please check [IRQ troubleshoot](../hardware/irq.md) section for more information.
 * 6502 model shows the exact variant of the 6502 CPU:
 	- `6502`: _Classic **NMOS** 6502 is **not** oficially supported, thus shown in **red**_.
 	- `65C02`: original CMOS **65C02** (No `SMB/RMB/BBS/BBR` opcodes).
