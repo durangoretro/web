@@ -34,19 +34,21 @@ If you suspect about this, and are able to run [EhBASIC](../software/ehbasic.md)
 1 PRINT DEEK($206)/250;CHR$(1);:GOTO 1
 ```
 
-Which should print the _system time_  scrolling **in seconds**, in a remarkably accurate fashion. A **long interrupt pulse** would make the count faster!
+Which should print the _system time_  scrolling **in seconds**, in a remarkably accurate fashion. A **long interrupt pulse**
+would make the count **faster**!
 
 In order to _shorten the IRQ pulse_, the value of `R26` (nominally **100 K**) and/or `C8` (**68 pF**) should be _reduced_ -- usually the former is preferred, as a second resistor _in parallel_ with `R26` will do.
 _Note that the use of a 74HC**T**132 for `U8` (instead of the recommended **HC**) will effectively **stretch** the pulse to about **twice** its length_.
 
 ### Short interrupt pulses
 
-On the other hand, this is more likely to cause problems. Unlike the _NMI_, the 6502 samples the **IRQ** line _after_ the end of every instruction;
+On the other hand, this is more likely to cause problems. Unlike the _NMI_, the 6502 samples the **IRQ** line _after_ the end of each instruction;
 some opocodes may take **up to 7 clock cycles or ~4.6 µs** -- anything _shorter_ during the execution of such instructions might be **missed**.
 _Surprisingly, the current **Hardware test** code runs pretty short opcodes, thus being quite tolerant about this_.
 
 As mentioned, losing interrupts frequently might have the effect of **impairing (or completely _disabling_) the keyboard/gamepad response**,
-besides any timing alterations. Once again, the EhBASIC code above (if you're able to type it!) will check this for sure.
+besides any timing alterations. Once again, running the EhBASIC code above (if you're able to type it!) will confirm this -- too short of a pulse
+will make the second count **slower**.
 
 Similarly, the _opposite_ remedies are suitable in this case: _augmenting_ the value of `R26` and/or `C8` (you may place another capacitor
 _in parallel_ for that matter).
