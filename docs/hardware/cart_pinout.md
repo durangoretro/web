@@ -42,18 +42,30 @@ Signal direction is as seen from the computer's point of view:
 
 | Signal | direction | Description |
 | ------ | --------- | ----------- |
-| **`+5 V`, `GND`** | Out | Power supply from the computer |
-| `D0-D7` | I/O | Data bus |
+| **`+5 V`, `GND`** | Out | Power supply from the computer. |
+| `D0-D7` | I/O | Data bus. |
 | `A0-A14` | Out | Address bus (`A15` is missing but it's mostly the inverse of `!ROM_CS`) |
 | `!RESET` | **Out** | Active-low reset. _Cartridges cannot request a computer reset_. |
 | `VCLK` | Out | Main _Phi 0_ **clock** signal (1.536 MHz) |
 | `!IRQ` | In | Active-low Interrupt ReQuest, must be an _open collector_ signal from cartridge or, at least, use a diode with the anode on the connector pin. |
-| `!NMI` | In | Non-Maskable Interrupt (edge-sensitive), must be _open collector_ as the above one |
+| `!NMI` | In | Non-Maskable Interrupt (edge-sensitive), must be _open collector_ as the above one. |
 | `!IOC` | Out | Active-low **Cartridge I/O** enable (addressed at `$DFC0-$DFFF`, **VCLK-qualified**), _completely custom_, just for decoding convenience. |
 | `!WE` | Out | Active-low **Write enable**; not used for ROMs but useful for _shadow RAM_ and _I/O_. **VCLK-qualified** for convenience. |
 | `!ROM_CS` | Out | Active-low **ROM Chip Select**, nominally _`!A15` NAND `!IO`_ (excludes I/O area at `$DF80-$DFFF`) |
 | `!ROM_OE` | Out | Active-low **ROM Output enable**, nominally _`VCLK` NAND `R!W`_ (note it's **VCLK-qualified**) |
-| `AUDIO IN` | In | _For cartridges providing **sound hardware**_, this pin is connected to the Audio mixer thru a diode. _Analogue signals must provide a **~3.15 V DC bias** and **~3.8 Vpp max. amplitude** for optimum performance_.
+| `AUDIO IN` | In | _For cartridges providing **sound hardware**_, this pin is connected to the Audio mixer thru a diode. _Analogue signals must provide a **~3.15 V DC bias** and **~3.8 Vpp max. amplitude** for optimum performance_. |
+
+### RESET line
+
+This is intended to be _detected_ by some cartridges, either for resetting any additional hardware they may contain, or to switch between software
+inside a large ROM in a suitable _multi-cartridge_ (under development). There is **no way** for the cartridge to reset the whole computer by itself!
+
+### Audio In
+
+Since the built-in audio capabilities of Durango-X are quite limited, there is the option of including audio-generating circuitry inside a cartridge,
+mixing its audio output with the single-bit built-in device. _Mostly designed with square wave generators in mind_, it's possible to inject an
+**analogue signal** as long as the proper _bias_ (~3.15 V) is supplied. In its simplest way, this could be achieved thru a _voltage divider_
+between the power pins -- a **3.3K** resistor to +5V and a **5.6K** one to ground could be a simple solution, with a suitable _coupling capacitor_ (e.g. **10 µF**) between the generator's output (as long as it supports _load impedances_ below ~2 Kohm) and the divider.
 
 ## Form factor
 
