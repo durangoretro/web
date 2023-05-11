@@ -25,11 +25,19 @@ Range
 
 ## Video Modes
 
-* 128 x 128 px. 4 bpp ([16-colour GRgB fixed palette](palette.md), no restrictions) except in ·R model
+* 128 x 128 px. 4 bpp (256-raster, [16-colour GRgB fixed palette](palette.md), no restrictions) except in ·R model
 * 256 x 256 px. 1 bpp (monochrome) except in ·S model
 * Switchable greyscale mode (16 levels) except in ·R model
 * Inverse Video mode (hardware)
 * Four 8 KiB screens software-switchable (screen 0 is shared with ZP, stack etc)
+
+!!! warning
+
+	The Durango-X computer is designed to be hooked to a TV or monitor conforming to the _CCIR (PAL)_ **50 Hz** standard. While a _mod_
+	(under development) may generate a proper _EIA (NTSC)_ **60 Hz** signal, _there is no way to fit the usual 256-raster image_ on such displays --
+	240 rasters being the _absolute limit_, and very few sets will actually display more than 215-220 rasters. All software will run, but the bottom
+	of the screen may become invisible. _Revision 2 will be available with a **60 Hz option** (different board) displaying 192 rasters at once,
+	with a pushbutton to momentarily show the bottom rasters_.
 
 ## Options
 
@@ -58,6 +66,7 @@ The _Durango project_ allows to build your computer under **several configuratio
 !!! warning
 
 	The **PAL encoder** option was an afterthought, thus _picture quality may be poor_ or, on some devices, may not display any colour at all.
+	_This will be **deprecated** on revision 2 of the board_.
 	
 	In general, as the _Durango_ computer provides a **slightly non-standard video signal**, some displays _might be incompatible_ (although this is quite rare according to our experience so far).
 
