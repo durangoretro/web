@@ -1,25 +1,30 @@
-# ROMs
+# Utility Software
 
-Here you can find information about Durango's ROMs, like programs or utilities.
+Here you can find information about Durango's programs or utilities.
 
-## ROMs to download
+## Download
 
-You can download the Binary ROM, or see the source code.
+You can download the Binary ROM image, or see the source code.
+_Most of the assembly source code can be assembled with the [xa65](https://www.floodgap.com/retrotech/xa/) assembler_.
+
+!!! note
+
+  Most of these **ROM images** are intended to be used with the Perdita emulator, or downloaded into an SD card for bootstrapping. In order to "blow" an EPROM/EEPROM with them, _make sure the contents stay **at the end** of the memory range_, adding an appropriate _leader_ (usually consisting of `$FF`s) to match your chip's capacity, if needed.
 
 ### EhBASIC
 
 <figure markdown>
 ![Durango EhBASIC](../assets/img/basicdur.png)
-<figcaption>Durango EhBASIC</figcaption>
+<figcaption>EhBASIC for Durango-X</figcaption>
 </figure>
 
-_basic.dux_: EhBASIC Interpreter; with this ROM you can run BASIC programs in your Durango. It provides Durango-specific Basic commands for **graphics, colour and sound**.
+_basic.dux_: EhBASIC Interpreter. With this ROM you can run BASIC programs in your Durango. This is an _MS-BASIC_-based interpreter, but it adds Durango-specific BASIC commands for **graphics, colour and sound**.
 
 
-* [ROM](../assets/bin/basicgr.dux);
+* [ROM image](../assets/bin/basicgr.dux);
 * [Source Code](https://github.com/zuiko21/minimOS/blob/ehgraph/forge/eh_basic/ehbasic_sa.s)
 
-More information for Ehbasic interpreter:
+More information about EhBASIC interpreter:
 
 * [EhBASIC Reference Manual](http://retro.hansotten.nl/uploads/leedavison/Enhanced_6502_BASIC_reference_manual.pdf).
 * [Durango-Specific BASIC Commands](ehbasic.md)
@@ -31,7 +36,7 @@ More information for Ehbasic interpreter:
 
 With this ROM you can load _ROM images_ using the nanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
 
-* [ROM](../assets/bin/nanoboot.dux).
+* [ROM image](../assets/bin/nanoboot.dux).
 * [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/rom.s).
 
 For more information, please see [Raspberry Pi Server tool Section](../tools/tools.md#raspberry-pi-durango-servernano-boot) and the [ROM images in SD card section]()
