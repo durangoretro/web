@@ -21,7 +21,7 @@ _Most of the assembly source code can be assembled with the [xa65](https://www.f
 _basic.dux_: EhBASIC Interpreter. With this ROM you can run BASIC programs in your Durango. This is an _MS-BASIC_-based interpreter, but it adds Durango-specific BASIC commands for **graphics, colour and sound**.
 
 
-* [ROM image](../assets/bin/basicgr.dux);
+* [ROM image](../assets/bin/basicgr.dux) (32 KiB, _EPROM/EEPROM-ready_)
 * [Source Code](https://github.com/zuiko21/minimOS/blob/ehgraph/forge/eh_basic/ehbasic_sa.s)
 
 More information about EhBASIC interpreter:
@@ -29,31 +29,35 @@ More information about EhBASIC interpreter:
 * [EhBASIC Reference Manual](http://retro.hansotten.nl/uploads/leedavison/Enhanced_6502_BASIC_reference_manual.pdf).
 * [Durango-Specific BASIC Commands](ehbasic.md)
 
-
 ### Nano Python: Durango Python Interpreter (PoC) _under development_
 
 ### nanoBoot (bootstrap firmware For Raspberry Pi or SD card)
 
-With this ROM you can load _ROM images_ using the nanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
+With this ROM you can launch _ROM images_ using the nanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
 
-* [ROM image](../assets/bin/nanoboot.dux).
-* [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/rom.s).
+* [Bootstrap ROM](../assets/bin/nanoboot.dux) (16 KiB, _EPROM/EEPROM-ready_) for RasPi & SD.
+* [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/rom.s) depends on some other files, check `#include`s.
 
-For more information, please see [Raspberry Pi Server tool Section](../tools/tools.md#raspberry-pi-durango-servernano-boot) and the [ROM images in SD card section]()
+There's another version which currently uses the **SD card** interface on the _Development Cartridge_, but allows **selection** between _several concatenated_ ROM images to boot, plus works as a **_screen dump_ viewer** (both HIRES and colour modes):
 
-### GamePads Test
+* [Bootstrap ROM](../assets/bin/multi.dux) (16 KiB, _EPROM/EEPROM-ready_), SD card only.
+* [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/multi.s) depends on some other files, check `#include`s.
+
+For more information, please see [Raspberry Pi Server tool Section](../tools/tools.md#raspberry-pi-durango-servernano-boot) and the [ROM images in SD card section](multiboot.md)
+
+### GamePads Tester _(standalone)_
 
 <figure markdown>
 ![Durango Gamepad Test](../assets/img/gamepads.png)
-<figcaption>Durango Gamepad Test</figcaption>
+<figcaption>Durango-X Gamepads Test</figcaption>
 </figure>
 
 * _gamepads.bin_ : Standalone Durango Gamepad Tester; Press Gamepad buttons to check that they're working. _This test is compatible with the integrated 40-key Keyboard and gamepad interface_.
 
-* [ROM](../assets/bin/gamepads.dux).
-* [Source Code](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s).
+* [ROM](../assets/bin/gamepads.dux)
+* [Source Code](https://github.com/durangoretro/durango_demos/blob/main/gamepads.s)
 
-### KeyBoard Tester
+### Keyboard Tester _(standalone)_
 
 <figure markdown>
 ![Durango Keyboard Test](../assets/img/keyboard_test.png)
@@ -72,9 +76,9 @@ For more information, please see [Raspberry Pi Server tool Section](../tools/too
 <figcaption>Durango Full Test</figcaption>
 </figure>
 
-* _fulltest.dux_ : Full Hardware Test for Durango; use NMI (F2 on perdita) key to cycle between all tests. _Includes a compact version of the gamepads & keyboard tests above_.
+* _fulltest.dux_ : Full Hardware Test for Durango and basic peripherals; use `NMI` (F2 on perdita) key to cycle between all tests. _Includes a compact version of the gamepads & keyboard tests above_.
 
-* [ROM](../assets/bin/fulltest.dux).
-* [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/test/fulltest.s).
+* [ROM](../assets/bin/fulltest.dux)
+* [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/test/fulltest.s) depends on some other files, check `#include`s.
 
 For more information about Full Test, please check [Full Test documentation page](fulltest.md).
