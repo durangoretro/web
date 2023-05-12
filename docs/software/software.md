@@ -1,12 +1,12 @@
 # Software
 
-In this section you can find software for the Durango-X computer. You can find Utility Software, or Games, for use with Durango-X.
+In this section you can find software for the Durango-X computer. You can find Utility Software and Games for use with Durango-X.
 
-From utilities Software like the EhBASIC interpreter to write programs for Durango-X using the BASIC programming language, to games using all the power of the 16 colours of Durango.
+From utility Software like the EhBASIC interpreter to write programs for Durango-X using the BASIC programming language, to games using all the power of the 16 colours of Durango.
 
 You can run these programs using a Durango-X Home Computer, or using the Durango Emulator ([Perdita](/tools/perdita))
 
 ## Durango Software
 
-* [Roms](roms.md): Roms with utilities.
-* [Games](games.md): Durango Games.
+* [Utility Software](roms.md)
+* [Games](games.md)
