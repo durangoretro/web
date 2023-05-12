@@ -62,10 +62,10 @@ The _Durango project_ allows to build your computer under **several configuratio
 
 ### PAL encoder option
 
-* with PAL encoder (AD724): _composite output_ may be in colour.
+* with PAL encoder (AD724): _composite output_ (from SCART and/or RCA) may be in colour.
 * **No PAL encoder (recommended option)**: composite output is _greyscale_.
 
-!!! warning
+!!! bug
 
 	The **PAL encoder** option was an afterthought, thus _picture quality may be poor_ or, on some devices, may not display any colour at all. _This will be **deprecated** on revision 2 of the board_.
 	
@@ -73,6 +73,6 @@ The _Durango project_ allows to build your computer under **several configuratio
 
 This adds an RCA jack (together with a couple more for _audio_) with **composite video** output, although it will be _**grayscale** unless the PAL encoder option is installed_. If both this output and the one on the SCART are to be used _at the same time_, you may wish to swap `R15` for a lower value (say, 180 ohm) for picture stability.
 
-!!! note
+!!! tip
 
-The _Sync-on-green_ option, unlike the SCART, does NOT provide audio output, thus the extra _3 RCA jack set_ intended for the _Second video output_ may be desired for **audio**, even if the second video output isn't functional.
+	The _Sync-on-green_ option, unlike the SCART, does NOT provide audio output, thus the extra _3 RCA jack set_ intended for the _Second video output_ may be desired for **audio**, even if the second video output isn't functional.
