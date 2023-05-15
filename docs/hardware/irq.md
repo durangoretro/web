@@ -31,7 +31,7 @@ an issue, save for any interrupt-based timing being thrown off.
 If you suspect about this, and are able to run [EhBASIC](../software/ehbasic.md), you may `RUN` the following code to check the _interrupt timing_:
 
 ```
-1 PRINT DEEK($206)/250;CHR$(1);:GOTO 1
+1 PRINT DEEK($206)/250:GOTO 1
 ```
 
 Which should print the _system time_  scrolling **in seconds**, in a remarkably accurate fashion. A **long interrupt pulse**
