@@ -54,21 +54,20 @@ Check logic level at **U321 pin 11** for currently set video mode: "1" (~5 V) fo
 
 _After checking **R220**_ in the very first place, look for _some activity_ at the following pins, **in this order**:
 
-* **U23 pin 11** (U23 itself or _R220_ is to blame)
-* **U23 pin 12** (suspect **U227** or _R825_ if fitted)
-* **U227 pin 9** (suspect **U23 or RV231**)
-* **U227 pin 10**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U22**)
-* **U22 pin 4**, like the above (suspect **U321**)
-* **U321 pin 3**, again like the previous signal (suspect **U16**, maybe **U15 and/or U19**)
-* **768 kHz** _square_ wave at **U22 pin 9** (suspect **U321, U16 or U15** in that order)
-* **U23 pin 9** (suspect **U224** or _R824_ if fitted)
-* **~6.1 MHz** signal at **U224 pin 7** (suspect **U16**)
-* **~6.1 MHz** signal at **U16 pin 10** (suspect **U16**) and **pin 9** (suspect **U15**)
+* **~6.1 MHz** signal at **U16 pin 9** (suspect **U15**) and **U224 pin 7** (suspect **U16**)
+* **768 kHz** _square_ wave at **U16 pin 5** (suspect **U15**) and **U321 pin 13** (suspect **U16**)
+* Same **768 kHz** at **U22 pin 9** (suspect **U321**)
+* **U321 pin 3**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
+* **U22 pin 4**, like the above (suspect **U321**, maybe **U428**)
+* **U227 pin 10**, again like the previous signal (suspect **U22**)
 * **768 kHz** _asymmetric_ signal at **U224 pin 15** (suspect **U227 or U15**)
+* **U23 pin 9** (suspect **U224** or _R824_ if fitted)
+* **U227 pin 9** (suspect **U23 or RV231**)
+* **U23 pin 12** (suspect **U227** or _R825_ if fitted) and **pin 11** (U23 itself or _R220_ is to blame)
 
 ### Colour mode
 
-Look for activity at the following pins:
+_After checking **R107-114**_ in the very first place, look for activity at the following pins:
 
 * **~1.5 MHz** _square_ wave at **U124 pin 11** and **U321 pin 14** (suspect **U16** or even **U15**)
 * Same signal at **U22 pin 9** (suspect **U321**)
