@@ -30,7 +30,39 @@ If measured voltage is way too low, and the power supply is trusted, check _resi
 * If there is, check for a somewhat asymmetric **~15.7 kHz** signal at **U15 pin 15**. If not: suspect **U15**. If frequency is _exactly 12 kHz_: suspect **U17** (74HC21) as well.
 * Check for a _quite asymmetric_ **~50 Hz** signal at **U19 pin 12**. If not: suspect **U19** but if _more like 30.6 Hz_: suspect **U17** too.
 * Check for **~15.7 kHz** at **U18 pin 6** and for **~50 Hz** at **U20 pin 6**. Suspect these chips in case of failure. Those signals should show up (inverted) at **U22 pins 11 and 14**, respectively.
+* If an oscilloscope is available, look for a valid `CSYNC` signal at **U23 pin 6** -- or just _some activity_, near (but _not quite at_) 5 volts.
 
+If all of the above signals look OK, it might be a problem in the _analogue_ section of the video outpuct circuit. Use a multimeter to check the following voltages (all referenced to **GND**). _They do not need to match **exactly** the specified values_ and will certainly be dependent of the current _Power Supply voltage_, but any deviation **over ~10%** is suspicious).
+
+* First of all, verify **R19** (one pin will carry a valid `CSYNC` signal while the other should stay around **1 volt**.
+* **5 Volts** between **C4**'s pins; check this and the _power supply_ otherwise.
+* **1.6 Volts** at the _base_ (centre pin) of **Q4**; if not, suspect **R17, R18 or Q4**.
+* **1 Volt** at the _emitter_ (right pin with the _flat_ side towards you) of **Q4**; if not, and the above is correct, suspect **Q4 or R21**.
+* **3.6 Volts** at the _base_ (centre pin) of **Q5**; if not, suspect **R16 or Q5**.
+* **3 Volts** at the _emitter_ (right pin with the _flat_ side towards you) of **Q5**; if not, suspect **Q5, R30 or C5** (and, if the _second composite output_ is mounted, **R31 and C9** as well).
+
+## Monitor detects valid signal, but screen is black
+
+Check logic level at **U321 pin 11** for currently set video mode: "1" (~5 V) for HIRES, "0" for colour. If this pin lacks a _stable_ value, suspect **U428 or U321**. Once the current _video mode_ is determined, check the following:
+
+### HIRES mode
+
+_After checking **R220**_ in the very first place, look for _some activity_ at the following pins, **in this order**:
+
+*	**U23 pin 11** (U23 itself or _R220_ is to blame)
+*	**U23 pin 12** (suspect **U227** or _R825_ if fitted)
+*	**U227 pin 9** (suspect **U23 or RV231**)
+*	**U227 pin 10**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U22**)
+*	**U22 pin 4**, like the above (suspect **U321**)
+*	**U321 pins 3 & 5**, again like the previous signal (suspect **U16**)
+*	**U23 pin 9** (suspect **U224** or _R824_ if fitted)
+*	**~6.1 MHz** signal at **U224 pin 7** (suspect **U16**)
+*	**~6.1 MHz** signal at **U16 pin 10** (suspect **U16**) and **pin 9** (suspect **U15**)
+*	**768 kHz** _asymmetric_ signal at **U224 pin 15** (suspect **U227 and/or U15**)
+
+### Colour mode
+
+Double check that **R19** is fine. 
 ## Garbage is displayed, but no further activity
 
 * Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should stay low for a split second and then become (and **stay**) high_.
