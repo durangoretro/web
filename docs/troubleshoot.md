@@ -6,7 +6,7 @@ hide:
 # Troubleshooting guide
 
 Since the **Durango-X** computer is based on off-the-shelf components, it's a _rather complex_ circuit.
-On the other hand, every needed function can be clearly located into specific components, _A zillion things can go wrong_,
+On the other hand, every needed function can be clearly located into specific components, _A gazillion things can go wrong_,
 of course, but with some method and a few observations, any possible fault may be figured out easily. A **multimeter** is
 _essential_ for basic probing; an **oscilloscope** (nothing especially fancy) will be helpful, but not absolutely necessary.
 A **logic probe** can be quite useful, too.
@@ -99,3 +99,14 @@ Check `ERROR` LED. If lit: suspect **U12** (74HC74). Otherwise suspect **U8** (7
 
 This is likely to be an [interrupt problem](hardware/irq.md).
 
+## Computer runs OK, but colour programs go instead into greyscale mode
+
+If Durango-X cannot go into **_RGB_ colour mode**, or doesn't stay reliably in it, first of all make certain that **U321 pin 9** is at _logic "1"_ (~5 V). If so, check **Q306** (its _emitter_ should measure at around **4.3 V**) and **R122**. _Some TVs may be quite picky about this resistor's value_, thus you may want to try a **lower value (say, _100 ohms_)**.
+
+!!! warning
+
+	In _RGB mode_, **R122** accounts for almost **one third** of Durango's power consumption. _Lowering_ the resistor's value will draw further power, thus make sure you're using a _properly dimensioned_ Power Supply.
+
+## Marginal picture quality, with choppy pixels, ghost lines...
+
+As the timing of the video circuitry is _very tight_, some adjustments have been provided. See [Video Output Calibration](software/vdu_calib.md) for details.
