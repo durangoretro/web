@@ -35,12 +35,12 @@ If measured voltage is way too low, and the power supply is trusted, check _resi
 
 If all of the above signals look OK, it might be a problem in the _analogue_ section of the video outpuct circuit. Use a multimeter to check the following voltages (all referenced to **GND**). _They do not need to match **exactly** the specified values_ and will certainly be dependent of the current _Power Supply voltage_, but any deviation **over ~10%** is suspicious).
 
-* First of all, verify **R19** (one pin will carry a valid `CSYNC` signal while the other should stay around **1 volt**.
+* First of all, verify **R19** (one pin will carry a valid 5 Vpp `CSYNC` signal while the other should stay around **1 volt**.
 * **5 Volts** between **C4**'s pins; check this and the _power supply_ otherwise.
 * **1.6 Volts** at the _base_ (centre pin) of **Q4**; if not, suspect **R17, R18 or Q4**.
 * **1 Volt** at the _emitter_ (right pin with the _flat_ side towards you) of **Q4**; if not, and the above is correct, suspect **Q4 or R21**.
-* **3.6 Volts** at the _base_ (centre pin) of **Q5**; if not, suspect **R16 or Q5**.
-* **3 Volts** at the _emitter_ (right pin with the _flat_ side towards you) of **Q5**; if not, suspect **Q5, R30 or C5** (and, if the _second composite output_ is mounted, **R31 and C9** as well).
+* **3 - 3.7 Volts** at the _base_ (centre pin) of **Q5** (actual value depends on _overall picture brightness_); if not, suspect **R16 or Q5**.
+* **2.3 - 3 Volts** at the _emitter_ (right pin with the _flat_ side towards you) of **Q5** (actually _~0.7 V below_ the above one); if not, suspect **Q5, R30 or C5** (and, if the _second composite output_ is mounted, **R31 and C9** as well).
 
 ## Monitor detects valid signal, but screen is black
 
@@ -52,15 +52,15 @@ Check logic level at **U321 pin 11** for currently set video mode: "1" (~5 V) fo
 
 ### HIRES mode
 
-_After checking **R220**_ in the very first place, look for _some activity_ at the following pins, **in this order**:
+_After checking **R220**_ in the very first place, look for activity at the following pins, preferably **in this order**:
 
 * **~6.1 MHz** signal at **U16 pin 9** (suspect **U15**) and **U224 pin 7** (suspect **U16**)
-* **768 kHz** _square_ wave at **U16 pin 5** (suspect **U15**) and **U321 pin 13** (suspect **U16**)
-* Same **768 kHz** at **U22 pin 9** (suspect **U321**)
-* **U321 pin 3**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
+* **767 kHz** _square_ wave at **U16 pin 5** (suspect **U15**) and **U321 pin 13** (suspect **U16**)
+* Same **767 kHz** at **U22 pin 9** (suspect **U321**)
+* **U321 pin 3**, like `CSYNC` but quite more symmetric, _near 2.6 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
 * **U22 pin 4**, like the above (suspect **U321**, maybe **U428**)
 * **U227 pin 10**, again like the previous signal (suspect **U22**)
-* **768 kHz** _asymmetric_ signal at **U224 pin 15** (suspect **U227 or U15**)
+* **768 kHz** _asymmetric_ signal at **U224 pin 15**, maybe measuring _near 4.7 Volts_ (suspect **U227 or U15**)
 * **U23 pin 9** (suspect **U224** or _R824_ if fitted)
 * **U227 pin 9** (suspect **U23 or RV231**)
 * **U23 pin 12** (suspect **U227** or _R825_ if fitted) and **pin 11** (U23 itself or _R220_ is to blame)
@@ -71,13 +71,13 @@ _After checking **R107-114**_ in the very first place, look for activity at the 
 
 * **~1.5 MHz** _square_ wave at **U124 pin 11** and **U321 pin 14** (suspect **U16** or even **U15**)
 * Same signal at **U22 pin 9** (suspect **U321**)
-* **U321 pin 5**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
+* **U321 pin 5**, like `CSYNC` but quite more symmetric, _near 2.6 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
 * **U22 pin 5**, like the above (suspect **U321**)
 * **U127 pin 19**, again like the previous signal (suspect **U22 or RV128**)
 * **U124 pins 12-19** should show activity in _some_ of them, unless a completely blank screen is on display -- powering up _without_ cartridge should create a **random image** in case of doubt, ideal for this test.
 * Similar but somewhat faster activity at **U126 pins 1, 4, 9 & 12** (suspect **U125**)
 * Pretty much the same at **U127 pins 2-9** (suspect **U126**)
-* A similar kind of signal should show up at **U127 pins 11-18**. All these lines will _float_ ocasionally.
+* A similar kind of signal, but _interrupted_ every ~64 µs, should show up at **U127 pins 11-18**.
 
 ## Garbage is displayed, but no further activity
 
