@@ -70,15 +70,15 @@ _After checking **R220**_ in the very first place, look for _some activity_ at t
 
 Look for activity at the following pins:
 
-* **~1.5 MHz** _square_ wave at **U124 pin 11** (suspect **U16** or even **U15**)
+* **~1.5 MHz** _square_ wave at **U124 pin 11** and **U321 pin 14** (suspect **U16** or even **U15**)
 * Same signal at **U22 pin 9** (suspect **U321**)
-* **U127 pin 19**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U22 or RV128**)
+* **U321 pin 5**, like `CSYNC` but quite more symmetric, _near 2.5 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
 * **U22 pin 5**, like the above (suspect **U321**)
-* **U321 pin 5**, again like the previous signal (suspect **U16**, maybe **U15 and/or U19**)
-* **U127 pins 11-18** should show activity in _some_ of them, unless a completely blank screen is on display -- powering up _without_ cartridge should create a **random image** in case of doubt, ideal for this test. All these lines will _float_ ocasionally.
-* A similar kind of signal (but _never_ floating) should show up at **U127 pins 2-9** (suspect **U126**)
-* Pretty much the same at **U126 pins 1, 4, 9 & 12** (suspect **U125**)
-* Similar but somewhat slower activity at **U124 pins 12-19**.
+* **U127 pin 19**, again like the previous signal (suspect **U22 or RV128**)
+* **U124 pins 12-19** should show activity in _some_ of them, unless a completely blank screen is on display -- powering up _without_ cartridge should create a **random image** in case of doubt, ideal for this test.
+* Similar but somewhat faster activity at **U126 pins 1, 4, 9 & 12** (suspect **U125**)
+* Pretty much the same at **U127 pins 2-9** (suspect **U126**)
+* A similar kind of signal should show up at **U127 pins 11-18**. All these lines will _float_ ocasionally.
 
 ## Garbage is displayed, but no further activity
 
