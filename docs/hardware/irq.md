@@ -3,16 +3,16 @@
 ## Caveats
 
 Unlike most computers, where some _dedicated peripheral chip_ works as an **interrupt controller**, _latching_ the interrupt request
-until _acknowledged_ by the CPU's ISR (Interrupt Service Routine), **Durango-X** uses a simple counter (U14) plus a few
+until _acknowledged_ by the CPU's ISR (Interrupt Service Routine), **Durango-X** uses a simple counter (**U14**, 74HC4040) plus a few
 _Schmitt-trigger_ gates for the generation of a brief pulse (around **10 µs**) for the IRQ input, as long as it's not disabled via
 the _Interrupt Enable Port_ at `$DFAx`. Thus, no _acknowledge_ is possible or necessary.
 
 Since the IRQ pulse is not latched, there is an increased risk of losing interrupts whenever some _critical code_ is executed with
 interrupts _masked_ (via the `SEI` opcode), as other systems will service the pending request as soon as the interrupt mask is cleared.
-This, however, shouldn't be a big deal, as _longer_ critical code may anyway lose some interrupts even in other computers, as they
+This, however, shouldn't be a concern, as _longer_ critical code may anyway lose some interrupts even in other computers, as they
 usually won't _queue_ IRQs.
 
-The real concern, though, is the **length** of the IRQ pulse, as it's generated in an **analogue** way thru an RC-network and a
+The real issue, though, is the **length** of the IRQ pulse, as it's generated in an **analogue** way thru an RC-network and a
 Schmitt-trigger gate. Several factors, including component tolerances, may affect actual lenght which, by the way, is by no means
 _constant_. The nominal value, **10 µs** (about 15 _clock cycles_) is both long enough for _reliable IRQ triggering_,
 and short enough not to be a problem with _succint ISRs_ -- whose _overhead_ is at least **7+6 cycles** for the trigger sequence plus
@@ -43,8 +43,8 @@ _Note that the use of a 74HC**T**132 for `U8` (instead of the recommended **HC**
 ### Short interrupt pulses
 
 On the other hand, this is more likely to cause problems. Unlike the _NMI_, the 6502 samples the **IRQ** line _after_ the end of each instruction;
-some opocodes may take **up to 7 clock cycles or ~4.6 µs** -- anything _shorter_ during the execution of such instructions might be **missed**.
-_Surprisingly, the current **Hardware test** code runs pretty short opcodes, thus being quite tolerant about this_.
+some opcodes may take **up to 7 clock cycles or ~4.6 µs** -- anything _shorter_ during the execution of such instructions might be **missed**.
+_Surprisingly, the current  version of **Hardware test** code runs pretty short opcodes, thus being quite tolerant about this_.
 
 As mentioned, losing interrupts frequently might have the effect of **impairing (or completely _disabling_) the keyboard/gamepad response**,
 besides any timing alterations. Once again, running the EhBASIC code above (if you're able to type it!) will confirm this -- too short of a pulse
