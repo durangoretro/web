@@ -40,9 +40,13 @@ Equivalent to `PRINT CHR$(20);CHR$(32+i);`
 
 ### `CURSOR n`
 
-Enables (for any _odd_ `n`) or disables (when `n` is zero or _even_) the cursor.
+Enables (when `n` is 1) or disables (0) the cursor.
 
 Equivalent to `PRINT CHR$(17);` (enable) and `PRINT CHR$(19);` (disable)
+
+!!! note
+
+	Any _odd_ value acts as `1`, while any _even_ value acts as `0`.
 
 ## Video modes
 
@@ -54,15 +58,18 @@ Sets video mode according to the following table:
 * `1`: colour mode, inverse video
 * `2`: HIRES mode, standard video (default mode in EhBASIC)
 * `3`: HIRES mode, inverse video
-* `4`: greyscale mode, standard video (_**value NOT yet accepted**_)
-* `5`: greyscale mode, inverse video (_**value NOT yet accepted**_)
+* `4`: greyscale mode, standard video
+* `5`: greyscale mode, inverse video
+
+!!! bug
+
+	Values `4` and `5` (_greyscale_ mode) are **NOT yet accepted**.
 
 Equivalent to `POKE $DF80, (PEEK($DF80) AND %00110000) OR ((n AND 3)<<6) OR (-8*(n<4))` _(...phew!)_
 
 ### `SCREEN n`
 
-Selects one out of four available screens in Durango-X (default=**3** at `$6000`) for _display_. In order to actually _write text_ to the selected screen,
-a `CLS` or equivalent command must be issued.
+Selects one out of four available screens in Durango-X (default=**3** at `$6000`) for _display_. In order to actually _redirect text output_ to the selected screen, a `CLS` or equivalent command must be issued.
 
 !!! warning
 
@@ -140,8 +147,10 @@ to the BASIC prompt _without any LOAD attempt_.
 
 Syntax and operation is the same as `LOAD`: use `$` for **Directory listing** or a **_complete_ filename** for saving, when prompted. _No parameters_.
 
-Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers.
+!!! tip
+
+	Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers.
 
 !!! note
 
-	Saving in _Perdita_ thru **VSP** (default) does NOT support `$` _directory listings_, nor _partial filenames_.
+	Loading or Saving in _Perdita_ thru **VSP** (default) does NOT support `$` _directory listings_, nor _partial filenames_.
