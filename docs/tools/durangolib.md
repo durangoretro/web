@@ -21,9 +21,13 @@ To use this library you need the next prerequisites:
 To install this library you can follow two approaches:
 
 1. Install in your own machine:
+
     a. Download the last Release from [Release Page](https://github.com/durangoretro/DurangoLib/releases).
+
     b. Unzip in your computer the downloaded zip file.
+
     c. Create a new Environment Variable ```DDK``` (Durango Dev Kit) that contains the path where the Zip was unzipped.
+
 2. Use a [Docker Image](docker.md).
 
 ```bash
@@ -55,3 +59,31 @@ docker run --rm -v $PWD:/src/durango zerasul/durangodevkit:latest make && make m
 !!! warning
 
     This software is under development and is not suitable for production ready Yet. We are working to improve this library and provide more user friendly information.
+
+## Examples
+
+You can find in the _examples_ folder, some examples to build. To compile each Example, you need first to Compile the Durango Framework.
+
+```bash
+git clone https://github.com/durangoretro/DurangoLib.git
+make
+```
+
+Or if you are using Docker:
+
+```bash
+git clone https://github.com/durangoretro/DurangoLib.git
+docker run --rm -v $PWD:/src/durango zerasul/durangodevkit:latest
+```
+
+Once you compile the last version of Durango Framework, you can compile each example:
+
+make -C examples/
+
+Or using Docker
+
+```bash
+docker run --rm -v $PWD:/src/durango zerasul/durangodevkit:latest make -C examples/
+```
+
+For more information about the examples, or the Durango Lib, check de _docs_ folder with the generated documentation.
