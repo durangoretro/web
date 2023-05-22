@@ -12,6 +12,11 @@ Two _adjustable resistors_ are provided for this video mode: **RV127** (`PIXEL D
 
 ### PIXEL DELAY
 
+<figure markdown>
+![Low Pixel Delay](../assets/img/durango-pixdly.jpeg)
+<figcaption>Close-up of wrong **pixel delay** setting</figcaption>
+</figure>
+
 **This is the most important setting** with the most noticeable effect in picture quality. Since the multiplexer **U125** (74HC157) has _slightly shorter propagation delay_ than the latch **U124** (74HC574), a thin **ghost image** of every _even pixel_ will show up to the right of _odd pixels_. Thus, a suitable _delay_ between switching of their inputs will compensate for this; however, too much of it may lead into _uneven_ pixels.
 
 <figure markdown>
