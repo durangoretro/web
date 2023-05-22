@@ -53,7 +53,7 @@ However, _these timing differences are NOT symmetrical_, thus in practice the **
 
 !!! note
 
-	This particular **Durango-X** unit looks almost OK at an extreme setting, thus no further correction is possible. Check for similar artifacts on the other side of the screen in case the setting is _too low_.
+	This particular **Durango-X** unit looks almost OK at an extreme setting, thus no further correction is possible. Check for similar artifacts on the other side of the screen in case the setting is _too low_. Same in HIRES mode below.
 
 ## High Resolution mode
 
@@ -65,7 +65,7 @@ Technically speaking, this puts some delay **on the video stream itself**, thus 
 
 <figure markdown>
 ![HIRES Delay OK](../assets/img/hires-ok.png)
-<figcaption>**OK**</figcaption>
+<figcaption>Correct setting</figcaption>
 </figure>
 <figure markdown>
 ![Excessive HIRES Delay](../assets/img/hires-bad.png)
@@ -74,9 +74,13 @@ Technically speaking, this puts some delay **on the video stream itself**, thus 
 
 ## Monitor settings
 
-Some adjustments can only be done **on the monitor** itself. Particularly, Durango-X generates **256 raster lines** out from CCIR standard _absolute maximum_ of 288 (**288p**) which some monitors _may not display in full_; some monitors may need a _warm-up time_ for proper adjustment. Otherwise, look for **vertical size/vertical pos./vertical hold** settings on your display.
+Some adjustments can only be done **on the monitor** itself. Particularly, Durango-X generates **256 raster lines** out from CCIR standard _absolute maximum_ of 288 (**288p**) which some monitors _may not display in full_; some monitors may need a _warm-up time_ for proper adjustment. Otherwise, look for **vertical size/vertical pos./vertical hold** settings on your display, while checking that **both horizontal lines are visible** (from the HIRES test pattern).
 
 <figure markdown>
 ![bottom raster lines](../assets/img/pvm255.png)
 <figcaption>The very last raster is cropped on this monitor (Sony PVM-9041Q) until it warms up.</figcaption>
 </figure>
+
+!!! note
+
+	The _Durango-X_ screen is **almost square** (about 6:5 _aspect ratio_), so there's a lot of margin both sides. By design, the image is slightly off-centre _towards the right_.
