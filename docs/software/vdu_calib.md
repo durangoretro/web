@@ -6,6 +6,10 @@ The _Video Circuitry_ of the **Durango-X** home computer has _very tight_ timing
 
 	Admittedly, the Durango-X design is _far from perfect_... adding performance differences according to the source of components, **no perfect picture is guaranteed**, no matter the adjustment procedure executed. Most of the times you'll be able to reach a _reasonable compromise_, though.
 
+!!! tip
+
+	A **_non-metallic_ screwdriver** is recommended for these adjustments, as the proximity of metal might alter the values themselves, thus forging the setting somewhat.
+
 ## Colour mode
 
 Two _adjustable resistors_ are provided for this video mode: **RV127** (`PIXEL DELAY`) and **RV128** (``ENABLE DELAY``). _These adjustments may interact with each other_, thus make sure to **recheck** them a few times for the best possible picture quality.
