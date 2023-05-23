@@ -13,7 +13,7 @@ A **logic probe** can be quite useful, too.
 
 Before any further investigation, a **visual inspection** may be helpful. Look for:
 
-* **Short-circuits** on the board.
+* **Short-circuits** on the board -- including from pads to _nearby **vias**_.
 * Bad **solder joints**.
 * **Bent** IC pins -- try _reseating_ any suspect IC.
  
@@ -23,7 +23,7 @@ Check **power supply** and power _switch_, if fitted. Measuring the voltage acro
 16/8, 20/10 or 28/14 for +/-) should ideally read out **between 4.75 and 5.25 volts**, although it should be fine with voltages
 _as low as 4.5 V_ (prototypes have been running OK at a mere 4.25 V, even less!).
 
-If measured voltage is way too low, and the power supply is trusted, check _resistance_ between the power pins (being careful with polarity!). Because of capacitors charging up, you won't get an instant reading; but it should _asymptotically_ lead to around **9-10 kOhm**.
+If measured voltage is way too low, and the power supply is trusted, check _resistance_ between the power pins (being careful with polarity!). Because of capacitors charging up, you won't get an instant reading; but it should _asymptotically_ lead to around **9-10 kOhm**. Any _unusually low_ value might be caused, in rare cases, by **C7** or **C6**.
 
 ## Power LED lights up, but no sound or picture
 
@@ -83,7 +83,7 @@ _After checking **R107-114**_ in the very first place, look for activity at the 
 
 * Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should stay low for a split second and then become (and **stay**) high_.
 	* If it doesn't, but the computer operates normally after pressing the `RESET` button: suspect **C1**, perhaps **R3**.
-	* If `RESET` button shows no effect _(including the `ERROR` LED lit while held)_: suspect **U8** (74HC132).
+	* If `RESET` button shows no effect _(including the `ERROR` LED lit while held)_: suspect **U8** (74HC132) or **U12** (74HC74).
 * If an oscilloscope or a _good_ multimeter is available, check for a **~1.5 MHz** signal at `VCLK` (**U1** _CPU_ pin 37). If no good signal there: suspect  **U16** (74HC02), perhaps **U15** (74HC4040).
 * Try another cartridge and/or **U2** _SRAM_ (displayed pattern is likely to change between different SRAM pieces). _Running without a **valid** cartridge may display similar symptoms_.
 * **U1** _65C02 CPU_ might be dead, too. Look for an irregular signal at **U1** _CPU_ pin 7, **around 450 kHz** (will vary widely) and, if possible, **activity at _address_ pins** (9-20 and 22-25), especially the _lowest_ ones
