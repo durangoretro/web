@@ -1,6 +1,5 @@
 ---
 hide:
-  - navigation
   - toc
 ---
 # Troubleshooting guide
@@ -81,9 +80,11 @@ _After checking **R107-114**_ in the very first place, look for activity at the 
 
 ## Garbage is displayed, but no further activity
 
-* Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should stay low for a split second and then become (and **stay**) high_.
+* Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should go low for a split second and then become (and **stay**) high_.
 	* If it doesn't, but the computer operates normally after pressing the `RESET` button: suspect **C1**, perhaps **R3**.
-	* If `RESET` button shows no effect _(including the `ERROR` LED lit while held)_: suspect **U8** (74HC132) or **U12** (74HC74).
+	* If it stays _low_ all the time: suspect **U8** (74HC132) and/or **C1**.
+	* If `RESET` button makes no effect: suspect **U8** (74HC132).
+		* In any case, if while holding `RESET` the `ERROR` LED does NOT stay lit: suspect **U8** (74HC132) or **U12**(74HC74).
 * If an oscilloscope or a _good_ multimeter is available, check for a **~1.5 MHz** signal at `VCLK` (**U1** _CPU_ pin 37). If no good signal there: suspect  **U16** (74HC02), perhaps **U15** (74HC4040).
 * Try another cartridge and/or **U2** _SRAM_ (displayed pattern is likely to change between different SRAM pieces). _Running without a **valid** cartridge may display similar symptoms_.
 * **U1** _65C02 CPU_ might be dead, too. Look for an irregular signal at **U1** _CPU_ pin 7, **around 450 kHz** (will vary widely) and, if possible, **activity at _address_ pins** (9-20 and 22-25), especially the _lowest_ ones
