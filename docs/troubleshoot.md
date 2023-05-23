@@ -123,7 +123,13 @@ As the timing of the video circuitry is _very tight_, some adjustments have been
 
 	Swapping ICs between each pair might help detecting the malfunctioning chip. While **U6/U7** are specified as _74HC157_, you may use **74HC257** as well.
 
-## Picture OK, but no sound at all
+## Picture OK, but distorted sound or no sound at all
 
 * Check **U12** and, most importantly, **Q3**. Check **D2, R4, R5, C2 and C3** as well.
 * Rarely, **D7** might cause problems; _you may remove it_ with no more effect than losing the _audio feedback_ during Raspberry Pi transfers.
+* If the internal _buzzer_ is being used: check **R23** (and the buzzer itself). _Weak power supplies may be troublesome while using the internal buzzer_.
+
+!!! note
+
+	Some cartridges may include **custim sound hardware**. If so, check **D3** or try another sound-enabled cartridge.
+
