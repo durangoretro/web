@@ -41,7 +41,7 @@ In order to _shorten the IRQ pulse_, the value of `R26` (nominally **100 K**) an
 _Note that the use of a 74HC**T**132 for `U8` (instead of the recommended **HC**) will effectively **stretch** the pulse to about **twice** its length_.
 
 <figure markdown>
-![Nominal IRQ pulse](../assets/img/irq-hc100k.jpeg)
+![Nominal IRQ pulse](../assets/img/irq-hct100k.jpeg)
 <figcaption>IRQ pulse with HCT and 100 Kohm, actual length is 11.2 µs as indicated by the cursors; the displayed pulse is stretched by probing the RC network</figcaption>
 </figure>
 
