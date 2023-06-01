@@ -9,7 +9,7 @@ _Most of the assembly source code can be assembled with the [xa65](https://www.f
 
 !!! note
 
-  Most of these **ROM images** are intended to be used with the Perdita emulator, or downloaded into an SD card for bootstrapping. In order to "blow" an EPROM/EEPROM with them, _make sure the contents stay **at the end** of the memory range_, adding an appropriate _leader_ (usually consisting of `$FF`s) to match your chip's capacity, if needed.
+	Most of these **ROM images** are intended to be used with the Perdita emulator, or [downloaded into an SD card](header.md) for bootstrapping. In order to "blow" an EPROM/EEPROM with them, _make sure the contents stay **at the end** of the memory range_, adding an appropriate _leader_ (usually consisting of `$FF`s) to match your chip's capacity, if needed.
 
 ### EhBASIC
 
@@ -29,16 +29,20 @@ More information about EhBASIC interpreter:
 * [EhBASIC Reference Manual](http://retro.hansotten.nl/uploads/leedavison/Enhanced_6502_BASIC_reference_manual.pdf).
 * [Durango-Specific BASIC Commands](ehbasic.md)
 
-### Nano Python: Durango Python Interpreter (PoC) _under development_
+### Nano Python
 
-### nanoBoot (bootstrap firmware For Raspberry Pi or SD card)
+Durango Python Interpreter (Proof-of-Concept) _under development_.
 
-With this ROM you can launch _ROM images_ using the nanoLink interface connected to a _Raspberry Pi_, or from an SD card. _Needs the Development Cartridge_.
+### nanoBoot
+
+This is the **bootstrap firmware** loader from a Raspberry Pi or SD card).
+
+With this ROM you can launch _ROM images_ using the **nanoLink** interface connected to a _Raspberry Pi_, or from an SD card. _Needs the [Development Cartridge](../hardware/dev_cart.md)_.
 
 * [Bootstrap ROM](../assets/bin/nanoboot.dux) (16 KiB, _EPROM/EEPROM-ready_) for RasPi & SD.
 * [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/rom.s) depends on some other files, check `#include`s.
 
-There's another version which currently uses the **SD card** interface on the _Development Cartridge_, but allows **selection** between _several concatenated_ ROM images to boot, plus works as a **_screen dump_ viewer** (both HIRES and colour modes):
+There is an specific version for the **SD card** interface] on the _Development Cartridge_; it allows **selection** between _several concatenated_ [ROM images](header.md) to boot, plus works as a [**_screen dump_ viewer**](filesys.md) (both HIRES and colour modes):
 
 * [Bootstrap ROM](../assets/bin/multi.dux) (16 KiB, _EPROM/EEPROM-ready_), SD card only.
 * [Source Code](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/multi.s) depends on some other files, check `#include`s.
@@ -69,6 +73,10 @@ For more information, please see [Raspberry Pi Server tool Section](../tools/too
 * [ROM](../assets/bin/keyboard_tester.dux).
 * [Source Code](https://github.com/durangoretro/durango_demos/blob/main/keyboard_tester.c).
 
+!!! note
+
+	If three or more keys are pressed _at the same time_, **ghosting** may happen. The simple matrix used on the 40-key Keyboard cannot avoid this, unfortunately.
+	
 ### Durango Full Test
 
 <figure markdown>
