@@ -12,14 +12,18 @@ The idea behind this is to simply add a **standard header** to _any_ ROM image (
 [minimOS Operating System](https://github.com/zuiko21/minimOS) as a means to manage ROM contents_, but does apply to mass-storage devices as well,
 especially Solid-State ones (like a readily available **SD card**).
 
+!! tip
+
+	This kind of [file system](filesys.md) has been already implemented for use with the [SD card interface on the Development Cartridge](../hardware/dev_cart.md), and it's available for source code storage with [EhBASIC](ehbasic.md)
+
 This header will provide adequate **metadata**, with some room for expansion. By the way, even if the desired software is going to live on an EPROM
 permanently and never downloaded from SD, it _does not harm to have the **Standard Header** all the time_, if you have 256 spare bytes for it.
 
 ## Hardware support
 
-The **Durango-X [Development Cartridge]()** provides a convenient way to upload and run software on the Durango-X computer. It provides an extra **32 KiB RAM**
+The **Durango-X [Development Cartridge](../hardware/dev_cart.md)** provides a convenient way to upload and run software on the Durango-X computer. It provides an extra **32 KiB RAM**
 switchable with the standard ROM, plus an inexpensive **SD-card interface**. While standard ROMs (up to 16 KiB) can be placed on this cartridge for regular
-use, with a suitable [**bootloader firmware**]() it allows _choosing_ whithin the ROM images stored in the card, _downloading_ any of them in a matter of seconds,
+use, with a suitable [**bootloader firmware**](multiboot.md) it allows _choosing_ whithin the ROM images stored in the card, _downloading_ any of them in a matter of seconds,
 and _running_ the selected software flawlessly -- as the Development Cartridge may _lock_ its RAM after downloading, making it **read-only** just like a
 regular ROM.
 
