@@ -26,7 +26,7 @@ apt install sdl2-dev
 
 You can find the source code of Perdita in the following Repository.
 
-[https://github.com/zuiko21/minimOS/tree/master/emulation](https://github.com/zuiko21/minimOS/tree/master/emulation)
+[https://github.com/durangoretro/Perdita](https://github.com/durangoretro/Perdita)
 
 You can use Makefile to generate the perdita executable.
 
