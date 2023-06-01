@@ -5,7 +5,7 @@
 <figcaption>Durango Development RAM Cartridge</figcaption>
 </figure>
 
-The **Durango-X _Development_ RAM Cartridge** allows to [load programs using an **SD Card**](header.md) interface.
+The **Durango-X _Development_ RAM Cartridge** allows to [load programs using an **SD Card**](../software/header.md) interface.
 
 This cartridge adds an additional **32KiB static RAM** to Durango-X _on the same address space_ as the cartridge ROM, effectively upgrading the computer to a whole **64 KiB RAM** system.
 
