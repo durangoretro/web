@@ -12,7 +12,7 @@ The idea behind this is to simply add a **standard header** to _any_ ROM image (
 [minimOS Operating System](https://github.com/zuiko21/minimOS) as a means to manage ROM contents_, but does apply to mass-storage devices as well,
 especially Solid-State ones (like a readily available **SD card**).
 
-!! tip
+!!! tip
 
 	This kind of [file system](filesys.md) has been already implemented for use with the [SD card interface on the Development Cartridge](../hardware/dev_cart.md), and it's available for source code storage with [EhBASIC](ehbasic.md)
 
