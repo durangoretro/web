@@ -82,7 +82,7 @@ In order to be fully compliant with the [Development Cartridge](../hardware/dev_
 
 !!! note
 
-	While not absolutely necessary, it is **higly recommended** that the interrupt _hard_ vectors point to `JMP ($0200)` (for **IRQ**) and `JMP($0202)` (for **NMI**), for ease of _integration with debuggers_.
+	While not absolutely necessary, it is **highly recommended** that the interrupt _hard_ vectors point to `JMP ($0200)` (for **IRQ**) and `JMP($0202)` (for **NMI**), for ease of _integration with debuggers_. In this case, the startup code **must** fill the RAM vectors at `$0200-$0203` to make them point to the supplied **IRQ and NMI service routines** (or to a stored `RTI` opcode, if not used).
 
 ## Using ROM images
 
