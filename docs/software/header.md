@@ -27,7 +27,17 @@ use, with a suitable [**bootloader firmware**](multiboot.md) it allows _choosing
 and _running_ the selected software flawlessly -- as the Development Cartridge may _lock_ its RAM after downloading, making it **read-only** just like a
 regular ROM.
 
-## Header format
+## ROM images
+
+The use of a [standardised format for ROM images](filesys.md) allows the use of both **EPROM _blowers_** and convenient [download from **SD card** or **Raspberry Pi**](multiboot.md) from the very same binary.
+
+Just like any other 6502 system, ROMs for Durango-X must have appropriate `NMI/RESET/IRQ` hardware vectors at the last addresses `$FFFA-$FFFF`. However, in order to be fully compliant, a suitable **header** plus some extra information at the end must be provided, according to this document.
+
+!!! note
+
+	In order to be fully compliant with all devices, all ROM images must have a **512-byte multiple** size, _including all headers and footers_.
+
+### Header format
 
 A simple 256-byte block must be provided _in front_ of any ROM image in order to be properly identified and linked to other images on the device.
 
@@ -49,5 +59,31 @@ A simple 256-byte block must be provided _in front_ of any ROM image in order to
 |250 ($FA)|2        |_Date_        |Last modification date in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
 |252 ($FC)|4        |**file size** |Includes the 256-byte header. _Unlikely to be over 64 KiB, the last two bytes may be used as **Magic numbers** as well ($00)._
 
-Note that **additional _metadata_** may be included just before the _user field 2_ (offset < 230), as long as a tighter limit is set to _filename+comment_
-total length.
+!!! note
+
+	**additional _metadata_** may be included just before the _user field 2_ (offset < 230), as long as a _tighter_ limit is set to _filename+comment_ total length.
+
+### Footer format
+
+In order to be fully compliant with the [Development Cartridge](../hardware/dev_cart.md), some extra content must be provided at the end of the ROM image. More often than not, the actual code from any ROM will end _before_ the standard `$FFFA` vectors initial address. We need to reserve **the last 42 bytes** for compliance, just as shown in the following example:
+
+```
+; (actual ROM code above)
+	.dsb  $FFD6 - *, $FF    ; padding to reserved area
+	.asc  "DmOS"            ; Durango-X ROM signature
+	.dsb  $FFE1 - *, $FF    ; padding to Development Cartridge interface
+	JMP ($FFFC)             ; jump to (downloaded) RESET vector
+
+	.dsb  $FFFA - *, $FF    ; standard padding
+	.word nmi               ; standard 6502 hard vectors for the supplied ROM
+	.word reset
+	.word irq
+```
+
+!!! note
+
+	While not absolutely necessary, it is **higly recommended** that the interrupt _hard_ vectors point to `JMP ($0200)` (for **IRQ**) and `JMP($0202)` (for **NMI**), for ease of _integration with debuggers_.
+
+## Using ROM images
+
+ROM images compliant with the aforementioned format are suitable for _ROM chips_, **downloadable files** stored in a _Raspberry Pi_ server, or even joined into a [**Durango-X _volume_**](filesys.md). Check the following link for [more information about getting these running in Durango-X](multiboot.md)
