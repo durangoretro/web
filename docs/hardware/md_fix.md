@@ -2,7 +2,7 @@
 
 ## For Mega Drive version ONLY
 
-While the _NES flavour_ of the [Keyboard/Gamepad Interface board](keyboard.md) works flawlessly, a **bug** is present on the _v1_ revision of this board. Please use the _workaround_ described below:
+While the _NES flavour_ of the [Keyboard/Gamepad Interface board](keyboard.md) works flawlessly, a **bug** is present on the **MD version** _v1_ revision of this board. Please use the _workaround_ described below:
 
 !!! warning
 
