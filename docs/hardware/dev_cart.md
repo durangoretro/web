@@ -7,6 +7,10 @@
 
 The **Durango-X _Development_ RAM Cartridge** allows to [load programs using an **SD Card**](../software/header.md) interface.
 
+!!! bug
+
+	Current revision (v1) of the Development Cartridge has a **bug** that must be fixed in orde to be useable. A [workaround](dc_fix.md) has been developed. _Do not use this mod in **later** revisions_.
+
 This cartridge adds an additional **32KiB static RAM** to Durango-X _on the same address space_ as the cartridge ROM, effectively upgrading the computer to a whole **64 KiB RAM** system.
 
 The [firmware ROM](../cartidge.md) can be switched off, allowing the underlying RAM to execute its contents. After downloading, _cartridge RAM writes can be disabled_, making it as reliable as running from a standard ROM chip.
