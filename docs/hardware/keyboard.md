@@ -18,7 +18,7 @@ This board provides a **40-key keyboard** and **_two_ gamepad ports**, which are
 
 	Current revision (v1 2022·11) of the _Keyboard/Gamepad Interface_ has **two known bugs**:
 	
-	* The keyboard silkscreen shows `(` where `)` should be.
+	* The keyboard silkscreen shows another `(` where actually `)` should be.
 	* The **Mega Drive** version controller does _not_ work; a [workaround](md_fix.md) has been made, but it swaps the `START` and `C` buttons.
 	
 	_All of these will be fixed in the next revision (most likely v1.3)_
