@@ -1,11 +1,11 @@
-# KeyBoard and Controller pad interface
+# Keyboard and Controller pad interface
 
 <figure markdown>
 ![Durango KeyBoard & Gamepad Board](../assets/img/keyboard.png)
 <figcaption>Durango KeyBoard & Gamepad Board</figcaption>
 </figure>
 
-Using the "Expansion connector" you can daisy-chain up to 16 devices; some peripherals may integrate several of these devices, like the **Keyboard and Gamepad controller** interface board.
+Using the "Expansion connector" you can daisy-chain up to 16 devices; some peripherals may integrate several of these devices, like the **Keyboard and Gamepad controller** interface board intended as standard.
 
 ## Gamepads
 
@@ -42,6 +42,6 @@ Other than that, key silkscreen follows the usual conventions: use `SHIFT` for c
 For convenience, improved tactile feel and larger silkscreen, an _optional_ **overlay** board has been designed, and will fit suitable holes on the keyboard PCB.
 
 <figure markdown>
-![Durango Keyboard overlay](../assets/img/overlay.png)
+![Durango Keyboard overlay](../assets/img/overlay.jpg)
 <figcaption>Render of Durango Keyboard Overlay</figcaption>
 </figure>
