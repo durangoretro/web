@@ -16,6 +16,6 @@ While the _NES flavour_ of the [Keyboard/Gamepad Interface board](keyboard.md) w
 <figcaption>Bent pin 11 on U9 (74HC86)</figcaption>
 </figure>
 <figure markdown>
-![Mega Drive interface fix](../assets/img/md_fix1.png)
+![Mega Drive interface fix](../assets/img/md_fix1.jpg)
 <figcaption>Solder bridge between pins 11 and 12</figcaption>
 </figure>
