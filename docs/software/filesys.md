@@ -23,7 +23,15 @@ From the very first _sector_ (the leading 256 bytes would suffice) of a volume, 
 
 ### Volume location
 
-_TBD_
+From the point of view of the storage device filesystem, the Durango-X volume is represented by the `durango.av` file in the **root directory** of any FAT-formatted device.
+
+!!! warning
+
+	Current _bootloader_ software does NOT check for any host filesystem, assuming the volume is **written from the very first block of the device**. In Linux, a `dd` command is suitable for _raw_ writing the volume onto the storage device.
+
+!!! danger
+
+	The use of the `dd` command or any equivalent one is **very risky** as any _incorrect parameter_ may result in **data loss**. _Exert **extreme caution** when writing raw images!_
 
 ## Header format
 
@@ -59,7 +67,9 @@ In order not to depend on _file extensions_, the minimOS file systems adds a non
 |`dL`     |≤ 16 MiB|**free space**|
 |`dR`     |**8.5 KiB**|HIRES screen dump (256x256 1bpp)|
 |`dS`     |**8.5 KiB**|Colour screen dump (128x128 [4bpp](../hardware/palette.md))|
+|`dr`     |< 8.5 KiB|_RLE-compressed_ HIRES screen dump (256x256 1bpp)|
+|`ds`     |< 8.5 KiB|_RLE-compressed_ Colour screen dump (128x128 [4bpp](../hardware/palette.md))|
 
 !!! note
 
-	Screen dumps include a **256-byte _empty_ leader**, in order to be _sector-aligned_.
+	_Uncompressed_ screen dumps include a **256-byte _empty_ leader**, in order to be _sector-aligned_.
