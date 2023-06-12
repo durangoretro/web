@@ -24,6 +24,7 @@ From the very first _sector_ (the leading 256 bytes would suffice) of a volume, 
 !!! tip
 
 	Concatenating files and ROM images can be easily done with the `cat` command, like the following example:
+	
 	```cat image1.dux image2.dux image3.dux > durango.av```
 
 ### Volume location
@@ -41,7 +42,9 @@ From the point of view of the storage device filesystem, the Durango-X volume is
 !!! tip
 
 	Flashing the volume into the storage device _with the current software_ can be done in Linux like this:
+	
 	```dd if=path-to/durango.av of=/dev/your-device```
+	
 	_Take **extreme caution** when determining `your-device`, as any wrong choice will cause **data loss**_.
 
 ## Header format
