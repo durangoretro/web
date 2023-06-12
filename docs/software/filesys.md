@@ -21,6 +21,11 @@ From the very first _sector_ (the leading 256 bytes would suffice) of a volume, 
 
 	In **very rare** circumstances, older device contents _after the volume's end_ may be recognised as a valid header; this shouldn't be a concern as the only ill effect would be the "recovery" of older files after the volume's contents; but in case of doubt, you may add a _fake sector_ suitably filled (`$FF` is convenient for most devices) after every volume, for extra safety.
 
+!!! tip
+
+	Concatenating files and ROM images can be easily done with the `cat` command, like the following example:
+	```cat image1.dux image2.dux image3.dux > durango.av```
+
 ### Volume location
 
 From the point of view of the storage device filesystem, the Durango-X volume is represented by the `durango.av` file in the **root directory** of any FAT-formatted device.
@@ -32,6 +37,12 @@ From the point of view of the storage device filesystem, the Durango-X volume is
 !!! danger
 
 	The use of the `dd` command or any equivalent one is **very risky** as any _incorrect parameter_ may result in **data loss**. _Exert **extreme caution** when writing raw images!_
+
+!!! tip
+
+	Flashing the volume into the storage device _with the current software_ can be done in Linux like this:
+	```dd if=path-to/durango.av of=/dev/your-device```
+	_Take **extreme caution** when determining `your-device`, as any wrong choice will cause **data loss**_.
 
 ## Header format
 
