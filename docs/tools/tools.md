@@ -26,6 +26,7 @@ Where the options are:
     * FONT: Allow to generate information from a Font in a Image File.
     * SIGNER: Allow to Sign a Durango Rom.
     * STAMP: Allow to STAMP a Durango Rom.
+    * MUSIC: Allow to generate a .h file from [musicxml](https://www.w3.org/2021/06/musicxml40/) format file.
     
 * ```-w width```: set the Sprite Frame With.
 * ```-h height```: set the Sprite Frame Height.
