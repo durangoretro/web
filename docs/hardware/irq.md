@@ -40,11 +40,21 @@ would make the count **faster**!
 In order to _shorten the IRQ pulse_, the value of `R26` (nominally **100 K**) and/or `C8` (**68 pF**) should be _reduced_ -- usually the former is preferred, as a second resistor _in parallel_ with `R26` will do.
 _Note that the use of a 74HC**T**132 for `U8` (instead of the recommended **HC**) will effectively **stretch** the pulse to about **twice** its length_.
 
+<figure markdown>
+![Nominal IRQ pulse](../assets/img/irq-hct100k.jpeg)
+<figcaption>IRQ pulse with HCT and 100 Kohm, actual length is 11.2 µs as indicated by the cursors; the displayed pulse is stretched by probing the RC network</figcaption>
+</figure>
+
 ### Short interrupt pulses
 
 On the other hand, this is more likely to cause problems. Unlike the _NMI_, the 6502 samples the **IRQ** line _after_ the end of each instruction;
 some opcodes may take **up to 7 clock cycles or ~4.6 µs** -- anything _shorter_ during the execution of such instructions might be **missed**.
 _Surprisingly, the current  version of **Hardware test** code runs pretty short opcodes, thus being quite tolerant about this_.
+
+<figure markdown>
+![Short IRQ pulse](../assets/img/irq-hc22k.jpeg)
+<figcaption>IRQ pulse with HC and 22 Kohm; again actual length is 1.36 µs as indicated by the cursors, which is way too short</figcaption>
+</figure>
 
 As mentioned, losing interrupts frequently might have the effect of **impairing (or completely _disabling_) the keyboard/gamepad response**,
 besides any timing alterations. Once again, running the EhBASIC code above (if you're able to type it!) will confirm this -- too short of a pulse
@@ -52,3 +62,8 @@ will make the second count **slower**.
 
 Similarly, the _opposite_ remedies are suitable in this case: _augmenting_ the value of `R26` and/or `C8` (you may place another capacitor
 _in parallel_ for that matter).
+
+<figure markdown>
+![Acceptable IRQ pulse](../assets/img/irq-hc39k.jpeg)
+<figcaption>IRQ pulse with HC and 39 Kohm; this 2.36 µs pulse is definitely on the short side, but is less likely to cause trouble. </figcaption>
+</figure>

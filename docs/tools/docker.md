@@ -29,3 +29,18 @@ By default, the ```make``` command is executed.
 The current DockerFile, is located in the [DurangoRetro repository](https://github.com/durangoretro/DurangoDocker).
 
 For more information about Docker, please check [Docker Web Page](https://www.docker.com/).
+
+## Github CodeSpaces
+
+You can use and Compile a new ROM using Github CodeSpaces.
+
+1. create a Fork from our Durango Example Template: [https://github.com/durangoretro/Hello_Durango](https://github.com/durangoretro/Hello_Durango).
+2. Enter on Codespaces mode (press <kbd>.</kbd> or press codespaces button on code dropdown menu).
+3. On the current vscode Terminal, use the Durango Docker Image.
+
+```bash
+docker run -v $PWD:/src/durango zerasul/durangodevkit:latest
+```
+4. Now you can see the _.dux_ file and dowload it.
+
+For more information about Github CodeSpaces please see: [https://docs.github.com/en/codespaces/overview](https://docs.github.com/en/codespaces/overview).
