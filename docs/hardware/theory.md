@@ -25,7 +25,7 @@ According to a _modular approach_ as suggested by [EmilioLB](http://emiliollbb.n
 * **MUX:** the RAM needs to be _multiplexed_ between the CPU and the video circuitry.
 * **Base I/O:** basic on-board devices.
 * **Extra features:** not indispensable, but useful anyway.
-* **Interfaces:** external devices and connections.
+* **Interface:** external devices and connections.
 
 ### Clocks
 
@@ -34,51 +34,55 @@ According to a _modular approach_ as suggested by [EmilioLB](http://emiliollbb.n
 <figcaption>Clock circuit (and video address generation) on Durango-X</figcaption>
 </figure>
 
+!!! note
+
+	_Revision v2_ uses a **28 MHz** main oscillator which, after the prescaler and a **divide-by-112** horizontal counter, gets the _CCIR-specified_ **15625 Hz** horizontal frequency. For better centering, _horizontal sync_ is generated at clock count **88** instead of 72.
+
 ### VDU
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/vdu.png)
+![VDU circuit](../assets/img/vdu.png)
 <figcaption>VDU circuit on Durango-X</figcaption>
 </figure>
 
 ### SCART
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/scart.png)
+![SCART circuit](../assets/img/scart.png)
 <figcaption>SCART and video output circuitry on Durango-X</figcaption>
 </figure>
 
 ### CPU
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/cpu.png)
+![CPU circuit](../assets/img/cpu.png)
 <figcaption>CPU and interrupts generation on Durango-X</figcaption>
 </figure>
 
 ### MUX
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/mux.png)
+![MUX circuit](../assets/img/mux.png)
 <figcaption>Static RAM and MUX circuit on Durango-X</figcaption>
 </figure>
 
 ### Base I/O
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/base_io.png)
+![Base I/O circuit](../assets/img/base_io.png)
 <figcaption>Base I/O devices on Durango-X</figcaption>
 </figure>
 
 ### Extra features
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/extra.png)
+![Extra features circuit](../assets/img/extra.png)
 <figcaption>Extra features on Durango-X</figcaption>
 </figure>
 
-### Interfaces
+### Interface
 
 <figure markdown>
-![Durango-X block diagram](../assets/img/interface.png)
+![Interface circuit](../assets/img/interface.png)
 <figcaption>Port interface on Durango-X</figcaption>
 </figure>
