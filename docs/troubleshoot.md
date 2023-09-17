@@ -15,7 +15,11 @@ Before any further investigation, a **visual inspection** may be helpful. Look f
 * **Short-circuits** on the board -- including from pads to _nearby **vias**_.
 * Bad **solder joints**.
 * **Bent** IC pins -- try _reseating_ any suspect IC.
- 
+
+!!! tip
+
+	For better understanding of this document, you may want to have a look at the [Theory of Operation](hardware/theory.md), although it's not really needed for troubleshooting.
+
 ## No signs of life (no LEDs nor picture)
 
 Check **power supply** and power _switch_, if fitted. Measuring the voltage across the _power pins_ of any IC (_usually_ 14/7,
