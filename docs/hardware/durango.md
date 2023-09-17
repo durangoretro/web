@@ -7,6 +7,8 @@
 
 Originally born as a _6502 tester_ without any specific chips, soon became a full-featured home computer with **integrated video** output.
 
+For advanced information, check the [Theory of Operation](theory.md). If you already own a Durango-X computer and it's _acting up_, you may be interested in the [Troubleshooting Guide](../troubleshoot.md) as well.
+
 ## Range
 
 * **Durango PROTO**: the original CPU tester with some basic I/O (1 MHz)
@@ -23,7 +25,11 @@ Originally born as a _6502 tester_ without any specific chips, soon became a ful
 * **Expansion connector**: [parallel 8-bit bus with 16 addresses](exp_bus.md) for keyboards, joysticks etc.
 * **Video output**: via CCIR (PAL) TV thru RGB SCART connector.
 
-Also available as options: composite video (greyscale/HIRES only), _Sync-on-Green_ and Component Video outputs
+Also available as options: composite video (greyscale/HIRES only), _Sync-on-Green_ and Component Video outputs.
+
+!!! note
+
+	Revision v2 will increase the clock speed up to **1.75 MHz**, plus an option for a **_TURBO_ mode** at _twice_ the speed -- a whopping **3.5 MHz** !!
 
 ## Video Modes
 
@@ -36,6 +42,10 @@ Also available as options: composite video (greyscale/HIRES only), _Sync-on-Gree
 !!! warning
 
 	The Durango-X computer is designed to be hooked to a TV or monitor conforming to the _CCIR (PAL)_ **50 Hz** standard. While a _mod_ (under development) may generate a proper _EIA (NTSC)_ **60 Hz** signal, _there is no way to fit the usual 256-raster image_ on such displays -- 240 rasters being the _absolute limit_, and very few sets will actually display more than 215-220 rasters. All software will run, but the bottom of the screen may become invisible. _Revision 2 will be available with a **60 Hz option** (different board) displaying 192 rasters at once, with a **pushbutton** to momentarily show the bottom rasters_.
+
+!!! note
+
+	The _EIA_ (60 Hz) version of the revision v2 is expected to run at ~**1.5734 MHz** (with a _TURBO_ option of ~3.15 MHz)
 
 ## Options
 
