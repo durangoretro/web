@@ -2,7 +2,7 @@ Here you can find all the Information about the hardware of the **Durango-X** co
 
 ## Durango Computer Hardware
 
-* [Durango](durango.md): Technical information about Durango-X.
+* [Durango-X computer](durango.md): Technical information about the Durango-X computer.
 * [Durango Keyboard and control pads interface](keyboard.md): Technical information about Durango Keyboard and control pads interface.
 * [Durango cartridge](cartidge.md): technical information about the base Durango Cartridge.
 * [Durango Development cartridge](dev_cart.md): Technical Information about Durango RAM/SD card Development Cartridge.
