@@ -16,6 +16,10 @@ Here's a _simplified_ **Block Diagram** showing Durango-X's major blocks and mos
 
 ## Circuit description
 
+!!! note
+
+	Details on this description apply to _Durango-X_ **revision v1**. Changes included in the new _v2_ revision will be noted; otherwise, it's all the same.
+
 According to a _modular approach_ as suggested by [EmilioLB](http://emiliollbb.net/), several big blocks can be isolated:
 
 * **Clocks:** generation of both _video_ and _CPU_ clock signals, as they're **fully synchronised** for optimum performance.
@@ -33,6 +37,14 @@ According to a _modular approach_ as suggested by [EmilioLB](http://emiliollbb.n
 ![Clocks circuit](../assets/img/clocks.png)
 <figcaption>Clock circuit (and video address generation) on Durango-X</figcaption>
 </figure>
+
+For **optimum performance**, the 24.576 MHz _master clock_ **X1** is used to generate both _video addresses_ and **system clock**, in perfect sync -- the later originally called `SCLK` but shown in most schematics as `VCLK`, since it's the same for both parts. Both sections run at **1.536 MHz**, from a **divide-by-16 _prescaler_** included into **U15** (74HC4040), then inverted via **U16** (74HC02) for adequate phase against other high frequency signals (mainly used for the _HIRES_ video mode).
+
+`SCLK` is further divided thru the remaining stages of **U15**, together with the AND gate **U17** (74HC21) configured as a **divide-by-98** counter reset by the `LEND` signal. Thus, the _horizontal sync frequency_ is generated, albeit at a **_slightly non-standard_ 15673 Hz**, which is near enough to the CCIR standard 15625 Hz. From these 98 clock cycles, **the first 64 cycles** define the _active region_ of each scanline as the `/LINE` signal (directly from U15's `Q9` output). This signal get used as the clock signal of the _line counter_ **U19** (another 74HC4040).
+
+A proper **_horizontal_ sync pulse** must be generated within the inactive 34 clock cycles. This pulse has a width of **8 clock cycles** or **~5.2 µs**, pretty close to the specified 4.7 µs, easily achieved by using the `VA3-VA6` outputs from U15 into a **_4-bit magnitude comparator_ U18** (74HC85) aginst a fixed number 9, so the sync pulse (`UHS`, active-high) will be sent while the count values are **between 72 and 79**, as 9 x 8 = 72. _This results in a slightly off-centre image to the right_, but good enough for most (if not all) monitors.
+
+A minor drawback of this simple approach is the inversion of the horizontal pulse during the _vertical sync_, as both signals get combined into `CSYNC` thru an EXOR gate **U23** (74HC86), which may cause _some instability_ for some displays. Since most TVs do actually sync on the _high-to-low_ sync flange, the remedy for this is quite simple: _during vertical sync, generate the `UHS` pulse **earlier by 8 clock cycles**_ (count 64 to 71), simply by aplying the _inverted_ `/VS` signal to the U18 comparator, in order to compare the aforementioned video address bits against 8 during this stage.
 
 !!! note
 
