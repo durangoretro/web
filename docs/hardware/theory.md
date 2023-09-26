@@ -50,6 +50,14 @@ A minor drawback of this simple approach is the inversion of the horizontal puls
 
 	_Revision v2_ uses a **28 MHz** main oscillator which, after the prescaler and a **divide-by-112** horizontal counter, gets the _CCIR-specified_ **15625 Hz** horizontal frequency. For better centering, _horizontal sync_ is generated at clock count **88** instead of 72.
 
+#### Overclocking Durango-X
+
+!!! warning
+
+	Since the video clocks (and thus, the **sync frequencies**) are derived from the _master clock_, trying to overclock Durango by merely changing the main oscillator frequency will result in a **non-functional video output** -- in extreme cases, the display itself might be damaged!
+
+_Although the v2 revision will include a TURBO setting_ option, it is possible to **overclock** an existing v1 Durango-X with some mods, _while keeping the proper **sync frequencies** for a working display_. This involves some trace cutting, bodge wiring and even adding some extra circuitry. [Check this page for more information on the several overclocking methods available](overclock.md).
+
 ### VDU
 
 <figure markdown>
