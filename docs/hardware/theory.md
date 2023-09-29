@@ -42,13 +42,22 @@ For **optimum performance**, the 24.576 MHz _master clock_ **X1** is used to gen
 
 `SCLK` is further divided thru the remaining stages of **U15**, together with the AND gate **U17** (74HC21) configured as a **divide-by-98** counter reset by the `LEND` signal. Thus, the _horizontal sync frequency_ is generated, albeit at a **_slightly non-standard_ 15673 Hz**, which is near enough to the CCIR standard 15625 Hz. From these 98 clock cycles, **the first 64 cycles** define the _active region_ of each scanline as the `/LINE` signal (directly from U15's `Q10` output), when the remaining U15's `Q4` to `Q9` outputs act as the **video address lines `VA0` to `VA5`**. That `/LINE` signal is used as the clock signal of the _line counter_ **U19** (another 74HC4040).
 
-A proper **_horizontal_ sync pulse** must be generated within the inactive 34 clock cycles. This pulse has a width of **8 clock cycles** or **~5.2 µs**, pretty close to the specified 4.7 µs, easily achieved by using the `Q7-Q10` outputs from U15 into a **_4-bit magnitude comparator_ U18** (74HC85) aginst a fixed number 9, so the sync pulse (`UHS`, active-high) will be sent while the count values are **between 72 and 79**, as 9 x 8 = 72. _This results in a slightly off-centre image to the right_, but good enough for most (if not all) monitors.
+About the aforementioned **line counter**, since a proper computer TV display output must be **non-interlaced**, **U19** together with the other AND gate in U17 is configured as a **divide-by-312** counter, which leads to a slight _vertical frequency_ increase, as was common in most home computers. This counter emits the remaining **video address lines `VA6` to `VA13`** from its `Q0` to `Q7` outputs. Accordingly, `Q8` generates the `/FRAME` signal in a similar way to /LINE, thus marking the **256 active rasters** period.
+
+!!! note
+
+	Not all video address lines are used _simultaneously_. Depending on the active **video mode**, a proper selection is chosen by the 74HC257 multiplexers **`U104/U105/U204/U205`**, plus the common-to-all-modes **`U6` and `U7`** (74HC157).
+
+A proper **_horizontal_ sync pulse** must be generated within the 34 inactive clock cycles per raster. This pulse has a width of **8 clock cycles** or **~5.2 µs**, pretty close to the specified 4.7 µs, easily achieved by using the `Q7-Q10` outputs from U15 into a **_4-bit magnitude comparator_ U18** (74HC85) aginst a fixed number 9, so the sync pulse (`UHS`, active-high) will be sent while the count values are **between 72 and 79**, as 9 x 8 = 72. _This results in a slightly off-centre image to the right_, but good enough for most (if not all) monitors.
 
 A minor drawback of this simple approach is the inversion of the horizontal pulse during the _vertical sync_, as both signals get combined into `CSYNC` thru an EXOR gate **U23** (74HC86), which may cause _some instability_ for some displays. Since most TVs do actually sync on the _high-to-low_ sync flange, the remedy for this is quite simple: _during vertical sync, generate the `UHS` pulse **earlier by 8 clock cycles**_ (count 64 to 71), simply by aplying the _inverted_ `/VS` signal to the U18 comparator, in order to compare the aforementioned video address bits against 8 during this stage.
+
+About the **_vertical_ sync pulse**, it is generated in a similar way within the **56 inactive rasters**. This pulse has a width of **4 rasters** or **~256 µs**, acceptably close to the specified 160 µs, once again achieved by using the `Q2-Q5` outputs from U19 into another **_4-bit magnitude comparator_ U20** (74HC85) aginst a fixed number 8, but _only enabled while `/FRAME` is **high**_ (blanking period), so the sync pulse (`UVS`, active-high) will be sent when the raster count is **between 288 and 291**, as (8 x 4)+256 = 288. _Vertical centering is usually OK_, although the 256 active raster area may be a _tight fit_ for some monitors.
 
 !!! note
 
 	_Revision v2_ uses a **28 MHz** main oscillator which, after the prescaler and a **divide-by-112** horizontal counter, gets the _CCIR-specified_ **15625 Hz** horizontal frequency. For better centering, _horizontal sync_ is generated at clock count **88** instead of 72.
+	No changes are made for the _vertical_ counter.
 
 #### Overclocking Durango-X
 
