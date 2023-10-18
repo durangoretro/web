@@ -80,12 +80,14 @@ _Although the v2 revision will include a TURBO setting_ option, it is possible t
 
 While the 65C02 CPU has full access to RAM during the _Phi2_ clock phase (`SCLK` high), the **Phi1** phase (`SCLK` low) grants RAM access to _video circuitry_. Display data in RAM is read then according to the current `VAx` video address lines, at full clock rate in colour mode but half the speed (768 kHz) in HIRES. Thus, **no video noise or performance penalty** is made during CPU accesses to display data.
 
-Depending on the current _video mode_, this display data follows different paths. In **HIRES**, data is latched by the **`U224`** _shift register_ (74HC166) at the precise moment determined by `U227A` (`/PE` signal) combining some of U15's highest bits. This data is shifted out at a 6.144 MHz _dot clock_ rate (`HDOT`). This serial output (`HPIX`) may be inverted thru an XOR gate (`U23C`, 74HC86) for the actual pixel stream to be displayed (`HVID`). This signal might suffer a small delay from `VR231` for **timing calibration**, turning into `DHVD` which is **gated** thru `U227B` (74HC20) as requested during _blanking_ periods. Being a NAND gate, this _inverted_ signal (`/HVG`) goes back to normal thru another XOR gate (`U23D`) configured as a fixed inverter, where the _definitive video stream_ **`HVG`** is obtained.
+Depending on the current _video mode_, this display data follows different paths. In **HIRES**, data is latched by the **`U224`** _shift register_ (74HC166) at the precise moment determined by `U227A` (`/PE` signal) combining some of U15's highest bits. This data is shifted out at a 6.144 MHz _dot clock_ rate (`HDOT`). This serial output (`HPIX`) may be inverted thru an XOR gate (`U23C`, 74HC86) for the actual pixel stream to be displayed (`HVID`). This signal might suffer a small delay from `RV231` for **timing calibration**, turning into `DHVD` which is **gated** thru `U227B` (74HC20) as requested during _blanking_ periods by the `DHRDE` signal. Being a NAND gate, this _inverted_ signal (`/HVG`) goes back to normal thru another XOR gate (`U23D`) configured as a fixed inverter, where the _definitive video stream_ **`HVG`** is obtained.
 
 !!! note
 
 	Some pull-up and pull-down resistors are used in U23 inputs, just in case `U227` is **not** installed (colour-only _Durango-S_ option).
- 
+
+On the other hand, video data path in **colour** mode is somewhat less convoluted. Display data is latched via **`U124`** (74HC574) at `VCLK` rate. We're dealing with **_chunky_ 4 bits per pixel**, thus every byte contains _two pixels_ which must be serialized at the same rate via the **`U125`** (74HC157) multiplexer, which has a slightly faster _propagation time_ than the former IC. For **optimum picture quality**, `RV127` creates a slight delay (`DEV/ODD`) which may adjust the `Pixel Delay` between both nibbles. Finally, this 4bpp stream (`XB`, `XR`, `XGL` and `XGH`) goes thru a dedicated XOR inverter (**`U126`**, 74HC86) in case the _Inverse video_ mode is enabled, creating the desired pixel stream lines (`IB`, `IR`, `IGL` and `IGH`). _This stream is **not** gated_ as that will be done on the SCART section.
+
 ### SCART
 
 <figure markdown>
