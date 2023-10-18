@@ -86,7 +86,7 @@ Depending on the current _video mode_, this display data follows different paths
 
 	Some pull-up and pull-down resistors are used in U23 inputs, just in case `U227` is **not** installed (colour-only _Durango-S_ option).
 
-On the other hand, video data path in **colour** mode is somewhat less convoluted. Display data is latched via **`U124`** (74HC574) at `VCLK` rate. We're dealing with **_chunky_ 4 bits per pixel**, thus every byte contains _two pixels_ which must be serialized at the same rate via the **`U125`** (74HC157) multiplexer, which has a slightly faster _propagation time_ than the former IC. For **optimum picture quality**, `RV127` creates a slight delay (`DEV/ODD`) which may adjust the `Pixel Delay` between both nibbles. Finally, this 4bpp stream (`XB`, `XR`, `XGL` and `XGH`) goes thru a dedicated XOR inverter (**`U126`**, 74HC86) in case the _Inverse video_ mode is enabled, creating the desired pixel stream lines (`IB`, `IR`, `IGL` and `IGH`). _This stream is **not** gated_ as that will be done on the SCART section.
+On the other hand, video data path in **colour** mode is somewhat less convoluted. Display data is latched via **`U124`** (74HC574) at `VCLK` rate. We're dealing with **_chunky_ 4 bits per pixel**, thus every byte contains _two pixels_ which must be serialized at the same rate via the **`U125`** (74HC157) multiplexer, which has a slightly faster _propagation time_ than the former IC. For **optimum picture quality**, `RV127` creates a slight delay (`DEV/ODD`) which may adjust the `Pixel Delay` between both nibbles. Finally, this 4 bpp stream (`XB`, `XR`, `XGL` and `XGH`) goes thru a dedicated XOR inverter (**`U126`**, 74HC86) in case the _Inverse video_ mode is enabled, creating the desired pixel stream lines (**`IB` for blue, `IR` for red, `IGL` and `IGH` for green**). _This stream is **not** gated_ as that will be done on the SCART section.
 
 ### SCART
 
@@ -94,6 +94,12 @@ On the other hand, video data path in **colour** mode is somewhat less convolute
 ![SCART circuit](../assets/img/scart.png)
 <figcaption>SCART and video output circuitry on Durango-X</figcaption>
 </figure>
+
+This circuit creates the **analog video signals** from the _digital_ streams provided by the VDU section, no matter the connector used. The main circuit is made around **`Q4` and `Q5` transistors** (BC548). `Q4`is configured as a **common-base mixer** for _high bandwidth_ and _negligible signal interaction_, taking the **composite sync** `/CSYNC` signal and mixing it with the HIRES video stream `HVG` at appropriate levels (actually around **2 Vpp** as common practice). This `ZMIX` signal is then _buffered_ via `Q5` as an **emitter follower** for _low impedance_ output (`MIX`). A **75 ohm** series resistor (68 is _acceptable_ too) provides _short circuit protection_ and gets the signal down to the standard **1 Vpp** level and impedance. Actually, _two_ of these outputs are provided, for both SCART (`R30/C5`) and RCA (`R31/C9`) sockets.
+
+!!! tip
+
+	`Q5` buffer uses a _bias resistor_ (`R15`) whose **330 ohm** is determined for the use of _either_ SCART or RCA output, but _**not** simultaneously_. In case both outputs are needed at the same time, `R15` must be reduced accordingly (say, to **150 ohm**) for safe operation. _This lower value will work in any case_, at the expense of somewhat increased power consumption.
 
 ### CPU
 
