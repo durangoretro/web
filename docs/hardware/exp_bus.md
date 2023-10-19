@@ -83,9 +83,12 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$3`   |I/O       |_Virtual Serial Port_\*|Data I/O|
 |`$4`   |I/O       |_Virtual Serial Port_|Configuration|
 |`$5`   |I/O       |**FREE**  |-|
-|`$6`   |I/O       |**FREE**  |-|
+|`$6`   |I/O       |_FastSPI_ |SPI Data R/W|
+|`$7`   |write     |_FastSPI_ |`D0...D5 = /SPI_DEV`|
+|`$7`   |write     |_FastSPI **with I2C**_|`D0...D3 = /SPI_DEV`, `D4 = I2C_SCL`, `D5 = I2C_SDA`|
 |`$7`   |write     |_nanoLink_ output|`D0=SERDAT`, `D1=SERCLK`|
-|`$7`   |read      |**FREE**  |-|
+|`$7`   |read      |_FastSPI_ |send SPI clock|
+|`$7`   |read      |_FastSPI **with I2C**_|`D0...D3 = /SPI_DEV`, `D6 = I2C_SCL`, `D7 = I2C_SDA`; _also send SPI clock_|
 |`$8`   |write     |_Static RAM storage_|Address High Latch|
 |`$0`   |read      |**FREE**  |-|
 |`$9`   |write     |_Static RAM storage_|Address Low Latch|
