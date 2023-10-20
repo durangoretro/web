@@ -59,7 +59,7 @@ About the **_vertical_ sync pulse**, it is generated in a similar way within the
 	_Revision v2_ uses a **28 MHz** main oscillator which, after the prescaler and a **divide-by-112** horizontal counter, gets the _CCIR-specified_ **15625 Hz** horizontal frequency. For better centering, _horizontal sync_ is generated at clock count **88** instead of 72.
 	No changes are made for the _vertical_ counter.
 
-#### EIA/NTSC (60 Hz) version
+#### 60 Hz EIA (NTSC) version
 
 This is _under development_ as a derivative from v2. It's intended to use a readily available **25.175 MHz** oscillator and a **divide-by-100** horizontal counter for a nominal **15734 Hz** horizontal rate. The _line counter_ is based on a **divide-by-262** counter but, since _there's no way to display 256 rasters on an EIA/NTSC screen_, the `\FRAME` signal needs an extra IC (74HC85) in order to make just _192 active rasters_.
 
@@ -84,7 +84,7 @@ Depending on the current _video mode_, this display data follows different paths
 
 !!! note
 
-	Some pull-up and pull-down resistors are used in U23 inputs, just in case `U227` is **not** installed (colour-only _Durango-S_ option).
+	Pull-up and pull-down resistors are used in a few U23 inputs, just in case `U227` is **not** installed (colour-only _Durango-S_ option). _These are not needed otherwise_, but won't hurn anyway.
 
 On the other hand, video data path in **colour** mode is somewhat less convoluted. Display data is latched via **`U124`** (74HC574) at `VCLK` rate. We're dealing with **_chunky_ 4 bits per pixel**, thus every byte contains _two pixels_ which must be serialized at the same rate via the **`U125`** (74HC157) multiplexer, which has a slightly faster _propagation time_ than the former IC. For **optimum picture quality**, `RV127` creates a slight delay (`DEV/ODD`) which may adjust the `Pixel Delay` between both nibbles. Finally, this 4 bpp stream (`XB`, `XR`, `XGL` and `XGH`) goes thru a dedicated XOR inverter (**`U126`**, 74HC86) in case the _Inverse video_ mode is enabled, creating the desired pixel stream lines (**`IB` for blue, `IR` for red, `IGL` and `IGH` for green**). _This stream is **not** gated_ as that will be done on the SCART section.
 
@@ -100,6 +100,22 @@ This circuit creates the **analog video signals** from the _digital_ streams pro
 !!! tip
 
 	`Q5` buffer uses a _bias resistor_ (`R15`) whose **330 ohm** is determined for the use of _either_ SCART or RCA output, but _**not** simultaneously_. In case both outputs are needed at the same time, `R15` must be reduced accordingly (say, to **150 ohm**) for safe operation. _This lower value will work in any case_, at the expense of somewhat increased power consumption.
+
+In colour mode, the above circuit is mainly used for **sync signals**. The SCART connector provides **RGB inputs** when switched via the _fast blanking_ input. The colour bitstreams coming from VDU (`IB, IR, IGL, IGH`) are buffered by **`U127`** (74HC245) which in turn disables video output during _blanking_ periods from the **`/DCDE`** signal. Together with the previous `DHRDE`, these signals come from `/CDE` and `HRDE` generated at `U3xx` (74HC175) after some _adjustable delay_ via `VR128` and `VR221`, respectively. The buffers in the '245 are used _in pairs_ for minimal output impedance, and the outputs go into two separate paths: main one is a simple DAC for each colour in order to attenuate the signals down to the **nominal 0.7 Vpp** expected by each RGB input's 75 ohm standard impedance -- in case of the _green_ channel, two bits are in use, which account for approx. 1/3rd and 2/3rds of the full-scale output, rendering _three levels of green_ plus black.
+
+The remaining path is sort of an afterthought... In case the RGB mode is not supported (or the SCART connection is missing altogether), an approximate **luminance value** is supplied to the composite output. A _crude_ DAC is made upon `R107...R110` which apply a suitable current level to the common ground input `VIN` of the aforementioned _video mixer_, so at least a monochromatic image is displayed.
+
+!!! tip
+
+	The DAC resistor values stated in the silkscreen (v1 issue) are intended for a reasonably **linear greyscale**, which may be enabled by clearing bit `D3` of the _video mode register_ (`$DF80`, _not officially supported_). But since this mode seems of little use, and _might render somewhat inaccurate colours if the **RGB-to-component** video converter is used_, alternative values may be used. Check [the Palette article](palette.md) for details.
+ 	**v2** and later issues of Durango-X include the **luminance DAC** as standard.
+
+The way for switching the TV between the composite and RGB inputs is via the _fast blanking_ input in the SCART connector. This receives the `RGB` signal from U3xx (which is either _0_ in HIRES mode, or the value of `D3` from the _video mode register_), buffered by `Q306` and applied thru `R312`.
+
+!!! note
+
+	The _fast blanking_ signal does draw **a lot** of current, accounting for nearly **one third (!)** of Durango-X's total power consumption. Increasing the value of `R312` to suit your particular TV will decrease energy usage, but might be the cause of _unreliable mode switching_.
+	This resistor is **not used** in _Composite_, _Sync-on-Green_ or (for v2 and later) _Component video_ outputs, thus _greyscale_ mode is _not available_.
 
 ### CPU
 
