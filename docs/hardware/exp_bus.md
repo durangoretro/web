@@ -86,7 +86,7 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$6`   |I/O       |_FastSPI_ |SPI Data R/W|
 |`$7`   |write     |_FastSPI_ |`D0...D5 = /SPI_DEV`|
 |`$7`   |write     |_FastSPI **with I2C**_|`D0...D3 = /SPI_DEV`, `D4 = I2C_SCL`, `D5 = I2C_SDA`|
-|`$7`   |write     |_nanoLink_ output|`D0=SERDAT`, `D1=SERCLK`|
+|`$7`   |write     |_nanoLink_ output (v1)|`D0=SERDAT`, `D1=SERCLK`|
 |`$7`   |read      |_FastSPI_ |send SPI clock|
 |`$7`   |read      |_FastSPI **with I2C**_|`D0...D3 = /SPI_DEV`, `D6 = I2C_SCL`, `D7 = I2C_SDA`; _also send SPI clock_|
 |`$8`   |write     |_Static RAM storage_|Address High Latch|
@@ -101,8 +101,9 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$C`   |read      |Gamepad 0 |Read status     |
 |`$D`   |write     |Gamepads  |Shift data _(NES only, but ignored by MD)_|
 |`$D`   |read      |Gamepad 1 |Read status     |
-|`$E`   |I/O       |**FREE**  |-|
-|`$F`   |I/O       |**FREE**  |-|
+|`$E`   |write     |_nanoLink_ output **(v2+)**|`D0=SERDAT`, `D1=SERCLK`|
+|`$E`   |read      |**FREE**  |-|
+|`$F`   |I/O       |_RESERVED_|-|
 
 !!! note
 
@@ -110,4 +111,4 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 
 !!! warning
 
-	The **Static RAM card** and the _PASK keyboard/paralell port_ are **incompatible** and should NOT be connected at the same time!
+	The **Static RAM card** and the _PASK keyboard/paralell port_ are **incompatible** and should NOT be connected at the same time! _Older_ (v1) revisions of the **nanoLink output** board are incompatible with the _FastSPI_, but this will change in later revisions.
