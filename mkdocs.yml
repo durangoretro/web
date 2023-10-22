@@ -36,7 +36,7 @@ extra:
     - icon: fontawesome/brands/discord 
       link: https://discord.gg/2PNcatsHnn
   generator: false
-copyright: Copyright &copy; 2020 - 2023 Durango Computer Team <img src="http://localhost:11893/counter.svg" referrerPolicy="unsafe-url" style="display:none" />
+copyright: Copyright &copy; 2020 - 2023 Durango Computer Team <a href="https://librecounter.org/referer/show" target="_blank" style="display:none"><img src="assets/img/librecounter.svg" referrerPolicy="unsafe-url" /></a>
 repo_name: durangoretro/web
 repo_url: https://github.com/durangoretro/web
 theme:
