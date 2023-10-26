@@ -124,6 +124,22 @@ The way for switching the TV between the composite and RGB inputs is via the _fa
 <figcaption>CPU and interrupts generation on Durango-X</figcaption>
 </figure>
 
+The CPU section on the **Durango-X** computer is based around the **65C02** microprocessor `U1` and its associated circuitry -- mainly, [interrupt generation](irq.md). Please note that the Durango-X board has _no ROM at all_, relying on the one on the **cartridge**, which is essential for operation. _RAM_ is also surrounded by the **multiplexing** circuitry described below.
+
+`U9` (74HC00) generates the bare minimum **control signals**, according to these equations:
+
+- **`ROM /CS`** is `A15` NAND `/IO`, thus ROM will be disabled while accessing the _I/O area_ (`$DF80-$DFFF`)
+- **`ROM /OE`** comes thru the NAND from `R/W`, but also gated via `SCLK`, as _ROM **must** leave the data bus free during _Phi1_ phase (while _video data_ is collected by the **VDU**)
+- **`/WE`** is generated the usual way, gating with `SCLK` the aforementioned `ROM /OE` signal, even if it's already SCLK-gated, as is a conveniently inverted `R/W`. This signal is sent to the corresponding pin on the cartridge slot but is _**not** directly used by the RAM_, as being multiplexed calls for an _additional delay_ for the address lines to settle.
+
+The remaining gate is used to invert the `HIRES` signal for selecting the adequate bank of multiplexers.
+
+!!! note
+
+	In the v2 issue, this spare gate has a different purpose, creating the _**3.5 MHz** clock signal_ for the _TURBO_ option.
+
+#### Interrupt generation
+
 ### MUX
 
 <figure markdown>
