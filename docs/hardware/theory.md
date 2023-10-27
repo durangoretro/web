@@ -140,6 +140,15 @@ The remaining gate is used to invert the `HIRES` signal for selecting the adequa
 
 #### Interrupt generation
 
+The IRQ-generating circuit in Durango-X is designed around the _minimOS_ standard **250 Hz** periodic interrupt. For accurate timing, the `VA0` signal (768 kHz) is further divided by 3072 thanks to **`U14`** (74HC4040) and one NAND gate from `U8` (74HC132), generating a brief reset pulse (`/250HZ`) which is then inverted by another `U8` gate, then **stretched** via the `C8/R26` network, thus creating the **`ST250`** signal which both serves as a `U14` counter reset and, after a diode to turn it _open-collector_, as the main **`/IRQ`** generator for the 65C02, _without interfering other uses_ of this signal (_nanoLink_, cartridge etc).
+
+Check the [interrupt troubleshooting guide](irq.md) for extra information about this.
+
+!!! note
+
+	v2 issue has a somewhat faster system clock (1.75 MHz). Thus, `VA0` is more like **875 KHz**, so the division factor for the 74HC4040 becomes **3500** instead of 3072 _for the specified 250 Hz_. Being a much less nicer number in the binary sense, an 8-input NAND gate (74HC30) is used for generating `/250HZ` and half of `U29` (74HC139) is configured as an inverter for this pulse, then stretched in a similar way, although using one buffer from `U32` (74HC245) instead of a Schmitt-trigger gate.
+	Note that the _TURBO_ option does **not** affect the interrupt speed, as the counter is fed from `VA0`, which must run always at the same speed.
+
 ### MUX
 
 <figure markdown>
