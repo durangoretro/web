@@ -84,6 +84,10 @@ Depending on the current _video mode_, this display data follows different paths
 
 !!! note
 
+	_Dot clock_ on the v2 issue is **7 MHz** (the 1.75 MHz `SCLK` frequency times 4), allowing the display of **perfectly _square_ pixels** with an 1:1 aspect ratio.
+
+!!! note
+
 	Pull-up and pull-down resistors are used in a few U23 inputs, just in case `U227` is **not** installed (colour-only _Durango-S_ option). _These are not needed otherwise_, but won't hurn anyway.
 
 On the other hand, video data path in **colour** mode is somewhat less convoluted. Display data is latched via **`U124`** (74HC574) at `VCLK` rate. We're dealing with **_chunky_ 4 bits per pixel**, thus every byte contains _two pixels_ which must be serialized at the same rate via the **`U125`** (74HC157) multiplexer, which has a slightly faster _propagation time_ than the former IC. For **optimum picture quality**, `RV127` creates a slight delay (`DEV/ODD`) which may adjust the `Pixel Delay` between both nibbles. Finally, this 4 bpp stream (`XB`, `XR`, `XGL` and `XGH`) goes thru a dedicated XOR inverter (**`U126`**, 74HC86) in case the _Inverse video_ mode is enabled, creating the desired pixel stream lines (**`IB` for blue, `IR` for red, `IGL` and `IGH` for green**). _This stream is **not** gated_ as that will be done on the SCART section.
@@ -136,11 +140,11 @@ The remaining gate is used to invert the `HIRES` signal for selecting the adequa
 
 !!! note
 
-	In the v2 issue, this spare gate has a different purpose, creating the _**3.5 MHz** clock signal_ for the _TURBO_ option.
+	In the v2 issue, this spare gate has a different purpose, creating the _**3.5 MHz** clock signal_ for the _TURBO_ option, whereas the `HIRES` signal is inverted thru a _transistor_ `Q307`.
 
 #### Interrupt generation
 
-The IRQ-generating circuit in Durango-X is designed around the _minimOS_ standard **250 Hz** periodic interrupt. For accurate timing, the `VA0` signal (768 kHz) is further divided by 3072 thanks to **`U14`** (74HC4040) and one NAND gate from `U8` (74HC132), generating a brief reset pulse (`/250HZ`) which is then inverted by another `U8` gate, then **stretched** via the `C8/R26` network, thus creating the **`ST250`** signal which both serves as a `U14` counter reset and, after a diode to turn it _open-collector_, as the main **`/IRQ`** generator for the 65C02, _without interfering other uses_ of this signal (_nanoLink_, cartridge etc).
+The IRQ-generating circuit in Durango-X is designed around the _minimOS_ standard **250 Hz** periodic interrupt (**4 ms** period). For accurate timing, the `VA0` signal (768 kHz) is further divided by 3072 thanks to **`U14`** (74HC4040) and one NAND gate from `U8` (74HC132), generating a brief reset pulse (`/250HZ`) which is then inverted by another `U8` gate, then **stretched** via the `C8/R26` network, thus creating the **`ST250`** signal which both serves as a `U14` counter reset and, after a diode to turn it _open-collector/open-drain_, as the main **`/IRQ`** generator for the 65C02, _without interfering other uses_ of this signal (_nanoLink_, cartridge etc).
 
 Check the [interrupt troubleshooting guide](irq.md) for extra information about this.
 
@@ -148,6 +152,10 @@ Check the [interrupt troubleshooting guide](irq.md) for extra information about 
 
 	v2 issue has a somewhat faster system clock (1.75 MHz). Thus, `VA0` is more like **875 KHz**, so the division factor for the 74HC4040 becomes **3500** instead of 3072 _for the specified 250 Hz_. Being a much less nicer number in the binary sense, an 8-input NAND gate (74HC30) is used for generating `/250HZ` and half of `U29` (74HC139) is configured as an inverter for this pulse, then stretched in a similar way, although using one buffer from `U32` (74HC245) instead of a Schmitt-trigger gate.
 	Note that the _TURBO_ option does **not** affect the interrupt speed, as the counter is fed from `VA0`, which must run always at the same speed.
+
+!!! note
+
+	The **simplified**, [_Compact_ version of Durango](compact.md) _(under development)_, generates `ST250` thru a _flange detector_ from **`VA11`** which, despite its _somewhat irregular_ rhythm, does in the long term run at around the specified 250 Hz, although the 4 ms spacing is no longer guaranteed. This way, **`U14` is eliminated altogether**.
 
 ### MUX
 
