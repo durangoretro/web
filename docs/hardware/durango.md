@@ -16,6 +16,8 @@ For advanced information, check the [Theory of Operation](theory.md). If you alr
 * **Durango·S**: 128x128 pixel, [16-colour](palette.md) home computer
 * **Durango·R**: as above but displaying 256x256 _monochrome_ instead
 * **Durango·X**: full model, with both the ·S and ·R models video output _(software switchable)_
+* **Durango·C**: simplifed, reduced chip-count version of **Durango-X** _(under development)_
+* **Durango Pocket**: _handheld_ **2 MHz** version, although not ~~fully~~ compatible _(under development)_
 
 ## Basic Specs
 
@@ -35,9 +37,13 @@ Also available as options: composite video (greyscale/HIRES only), _Sync-on-Gree
 
 * 128 x 128 px. 4 bpp (256-raster, [16-colour GRgB fixed palette](palette.md), no restrictions) except in ·R model
 * 256 x 256 px. 1 bpp (monochrome) except in ·S model
-* Switchable greyscale mode (16 levels) except in ·R model and _Sync-on-Green_ option
+* Switchable greyscale mode (16 levels) except in ·R model and _Sync-on-Green/Component video_ options
 * Inverse Video mode (hardware)
 * Four 8 KiB screens software-switchable (screen 0 is shared with ZP, stack etc)
+
+!!! note
+
+	Built-in screen for _Pocket_ model to be determined.
 
 !!! warning
 
@@ -68,7 +74,7 @@ The _Durango project_ allows to build your computer under **several configuratio
 
 !!! note
 
-	Future revisions of the _Durango-X_ board will replace the _Sync-on-green_ option by a **Component video** output, which is both suitable for the _PVM monitors_ and more **modern TV sets**, lacking SCART socket.
+	Future revisions (v2 onwards) of the _Durango-X_ board will replace the _Sync-on-green_ option by a **Component video** output, which is both suitable for the _PVM monitors_ and more **modern TV sets**, lacking SCART socket.
 
 ### PAL encoder option
 
@@ -77,7 +83,7 @@ The _Durango project_ allows to build your computer under **several configuratio
 
 !!! bug
 
-	The **PAL encoder** option was an afterthought, thus _picture quality may be poor_ or, on some devices, may not display any colour at all. _This will be **deprecated** on revision 2 of the board_.
+	The **PAL encoder** option was an afterthought, thus _picture quality may be poor_ or, on some devices, may not display any colour at all. _This has been **deprecated** on revision 2 of the board_.
 	
 ### Second composite output option
 
