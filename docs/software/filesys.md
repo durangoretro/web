@@ -29,11 +29,11 @@ From the very first _sector_ (the leading 256 bytes would suffice) of a volume, 
 
 ### Volume location
 
-From the point of view of the storage device filesystem, the Durango-X volume is represented by the `durango.av` file in the **root directory** of any FAT-formatted device.
+From the point of view of the storage device filesystem, the Durango-X volume is represented by the `durango.av` file in the **root directory** of any FAT32-formatted device (valid with bootloader **v2.0** and beyond)
 
 !!! warning
 
-	Current _bootloader_ software does NOT check for any host filesystem, assuming the volume is **written from the very first block of the device**. In Linux, a `dd` command is suitable for _raw_ writing the volume onto the storage device.
+	Current _bootloader_ software (up to **v1.3**) does NOT check for any host filesystem, assuming the volume is **written from the _very first block_ of the device**. In Linux, a `dd` command is suitable for _raw_ writing the volume onto the storage device.
 
 !!! danger
 
@@ -41,11 +41,11 @@ From the point of view of the storage device filesystem, the Durango-X volume is
 
 !!! tip
 
-	Flashing the volume into the storage device _with the current software_ can be done in Linux like this:
+	Flashing the volume into the storage device _with the current bootloader software_ (up to v1.3) can be done in Linux like this:
 	
-	```dd if=path-to/durango.av of=/dev/your-device```
+	```dd if=path-to/durango.av of=/dev/_your-device_```
 	
-	_Take **extreme caution** when determining `your-device`, as any wrong choice will cause **data loss**_.
+	_Take **extreme caution** when determining _`your-device`_, as any wrong choice will cause **data loss**_.
 
 ## Header format
 
@@ -64,7 +64,7 @@ Much like the [ROM image](header.md) format, a simple 256-byte block must be pro
 |10+_n_+_m_|_220-n-m_|_usually_ $FF|_**padding**_|
 |230 ($E6)|8        |_User Field 2_|**8-char** string, _free for the user_|
 |238 ($EE)|8        |_User Field 1_|**8-char** string, _free for the user_|
-|246 ($F6)|2        |_Version_ (if applies)|_Little-endian_ 16-bit `%vvvvrrrrppbbbbbb`, where `v` is version number, `r` revision, `b` build and `p` phase (`%00`=alpha, `%01`=beta, `%10`=Release Candidate, `%11`=final).|
+|246 ($F6)|2        |_Version_ (if applies)|_Little-endian_ 16-bit `%vvvvrrrrppbbbbbb`, where `v` is version number, `r` revision, `b` build and `p` phase (`%00`=alpha, `%01`=beta, `%10`=Release Candidate, `%11`=final). _Optionally_ `%vvvvrrrrpphhbbbb`, where the whole revision number is a 6-bit number `%hhrrrr`.|
 |248 ($F8)|2        |_Time_        |Last modification time in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
 |250 ($FA)|2        |_Date_        |Last modification date in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
 |252 ($FC)|3        |**file size** |**Includes the 256-byte header**. _Cannot be over **16 MiB**_ in the current implementation; most likely _below 64 KiB_.|
@@ -77,6 +77,7 @@ In order not to depend on _file extensions_, the minimOS file systems adds a non
 |Signature|Size|Type|
 |---------|----|----|
 |`dX`     |< 64 KiB|executable [ROM image](header.md)|
+|`pX`     |< 24 KiB|_Pocket_ executable to be loaded into standard RAM **(under development)**|
 |`dA`     |< 16 MiB|generic file|
 |`dL`     |≤ 16 MiB|**free space**|
 |`dR`     |**8.5 KiB**|HIRES screen dump (256x256 1bpp)|
@@ -87,3 +88,4 @@ In order not to depend on _file extensions_, the minimOS file systems adds a non
 !!! note
 
 	_Uncompressed_ screen dumps include a **256-byte _empty_ leader**, in order to be _sector-aligned_.
+ 	_Compressed_ pictures aren't yes (as of v1.3) supported by the bootloader, and neither are _Pocket_ executables.
