@@ -153,7 +153,7 @@ Syntax and operation is the same as `LOAD`: use `$` for **Directory listing** or
 
 !!! tip
 
-	Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers.
+	Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers. Note that, in case _international character support_ is needed, CONIO is based in (a slightly modified) **ISO 8859-1** charset.
 
 !!! note
 
