@@ -147,13 +147,17 @@ to the BASIC prompt _without any LOAD attempt_.
 
 	If `LOAD` succeeds finding a file, **the program previously stored in RAM will be DELETED**. If a _Directory listing_ is requested via `$` or no matching file is found, the previous program will stay in RAM.
 
+!!! note
+
+	`LOAD` will actually "type" (without _echo_) the contents of the chosen file, as long as it's a [_generic_ file](filesys.md). No other check is done!
+
 ### `SAVE`
 
 Syntax and operation is the same as `LOAD`: use `$` for **Directory listing** or a **_complete_ filename** for saving, when prompted. _No parameters_.
 
 !!! tip
 
-	Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers. Note that, in case _international character support_ is needed, CONIO is based in (a slightly modified) **ISO 8859-1** charset.
+	Both `LOAD` and `SAVE` use **ASCII format** for easy interoperation with modern computers. Note that, in case _international character support_ is needed, CONIO is based on (a slightly modified) **ISO 8859-1** charset.
 
 !!! note
 
