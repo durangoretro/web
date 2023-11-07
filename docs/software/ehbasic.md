@@ -1,7 +1,7 @@
 # Durango-specific EhBASIC commands
 
 [**EhBASIC** from the late Lee Davidson](http://forum.6502.org/viewforum.php?f=5) is intended as a generic, _console-type_ BASIC interpreter for 6502 systems.
-In order to support _Durango-X_'s **graphic, colour and sound** capabilities, new commands have been added.
+In order to support _Durango-X_'s **graphic, colour and sound** capabilities, new commands have been added to the last available version (2.22).
 
 ## CONIO interface
 
@@ -9,9 +9,7 @@ The standalone EhBASIC interpreter for Durango-X is supplied with a suitable min
 [the minimOS Operating System](https://github.com/zuiko21/minimOS/tree/master/OS). There is similar CONIO support in
 [DurangoLib](https://github.com/durangoretro/DurangoLib/blob/main/asm/conio.s) C library.
 
-`CONIO` acts as a **terminal emulator**; for easier parsing, most _control codes_ are **single-byte**, thus the [standard CONIO features](conio.md) are accessible
-thru a mixture of **traditional ASCII, `bash` shortcut keys and ZX-Spectrum codes**. _All of them are accessible via standard `PRINT CHR$()` BASIC sentences_, but
-a few of them have beed granted new BASIC commands for convenience:
+`CONIO` acts as a **terminal emulator**; for easier parsing, most _control codes_ are **single-byte**, thus the [standard CONIO features](conio.md) are accessible thru a mixture of **traditional ASCII, `bash` shortcut keys and ZX-Spectrum codes**. _All of them are accessible via standard `PRINT CHR$()` BASIC sentences_, but a few of them have beed granted new BASIC commands for convenience:
 
 ### `CLS`
 
@@ -58,14 +56,17 @@ Sets video mode according to the following table:
 * `1`: colour mode, inverse video
 * `2`: HIRES mode, standard video (default mode in EhBASIC)
 * `3`: HIRES mode, inverse video
-* `4`: greyscale mode, standard video
-* `5`: greyscale mode, inverse video
 
-!!! bug
+!!! note
 
-	Values `4` and `5` (_greyscale_ mode) are **NOT yet accepted**.
+	Values `4` and `5`, originally intended for _greyscale_ mode, are **NOT supported** as that mode is deprecated.
+ 	When available, though, it could be set by `POKE`ing the appropriate value into the `$DF80` _video mode register_. You may use the BASIC command below _without_ the `OR 8` clause.
 
-Equivalent to `POKE $DF80, (PEEK($DF80) AND %00110000) OR ((n AND 3)<<6) OR (-8*(n<4))` _(...phew!)_
+Equivalent to `POKE $DF80, (PEEK($DF80) AND %00110000) OR ((n AND 3)<<6) OR 8` _(...phew!)_
+
+!!! tip
+
+	In case you need to control _Emilio's LED_ when fitted at **bit 2** of the _video mode register_ (`$DF80`), add ` OR 4` to the expression above to turn it **on** (the default syntax turns it _off_)
 
 ### `SCREEN n`
 
@@ -87,7 +88,11 @@ Equivalent to `POKE $DF80, (PEEK($DF80) AND %11000000) OR (n<<4) OR 8`
 
 Plays a note of pitch `p` (integer value 0...42, chromatic scale from F3 to B6) for `d`/50 seconds.
 
-In case a similar sentence is found on a _ZX-Spectrum_ programme, it must be rewritten in Durango-X EhBASIC as `BEEP d*50,p+7`
+In case a similar sentence is found on a _ZX-Spectrum_ programme, it must be rewritten in Durango-X EhBASIC as `BEEP d*50,p+7`.
+
+!!! warning
+
+	Interrupts are shut off while playing sounds, which may affect timing based on the _jiffy_ counter (`$206-$209`)
 
 ### `PAUSE n`
 
@@ -140,8 +145,7 @@ to the BASIC prompt _without any LOAD attempt_.
 
 !!! warning
 
-	If `LOAD` succeeds finding a file, **the program previously stored in RAM will be DELETED**. If a _Directory listing_ is requested via `$`
-	or no matching file is found, the previous program will stay in RAM.
+	If `LOAD` succeeds finding a file, **the program previously stored in RAM will be DELETED**. If a _Directory listing_ is requested via `$` or no matching file is found, the previous program will stay in RAM.
 
 ### `SAVE`
 
