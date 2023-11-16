@@ -44,24 +44,46 @@ A simple 256-byte block must be provided _in front_ of any ROM image in order to
 |Offset|Size (bytes)|Contents      |Description|
 |------|------------|--------------|-----------|
 |0     |1           |$00           |Magic number #1 (`NUL`)|
-|1     |2           |`dX`          |Signature (`dX`=Standard Durango-X ROM-image)|
-|3     |4           |`****`        |_**Reserved**_|
+|1     |2           |_see table below_|Signature|
+|3     |2           |16-bit pointer or `**` if unused|Loading address (for _Pocket_ format only)|
+|5     |2           |16-bit pointer or `**` if unused|Execution address (for _Pocket_ format only)|
 |7     |1           |$0D           |Magic number #2 (`CR`)|
 |8     |_n_         |_Filename_    |C-string with filename|
 |8+_n_ |1           |$00           |`NUL`-termination for the above|
 |9+_n_ |_m_         |_Comment_     |C-string with **optional** comment (_n_+_m_ ≤ **220** in current version)|
 |9+_n_+_m_|1        |$00           |`NUL`-termination for the above (**mandatory:** if no comment is present, _two_ `NUL`s are expected after _filename_)|
 |10+_n_+_m_|_220-n-m_|_usually_ $FF|_**padding**_|
-|230 ($E6)|8        |_User Field 2_|**8-char** string, usually library commit hash|
-|238 ($EE)|8        |_User Field 1_|**8-char** string, usually main code commit hash|
-|246 ($F6)|2        |_Version_     |_Little-endian_ 16-bit `%vvvvrrrrppbbbbbb`, where `v` is version number, `r` revision, `b` build and `p` phase (`%00`=alpha, `%01`=beta, `%10`=Release Candidate, `%11`=final)|
+|230 ($E6)|8        |_User Field 2_|**8-char** string, _free for the user_, usually library commit hash|
+|238 ($EE)|8        |_User Field 1_|**8-char** string, _free for the user_, usually main code commit hash|
+|246 ($F6)|2        |_Version_ (if applies)|_Little-endian_ 16-bit `%vvvvrrrrppbbbbbb`, where `v` is version number, `r` revision, `b` build and `p` phase (`%00`=alpha, `%01`=beta, `%10`=Release Candidate, `%11`=final). _Optionally_ `%vvvvrrrrpphhbbbb`, where the whole revision number is a 6-bit number `%hhrrrr`.|
 |248 ($F8)|2        |_Time_        |Last modification time in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
 |250 ($FA)|2        |_Date_        |Last modification date in [_FAT_ format](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Directory_entry)|
-|252 ($FC)|4        |**file size** |Includes the 256-byte header. _Unlikely to be over 64 KiB, the last two bytes may be used as **Magic numbers** as well ($00)._
+|252 ($FC)|3        |**file size** |**Includes the 256-byte header**. _Cannot be over **16 MiB**_ in the current implementation; most likely _below 64 KiB_.|
+|255 ($FF)|1		|$00           |Magic number #3 (`NUL`)|
 
 !!! note
 
 	**additional _metadata_** may be included just before the _user field 2_ (offset < 230), as long as a _tighter_ limit is set to _filename+comment_ total length.
+
+#### Signatures list
+
+In order not to depend on _file extensions_, the [minimOS file system](filesys.md) adds a non-mutable file signature which describes the **type of file** stored afterwards. _**Currently supported** signatures are shown in the table below:_
+
+|Signature|Size|Type|
+|---------|----|----|
+|`dX`     |< 64 KiB|executable [ROM image](header.md)|
+|`pX`     |< 24 KiB|_Pocket_ executable to be loaded into standard RAM **(under development)**|
+|`dA`     |< 16 MiB|generic file|
+|`dL`     |< 16 MiB|**free space**|
+|`dR`     |**8.5 KiB**|HIRES screen dump (256x256 1bpp)|
+|`dS`     |**8.5 KiB**|Colour screen dump (128x128 [4bpp](../hardware/palette.md))|
+|`dr`     |< 8.5 KiB|_RLE-compressed_ HIRES screen dump (256x256 1bpp)|
+|`ds`     |< 8.5 KiB|_RLE-compressed_ Colour screen dump (128x128 [4bpp](../hardware/palette.md))|
+
+!!! note
+
+	_Uncompressed_ screen dumps include a **256-byte _empty_ leader**, in order to be _sector-aligned_.
+ 	_Compressed_ pictures aren't yes (as of v2.0) supported by the bootloader, and neither are _Pocket_ executables.
 
 ### Footer format
 
@@ -83,6 +105,10 @@ In order to be fully compliant with the [Development Cartridge](../hardware/dev_
 !!! note
 
 	While not absolutely necessary, it is **highly recommended** that the interrupt _hard_ vectors point to `JMP ($0200)` (for **IRQ**) and `JMP($0202)` (for **NMI**), for ease of _integration with debuggers_. In this case, the startup code **must** fill the RAM vectors at `$0200-$0203` to make them point to the supplied **IRQ and NMI service routines** (or to a stored `RTI` opcode, if not used).
+
+!!! tip
+
+	_Pocket_ format cannot supply the `IRQ` and `NMI` _hard_ vectors, thus relies on setting the **standard interrupt vectors** at `$0200` and `$0202` as described above. _The footer is **not** needed for this format_.
 
 ## Using ROM images
 
