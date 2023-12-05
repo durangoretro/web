@@ -14,7 +14,7 @@ This is a **general index** of the _whole **DurangoRetro.com** website_. Most im
 ## Getting Started
 
 1. Running Durango Software
-	1.On actual hardware
+	1. On actual hardware
 		1. ROM Cartridges
 		1. ROM images on SD card
 		1. _Pocket_ executables on SD card
@@ -23,6 +23,6 @@ This is a **general index** of the _whole **DurangoRetro.com** website_. Most im
 
 ## Building the Durango·X computer
 
-	1. PCB manufacturing
-	1. Assembly guide (computer)
+1. PCB manufacturing
+1. Assembly guide (computer)
 
