@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Hardware](../../hardware.md) > [Peripherals](../interfaces.md) > **IOx**
+___
 # IOx expansion bus
 
 ## Description
