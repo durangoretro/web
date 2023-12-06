@@ -15,12 +15,12 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 ## [Getting Started](started.md)
 
 1. [**Running _Durango_ Software**](start/running.md)
-	[1. On actual hardware](start/run/hard.md)
+	1. [On actual hardware](start/run/hard.md)
 		1. ROM Cartridges
 		1. ROM images on SD card
 		1. _Pocket_ executables on SD card
 		1. _Pocket_ executables from Raspberry Pi
-	[1. Emulation](start/run/emulation.md)
+	1. [Emulation](start/run/emulation.md)
     	1. _Perdita_
         1. MAME support
 
