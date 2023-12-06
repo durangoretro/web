@@ -30,6 +30,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 		1. [Building options](start/build/computer/options.md)
 		1. [BOM](start/build/computer/bom.md)
 		1. [Step by step](start/build/computer/steps.md)
+		1. [Video Output Calibration](start/build/computer/vdu_calib.md)
 		1. [Troubleshooting](start/build/computer/troubleshoot.md)
 	1. [Assembly guide **(keyboard/gamepads interface)**](start/build/keyboard.md)
 		1. [Building options](start/build/kbd/options.md)
@@ -54,8 +55,9 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 		1. Overview
 		1. Specs and options
     		1. v1 and improvements for v2
+			1. [Options](hard/dx/options.md)
     		1. [Palette](hard/dx/palette.md)
-    		1. [Options](hard/dx/options.md)
+  			1. [IRQ generation](hard/dx/irq.md)
         1. [Theory of Operation](hard/dx/theory.md)
     	1. _Hacks_
     		1. Overclocking
