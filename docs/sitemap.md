@@ -144,6 +144,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
         1. [CLI tools](dev/tool/cli.md)
     1. DurangoCode
     1. Docker
+	1. [VSP](dev/tool/vsp.md)
     1. [_nanoBoot_ server](dev/tool/nanoboot.md)
 
 1. [**_In situ_ tools**](dev/insitu.md)
