@@ -61,7 +61,8 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
     		1. Overclocking
         	1. _**Power**Durango_
     1. [Cartridges](hard/cartridges.md)
-    	1. [mini-cartridge](hard/cart/mini.md)
+		1. [Overview & pinout](hard/cart/pinout.md)
+	 	1. [mini-cartridge](hard/cart/mini.md)
     	1. [_devCart_](hard/cart/dev.md)
 			1. Overview
     		1. _ShadowRAM_
