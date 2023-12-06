@@ -1,3 +1,5 @@
+[Home](../../../index.md) > [Getting Started](../../../started.md) > [Building](../../building.md) > [Durango·X](../durango.md) > **Calibrating**
+___
 # Video Output Calibration
 
 The _Video Circuitry_ of the **Durango-X** home computer has _very tight_ timing. Thus, some **adjustment** is needed in order to cope with _component tolerances_, by means of a few **variable resistors** which, in turn, generate _slight_ delays for some critical signals, in an attempt to match their timing.
