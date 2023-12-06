@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Getting Started](../../started.md) > [Running](../running.md) > **Emulation**
+___
 # Perdita
 
 ## Description and features
