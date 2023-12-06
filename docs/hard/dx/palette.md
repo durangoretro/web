@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Hardware](../../hardware.md) > [Durango](../arch.md) > [Durango·X](../durango.md) > **Palette**
+___
 # Durango colour palette
 
 The _Durango-X_ and _Durango-S_ colour computers have a **colour display mode** with **128 x 128 pixels**. Using _4 bits per pixel_, it allows the
