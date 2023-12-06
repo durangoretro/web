@@ -114,7 +114,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 
 1. [**Operating Systems**](soft/os.md)
 	1. BIOS/BDOS library
-		1. [CONIO](soft/bios/conio.md)
+		1. [CONIO](soft/os/conio.md)
 	1. _minimOS_
 	1. DOS/65
 
