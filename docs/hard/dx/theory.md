@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Hardware](../../hardware.md) > [Durango](../arch.md) > [Durango·X](../durango.md) > **Theory**
+___
 # Theory of Operation
 
 This document explains the way **Durango-X** is designed. Since one of its goals is the use of _standard 74xx logic circuits_, the [schematic]([https://](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)) may appear pretty complex at first sight, but it's easily understood with the help of this guide.
