@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Software](../../software.md) > [Operating Systems](../os.md) > BIOS/BDOS > **CONIO**
+___
 # The CONIO terminal emulator
 
 Although the **Durango-X** computer is intended to use _ad hoc_ software in standalone cartridges, without the need
