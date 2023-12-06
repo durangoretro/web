@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Hardware](../../hardware.md) > [Durango](../arch.md) > [Cartridges](../cartridges.md) > **Pinout**
+___
 # Durango-X cartridge pinout
 
 ## Connection to the computer
