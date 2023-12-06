@@ -1,3 +1,5 @@
+[Home](../index.md) > [Software](../software.md) > **Games**
+___
 # Games
 
 Here you can download ROM images with games, and their Source Code.
