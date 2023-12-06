@@ -1,3 +1,5 @@
+[Home](../../index.md) > [Hardware](../../hardware.md) > [Durango](../arch.md) > [Durango·X](../durango.md) > **IRQ**
+___
 # Durango-X IRQ generation
 
 ## Caveats
