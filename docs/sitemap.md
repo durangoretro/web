@@ -1,8 +1,8 @@
 # Site Map
 
-This is a **general index** of the _whole **DurangoRetro.com** website_. Most important pages can be accessed via the _Navigation menu_ at the top, as well.
+This is a **general index** of the _whole [**DurangoRetro.com**](index.md) website_. Most important pages can be accessed via the _Navigation menu_ at the top, as well.
 
-## Home
+## [Home](index.md)
 
 ## About
 
