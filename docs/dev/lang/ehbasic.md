@@ -1,4 +1,4 @@
-[Home](../../index.md) > [Development](../../tools.md) > [Languages](../language.md) > **EhBASIC**
+[Home](../../index.md) > [Development](../../tools.md) > [Languages](../language.md) > BASIC > **EhBASIC**
 ___
 # Durango-specific EhBASIC commands
 
