@@ -29,6 +29,7 @@ nav:
     - Future Projects: other/future.md
  - Community: community.md
  - Contribute: https://github.com/durangoretro/
+ - SITE MAP: sitemap.md
 extra:
   social:
     - icon: fontawesome/brands/github 
