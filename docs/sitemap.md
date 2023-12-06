@@ -53,8 +53,8 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. [**Durango·X** SBC](hard/durango.md)
 		1. Overview
 		1. Specs and options
-    		1. v1
-    		1. Improvements for v2
+    		1. v1 and improvements for v2
+    		1. [Palette](hard/dx/palette.md)
     		1. [Options](hard/dx/options.md)
         1. [Theory of Operation](hard/dx/theory.md)
     	1. _Hacks_
