@@ -46,11 +46,9 @@ make
 
 	If you want to build Perdita for windows, you need to use _mingw32_ to generate the `.exe`
 	file, with the following `make` goal:
-
-
-```bash
-make perdita.zip # Only for generating a Windows executable
-```
+	```bash
+	make perdita.zip # Only for generating a Windows executable
+	```
 
 !!! note "Generate Perdita using Docker"
 
@@ -93,26 +91,26 @@ Also, you can execute some commands using functions keys:
 * ```F10```: Load keystrokes file (`keystrokes.txt`), emulating each keystroke
 _every 25 interrupts_ (1/10 second), or 50 interrupts in case of the `ENTER` key.
 
-## Virtual Serial Port (VSP)
+### Virtual Serial Port (VSP)
 
 As a valuable debugging tool, a _Virtual Serial Port_ is provided. It allows communication
 with the host environment thru a predefined I/O device occupying two addresses:
 `$DF93` for data exchange and `$DF94` for [configuration](../../dev/tool/vsp.md).
 
-## Keyboard emulation
+### Keyboard emulation
 
 _Perdita_ includes two kind of keyboards: an "intelligent" PASK-like device
 (ASCII character received at `$DF9A`) and the Minstrel-like 40-key keyboard
 provided as standard (at `$DF9B`). _The latter can be disabled with the `-m` option
 for debugging purposes_.
 
-## Gamepad emulation
+### Gamepad emulation
 
 Two _NES-type_ gamepads are emulated into the standard I/O addresses `$DF9C` and `$DF9D`,
 using the standard protocol. If no physical gamepads are available, they can be
 emulated by host keystrokes via the `-g` option.
 
-# MAME
+## MAME
 
 MAME is a popular arcade/retro-system emulator. Currently, there is
 _no_ support for Durango-X in MAME, but contributions are welcome!
