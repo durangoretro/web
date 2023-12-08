@@ -11,11 +11,11 @@ Since the _Durango·X_ computer has **no built-in ROM** or any kind of _firmware
 
 There are several types of available cartridges
 
-1. [mini-cartridge](hard/cart/mini.md) allows simple, fast execution of stored software,
+1. [mini-cartridge](hard/cart/mini.md) allows simple, **instant-on** execution of stored software,
 much like a classic console cartridge. _**Note**: you may need an EPROM/EEPROM/Flash programmer_
 in order to store the software (The _MiniPro TL866_ is a popular choice).
 1. [_Development Cartridge_](hard/cart/dev.md) includes 32 KiB of RAM which can _emulate ROM_,
-allowing the use of **[ROM images]()
+allowing the use of **[ROM images](../../soft/sys/rom.md)
 _conveniently stored in an SD card_**. You still need at least an EPROM/EEPROM/Flash memory chip
 with a [suitable bootloader](../../dev/6502/multiboot.md) installed, though.
 1. _ShadowRAM_ is a more elegant, compact version of the _Development Cartridge_,
