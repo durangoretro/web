@@ -106,7 +106,7 @@ to the left and right sides of the picture, although most of the times it must b
 _compromise_ setting.
 
 Technically speaking, this puts some delay **on the video stream itself**, thus
-too much of a setting _may impair picture sharpness_ or, most likely, create some gliches.
+too much of a setting _may impair picture sharpness_ or, most likely, create some glitches.
 
 <figure markdown>
 ![HIRES Delay OK](../../../assets/img/hires-ok.png)
