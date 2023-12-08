@@ -137,3 +137,4 @@ until it warms up.</figcaption>
 	The _Durango-X_ screen is **almost square** (about 6:5 _aspect ratio_),
 	so there's a lot of margin both sides. By design, the image is slightly
 	off-centre _towards the right_.
+	_v2 issue_, however, displays practically **square pixels**, being a bit better centred.
