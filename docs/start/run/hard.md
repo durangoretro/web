@@ -76,6 +76,7 @@ A `.dux` _file extension_ is recommended for **ROM images** in the host file sys
 
 The aforementioned **Development cartridge** provides all that is needed to get
 _ROM images_ up and running:
+
 - 32 KiB of **Shadow** RAM.
 - A suitable (albeit a bit _slow_ at ~3.4 KiB/s) **SD card** interface.
 
