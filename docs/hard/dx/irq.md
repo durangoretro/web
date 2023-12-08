@@ -66,7 +66,7 @@ the displayed pulse is stretched by probing the RC network</figcaption>
 	The IRQ circuit was redesigned in the _v2_ issue; the functionality of `U8`
 	has been replaced by spare gates from **`U32`** (74HC245) which, in case it's
 	the HC**T** version, will **shorten** the IRQ pulse instead; for correction,
-	_`R26` and `C8` still operate the same way`.
+	_`R26` and `C8` still operate the same way_.
 
 ### Short interrupt pulses
 
