@@ -25,6 +25,12 @@ Before any further investigation, a **visual inspection** may be helpful. Look f
 	[Theory of Operation](../../../hard/dx/theory.md), although it's
 	not really needed for troubleshooting.
 
+!!! note "v2 changes"
+
+	These instructions are intended for the **v1 issue** of Durango·X. For the _v2_,
+	replace all references to `U8` (74HC132), using **`U32` instead** (74HC245)
+	and follow any particular notes added.
+
 ## No signs of life (no LEDs nor picture)
 
 Check **power supply** and power _switch_, if fitted. Measuring the voltage across
@@ -49,6 +55,12 @@ Suspect these chips in case of failure. Those signals should show up (inverted)
 at **U22 pins 11 and 14**, respectively.
 * If an oscilloscope is available, look for a valid `CSYNC` signal at **U23 pin 6** --
 or just _some activity_, near (but _not quite at_) 5 volts.
+
+!!! note "v2 changes"
+
+	The updated values are:
+	- `U15` pin 10: **28 MHz** instead of 24.5.
+	- `U15` pin 15 (_when wrong_): **~13.67 kHz** instead of 12.
 
 If all of the above signals look OK, it might be a problem in the _analogue_ section
 of the video outpuct circuit. Use a multimeter to check the following voltages
@@ -127,9 +139,15 @@ a split second and then become (and **stay**) high_.
 	* If `RESET` button makes no effect: suspect **U8** (74HC132).
 		* In any case, if while holding `RESET` the `ERROR` LED does NOT stay lit:
 		suspect **U8** (74HC132) or **U12**(74HC74).
-* If an oscilloscope or a _good_ multimeter is available, check for a **~1.5 MHz** signal at `VCLK` (**U1** _CPU_ pin 37). If no good signal there: suspect  **U16** (74HC02), perhaps **U15** (74HC4040).
-* Try another cartridge and/or **U2** _SRAM_ (displayed pattern is likely to change between different SRAM pieces). _Running without a **valid** cartridge may display similar symptoms_.
-* **U1** _65C02 CPU_ might be dead, too. Look for an irregular signal at **U1** _CPU_ pin 7, **around 450 kHz** (will vary widely) and, if possible, **activity at _address_ pins** (9-20 and 22-25), especially the _lowest_ ones
+* If an oscilloscope or a _good_ multimeter is available, check for a **~1.5 MHz** signal
+at `VCLK` (**U1** _CPU_ pin 37). If no good signal there: suspect  **U16** (74HC02),
+perhaps **U15** (74HC4040).
+* Try another cartridge and/or **U2** _SRAM_ (displayed pattern is likely to change
+between different SRAM pieces). _Running without a **valid** cartridge may display
+similar symptoms_.
+* **U1** _65C02 CPU_ might be dead, too. Look for an irregular signal at **U1** _CPU_
+pin 7, **around 450 kHz** (will vary widely) and, if possible, **activity
+at _address_ pins** (9-20 and 22-25), especially the _lowest_ ones.
 * If of the above looks OK: suspect **U9** (74HC00). Check **U6** (74HC157) as well.
 
 ## Erratic behaviour (LEDs flashing, garbage on screen, chirpy sounds...)
@@ -138,7 +156,8 @@ Suspect **U10** (74HC139)
 
 ## Software appears to start up, but no keyboard of gamepad effect at all. IRQ test fails.
 
-Check `ERROR` LED. If lit: suspect **U12** (74HC74). Otherwise suspect **U8** (74HC132) or **U14** (74HC4040)
+Check `ERROR` LED. If lit: suspect **U12** (74HC74). Otherwise suspect **U8**
+(74HC132) or **U14** (74HC4040)
 
 ## Poor/no keyboard/gamepad response and/or erratic timing on some software
 
