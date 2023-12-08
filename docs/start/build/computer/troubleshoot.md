@@ -56,57 +56,77 @@ of the video outpuct circuit. Use a multimeter to check the following voltages
 and will certainly be dependent of the actual _Power Supply voltage_, but any
 deviation **over ~10%** is suspicious).
 
-* First of all, verify **R19** (one pin will carry a valid 5 Vpp `CSYNC` signal while the other should stay around **1 volt**.
+* First of all, verify **R19** (one pin will carry a valid 5 Vpp `CSYNC` signal
+while the other should stay around **1 volt**.
 * **5 Volts** between **C4**'s pins; check this and the _power supply_ otherwise.
 * **1.6 Volts** at the _base_ (centre pin) of **Q4**; if not, suspect **R17, R18 or Q4**.
-* **1 Volt** at the _emitter_ (right pin with the _flat_ side towards you) of **Q4**; if not, and the above is correct, suspect **Q4 or R21**.
-* **3 - 3.7 Volts** at the _base_ (centre pin) of **Q5** (actual value depends on _overall picture brightness_); if not, suspect **R16 or Q5**. _This very same voltage should show up at the **collector** of Q4, leftmost pin_, as they're interconnected.
-* **2.3 - 3 Volts** at the _emitter_ (right pin with the _flat_ side towards you) of **Q5** (actually _~0.7 V below_ the above one); if not, suspect **Q5, R30 or C5** (and, if the _second composite output_ is mounted, **R31 and C9** as well).
+* **1 Volt** at the _emitter_ (right pin with the _flat_ side towards you) of **Q4**;
+if not, and the above is correct, suspect **Q4 or R21**.
+* **3 - 3.7 Volts** at the _base_ (centre pin) of **Q5** (actual value depends
+on _overall picture brightness_); if not, suspect **R16 or Q5**._This very same
+voltage should show up at the **collector** of Q4, leftmost pin_, as they're interconnected.
+* **2.3 - 3 Volts** at the _emitter_ (right pin with the _flat_ side towards you)
+of **Q5** (actually _~0.7 V below_ the above one); if not, suspect **Q5, R30 or C5**
+(and, if the _second composite output_ is mounted, **R31 and C9** as well).
 
 ## Monitor detects valid signal, but screen is black
 
 !!! note
 
-	Lack of image (but good sync signals) is _likely_ to be a fault on some of the following items but, if nothing seems to fix the problem, check **U2 _SRAM_ and U6** as well.
-	
-Check logic level at **U321 pin 11** for currently set video mode: "1" (~5 V) for HIRES, "0" for colour. If this pin lacks a _stable_ value, suspect **U428 or U321**. Once the current _video mode_ is determined, check the following:
+	Lack of image (but good sync signals) is _likely_ to be a fault on some of the
+	following items but, if nothing seems to fix the problem, check **U2 _SRAM_ and U6** as well.
+
+Check logic level at **U321 pin 11** for currently set video mode: "1" (~5 V)
+for HIRES, "0" for colour. If this pin lacks a _stable_ value, suspect **U428 or U321**.
+Once the current _video mode_ is determined, check the following:
 
 ### HIRES mode
 
-_After checking **R220**_ in the very first place, look for activity at the following pins, preferably **in this order**:
+_After checking **R220**_ in the very first place, look for activity at the
+following pins, preferably **in this order**:
 
 * **~6.1 MHz** signal at **U16 pin 9** (suspect **U15**) and **U224 pin 7** (suspect **U16**)
 * **767 kHz** _square_ wave at **U16 pin 5** (suspect **U15**) and **U321 pin 13** (suspect **U16**)
 * Same **767 kHz** at **U22 pin 9** (suspect **U321**)
-* **U321 pin 3**, like `CSYNC` but quite more symmetric, _near 2.6 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
+* **U321 pin 3**, like `CSYNC` but quite more symmetric, _near 2.6 Volts_
+(suspect **U16**, maybe **U15 and/or U19**)
 * **U22 pin 4**, like the above (suspect **U321**, maybe **U428**)
 * **U227 pin 10**, again like the previous signal (suspect **U22**)
-* **767 kHz** _asymmetric_ signal at **U224 pin 15**, maybe measuring _near 4.7 Volts_ (suspect **U227 or U15**)
+* **767 kHz** _asymmetric_ signal at **U224 pin 15**, maybe measuring _near 4.7 Volts_
+(suspect **U227 or U15**)
 * **U23 pin 9** (suspect **U224** or _R824_ if fitted)
 * **U227 pin 9** (suspect **U23 or RV231**)
-* **U23 pin 12** (suspect **U227** or _R825_ if fitted) and **pin 11** (U23 itself or _R220_ is to blame)
+* **U23 pin 12** (suspect **U227** or _R825_ if fitted) and **pin 11**
+(U23 itself or _R220_ is to blame)
 
 ### Colour mode
 
 _After checking **R107-114**_ in the very first place, look for activity at the following pins:
 
-* **~1.5 MHz** _square_ wave at **U124 pin 11** and **U321 pin 14** (suspect **U16** or even **U15**)
+* **~1.5 MHz** _square_ wave at **U124 pin 11** and **U321 pin 14**
+(suspect **U16** or even **U15**)
 * Same signal at **U22 pin 9** (suspect **U321**)
-* **U321 pin 5**, like `CSYNC` but quite more symmetric, _near 2.6 Volts_ (suspect **U16**, maybe **U15 and/or U19**)
+* **U321 pin 5**, like `CSYNC` but quite more symmetric, _near 2.6 Volts_
+(suspect **U16**, maybe **U15 and/or U19**)
 * **U22 pin 5**, like the above (suspect **U321**)
 * **U127 pin 19**, again like the previous signal (suspect **U22 or RV128**)
-* **U124 pins 12-19** should show activity in _some_ of them, unless a completely blank screen is on display -- powering up _without_ cartridge should create a **random image** in case of doubt, ideal for this test.
+* **U124 pins 12-19** should show activity in _some_ of them, unless a completely
+blank screen is on display -- powering up _without_ cartridge should create
+a **random image** in case of doubt, adequate for this test.
 * Similar but somewhat faster activity at **U126 pins 1, 4, 9 & 12** (suspect **U125**)
 * Pretty much the same at **U127 pins 2-9** (suspect **U126**)
 * A similar kind of signal, but _interrupted_ every ~64 µs, should show up at **U127 pins 11-18**.
 
 ## Garbage is displayed, but no further activity
 
-* Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should go low for a split second and then become (and **stay**) high_.
-	* If it doesn't, but the computer operates normally after pressing the `RESET` button: suspect **C1**, perhaps **R3**.
+* Check `/RESET` signal (**U1** _CPU_ pin 40), upon powerup _should go low for
+a split second and then become (and **stay**) high_.
+	* If it doesn't, but the computer operates normally after pressing the `RESET` button:
+	suspect **C1**, perhaps **R3**.
 	* If it stays _low_ all the time: suspect **U8** (74HC132) and/or **C1**.
 	* If `RESET` button makes no effect: suspect **U8** (74HC132).
-		* In any case, if while holding `RESET` the `ERROR` LED does NOT stay lit: suspect **U8** (74HC132) or **U12**(74HC74).
+		* In any case, if while holding `RESET` the `ERROR` LED does NOT stay lit:
+		suspect **U8** (74HC132) or **U12**(74HC74).
 * If an oscilloscope or a _good_ multimeter is available, check for a **~1.5 MHz** signal at `VCLK` (**U1** _CPU_ pin 37). If no good signal there: suspect  **U16** (74HC02), perhaps **U15** (74HC4040).
 * Try another cartridge and/or **U2** _SRAM_ (displayed pattern is likely to change between different SRAM pieces). _Running without a **valid** cartridge may display similar symptoms_.
 * **U1** _65C02 CPU_ might be dead, too. Look for an irregular signal at **U1** _CPU_ pin 7, **around 450 kHz** (will vary widely) and, if possible, **activity at _address_ pins** (9-20 and 22-25), especially the _lowest_ ones
@@ -154,4 +174,4 @@ As the timing of the video circuitry is _very tight_, some adjustments have been
 
 !!! note
 
-	Some cartridges may include **custim sound hardware**. If so, check **D3** or try another sound-enabled cartridge.
+	Some cartridges may include **custom sound hardware**. If so, check **D3** or try another sound-enabled cartridge.
