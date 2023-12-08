@@ -36,9 +36,9 @@ libraries needed to develop new software using modern tools like Docker images o
 [enjoy the already made Durango software](start/running.md),
 with or without an actual Durango computer!
 
-Want to enjoy all of this _right now_? [Wait no more!](started.md)
+### Want to enjoy all of this _right now_? [Wait no more!](started.md)
 
-Any questions? [Read the FAQ](faq.md).
+### Any questions? [Read the FAQ](faq.md).
 
 ---
 This project is made by [the Durango Computer Team](about.md) with the collaboration of
