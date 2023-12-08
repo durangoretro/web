@@ -6,11 +6,12 @@ hide:
 ___
 # Troubleshooting guide
 
-Since the **Durango-X** computer is based on off-the-shelf components, it's a _rather complex_ circuit.
-On the other hand, every needed function can be clearly located into specific components, _A gazillion things can go wrong_,
-of course, but with some method and a few observations, any possible fault may be figured out easily. A **multimeter** is
-_essential_ for basic probing; an **oscilloscope** (nothing especially fancy) will be helpful, but not absolutely necessary.
-A **logic probe** can be quite useful, too.
+Since the **Durango-X** computer is based on off-the-shelf components, it's a
+_rather complex_ circuit. On the other hand, every needed function can be clearly
+located into specific components, _A gazillion things can go wrong_, of course,
+but with some method and a few observations, any possible fault may be easily figured out.
+A **multimeter** is _essential_ for basic probing; an **oscilloscope** (nothing especially fancy)
+will be helpful, but not absolutely necessary. A **logic probe** can be quite useful, too.
 
 Before any further investigation, a **visual inspection** may be helpful. Look for:
 
@@ -20,25 +21,40 @@ Before any further investigation, a **visual inspection** may be helpful. Look f
 
 !!! tip
 
-	For better understanding of this document, you may want to have a look at the [Theory of Operation](hardware/theory.md), although it's not really needed for troubleshooting.
+	For better understanding of this document, you may want to have a look at the
+	[Theory of Operation](../../../hard/dx/theory.md), although it's
+	not really needed for troubleshooting.
 
 ## No signs of life (no LEDs nor picture)
 
-Check **power supply** and power _switch_, if fitted. Measuring the voltage across the _power pins_ of any IC (_usually_ 14/7,
-16/8, 20/10 or 28/14 for +/-) should ideally read out **between 4.75 and 5.25 volts**, although it should be fine with voltages
+Check **power supply** and power _switch_, if fitted. Measuring the voltage across
+the _power pins_ of any IC (_usually_ 14/7, 16/8, 20/10 or 28/14 for +/-) should ideally
+read out **between 4.75 and 5.25 volts**, although it should be fine with voltages
 _as low as 4.5 V_ (prototypes have been running OK at a mere 4.25 V, even less!).
 
-If measured voltage is way too low, and the power supply is trusted, check _resistance_ between the power pins (being careful with polarity!). Because of capacitors charging up, you won't get an instant reading; but it should _asymptotically_ lead to around **9-10 kOhm**. Any _unusually low_ value might be caused, in rare cases, by **C7** or **C6**.
+If measured voltage is way too low, and the power supply is trusted, check _resistance_
+between the power pins (being careful with your meter's polarity!). Because of capacitors
+charging up, you won't get an instant reading; but it should _asymptotically_ lead to around **9-10 kOhm**. Any _unusually low_ value might be caused, in rare cases, by **C7** or **C6**.
 
 ## Power LED lights up, but no sound or picture
 
-* If an oscilloscope or a _very good_ multimeter is available, check for a **~24.5 MHz** signal at **U15 pin 10** (74HC4040). If no good signal there: suspect **X1**.
-* If there is, check for a somewhat asymmetric **~15.7 kHz** signal at **U15 pin 15**. If not: suspect **U15**. If frequency is _exactly 12 kHz_: suspect **U17** (74HC21) as well.
-* Check for a _quite asymmetric_ **~50 Hz** signal at **U19 pin 12**. If not: suspect **U19** but if _more like 30.6 Hz_: suspect **U17** too.
-* Check for **~15.7 kHz** at **U18 pin 6** and for **~50 Hz** at **U20 pin 6**. Suspect these chips in case of failure. Those signals should show up (inverted) at **U22 pins 11 and 14**, respectively.
-* If an oscilloscope is available, look for a valid `CSYNC` signal at **U23 pin 6** -- or just _some activity_, near (but _not quite at_) 5 volts.
+* If an oscilloscope or a _very good_ multimeter is available, check for a **~24.5 MHz**
+signal at **U15 pin 10** (74HC4040). If no good signal there: suspect **X1**.
+* If there is, check for a somewhat asymmetric **~15.7 kHz** signal at **U15 pin 15**.
+If not: suspect **U15**. If frequency is _exactly 12 kHz_: suspect **U17** (74HC21) as well.
+* Check for a _quite asymmetric_ **~50 Hz** signal at **U19 pin 12**. If not:
+suspect **U19** but if _more like 30.6 Hz_: suspect **U17** too.
+* Check for **~15.7 kHz** at **U18 pin 6** and for **~50 Hz** at **U20 pin 6**.
+Suspect these chips in case of failure. Those signals should show up (inverted)
+at **U22 pins 11 and 14**, respectively.
+* If an oscilloscope is available, look for a valid `CSYNC` signal at **U23 pin 6** --
+or just _some activity_, near (but _not quite at_) 5 volts.
 
-If all of the above signals look OK, it might be a problem in the _analogue_ section of the video outpuct circuit. Use a multimeter to check the following voltages (all referenced to **GND**). _They do not need to match **exactly** the specified values_ and will certainly be dependent of the actual _Power Supply voltage_, but any deviation **over ~10%** is suspicious).
+If all of the above signals look OK, it might be a problem in the _analogue_ section
+of the video outpuct circuit. Use a multimeter to check the following voltages
+(all referenced to **GND**). _They do not need to match **exactly** the specified values_
+and will certainly be dependent of the actual _Power Supply voltage_, but any
+deviation **over ~10%** is suspicious).
 
 * First of all, verify **R19** (one pin will carry a valid 5 Vpp `CSYNC` signal while the other should stay around **1 volt**.
 * **5 Volts** between **C4**'s pins; check this and the _power supply_ otherwise.
