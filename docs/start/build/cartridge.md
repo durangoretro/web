@@ -23,7 +23,8 @@ suitable for _larger bootloaders_ (32 KiB instead of 16).
 1. [Bankswitching](hard/cart/banks.md) allows **multiple ROM images** on a single cartridge which
 may be switched via software (128K-1M) or the `RESET` button (multi-cartridge).
 1. [Riser boards](hard/cart/riser.md) add extra capabilities which might be built in
-_custom cartridges_, like **enhanced sound output**.
+_custom cartridges_, like **enhanced sound output**. _You still need another kind of cartridge
+(loaded with the desired [software](../../software.md) plugged into the riser's top slot_.
 
 
 ## [BOM](kbd/bom.md)
