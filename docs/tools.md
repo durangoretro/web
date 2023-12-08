@@ -21,12 +21,12 @@ Some of the _programming languages_ that can be used to create Durango software:
 
 You can use this tools in a modern computer for putting together your work:
 
-- Rescomp
+- [Rescomp](dev/tool/rescomp.md)
 - Durango Imager
 	- [GUI utility](dev/tool/gui.md)
 	- [CLI tools](dev/tool/cli.md)
-- DurangoCode
-- Docker
+- [DurangoCode](dev/tool/durangocode.md)
+- [Docker](dev/tool/docker.md)
 - [VSP](dev/tool/vsp.md)
 - [_nanoBoot_ server](dev/tool/nanoboot.md)
 

@@ -115,6 +115,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. Firmware library
 		1. [BIOS](soft/os/bios.md)
 			1. [CONIO](soft/os/conio.md)
+			1. [minimOS charset](soft/os/charset.md)
 		1. [BDOS](soft/os/bdos.md)
 	1. _minimOS_
 	1. DOS/65
@@ -135,6 +136,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. Assembly
 	1. BASIC
 		1. [EhBASIC](dev/lang/ehbasic.md)
+			-[Storage device drivers](drv.md)
 		1. BBC BASIC
 		1. GfA BASIC
 	1. _C_
@@ -143,12 +145,12 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. [Future develoments](dev/lang/other.md)
 
 1. [**Tools**](dev/tools.md)
-	1. Rescomp
+	1. [Rescomp](dev/tool/rescomp.md)
 	1. Durango Imager
 		1. [GUI Utility](dev/tool/gui.md)
 		1. [CLI tools](dev/tool/cli.md)
-	1. DurangoCode
-	1. Docker
+	1. [DurangoCode](dev/tool/durangocode.md)
+	1. [Docker](dev/tool/docker.md)
 	1. [VSP](dev/tool/vsp.md)
 	1. [_nanoBoot_ server](dev/tool/nanoboot.md)
 
@@ -167,5 +169,4 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 ## [Community](community.md)
 
 1. **GitHub**
-
 1. **Discord**
