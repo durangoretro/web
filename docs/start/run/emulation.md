@@ -53,7 +53,7 @@ make
 !!! note "Generate Perdita using Docker"
 
 	You can use the following DockerFile to generate a container with Perdita:
-	https://github.com/zerasul/dockerretro/blob/master/sdl/Dockerfile](https://github.com/zerasul/dockerretro/blob/master/sdl/Dockerfile).
+	[https://github.com/zerasul/dockerretro/blob/master/sdl/Dockerfile](https://github.com/zerasul/dockerretro/blob/master/sdl/Dockerfile).
 
 ### Use
 
