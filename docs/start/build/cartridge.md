@@ -20,8 +20,8 @@ _conveniently stored in an SD card_**. You still need at least an EPROM/EEPROM/F
 with a [suitable bootloader](../../dev/6502/multiboot.md) installed, though.
 1. _ShadowRAM_ is a more elegant, compact version of the _Development Cartridge_,
 suitable for _larger bootloaders_ (32 KiB instead of 16).
-1. [Bankswitching](hard/cart/banks.md) allow **multiple ROM images** on a single cartridge which
-may be switched via software (128K-1M) or the `RESET` button.
+1. [Bankswitching](hard/cart/banks.md) allows **multiple ROM images** on a single cartridge which
+may be switched via software (128K-1M) or the `RESET` button (multi-cartridge).
 1. [Riser boards](hard/cart/riser.md) add extra capabilities which might be built in
 _custom cartridges_, like **enhanced sound output**.
 
