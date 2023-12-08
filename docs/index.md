@@ -22,7 +22,7 @@ tools and information to create a new [Development System](tools.md) for this co
 </figure>
 
 In this web page you can find all the information about this project; from
-[building a brand new Durango·X computer](start/building.md), to the [Software](software) and tools wrote to develop new programs and [games](soft/games.md) for this computer.
+[building a brand new Durango·X computer](start/building.md), to the [Software](software.md) and tools wrote to develop new programs and [games](soft/games.md) for this computer.
 
 <figure markdown>
 ![Durango·X Computer with keyboard](assets/img/Durango01.jpg)
@@ -36,6 +36,10 @@ libraries needed to develop new software using modern tools like Docker images o
 [enjoy the already made Durango software](start/running.md),
 with or without an actual Durango computer!
 
+Want to enjoy all of this _right now_? [Wait no more!](started.md)
+
+Any questions? [Read the FAQ](faq.md).
+---
 This project is made by [the Durango Computer Team](about.md) with the collaboration of
 [La Jaquería](https://lajaqueria.org).
 
