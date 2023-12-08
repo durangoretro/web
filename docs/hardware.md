@@ -1,5 +1,6 @@
 [Home](index.md) > **Hardware**
-___
+
+---
 # Hardware
 
 ## [Precursors](hard/previous.md)

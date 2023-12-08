@@ -138,6 +138,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. _C_
 		1. CC65
 		1. [_DurangoLib_](dev/lang/durangolib.md)
+	1. [Future develoments](dev/lang/other.md)
 
 1. [**Tools**](dev/tools.md)
 	1. Rescomp

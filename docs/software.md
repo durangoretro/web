@@ -1,5 +1,6 @@
 [Home](index.md) > **Software**
-___
+
+---
 # Software
 
 ## [Games Library](soft/games.md)
@@ -12,8 +13,10 @@ ___
 
 ## [Operating Systems](soft/os.md)
 
-- BIOS/BDOS library
-	- [CONIO](soft/os/conio.md)
+- Firmware library
+	- [BIOS](soft/os/bios.md)
+		- [CONIO](soft/os/conio.md)
+	- [BDOS](soft/os/bdos.md)
 - _minimOS_
 - DOS/65
 

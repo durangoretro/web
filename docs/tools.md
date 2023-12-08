@@ -1,8 +1,11 @@
 [Home](index.md) > **Development & Tools**
-___
+
+---
 # Development & Tools
 
 ## [Languages](dev/language.md)
+
+Some of the _programming languages_ that can be used to create Durango software:
 
 1. Assembly
 1. BASIC
@@ -12,8 +15,11 @@ ___
 1. _C_
 	1. CC65
 	1. [_DurangoLib_](dev/lang/durangolib.md)
+1. [Future developments](dev/lang/other.md)
 
 ## [Tools](soft/utils.md)
+
+You can use this tools in a modern computer for putting together your work:
 
 - Rescomp
 - Durango Imager
@@ -25,6 +31,9 @@ ___
 - [_nanoBoot_ server](dev/tool/nanoboot.md)
 
 ## [_In situ_ tools](dev/insitu.md)
+
+If you're delevoping software for Durango, these tools running _on the Durango computer itself_
+will make things easier:
 
 1. [_nanoMon_](dev/6502/nanomon.md)
 1. [_miniMoDA_](dev/6502/minimoda.md)

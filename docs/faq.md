@@ -5,7 +5,8 @@ hide:
 ---
 
 [Home](index.md) > **FAQ**
-___
+
+---
 # Frequently Asked Questions (FAQ)
 
 Here you can find some questions about the Durango Project and all the projects related with it.
@@ -26,11 +27,12 @@ in this Web site as well.
 
 ### Can I purchase a Durango Computer?
 
-No. Currently it's in development stage and there is no plan to sell any Durango Computers; you can build your own Durango from the supplied design, anyway.
+No. Currently it's in development stage and there is no plan to sell any Durango Computers.
+You can build your own Durango from the supplied design, anyway.
 
 ### Do I need a Durango Computer in order to develop for this platform?
 
-No. We provide [Development Tools](dev/tools.md) to create your own Durango Software,
+No. We provide [Development Tools](dev/tools.md) to create and run your own Durango Software,
 like an [emulator](start/run/emulation.md), a [C Library](dev/lang/durangolib.md)
 and even a Docker Image containing all the tools for development.
 

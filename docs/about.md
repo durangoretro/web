@@ -5,18 +5,25 @@ hide:
 ---
 
 [Home](index.md) > **About**
-___
+
+---
 # About the Durango Project
 
-Durango is a project developed by [zuiko21](https://twitter.com/zuiko21/), with the help of [La Jaquería](https://lajaqueria.org), to create a computer using the 6502 microprocessor with its own architecture.
+Durango is a project developed by [zuiko21](https://twitter.com/zuiko21/),
+with the help of [La Jaquería](https://lajaqueria.org), to create a computer
+using the 6502 microprocessor with its own architecture.
 
-This is an Open Hardware and Open Source Software Project. You can find all our projects in our [Github Organization](https://github.com/durangoretro/).
+This is an Open Hardware and Open Source Software Project. You can find all our
+projects in our [Github Organization](https://github.com/durangoretro/).
 
 ## Durango Computer Team
 
-The Durango Computer Team is the people behind the project, working together to design and implement the hardware and software for Durango.
+The Durango Computer Team is the people behind the project, working together to
+design and implement the [hardware](hardware.md) and [software](software.md) for Durango.
 
-Of course everyone can become part of the Durango Computer Team, thanks to the open Hardware and Open Source initiative. Here you can find the core people of the Durango Computer Team.
+Of course [everyone can become part of the Durango Computer Team](community.md),
+thanks to the open Hardware and Open Source initiative. Here you can find the
+core people of the Durango Computer Team:
 
 | **Zuiko21** | **Emiliollbb** | **Zerasul** |
 |:-----------:|:--------------:|:-----------:|
