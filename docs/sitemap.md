@@ -136,7 +136,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. Assembly
 	1. BASIC
 		1. [EhBASIC](dev/lang/ehbasic.md)
-			-[Storage device drivers](drv.md)
+			1. [Storage device drivers](drv.md)
 		1. BBC BASIC
 		1. GfA BASIC
 	1. _C_
