@@ -8,7 +8,7 @@
 **Assembly** language is, in other words, the only _machine code_ that the 65C02 CPU
 understands; but instead of dealing with _binary_ or _hexadecimal_ codes, each
 [**opcode**](http://www.6502.org/tutorials/6502opcodes.html) (including the
-[65CO2 extensions](http://www.6502.org/tutorials/65c02opcodes.html))
+[65C02 extensions](http://www.6502.org/tutorials/65c02opcodes.html))
 is represented by an _abbreviation_ (a.k.a. **mnemonic**) to make things easier
 (or, at least, _less difficult_) to human beings.
 
