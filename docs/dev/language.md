@@ -60,7 +60,7 @@ version of the 6502 MS-BASIC dialect (the _de facto_ standard in many 8-bit comp
 especially _Commodore_); but [our port](lang/ehbasic.md) adds **support for _Durango·X_
 graphics, colour and sound** plus **LOAD and SAVE** capabilities, both for the
 [Virtual Serial Port](../assets/bin/basic_vsp.dux) if under _Perdita_ emulation, or even
-[on an SD card](../assets/bin/basic_sd.dux) on _real hardware_ with any supported
+[on an **actual SD card**](../assets/bin/basic_sd.dux) on _real hardware_ with any supported
 storage interface (devCart, FastSPI...). _A **plug-in** architecture makes supporting
 new storage devices an **easy** task_.
 
