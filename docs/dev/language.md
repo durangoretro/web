@@ -56,7 +56,7 @@ This is the first (and as of December 2023, the _only_ one) port of BASIC for th
 **Durango·X** computer. Developed at [6502.org](http://www.6502.org) by the late
 [Lee Davidson](http://forum.6502.org/viewforum.php?f=5), it's a barebones, _portable_
 version of the 6502 MS-BASIC dialect (the _de facto_ standard in many 8-bit computers,
-especially _Commodore_); but [our port](lang/eh_basic.md) adds **support for _Durango·X_
+especially _Commodore_); but [our port](lang/ehbasic.md) adds **support for _Durango·X_
 graphics, colour and sound** plus **LOAD and SAVE** capabilities, both for the
 [Virtual Serial Port](../assets/bin/basic_vsp.dux) if under _Perdita_ emulation, or even
 [on an SD card](../assets/bin/basic_sd.dux) on _real hardware_ with any supported
