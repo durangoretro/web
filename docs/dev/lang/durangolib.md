@@ -1,3 +1,4 @@
+[Site map](../../sitemap.md))
 [Home](../../index.md) > [Development](../../tools.md) > [Languages](../language.md) > C > **DurangoLib**
 
 ---

@@ -1,15 +1,15 @@
+[Site map](../../sitemap.md))
 [Home](../../index.md) > [Getting Started](../../started.md) > [Building _Durango·X_](../building.md) > **Assembly guide (cartridge)**
-___
-# Assembly guide (cartridge)
 
-***(under construction)***
+---
+# Assembly guide (cartridge)
 
 Since the _Durango·X_ computer has **no built-in ROM** or any kind of _firmware_,
 ***it's essential to have at least one cartridge*** in order to boot the computer!
 
 ## [Building options](kbd/options.md)
 
-There are several types of available cartridges
+There are several types of available cartridges:
 
 1. [mini-cartridge](hard/cart/mini.md) allows simple, **instant-on** execution of stored software,
 much like a classic console cartridge. _**Note**: you may need an EPROM/EEPROM/Flash programmer_

@@ -1,8 +1,16 @@
+[Site map](../sitemap.md))
 [Home](../index.md) > [Getting Started](../started.md) > **Building the _Durango·X_ computer**
-___
+
+---
 # Building the _Durango·X_ computer
 
+**Make your own!**
+
 ## [PCB manufacturing](build/pcb.md)
+
+Fortunately, the chore of creating homebrew PCBs is over... Nowadays, tons of PCB
+manufacturers and free CAD software allows getting **professional-looking** PCBs
+in a quite inexpensive way. And we already took the job of _designing_ them!
 
 ## [Assembly guide (computer)](build/durango.md)
 

@@ -1,9 +1,14 @@
+[Site map](sitemap.md))
 [Home](index.md) > **Hardware**
 
 ---
 # Hardware
 
+**The physical devices in the _Durango_ ecosystem:**
+
 ## [Precursors](hard/previous.md)
+
+Former experiments before the _definitive_ **Durango·X** computer:
 
 - Baja
 - SDd / Chihuahua
@@ -12,9 +17,15 @@
 
 ## [The _Durango_ architecture](hard/arch.md)
 
+All the current stuff:
+
 ### Range
 
+Durango's _not_ alone... choose your flavour!
+
 ### [**Durango·X** SBC](hard/durango.md)
+
+The main computer: what it does, how it works and how can it be improved.
 
 1. Overview
 1. Specs and options
@@ -24,10 +35,13 @@
 	1. [IRQ generation](hard/dx/irq.md)
 1. [Theory of Operation](hard/dx/theory.md)
 1. Hacks
-	- Overclocking
-	- **Power**Durango
+	- Hardware PAUSE
+	- [Overclocking](hard/dx/overclock.md)
+	- [**Power**Durango](hard/dx/power.md)
 
 ### [Cartridges](hard/cartridges.md)
+
+The classic way to get software up and running on _Durango_... with a modern twist.
 
 1. [Overview & pinout](hard/cart/pinout.md)
 1. [mini-cartridge](hard/cart/mini.md)
@@ -43,6 +57,8 @@
 1. Veracruz cartridge format
 
 ### [Peripherals & Interfaces](hard/interfaces.md)
+
+Connectivity means 'ready for the future':
 
 1. nanoLink
 1. [IOx bus](hard/bus/iox.md)
@@ -64,11 +80,15 @@
 
 ### [Accesories](hard/acc.md)
 
+_Durango_ even better.
+
 - Keyboard overlay
 - Component Video output
 - _**Power**Durango_ adapter
 
-## Future projects
+## [Future projects](hard/future.md)
+
+We won't stop here...
 
 - Durango _Pocket_
 - _Durango·C_

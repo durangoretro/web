@@ -1,3 +1,4 @@
+[Site map](../../sitemap.md))
 [Home](../../index.md) > [Getting Started](../../started.md) >
 [Running _Durango_ Software](../running.md) > **On actual hardware**
 
@@ -61,7 +62,7 @@ must be present on the ROM image which, besides the aforementioned _RESET vector
 
 In addition to that, [bootstrap](../../dev/6502/multiboot.md) and
 [image managing](../../dev/tool/cli.md) utilities expect a
-[standard header](../../soft/sys/rom.md) on any ROM image for proper **identification**
+[standard header](../../soft/sys/header.md) on any ROM image for proper **identification**
 and _metadata_ access.
 
 A `.dux` _file extension_ is recommended for **ROM images** in the host file system
@@ -85,7 +86,7 @@ _ROM images_ up and running:
 Unlike a _ROM image_, a **_Pocket_ executable** is a file containing code
 _intended to be run on **regular RAM**_ (typically within `$0800-$5FFF` to stay
 clear of _system variables_ and video memory). Thus, **no _shadow RAM_ or _footer_
-is needed**; but the proper [header](../../soft/sys/files.md) becomes **essential**
+is needed**; but the proper [header](../../soft/sys/header.md) becomes **essential**
 as it provides the **load and execution addresses** for the bootloader to be able
 to run the executable.
 

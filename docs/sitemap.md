@@ -59,8 +59,9 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 			1. [IRQ generation](hard/dx/irq.md)
 		1. [Theory of Operation](hard/dx/theory.md)
 		1. _Hacks_
-			1. Overclocking
-			1. _**Power**Durango_
+			1. Hardware PAUSE
+			1. [Overclocking](hard/dx/overclock.md)
+			1. [**Power**Durango](hard/dx/power.md)
 	1. [Cartridges](hard/cartridges.md)
 		1. [Overview & pinout](hard/cart/pinout.md)
 		1. [mini-cartridge](hard/cart/mini.md)
@@ -95,7 +96,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. [Accesories](hard/acc.md)
 		1. Keyboard overlay
 		1. Component video output
-		1. _**Power**Durango_ adapter
+		1. [**Power**Durango](hard/dx/power.md) adapter
 
 1. [**Future projects**](hard/future.md)
 	1. Durango _Pocket_
@@ -112,7 +113,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. Other utilities
 
 1. [**Operating Systems**](soft/os.md)
-	1. Firmware library
+	1. [Firmware library](soft/os/fw.md)
 		1. [BIOS](soft/os/bios.md)
 			1. [CONIO](soft/os/conio.md)
 			1. [minimOS charset](soft/os/charset.md)
@@ -122,10 +123,10 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 
 1. [**File format**](soft/filesys.md)
 	1. [ROM images](soft/sys/rom.md)
-		1. Standard header
+		1. [Standard header](soft/sys/header.md)
 		1. ROM footer
  	1. [Other files](soft/sys/files.md)
-		1. Standard header
+		1. [Standard header](soft/sys/header.md)
 		1. Signatures list
 		1. _Pocket_ executables
 	1. Durango volumes
@@ -141,12 +142,12 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 		1. GfA BASIC
 	1. _C_
 		1. CC65
-		1. [_DurangoLib_](dev/lang/durangolib.md)
+			[_DurangoLib_](dev/lang/durangolib.md)
 	1. [Future develoments](dev/lang/other.md)
 
 1. [**Tools**](dev/tools.md)
 	1. [Rescomp](dev/tool/rescomp.md)
-	1. Durango Imager
+	1. [Durango Imager](dev/tool/imager.md)
 		1. [GUI Utility](dev/tool/gui.md)
 		1. [CLI tools](dev/tool/cli.md)
 	1. [DurangoCode](dev/tool/durangocode.md)
@@ -162,8 +163,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 		1. Overview
 		1. Supported formats
 		1. _Pocket_ firmware support
-			1. BIOS
-			1. BDOS
+			1. BIOS / BDOS
 			1. Perdita _Pocket_ support
 
 ## [Community](community.md)

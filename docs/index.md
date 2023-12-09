@@ -40,6 +40,8 @@ with or without an actual Durango computer!
 
 ### Any questions? [Read the FAQ](faq.md).
 
+### Looking for something? Have a look at the [site map](sitemap.md)
+
 ---
 This project is made by [the Durango Computer Team](about.md) with the collaboration of
 [La Jaquería](https://lajaqueria.org).

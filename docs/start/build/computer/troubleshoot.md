@@ -2,8 +2,10 @@
 hide:
   - toc
 ---
+[Site map](../../../sitemap.md))
 [Home](../../../index.md) > [Getting Started](../../../started.md) > [Building](../../building.md) > [Durango·X](../durango.md) > **Troubleshooting**
-___
+
+---
 # Troubleshooting guide
 
 Since the **Durango-X** computer is based on off-the-shelf components, it's a
@@ -161,21 +163,29 @@ Check `ERROR` LED. If lit: suspect **U12** (74HC74). Otherwise suspect **U8**
 
 ## Poor/no keyboard/gamepad response and/or erratic timing on some software
 
-This is likely to be an [interrupt problem](hardware/irq.md).
+This is likely to be an [interrupt problem](../../../hard/dx/irq.md).
 
 ## Computer runs OK, but colour programs go instead into greyscale mode
 
-If Durango-X cannot go into **_RGB_ colour mode**, or doesn't stay reliably in it, first of all make certain that **U321 pin 9** is at _logic "1"_ (~5 V). If so, check **Q306** (its _emitter_ should measure at around **4.3 V**) and **R122**. _Some TVs may be quite picky about this resistor's value_, thus you may want to try a **lower value (say, _100 ohms_)**.
+If Durango-X cannot go into **_RGB_ colour mode**, or doesn't stay reliably in it,
+first of all make certain that **U321 pin 9** is at _logic "1"_ (~5 V). If so,
+check **Q306** (its _emitter_ should measure at around **4.3 V**) and **R122**.
+_Some TVs may be quite picky about this resistor's value_, thus you may want to
+try a **lower value (say, _100 ohms_)**.
 
 !!! warning
 
-	In _RGB mode_, **R122** accounts for almost **one third** of Durango's power consumption. _Lowering_ the resistor's value will draw further power, thus make sure you're using a _properly dimensioned_ Power Supply.
+	In _RGB mode_, **R122** accounts for almost **one third** of Durango's power consumption.
+	_Lowering_ the resistor's value will draw further power, thus make sure you're
+	using a _properly dimensioned_ **Power Supply**.
 
-## Marginal picture quality, with choppy pixels, ghost lines...
+## Marginal picture quality, with _choppy_ pixels, ghost lines...
 
-As the timing of the video circuitry is _very tight_, some adjustments have been provided. See [Video Output Calibration](software/vdu_calib.md) for details.
+As the timing of the video circuitry is _very tight_, some adjustments have been
+provided. See [Video Output Calibration](vdu_calib.md) for details.
 
-## Apparently running but chunks of valid image, maybe repeated on the screen; perhaps affecting just one video mode
+## Apparently running but only chunks of valid image visible, maybe repeated on
+the screen; perhaps affecting just one video mode
 
 * Check **U7** and/or **U6**. Depending on affected video mode, check also:
 	* **U104/105** for colour mode.
@@ -183,14 +193,18 @@ As the timing of the video circuitry is _very tight_, some adjustments have been
 
 !!! tip
 
-	Swapping ICs between each pair might help detecting the malfunctioning chip. While **U6/U7** are specified as _74HC157_, you may use **74HC257** as well.
+	Swapping ICs between each pair might help detecting the malfunctioning chip.
+	While **U6/U7** are specified as _74HC157_, you may use **74HC257** as well.
 
 ## Picture OK, but distorted sound or no sound at all
 
 * Check **U12** and, most importantly, **Q3**. Check **D2, R4, R5, C2 and C3** as well.
-* Rarely, **D7** might cause problems; _you may remove it_ with no more effect than losing the _audio feedback_ during Raspberry Pi transfers.
-* If the internal _buzzer_ is being used: check **R23** (and the buzzer itself). _Weak power supplies may be troublesome while using the internal buzzer_.
+* Rarely, **D7** might cause problems; _you may remove it_ with no more effect than
+losing the _audio feedback_ during Raspberry Pi transfers.
+* If the internal _buzzer_ is being used: check **R23** (and the buzzer itself).
+_**Weak** power supplies may be troublesome while using the internal buzzer_.
 
 !!! note
 
-	Some cartridges may include **custom sound hardware**. If so, check **D3** or try another sound-enabled cartridge.
+	Some cartridges may include **custom sound hardware**. If so, check **D3**
+	or try another sound-enabled cartridge.
