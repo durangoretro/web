@@ -93,7 +93,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 		1. [Sidecar devices](hard/bus/sidecar.md)
 			1. Overview
 			1. SD + RTC
-	1. [Accesories](hard/acc.md)
+	1. [Accessories](hard/acc.md)
 		1. Keyboard overlay
 		1. Component video output
 		1. [**Power**Durango](hard/dx/power.md) adapter

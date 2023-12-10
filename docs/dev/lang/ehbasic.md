@@ -1,3 +1,4 @@
+[Site map](../../sitemap.md))
 [Home](../../index.md) > [Development](../../tools.md) > [Languages](../language.md) >
 BASIC > **EhBASIC**
 
@@ -6,7 +7,7 @@ BASIC > **EhBASIC**
 
 [**EhBASIC** from the late Lee Davidson](http://forum.6502.org/viewforum.php?f=5)
 is intended as a generic, _console-type_ BASIC interpreter for 6502 systems.
-In order to support _Durango·X_'s **graphic, colour and sound** capabilities,
+In order to support _Durango·X_'s **graphics, colour and sound** capabilities,
 new commands have been added to the last available version (2.22).
 
 ## [CONIO](../../soft/os/conio.md) interface
