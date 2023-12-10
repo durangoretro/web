@@ -14,7 +14,7 @@ Since the **Durango·X** computer was designed with _modularity_ in mind, you ma
 choose the desired set of features, or deal with _alternative_ models:
 
 - **Durango·_X_**: Fully featured computer with both HIRES and colour video modes.
-- **Durango·_S_**: No HIRES, only colour video mode (128 x 128 px, [16 colour](dx/palette.md).
+- **Durango·_S_**: No HIRES, only colour video mode (128 x 128 px, [16 colours](dx/palette.md)).
 - **Durango·_R_**: No colour, just HIRES video mode (256 x 256 px, monochrome) and _somewhat reduced component count_.
 - **Durango·_C_**: Simplified, GAL-based version of _·X_ with _a lot_ less soldering. ***(under development)***
 - **Durango _Pocket_**: _Handheld_ **2 MHz** version, although not ~~fully~~ compatible. ***(under development)***
@@ -249,7 +249,7 @@ Similar to the above, but with _non-latching_ input. **Jumper-selected** pin dir
 
 ### [Sidecar devices](bus/sidecar.md)
 
-Mechanically speaking, **sidecar** devices are boards that fit on the Durango's **left** side.
+Mechanically speaking, **sidecar** devices are boards that fit on Durango's **left** side.
 Electrically, is just another **IOx** port with a different connector _(2x8 pin socket)_.
 
 #### SD + RTC
@@ -258,14 +258,18 @@ This is essentially the **FastSPI** board in the _sidecar_ form factor. The buil
 **I<sup>2</sup>C** port allows the connection of an _inexpensive **Real Time Clock**_,
 particularly useful when dealing with **storage** devices.
 
----
----
----
----
 ## [Accessories](acc.md)
 
+Things not necessarily computer-related, but they can account for a better experience:
+
 ### Keyboard overlay
+
+A _Minstrel_-inspired board with **bigger, clearer silkscreen** atop the keyboard.
+
 ### Component Video output
+
+**Compatibility with modern TVs** lacking the SCART connector!
+
 ### [_**Power**Durango_ adapter](dx/power.md)
 
 This accessory allows _Durango·X_ (or almost _any_ 6502-based computer) the use of a
