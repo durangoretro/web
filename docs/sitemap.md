@@ -43,7 +43,6 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 ## [Hardware](hardware.md)
 
 1. [**Precursors**](hard/previous.md)
-	1. _Baja_
 	1. _SDd / Chihuahua_
 	1. Durango-*PROTO*
 	1. Abandoned projects
