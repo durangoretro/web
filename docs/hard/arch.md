@@ -72,9 +72,9 @@ _Whithin the same board_, you may choose from several building options:
 !!! tip
 
 	Together with the v2.1 issue, there is an alternative PCB for **EIA (NTSC) 60 Hz** countries.
-[Main differences](dx/eia.md) include an **1.57 MHz** clock speed (**3.15 with _turbo_** option)
-and a button for _momentarily displaying the bottom 64 rasters_, which normally cannot be displayed
-on a 60 Hz screen.
+	[Main differences](dx/eia.md) include an **1.57 MHz** clock speed (**3.15 with _turbo_** option)
+	and a button for _momentarily displaying the bottom 64 rasters_, which normally cannot be displayed
+	on a 60 Hz screen.
 
 #### [Palette](dx/palette.md)
 
