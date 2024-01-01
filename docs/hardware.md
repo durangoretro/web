@@ -51,6 +51,7 @@ The classic way to get software up and running on _Durango_... with a modern twi
 1. [Bankswitching](hard/cart/banks.md)
 	- 128K \- 1M
 	- multi-cartridge
+1. [Universal cartridge _(new)_](hard/cart/universal.md)
 1. [Riser boards](hard/cart/riser.md)
 	- PSG
 	- Breakout board
