@@ -47,9 +47,10 @@ _Both issues are essentially 100% compatible_, but some improvements were made i
 - **Video output:** _RGB_ SCART connector for a CCIR (PAL) TV or **component video** options (PAL and sync-on-green deprecated).
 - **Controls:** _Built-in_ power switch, `RESET` button, **debounced** `NMI` button.
 
-Otherwise, they are **the same** (including the _footprint_)
+Otherwise, they are **the same** (including the _footprint_). _**v2.1** is essentially an alternative, improved routing for the v2 PCB_,
+thus they're based on the very same schematic.
 
-#### [Options](hard/dx/options.md)
+#### [Options](dx/options.md)
 
 _Whithin the same board_, you may choose from several building options:
 
@@ -64,11 +65,18 @@ _Whithin the same board_, you may choose from several building options:
 - Composite encoding:
 	- Greyscale (standard in v1)
 	- **Luminance** (standard in v2+, recommended option)
-- PAL encoder (for composite output, v2 only, _NOT_ recommended)
+- PAL encoder (for composite output, v1 only, _NOT_ recommended)
 - Piezo buzzer for audio
 - Debug port
 
-#### [Palette](hard/dx/palette.md)
+!!! tip
+
+	Together with the v2.1 issue, there is an alternative PCB for **EIA (NTSC) 60 Hz** countries.
+[Main differences](dx/eia.md) include an **1.57 MHz** clock speed (**3.15 with _turbo_** option)
+and a button for _momentarily displaying the bottom 64 rasters_, which normally cannot be displayed
+on a 60 Hz screen.
+
+#### [Palette](dx/palette.md)
 
 In _colour mode_, Durango·X uses a **16-colour _fixed_ palette**, where _2 bits_
 are assigned to **green**, while the remaining two bits of each nybble represent
@@ -106,9 +114,17 @@ and would be thrown off otherwise.
 
 !!! tip
 
-	**issue v2** includes a **TURBO** jumper as a built-in _overclocking_ feature
-	and doesn't need anything else, _as long as your CPU and RAM are fast enough_
+	**issue v2+** includes a **TURBO** jumper as a built-in _overclocking_ feature
+	and doesn't need anything else, _as long as your CPU and RAM are **fast enough**_
 	to cope with it!
+
+#### [Alternative oscillator](dx/oscil.md)
+
+_v2 issue_ (for CCIR/PAL/**50 Hz** countries) is based on a _28 MHz_ crystal oscillator
+intended for **perfectly square pixels**; but being a relatively odd frequency, it could be
+difficult to source. An **alternative oscillator** (of a _very common_ 25.175 MHz frequency)
+can be used instead, with a bit of rewiring. _The newly designed EIA/NTSC/**60 Hz** version
+already uses this readily available oscillator_.
 
 #### [**Power**Durango](dx/power.md)
 
@@ -172,6 +188,13 @@ are switched by _software_ (bank _size_ is configurable via a jumper)
 Another bankswitching cartridge is not controlled by software, but **triggers a counter
 from the `RESET` signal**. Once again configurable for **16 or 32 KiB banks**, allows
 the combination of _several software titles in **one** single cartridge_.
+
+### [Universal cartridge _(new)_](cart/universal.md)
+
+A newly designed cartridge which allows the use of **almost any _EPROM/EEPROM/Flash_ on
+_24, 28 or 32-pin_ package, from 2 KiB to 1 MiB**. It also includes _options_ for both
+**bankswitching** and a **Programmable Sound Generator** like the one available as a _riser card_
+(see below), with **improved audio output**. _Fits inside a standard C64 cartridge, as well_.
 
 ### [Riser boards](cart/riser.md)
 
