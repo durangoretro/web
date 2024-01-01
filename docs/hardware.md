@@ -37,6 +37,7 @@ The main computer: what it does, how it works and how can it be improved.
 1. Hacks
 	- Hardware PAUSE
 	- [Overclocking](hard/dx/overclock.md)
+	- [Alternative oscillator](hard/dx/oscil.md)
 	- [**Power**Durango](hard/dx/power.md)
 
 ### [Cartridges](hard/cartridges.md)
