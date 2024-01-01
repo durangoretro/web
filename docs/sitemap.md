@@ -54,12 +54,14 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 		1. Specs and options
 			1. v1 and improvements for v2
 			1. [Options](hard/dx/options.md)
+				- [EIA/60 Hz version](hard/dx/eia.md)
 			1. [Palette](hard/dx/palette.md)
 			1. [IRQ generation](hard/dx/irq.md)
 		1. [Theory of Operation](hard/dx/theory.md)
 		1. _Hacks_
 			1. Hardware PAUSE
 			1. [Overclocking](hard/dx/overclock.md)
+			1. [Alternative oscillator](hard/dx/oscil.md)
 			1. [**Power**Durango](hard/dx/power.md)
 	1. [Cartridges](hard/cartridges.md)
 		1. [Overview & pinout](hard/cart/pinout.md)
