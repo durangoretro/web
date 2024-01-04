@@ -1,3 +1,5 @@
+[Home](../index.md) > [Development](development.md) > **Docker**
+___
 # Docker
 
 You can use Docker to compile and use tools for develop for Durango Ecosystem. You can find Durango Docker Images in [Docker Hub](https://hub.docker.com/r/zerasul/durangodevkit).
@@ -11,6 +13,7 @@ This image includes:
 * xa65 assembler for 6502.
 * cc65 C Compiler.
 * Durango Computer Lib.
+* Rescomp java Utility
 
 To locate the Durango computer lib files, you can use the ```$DDK``` environment variable.
 

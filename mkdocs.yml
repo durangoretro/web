@@ -15,14 +15,14 @@ nav:
     - Development Cartridge: hardware/dev_cart.md
  - The Software:
     - Software: software/software.md
-    - Games: software/games.md
-    - Roms: software/roms.md
+    - Games: soft/games.md
+    - Utility Software: software/roms.md
  - Troubleshoot: troubleshoot.md
  - Development & Tools:
     - Development: tools/development.md
     - Tools: tools/tools.md
-    - Emulator (Perdita): tools/perdita.md
-    - Durango Lib: tools/durangolib.md
+    - Emulator (Perdita): start/run/emulation.md
+    - Durango Lib: dev/lang/durangolib.md
     - Docker: tools/docker.md
  - Other Projects:
     - Other Projects: other/other.md
