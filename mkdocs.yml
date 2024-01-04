@@ -17,7 +17,7 @@ nav:
     - Software: software/software.md
     - Games: soft/games.md
     - Utility Software: software/roms.md
- - Troubleshoot: troubleshoot.md
+ - Troubleshoot: start/build/computer/troubleshoot.md
  - Development & Tools:
     - Development: tools/development.md
     - Tools: tools/tools.md
