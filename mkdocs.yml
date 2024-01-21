@@ -24,6 +24,7 @@ nav:
     - Emulator (Perdita): start/run/emulation.md
     - Durango Lib: dev/lang/durangolib.md
     - Docker: tools/docker.md
+    - Durango Code: dev/tool/durangocode.md
  - Other Projects:
     - Other Projects: other/other.md
     - Future Projects: other/future.md

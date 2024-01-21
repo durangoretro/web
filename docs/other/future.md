@@ -2,28 +2,12 @@
 
 Here You can find Information about Future projects that can be in development in the future. You can find new features or revisions of the Durango Computer Project.
 
-## Durango Code
-
-Durango Code, is a [Visual Studio Code](https://code.visualstudio.com/) Extension for create and develop software for Durango. This Extension, adds a new commands for speed up the Development Time. Here is a list of some of the Commands:
-
-* Create a new Durango Project: creates the minimal files for develop for Durango.
-* Compile Project: Compile the project using the Durango Tools.
-* Clean project: Clean Build directory.
-* Execute(Perdita): Run a new Instance of Perdita with the current rom.
-* Send to Durango (Raspberry Pi): If you are using NanoBoot or another rom, you can send and execute the Rom using the NanoLink Interface. Only for use with Raspberry Pi.
-* Load File Using PSV: Load a Basic File and send to Durango (or Perdita); using PSV.
-* Save File using PSV: Save the current Basic File to Your Machine, using PSV.
-
-!!! info
-    This Project is under construction; is only in design and definition stage and is not ready yet.
-
 ## Durango Imager
 
 If you are going to use the Durango Development Cartridge, you can use this application to select all the Durango Roms, generate an image, and flash to the SDCard.
 
 !!! warning
     This Project is under design stage, the current features, can be changed in the future.
-
 
 ## VeraCruz
  A quantum leap above the 8-bit, 6502-based Durango home computers. The use of the advanced 65C816 CPU will allow full compatibility of well-behaved minimOS applications, but also the availability of a much larger address space and higher speed (especially with 16-bit math).
