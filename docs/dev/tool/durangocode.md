@@ -49,7 +49,7 @@ Durango Code have the next Configuration to custom your Durango Development Tool
 * ```NanoBoot Path```: The current NanoBoot executable Path.
 * ```DDK```: Overrides the current ```DDK``` environment Variable.
 * ```Custom Rescomp Jar```: Custom Rescomp Jar application path. By default is on ```$DDK/rescomp/rescomp.jar```.
-* ```romLocation```: Location where the Rom is generated after compilation. By default is _rom.dux".
+* ```romLocation```: Location where the Rom is generated after compilation. By default is _rom.dux_.
 * ```DockerImageName```: Durango Dev Kit Docker Image Name; by default ```zerasul/durangodevkit```.
 * ```toolchain Type```: Select the current Toolchain type:
     * ```Native```: Use Native Commands (Depends on Operating System).
