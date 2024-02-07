@@ -24,11 +24,20 @@ _Whithin the same board_, you may choose from several building options:
 
 ## [BOM](computer/bom.md)
 
-***(TBD)***
+**Before** you begin soldering, please _make sure you've got both the **PCB** and **ALL of the components**_ needed, and that _they fit the footprints on the PCB_. Depending on the [chosen configuration](computer/options.md), some components may vary. In some cases, values are not mandatory and _might be changed_ to fit your stock.
 
 ## [Step by step](computer/steps.md)
 
-***(TBD)***
+!!! warning
+
+	***This is a particularly complex project*** so it's assumed you've got _some experience_ soldering electronic circuits.
+
+First of all, please read the [general advice](general.md) suitable for all of the boards. But **before soldering**, have into account
+this particular board's peculiarities:
+
+- ***IOx*** and _**Expansion** (sidecar)_ connectors **must be placed ABSOLUTELY FLUSH to the board**, otherwise fitting peripherals may become difficult or right impossible!
+- Some _video output options_ are **compatible** and may be installed simultaneously, but some others have _overlapping footprints_ and aren't. Other than that, **all** the components can be fitted to the board without any problems, no matter the selected configuration.
+- If you plan to use the suggested [keyboard/gamepads interface board](keyboard.md), **do NOT solder `D6` and `D4`** (`POWER` and `ERROR` LEDs) as they must be set at the _proper height_ in order to be visible over the keyboard PCB.
 
 ## [Video Output Calibration](computer/vdu_calib.md)
 
