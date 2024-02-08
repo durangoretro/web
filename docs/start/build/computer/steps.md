@@ -53,7 +53,7 @@ Make sure the proper [Luminance DAC values](../../../hard/dx.md) are used in the
 
 <figure markdown>
 ![RGB output grounding](../../../assets/img/rgb_ground.jpeg)
-<figcaption>Do not fit these resistors<br />as indicated on the silkscreen!</figcaption>
+<figcaption>Make these jumpers (or connect all those pins altogether)</figcaption>
 </figure>
 
 !!! tip
@@ -81,7 +81,7 @@ Original silkscreen shows wrong values, resulting on weird colours. **Use these 
 
 <figure markdown>
 ![Component video output resistors](../../../assets/img/yuv_v2.jpeg)
-<figcaption>Do not fit these resistors<br />as indicated on the silkscreen!</figcaption>
+<figcaption>Do not fit these resistors as indicated on the silkscreen!</figcaption>
 </figure>
 
 !!! tip
