@@ -51,6 +51,11 @@ Make sure the proper [Luminance DAC values](../../../hard/dx.md) are used in the
 1. Make sure resistors `R911` thru `R914` are fitted (even if they were intended for SCART only)
 1. Ground the SCART red, green and blue outputs, by putting jumper wires between **pins 7-9, 11-13 and 15-17** of (non-installed) `J905` -- or connect those 6 pins together, as preferred.
 
+<figure markdown>
+![RGB output grounding](../../../assets/img/rgb_ground.jpeg)
+<figcaption>Do not fit these resistors<br />as indicated on the silkscreen!</figcaption>
+</figure>
+
 !!! tip
 
 	v2.2+ renames those resistors as `R111` thru `R114`, making them compulsory whenever the colour mode is used, no matter the interface. **Solder bridges** are provided on the PCB's front side for convenience. 
@@ -71,11 +76,17 @@ Original silkscreen shows wrong values, resulting on weird colours. **Use these 
 |`R656`    |33K              |**39K**         |
 
 \*) Theoretically, this is the most accurate value from E24 series, but **5K6** from the standard E12 series seems to work just fine.
+
 \*\*) Theoretically, this is the most accurate value from E24 series, but **56K** from the standard E12 series seems to work just fine.
+
+<figure markdown>
+![Component video output resistors](../../../assets/img/yuv_v2.jpeg)
+<figcaption>Do not fit these resistors<br />as indicated on the silkscreen!</figcaption>
+</figure>
 
 !!! tip
 
-	This is **fixed** in v2.2+ (using 5K6 and 56K values)
+	This is **fixed** in v2.2+ _(using 5K6 and 56K values)_
 
 ### Image is shifted to the left in v2-v2.1
 
@@ -87,7 +98,24 @@ The fix for this is a relatively simple mod, all done within the back of the boa
 1. Use a bodge wire to connect **`U18` pin 9** to **`U22` pin 15**
 1. Use a bodge wire to connect **`U18` pin 11** to **`U22` pin 14** (or, alternatively, to the nearby via next to pin 9 of `U18`, if possible)
 
+<figure markdown>
+![Cut traces](../../../assets/img/v2_cut.jpeg)
+<figcaption>Cut these traces</figcaption>
+</figure>
+
+<figure markdown>
+![Bodge wires](../../../assets/img/v2_bodge.jpeg)
+<figcaption>Place these bodge wires</figcaption>
+</figure>
+
 !!! tip
 
 	This is completely **fixed** in v2.2+
 
+### Somewhat unstable horizontal sync, especially in TURBO mode (v2+)
+
+Use a 74**AC**4040 for `U15` instead of the _HC_ version. Unfortunately, _these are somewhat hard to come by, especially in DIP package as required by this board_.
+
+!!! tip
+
+	v2.2 already states `74AC4040` on the silkscreen.
