@@ -2,8 +2,6 @@
 ___
 # Assembly guide (computer)
 
-***(under construction)***
-
 ## [Building options](computer/options.md)
 
 _Whithin the same board_, you may choose from several building options:
@@ -37,7 +35,12 @@ this particular board's peculiarities:
 
 - ***IOx*** and _**Expansion** (sidecar)_ connectors **must be placed ABSOLUTELY FLUSH to the board**, otherwise fitting peripherals may become difficult or right impossible!
 - Some _video output options_ are **compatible** and may be installed simultaneously, but some others have _overlapping footprints_ and aren't. Other than that, **all** the components can be fitted to the board without any problems, no matter the selected configuration.
-- If you plan to use the suggested [keyboard/gamepads interface board](keyboard.md), **do NOT solder `D6` and `D4`** (`POWER` and `ERROR` LEDs) as they must be set at the _proper height_ in order to be visible over the keyboard PCB.
+- If you plan to use the suggested [keyboard/gamepads interface board](keyboard.md), **do NOT solder `D6` and `D4` _yet_** (`POWER` and `ERROR` LEDs) as they must be set at the _proper height_ in order to be visible over the keyboard PCB.
+
+!!! bug
+
+	v2 and v2.1 PCBs have a design bug which displays the picture heavily _shifted to the left of the screen_ (although the whole area stays visible). Check the [hacks and fixes section](computer/steps.md) for an easy mod to fix this.
+	**v2.2 and later are NOT affected** by this bug, as wasn't v1.
 
 ## [Video Output Calibration](computer/vdu_calib.md)
 
