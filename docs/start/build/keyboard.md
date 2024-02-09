@@ -22,13 +22,13 @@ This is a _modular_ board which not only allows the choice of gamepad interface,
 
 !!! warning
 
-	Unlike most multi-option boards on the Durango ecosystem, some components for the NES or Megadrive options are **NOT compatible** and _must **NOT** be fitted together_, otherwise malfunction (or even component damage!) may occur.
+	Unlike most multi-option boards on the Durango ecosystem, some components for the NES or Megadrive options are **NOT compatible with each other** and _must **NOT** be fitted together_, otherwise malfunction (or even component damage!) may occur.
 
 ## [Step by step](kbd/steps.md)
 
-As usual, follow all the [usual recommendations](general.md).  **Exert special caution when mounting the connection _to computer_ (`J3`)**, although this board can be used _externally_ (i.e., not sitting atop the Durango·X main PCB) by using an **IDC-16 cable**.
+As usual, follow all the [usual recommendations](../general.md).  **Exert special caution when mounting the connection _to computer_ (`J3`)**, although this board can be used _externally_ (i.e., not sitting atop the Durango·X main PCB) by using an **IDC-16 cable**.
 
 !!! bug
 
-	Versions of this board _prior to v1.3_ had a bug **affecting the MD/Genesis/VCS option**. A workaround is described for these boards but _it swaps the functionality of the `START` and `C` (a.k.a. `SELECT`) buttons. **NES version was never affected** but v1.3 is anyway recommended because of the improved silkscreen.
+	Versions of this board _prior to v1.3_ had a bug **affecting the MD/Genesis/VCS option**. A workaround is described for these boards but _it swaps the functionality of the `START` and `C` (a.k.a. `SELECT`) buttons_. **NES version was never affected** but v1.3 is anyway recommended because of the improved silkscreen.
  
