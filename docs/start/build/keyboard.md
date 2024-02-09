@@ -1,4 +1,5 @@
 [Home](../../index.md) > [Getting Started](../../started.md) > [Building _Durango·X_](../building.md) > **Assembly guide (keyboard)**
+
 ___
 # Assembly guide (keyboard/gamepads interface)
 
@@ -17,8 +18,12 @@ This is a _modular_ board which not only allows the choice of gamepad interface,
 
 - **Single-digit designator:** _common_ components needed for _all configurations_.
 - **`1x` (`10` to `19`) designators:** if _keyboard_ is required.
-- **`2x` (`20` to `29`) designators:** for _NES keypads_ only!
-- **`3x` (`30` to `39`) designators:** for _Megadrive/Genesis/VCS keypads_ only!
+- **`2x` (`20` to `29`) designators:** for _Megadrive/Genesis/VCS keypad_ 1
+- **`3x` (`30` to `39`) designators:** for _NES keypad_ 1
+- **`4x` (`40` to `49`) designators:** for _Megadrive/Genesis/VCS keypad_ 2
+- **`5x` (`50` to `59`) designators:** for _NES keypad_ 2
+
+...with the exception of the _keyboard switches_ (`SW1` to `SW40`) which are all obviously related to the keyboard.
 
 !!! warning
 
@@ -26,9 +31,10 @@ This is a _modular_ board which not only allows the choice of gamepad interface,
 
 ## [Step by step](kbd/steps.md)
 
-As usual, follow all the [usual recommendations](../general.md).  **Exert special caution when mounting the connection _to computer_ (`J3`)**, although this board can be used _externally_ (i.e., not sitting atop the Durango·X main PCB) by using an **IDC-16 cable**.
+As usual, follow all the [usual recommendations](../general.md). **Exert special caution when mounting the connection _to computer_ (`J5`)**, although this board can be used _externally_ (i.e., not sitting atop the Durango·X main PCB) by using an **IDC-16 cable**.
 
 !!! bug
 
 	Versions of this board _prior to v1.3_ had a bug **affecting the MD/Genesis/VCS option**. A workaround is described for these boards but _it swaps the functionality of the `START` and `C` (a.k.a. `SELECT`) buttons_. **NES version was never affected** but v1.3 is anyway recommended because of the improved silkscreen.
+	ALWAYS make sure to read the [Hacks and fixes section](kbd/steps.md).
  
