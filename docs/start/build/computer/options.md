@@ -46,6 +46,36 @@ Several options are available, depending on you preferred display device. There 
 
 	Due to the _slightly non-standard_ video output, some TVs and monitors **may not be compatible** with Durango's signal.
 
+### SCART
+
+!!! tip
+
+	This is the originally intended port, and it's the **recommended option** as it provides the **best** image quality.
+
+_SCART_ connections have been pretty much **standard** for European TV sets since the early 80's, and they provide both a **composite video** input (and output, if suitable) and _**RGB signals** for optimum picture quality_. A _fast blanking_ signals allow automatic switching between both modes. This is particularly well fitted to the Durango·X video circuitry, as **colour mode** signals go directly (thru a crude DAC) to the _RGB inputs_, while the **monochrome (HIRES) video** goes into _composite video_, after being mixed with the _sync signals_.
+
+Since some SCART-equipped devices (e.g. VCRs and _combos_) do NOT support RGB inputs, another crude **Luminance DAC** is added to the aforementioned mixer which adds a _greyscale_ version of the colour picture, so the device does at least display the image. There's the option in colour mode to switch off the _fast blanking_ signal, thus making the TV _ignore the RGB signals_ and displaying a **grayscale mode** image instead.
+
+Note that, in _colour (RGB) mode_, sync signals are expected to be present at the _composite_ input in any case.
+
+!!! warning
+
+	The _greyscale_ mode is **deprecated**, although the SCART-equipped Durangos up to 2.x do support it. Check the ***Composite output DAC** section below for details.
+
+### Sync-on-green _(v1 only)_
+
+Originally intended for the **Sony PVM** range of monitors, quite popular within the _retro-computing_ community, as they sport **RGB inputs** but NOT a SCART connection. Tapping off the separate sync from Durango would be cumbersome, thus this option allows easy connection to these monitors. As a side effect, _monochrome (HIRES) mode_ will display as **green-on-black**, for a further retro experience!
+
+!!! bug
+
+	Despite the silkscreen, `R107` and `R109` must be fitted (maybe with values down to 330 ohm) and pins 11 and 17 of `J106` **grounded**, for utmost colour accuracy.
+
+!!! note
+
+	This option has been replaced since v2.0 for **Component video**, which is more popular within modern TVs and the PVM monitors support as well. In any case, _greyscale mode is **not** supported_.
+
+### Component Video _(v2.x only)_
+
 ## Composite output DAC
 
 In the original, standard form (SCART-equipped v1), display info _in colour mode_ is sent via the **RGB lines**, while the _sync pulses_ are sent thru the **composite video output** present on the SCART (pin 19) and the _second video output_ as well (if fitted). Since not every SCART-equipped device does support the **RGB mode** (as enabled by the _fast blanking_ line at pin 16), a crude DAC (Digital-to-Analog Converter) is made up from `R107` thru `R110`, providing a **backup signal** which will display an acceptable _greyscale_ version of the image, and not a blank screen.
@@ -68,4 +98,6 @@ Since RGB signals are _natively generated_ in Durango·S/·X and they give **the
 
 **v1 boards** provide space for a _PAL chrominance encoder_ (components with `6xx` designators) based around the `AD724` IC (unfortunately, only available as a less hobbyist-friendly _Surface-Mounted Device_). But being an afterthough and, specially, due to the _non-standard sync frequencies_ from the Durango video output, **performance might be poor _or not display any colour at all_**, depending on the particular TV set used. Thus, this option is **NOT recommended**.
 
-	    Piezo buzzer for audio
+## Second video output
+
+## Piezo buzzer for audio
