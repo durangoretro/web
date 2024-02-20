@@ -8,23 +8,23 @@ hide:
 ---
 # Durango computer buliding options
 
-Designed in a **modular** way, several configurations are available in the Durango _range_ of home computers. Thus, you may **simplify** the build or simply make the computer that suits your actual needs.
+Designed in a **modular** way, several configurations are available for the Durango _range_ of home computers. Thus, you may **simplify** the building process or simply make the computer that suits your actual needs.
 
 ## Video modes
 
-The main difference between the _Durango home computer_ and many other retro-inspired SBCs is the **built-in display output** thru a suitable TV or monitor. Display characteristics make a great difference in circuitry, thus worth having the option of limiting the available **video modes**:
+The main difference between the _Durango home computer_ and many other retro-inspired SBCs is the **built-in display output** thru a suitable TV or monitor. Display characteristics make a great difference in circuitry, thus it's worth having the option of limiting the available **video modes**:
 
 ### Durango·R
 
 _This is the **simplest** build_, where the display output is **monochromatic 256 x 256 pixels** (a.k.a. _HIRES_ mode). For writing code and any text-based applications (including some _games_) this is the preferred mode, but for _graphical_ games is usually less attractive, due to the lack of colour.
 
-If this option is chosen, **you don't need any component with `1xx` designators** (e.g. `U127`). _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumpers**_; [check here for details](smode.md)
+If this option is chosen, **you don't need any component with `1xx` designators** (e.g. `U127`). _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smode.md)
 
 ### Durango·S
 
 _Somewhat **simpler** than the fully-featured version_, the display output is **4-bit-per-pixel (16-colour) 128 x 128 pixels**, allowing a _nice, colourful presentation_ much suited for games. The **limited text area** (16 x 16 characters) makes it less convenient for code or lots of text on screen, though.
 
-If this option is chosen, **you don't need any component with `2xx` designators** (e.g. `U227`). Also, this is the _only configuration that **needs** components with `8xx` designators_ -- in fact, just a couple of _pull-up_ resistors. _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumpers**_; [check here for details](smode.md)
+If this option is chosen, **you don't need any component with `2xx` designators** (e.g. `U227`). Also, this is the _only configuration that **needs** components with `8xx` designators_ -- in fact, just a couple of _pull-up_ resistors. _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smode.md)
 
 !!! tip
 
@@ -40,7 +40,7 @@ This option combines the functionality of **both _Durango·R_ and _Durango·S_**
 
 ## Monitor output
 
-Several options are available, depending on you preferred display device. There are changes from v1 to v2, for improved compatibility with modern TV sets.
+Several options are available, depending on you preferred display device. There are big changes from v1 to v2, for **improved compatibility** with modern TV sets.
 
 !!! warning
 
@@ -56,11 +56,11 @@ _SCART_ connections have been pretty much **standard** for European TV sets sinc
 
 Since some SCART-equipped devices (e.g. VCRs and _combos_) do NOT support RGB inputs, another crude **Luminance DAC** is added to the aforementioned mixer which adds a _greyscale_ version of the colour picture, so the device does at least display the image. There's the option in colour mode to switch off the _fast blanking_ signal, thus making the TV _ignore the RGB signals_ and displaying a **grayscale mode** image instead.
 
-Note that, in _colour (RGB) mode_, sync signals are expected to be present at the _composite_ input in any case.
+Note that, in _colour (RGB) mode_, sync signals are expected to be present at the SCART _composite_ input in any case.
 
 !!! warning
 
-	The _greyscale_ mode is **deprecated**, although the SCART-equipped Durangos up to 2.x do support it. Check the ***Composite output DAC** section below for details.
+	The _greyscale_ mode is **deprecated**, although all SCART-equipped Durangos up to 2.x do support it. Check the ***Composite output DAC** section below for details.
 
 ### Sync-on-green _(v1 only)_
 
@@ -68,11 +68,11 @@ Originally intended for the **Sony PVM** range of monitors, quite popular within
 
 !!! bug
 
-	Despite the silkscreen, `R107` and `R109` must be fitted (maybe with values down to 330 ohm) and pins 11 and 17 of `J106` **grounded**, for utmost colour accuracy.
+	Despite what the schematics stated, `R111` and `R113` must be fitted (maybe with values down to 330 ohm) and pin 11 of `J105` must be **grounded** (easily done from the nearby pins 9 or 13) for utmost **colour accuracy**.
 
 !!! note
 
-	This option has been replaced since v2.0 for **Component video**, which is more popular within modern TVs and the PVM monitors support as well. In any case, _greyscale mode is **not** supported_.
+	This option has been replaced since v2.0 for **Component video**, which is more popular within modern TVs and the PVM monitors support as well. In any case, _greyscale mode is **not** supported_ on either type of connection.
 
 ### Component Video _(v2.x only)_
 
@@ -100,4 +100,23 @@ Since RGB signals are _natively generated_ in Durango·S/·X and they give **the
 
 ## Second video output
 
+Essentially the _same_ signal as the one available at the **composite** signal on the SCART (pin 19), but for _impedance matching_ reasons it's obtained thru a separate RC network (`R31` and `C9`). If these components are fitted, this signal is available at the yellow (leftmost) RCA jack on `J6`. The remaining RCA jacks (red & white) provide **monoaural audio** output for convenience, just in parallel with the SCART audio signal.
+
+!!! tip
+
+	If _both_ composite signals are to be used **simultaneously**, it's recommended to use a lower value for `R15` (down to **120 ohm**). _v2 boards_ silkscreen already state this updated value and, in any case, using it won't do any harm, just a somewhat increased power consumption.
+
 ## Piezo buzzer for audio
+
+The Durango-generated audio (usually a _square wave_ from `U12`, but also any arbitrary signal thru the `AUDIO IN` line supplied by suitable cartidges) goes into a simple mixer around `Q3`, then it takes two routes:
+
+-	_Line-level_ audio at SCART `J105` (and `J6` if fitted), thru a **low-pass filter** and attenuator made around `R4`, `R5` and `C2`.
+-	Internal **buzzer** `BZ1` thru an attenuation resistor `R23` and a _disabling jumper_ `JP2`.
+
+If the buzzer is not needed, these three components don't need to be fitted. Also, `R23` can be modified for _volume_ control.
+
+!!! warning
+
+	`R23` may dissipate quite a lot of heat, thus a **half-watt** rated resistor is highly recommended. For _maximum loudness_ it may be replaced by a jumper wire, but that might **overload** `Q3`.
+
+	In any case, the use of the buzzer does **increase power consumption** considerably.
