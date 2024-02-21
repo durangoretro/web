@@ -27,6 +27,7 @@ This is a **general index** of the _whole [**DurangoRetro.com**](index.md) websi
 	1. [PCB manufacturing](start/build/pcb.md)
 	1. [Assembly guide **(computer)**](start/build/durango.md)
 		1. [Building options](start/build/computer/options.md)
+    		-	[Single video mode versions](start/build/computer/smod.md)
 		1. [BOM](start/build/computer/bom.md)
 		1. [Step by step](start/build/computer/steps.md)
 		1. [Video Output Calibration](start/build/computer/vdu_calib.md)
