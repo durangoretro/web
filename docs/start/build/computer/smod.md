@@ -56,4 +56,29 @@ This hack affects components with designators like `3xx`-- actually, just `U321/
 
 ## Removing software-switchable modes
 
+!!! tip
+
+	Since the only component redundant on this mod is `U428`, it's rarely worth it, thus NOT recommended.
+
+This mod removes the **video mode register** (`U428`) which controls:
+
+-	Video resolution (HIRES/colour)
+-	Inverse video mode
+-	Selected screen area (0 to 3, the last one being the standard)
+-	RGB/Greyscale mode _(deprecated)_
+-	Emilio's LED (also useable as a _general purpose output_)
+
+The empty footprint must be wired appropriately:
+
+-	Bridge **pin 10** to **+5 V (pin 16) for HIRES** or **GND (pin 8) for colour**. _This is not needed on **single-mode** Durangos_.
+-	Bridge **pin ???** to **+5 V (pin 16) for Inverse video** or **GND (pin 8) for normal video**.
+-	Bridge **pins ? and ?** to **+5 V (pin 16)** for the _standard screen_ (**3**, at `$6000-$7FFF`).
+-	Bridge **pin ???** _the opposite way as pin 10_ (+5 V for colour, GND for HIRES). _This is not needed on **single-mode** Durangos, neither for greyscale/sync-on-green/component video versions_.
+
+Since _Emilio's LED_ is no longer available, the associated components (`R???` and `J???`) aren't needed.
+
 ## Removing extra video features
+
+This mod removes the ability to _read_ back the status of the _video mode register_ (upper nybble only) and, most noticeably, the status of the **video balnking signals** (both horizontal and vertical). Affected components are `U530` and, in case of v1 only, `U529`; the empty **`U530` footprint** must be wired appropriately:
+
+-	Bridge **pin ?? to ??**.
