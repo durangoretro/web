@@ -18,13 +18,13 @@ The main difference between the _Durango home computer_ and many other retro-ins
 
 _This is the **simplest** build_, where the display output is **monochromatic 256 x 256 pixels** (a.k.a. _HIRES_ mode). For writing code and any text-based applications (including some _games_) this is the preferred mode, but for _graphical_ games is usually less attractive, due to the lack of colour.
 
-If this option is chosen, **you don't need any component with `1xx` designators** (e.g. `U127`). _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smode.md)
+If this option is chosen, **you don't need any component with `1xx` designators** (e.g. `U127`). _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smod.md)
 
 ### Durango·S
 
 _Somewhat **simpler** than the fully-featured version_, the display output is **4-bit-per-pixel (16-colour) 128 x 128 pixels**, allowing a _nice, colourful presentation_ much suited for games. The **limited text area** (16 x 16 characters) makes it less convenient for code or lots of text on screen, though.
 
-If this option is chosen, **you don't need any component with `2xx` designators** (e.g. `U227`). Also, this is the _only configuration that **needs** components with `8xx` designators_ -- in fact, just a couple of _pull-up_ resistors. _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smode.md)
+If this option is chosen, **you don't need any component with `2xx` designators** (e.g. `U227`). Also, this is the _only configuration that **needs** components with `8xx` designators_ -- in fact, just a couple of _pull-up_ resistors. _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smod.md)
 
 !!! tip
 
