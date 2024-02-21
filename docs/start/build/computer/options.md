@@ -28,7 +28,7 @@ If this option is chosen, **you don't need any component with `2xx` designators*
 
 !!! tip
 
-	Even if `R825` and `R827` are needed for this configuration _only_, they're _harmless_ in any case and could be fitted for **all options** with no ill effect.
+	Even if `R824` and `R825` are needed for this configuration _only_, they're _harmless_ in any case and could be fitted for **all options** with no ill effect.
 
 ### Durango·X
 
