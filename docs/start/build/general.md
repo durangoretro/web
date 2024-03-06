@@ -44,4 +44,10 @@ Besides following all of the **safety advice**, it is assumed that _you already 
 
 1.	First of all, [get the desired PCB(s)](pcb.md). _Take note of the **version number** on the silkscreen_, as well as the desired _build option_ (if available), since both the _BOM_ and required **fixes** may change between revisions! Don't forget to read the appropriate **_Hacks & Fixes_** document linked on each _step-by-step_ page.
 1.	Get the components as stated on the _BOM_, having into account the **selected option** and **revision number**, if available!
-1.	Proceed with **soldering**, _following each and every **safety advice**_ as stated above! 
+1.	Proceed with **soldering**, _following each and every **safety advice**_ as stated above! For best results, fit the components in **reverse _height_ order** -- that is, place **shallower components _first_**, and let the _tallest_ ones for the end. Generally speaking this order results in:
+	1.	**Horizontally** mounted axial components, like _resistors and diodes_ (e.g. on the _Keyboard_ PCB)
+    1.	IC sockets and _resistor packs_. Very _**small** capacitors_ are likely to be fitted now as well.
+	1.	_Pin sockets_ and **small connectors**. Note that the _expansion_ connector on the Durango PCB must be mounted **absolutely flush!!!**
+    1.	**Vertically** mounted components: resistors, diodes, transistors and _small_ electrolytic capacitors.
+    	-	**Beware of _polarity_!** Most _resistor packs_ have a **dot** on the _common_ pin, _diodes and electrolytic caps_ have a **band** near the _negative_ pin; for _transistors_, check the **outline** on the silkscreen.
+
