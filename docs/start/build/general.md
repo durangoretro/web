@@ -49,5 +49,7 @@ Besides following all of the **safety advice**, it is assumed that _you already 
     1.	IC sockets and _resistor packs_. Very _**small** capacitors_ are likely to be fitted now as well.
 	1.	_Pin sockets_ and **small connectors**. Note that the _expansion_ connector on the Durango PCB must be mounted **absolutely flush!!!**
     1.	**Vertically** mounted components: resistors, diodes, transistors and _small_ electrolytic capacitors.
-    	-	**Beware of _polarity_!** Most _resistor packs_ have a **dot** on the _common_ pin, _diodes and electrolytic caps_ have a **band** near the _negative_ pin; for _transistors_, check the **outline** on the silkscreen.
-
+    	-	**Beware of _polarity_!** Most _resistor packs_ have a **dot** on the _common_ pin, _diodes and electrolytic caps_ have a **band** near the _negative_ pin; for _transistors_, check the **outline** on the silkscreen. On _LEDs_, the negative side is the shorter **lead**; usually they have a flatter capusule near that lead.
+	1.	_Pin headers_ are usually fitted now, depending on height.
+  	1.	_Power resistors_ (like `R27` on the Durango·X PCB, if fitted) are somewhat taller and thus mounted afterwards. Ditto for taller capacitors -- just sort everything by height.
+	1.	_**Big** connectors_ usually go last.
