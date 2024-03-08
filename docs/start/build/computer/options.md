@@ -76,6 +76,12 @@ Originally intended for the **Sony PVM** range of monitors, quite popular within
 
 ### Component Video _(v2.x only)_
 
+Since SCART is pretty much phased out in Europe (and was never a thing in other continents, anyway), a newly designed option has been included. The aforementioned PVM monitor do support Component Video as well, thus will remain compatible.
+
+!!! note
+
+	RGB is still the native video output of a Durango computer, thus _colours may differ a bit_ thru Component video.
+
 ## Composite output DAC
 
 In the original, standard form (SCART-equipped v1), display info _in colour mode_ is sent via the **RGB lines**, while the _sync pulses_ are sent thru the **composite video output** present on the SCART (pin 19) and the _second video output_ as well (if fitted). Since not every SCART-equipped device does support the **RGB mode** (as enabled by the _fast blanking_ line at pin 16), a crude DAC (Digital-to-Analog Converter) is made up from `R107` thru `R110`, providing a **backup signal** which will display an acceptable _greyscale_ version of the image, and not a blank screen.
