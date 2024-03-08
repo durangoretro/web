@@ -38,7 +38,11 @@ Besides following all of the **safety advice**, it is assumed that _you already 
 			-	If solder does not "embrace" the pad, but forms a "ball" besides the component lead, you probably need some **cleaning** on the surfaces. A previous wipe with **Iso-Propyl Alcohol** is useful in these cases, as is the use of **flux** before soldering.
 		1.	After removing the solder wire, **keep the iron for a couple of seconds** to let the solder flow completely. _Power and ground pins may need a longer time here_; as a rule of thumb, keep the iron _after_ soldering as long as it was preheating the pad _before_.
 		1.	Check (at least from time to time) the **quality** of your solder joint: it should look _shiny_, not matte. **Reflowing the solder joint** (repeating the step above) will usually fix a rushed soldering work and may avoid future malfunction. _Beware of **short circuits**_ between nearby pads!
--	For components with _several pins (e.g. integrated circuits, sockets, resistor packs etc) it's best
+-	For components with _several pins_ (e.g. integrated circuits, sockets, resistor packs etc) it's best to solder **two opposite corners _first_**, check alignment and then continue with the remaining pins. If you are doing several similar components in a row, it's advisable to do one pin on each component, then the next pin etc, in order not to build _excessive heat_ on the same component in a short amount of time.
+
+!!! warning
+
+	Some components (especially _semiconductors_, like **diodes**, **transistors** and _non-socketed_ **integrated circuits** are sensitive to heat! Solder them in a **diligent, timely** fashion. If you're having trouble with a pin, try another component and get back to that pin later -- or **wait** at least 10 seconds or so before resoldering it.
 
 ## Build procedure
 
@@ -53,3 +57,7 @@ Besides following all of the **safety advice**, it is assumed that _you already 
 	1.	_Pin headers_ are usually fitted now, depending on height.
   	1.	_Power resistors_ (like `R27` on the Durango·X PCB, if fitted) are somewhat taller and thus mounted afterwards. Ditto for taller capacitors -- just sort everything by height.
 	1.	_**Big** connectors_ usually go last.
+
+!!! danger
+
+	Once again, **beware of polarity**. A transistor fitted backwards will work _weakly_, a backwards diode won't work at all; but an **electrolytic capacitor** mounted the other way round will actually **EXPLODE!!!***.
