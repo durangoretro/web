@@ -60,4 +60,4 @@ Besides following all of the **safety advice**, it is assumed that _you already 
 
 !!! danger
 
-	Once again, **beware of polarity**. A transistor fitted backwards will work _weakly_, a backwards diode won't work at all; but an **electrolytic capacitor** mounted the other way round will actually **EXPLODE!!!***.
+	Once again, **beware of polarity**. A transistor fitted backwards will work _weakly_, a backwards diode won't work at all; but an **electrolytic capacitor** mounted the other way round will actually **EXPLODE!!!**.
