@@ -13,10 +13,13 @@ _Whithin the same board_, you may choose from several building options:
 - Monitor output:
 	- **SCART** (colour via _RGB_, recommended option)
 	- Sync-on-green (v1) / Component video (v2+)
-	- Second audio/video output
 - Composite encoding:
 	- Greyscale (standard in v1)
 	- **Luminance** (standard in v2+, recommended option)
+
+There are some _independent_ options as well, you may add them as desired:
+
+- Second audio/video output
 - PAL encoder (for composite output, _NOT_ recommended)
 - Piezo buzzer for audio
 
