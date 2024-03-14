@@ -25,4 +25,11 @@ there is an alternative version compatible with the **EIA standard** most used i
 - _Momentary_ display of the **bottom 64 _rasters_** (64 lines in HIRES, 32 in colour) for existing software compatibility.
 
 Remaining specs are the same as the CCIR (50 Hz) version.
- 
+
+!!! warning
+
+	It is known that _many_ modern TVs are **not** compatible with the **240p** signal supplied by Durango-X _thru the **Component Video** input_. In such cases, if a _suitable YPbPr-to-HDMI converter_ is not available (we're researching on that), you may always use the **composite video** input, although in _greyscale_ mode. Note that this will perform fine in HIRES mode.
+
+!!! tip
+
+	If you can hook a _PlayStation 2_ **thru Component video input** and properly play a **_PS1_ game** on it, your TV is most likely **compatible** with Durango-X.
