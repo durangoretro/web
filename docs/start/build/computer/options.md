@@ -82,6 +82,14 @@ Since SCART is pretty much phased out in Europe (and was never a thing in other 
 
 	RGB is still the native video output of a Durango computer, thus _colours may differ a bit_ thru Component video.
 
+!!! warning
+
+	It is known that _many_ modern TVs are **not** compatible with the **240p/288p** signal supplied by Durango-X _thru the **Component Video** input_. In such cases, if a _suitable YPbPr-to-HDMI converter_ is not available (we're researching on that), you may always use the **composite video** input, although in _greyscale_ mode. Note that this will perform fine in HIRES mode.
+
+!!! tip
+
+	If you can hook a _PlayStation 2_ **thru Component video input** and properly play a **_PS1_ game** on it, your TV is most likely **compatible** with Durango-X.
+ 
 ## Composite output DAC
 
 In the original, standard form (SCART-equipped v1), display info _in colour mode_ is sent via the **RGB lines**, while the _sync pulses_ are sent thru the **composite video output** present on the SCART (pin 19) and the _second video output_ as well (if fitted). Since not every SCART-equipped device does support the **RGB mode** (as enabled by the _fast blanking_ line at pin 16), a crude DAC (Digital-to-Analog Converter) is made up from `R107` thru `R110`, providing a **backup signal** which will display an acceptable _greyscale_ version of the image, and not a blank screen.
