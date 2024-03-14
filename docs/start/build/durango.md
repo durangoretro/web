@@ -17,6 +17,14 @@ _Whithin the same board_, you may choose from several building options:
 	- Greyscale (standard in v1)
 	- **Luminance** (standard in v2+, recommended option)
 
+!!! warning
+
+	It is known that _many_ modern TVs are **not** compatible with the **240288p** signal supplied by Durango-X _thru the **Component Video** input_. In such cases, if a _suitable YPbPr-to-HDMI converter_ is not available (we're researching on that), you may always use the **composite video** input, although in _greyscale_ mode. Note that this will perform fine in HIRES mode.
+
+!!! tip
+
+	If you can hook a _PlayStation 2_ **thru Component video input** and properly play a **_PS1_ game** on it, your TV is most likely **compatible** with Durango-X.
+
 There are some _independent_ options as well, you may add them as desired:
 
 - Second audio/video output
