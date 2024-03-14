@@ -19,7 +19,7 @@ _Whithin the same board_, you may choose from several building options:
 
 !!! warning
 
-	It is known that _many_ modern TVs are **not** compatible with the **240288p** signal supplied by Durango-X _thru the **Component Video** input_. In such cases, if a _suitable YPbPr-to-HDMI converter_ is not available (we're researching on that), you may always use the **composite video** input, although in _greyscale_ mode. Note that this will perform fine in HIRES mode.
+	It is known that _many_ modern TVs are **not** compatible with the **240/288p** signal supplied by Durango-X _thru the **Component Video** input_. In such cases, if a _suitable YPbPr-to-HDMI converter_ is not available (we're researching on that), you may always use the **composite video** input, although in _greyscale_ mode. Note that this will perform fine in HIRES mode.
 
 !!! tip
 
