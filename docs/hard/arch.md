@@ -76,6 +76,14 @@ _Whithin the same board_, you may choose from several building options:
 	and a button for _momentarily displaying the bottom 64 rasters_, which normally cannot be displayed
 	on a 60 Hz screen.
 
+!!! warning
+
+	It is known that _many_ modern TVs are **not** compatible with the **240p/288p** signal supplied by Durango-X _thru the **Component Video** input_. In such cases, if a _suitable YPbPr-to-HDMI converter_ is not available (we're researching on that), you may always use the **composite video** input, although in _greyscale_ mode. Note that this will perform fine in HIRES mode.
+
+!!! tip
+
+	If you can hook a _PlayStation 2_ **thru Component video input** and properly play a **_PS1_ game** on it, your TV is most likely **compatible** with Durango-X.
+
 #### [Palette](dx/palette.md)
 
 In _colour mode_, Durango·X uses a **16-colour _fixed_ palette**, where _2 bits_
