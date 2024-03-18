@@ -10,24 +10,43 @@ hide:
 
 Once you've got the [PCB](), it's time to gather all the necessary **components**. _Make sure you decide on a particular [configuration](options.md)_ as some components differ according to the chosen option.
 
+Also, don't forget to check the **Notes** below for alternative values.
+
 If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md) 
 
 |Class       |Type   |Qty. (\*)|·S|·R|Component video|Second video output|Buzzer|Notes|
 |------------|-------|---------|--|--|---------------|-------------------|------|-----|
 |Piezo Buzzer|passive|0        |  |  |               |                   |+1    |     |
-|Capacitor   |_100 nF_|1       |  |  |               |                   |      |1    |
-|E.Capacitor |_10 µF_|2        |  |  |               |                   |      |     |
-|E.Capacitor |_220 µF_|1       |  |  |               |                   |      |2    |
-|E.Capacitor |_100 µF_|1       |  |  |+2             |+1                 |      |3    |
-|E.Capacitor |_470 µF_|1       |  |  |+1             |                   |      |     |
-|Capacitor   |_22 nF_|1        |  |  |               |                   |      |4    |
-|Capacitor   |_68 pF_|1        |  |  |               |                   |      |5    |
-|Diode       |_1N4148_|6       |  |  |               |                   |      |6    |
-|LED         |3 mm   |2        |  |  |               |                   |      |7    |
-|Transistor  |_BC548_|7        |-1|-1|+3             |                   |      |6    |
+|Capacitor   |_100 nF_|1       |  |  |               |                   |      |2    |
+|E.Capacitor |_10 µF_|2        |  |  |               |                   |      |1    |
+|E.Capacitor |_220 µF_|1       |  |  |               |                   |      |1    |
+|E.Capacitor |_100 µF_|1       |  |  |+2             |+1                 |      |1    |
+|E.Capacitor |_470 µF_|1       |  |  |+1             |                   |      |1    |
+|Capacitor   |_22 nF_|1        |  |  |               |                   |      |1    |
+|Capacitor   |_68 pF_|1        |  |  |               |                   |      |3    |
+|Diode       |_1N4148_|6       |  |  |               |                   |      |4    |
+|LED         |3 mm   |2        |  |  |               |                   |      |5    |
+|Transistor  |_BC548_|7        |-1|-1|+3             |                   |      |4    |
 |Resistor    |22 K   |2        |  |  |+1             |                   |      |     |
 |Resistor    |470    |4        |  |-2|               |                   |      |     |
-|Resistor    |680    |2        |  |-1|               |                   |      |8    |
+|Resistor    |680    |2        |  |-1|               |                   |      |6    |
 
 
 \*) Standard build is a **Durango·X** _v2.2_ with **SCART** output and no _second video output_, _piezo buzzer_ or any extra **simplifications**.
+
+## Notes
+
+1)	Non-critical value, as long as it's kept within the same _order of magnitude_. **Higher** values are preferable, although component **footprint** might be the limiting factor.
+2)	`C*` works as a **low pass filter** for audio output. May be reduced down to **39 nF** or so, if _more treble_ is desired. _Does NOT affect piezo buzzer_.
+3)	Nominal value, may be changed in case of [interrupt problems](../../../hard/dx/irq.md).
+4)	Non-critical. Any **small signal** equivalent device (e.g. _1N914_ for diodes, _2N3904_ transistors) will do, but _make sure about alternative pinouts_.
+5)	_Colours_ are personal preference, of course, but the proposed resistors expect the `POWER` LED to be a _high efficiency_ type (Gallium Nitride) whereas the `ERROR` LED may use an older Gallium Arsenide-Phosphide unit. _Resistors `R?` and `R?` should be adapted to the LED type and preferred brightness_.
+6)	While `R10?` is **critical**, `R?` may be changed to suit `POWER` LED and desired brightness (see _note 5_)
+
+## Logic families
+
+The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SRAM_ chips are nearly always of such type, as is the _**65C02** CPU_; the rest of the circuit is made from standard **74HC** parts. Some considerations have to be done:
+
+-	Generally speaking, **74HC** and **74HC_T_** are both suitable and normally interchangeable. However, the use of _HCT_ on `U3?` (or `U1?` in v1 boards) may affect interrupt performance, [check here for details](../../../hard/dx/irq.md).
+-	In case of `U14`, a _non-HC_ **CD4040** may be used without any ill effect. _In some cases_, `U19` can be **CD** as well, although **small glitches** on the screen might be seen.
+-	`U15` is **critical**. v1 boards usually work fine with a _74HC_ unit but, in case of v2, a **74_AC_4040** is **highly recommended** -- some displays may become unstable with the HC part.
