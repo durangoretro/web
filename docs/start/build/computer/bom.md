@@ -8,7 +8,7 @@ hide:
 ---
 # Bill Of Materials (v2.x)
 
-Once you've got the [PCB](), it's time to gather all the necessary **components**. _Make sure you decide on a particular [configuration](options.md)_ as some components differ according to the chosen option.
+Once you've got the [PCB](../pcb.md), it's time to gather all the necessary **components**. _Make sure you decide on a particular [configuration](options.md)_ as some components differ according to the chosen option.
 
 Also, don't forget to check the **Notes** below for alternative values.
 
@@ -16,32 +16,44 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 
 |Class       |Type   |Qty. (\*)|·S|·R|Component video|Second video output|Buzzer|Notes|
 |------------|-------|---------|--|--|---------------|-------------------|------|-----|
-|Piezo Buzzer|passive|0        |  |  |               |                   |+1    |     |
-|Capacitor   |_100 nF_|1       |  |  |               |                   |      |2    |
-|E.Capacitor |_10 µF_|2        |  |  |               |                   |      |1    |
-|E.Capacitor |_220 µF_|1       |  |  |               |                   |      |1    |
-|E.Capacitor |_100 µF_|1       |  |  |+2             |+1                 |      |1    |
-|E.Capacitor |_470 µF_|1       |  |  |+1             |                   |      |1    |
-|Capacitor   |_22 nF_|1        |  |  |               |                   |      |1    |
-|Capacitor   |_68 pF_|1        |  |  |               |                   |      |3    |
-|Diode       |_1N4148_|6       |  |  |               |                   |      |4    |
-|LED         |3 mm   |2        |  |  |               |                   |      |5    |
-|Transistor  |_BC548_|7        |-1|-1|+3             |                   |      |4    |
-|Resistor    |22 K   |2        |  |  |+1             |                   |      |     |
-|Resistor    |470    |4        |  |-2|               |                   |      |     |
-|Resistor    |680    |2        |  |-1|               |                   |      |6    |
+|Piezo Buzzer|passive|**0**    |  |  |               |                   |+1    |     |
+|Capacitor   |_100 nF_|**1**   |  |  |               |                   |      |2    |
+|E.Capacitor |_10 µF_|**2**    |  |  |               |                   |      |1    |
+|E.Capacitor |_220 µF_|**1**   |  |  |               |                   |      |1    |
+|E.Capacitor |_100 µF_|**1**   |  |  |+2             |+1                 |      |1    |
+|E.Capacitor |_470 µF_|**1**   |  |  |+1             |                   |      |1    |
+|Capacitor   |_22 nF_|**1**    |  |  |               |                   |      |1    |
+|Capacitor   |_68 pF_|**1**    |  |  |               |                   |      |3    |
+|Diode       |_1N4148_|**6**   |  |  |               |                   |      |4    |
+|LED         |3 mm   |**2**    |  |  |               |                   |      |5    |
+|Transistor  |_BC548_|**7**    |-1|-1|+3             |                   |      |4    |
+|Resistor    |22 K   |**2**    |  |  |+1             |                   |      |     |
+|Resistor    |470    |**4**    |  |-2|               |                   |      |     |
+|Resistor    |680    |**2**    |  |-1|               |                   |      |6    |
+|Resistor    |120    |**5**    |  |-1|-1             |                   |      |7    |
+|Resistor    |27 (0.5 W)|**0** |  |  |               |                   |+1    |8    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
 
 
 \*) Standard build is a **Durango·X** _v2.2_ with **SCART** output and no _second video output_, _piezo buzzer_ or any extra **simplifications**.
 
 ## Notes
 
-1)	Non-critical value, as long as it's kept within the same _order of magnitude_. **Higher** values are preferable, although component **footprint** might be the limiting factor.
-2)	`C*` works as a **low pass filter** for audio output. May be reduced down to **39 nF** or so, if _more treble_ is desired. _Does NOT affect piezo buzzer_.
-3)	Nominal value, may be changed in case of [interrupt problems](../../../hard/dx/irq.md).
-4)	Non-critical. Any **small signal** equivalent device (e.g. _1N914_ for diodes, _2N3904_ transistors) will do, but _make sure about alternative pinouts_.
-5)	_Colours_ are personal preference, of course, but the proposed resistors expect the `POWER` LED to be a _high efficiency_ type (Gallium Nitride) whereas the `ERROR` LED may use an older Gallium Arsenide-Phosphide unit. _Resistors `R?` and `R?` should be adapted to the LED type and preferred brightness_.
-6)	While `R10?` is **critical**, `R?` may be changed to suit `POWER` LED and desired brightness (see _note 5_)
+1. Non-critical value, as long as it's kept within the same _order of magnitude_. **Higher** values are usually preferable, although component **footprint** might be the limiting factor.
+2. `C2` works as a **low pass filter** for audio output. May be reduced down to **39 nF** or so, if _more treble_ is desired. _Does NOT affect piezo buzzer_ anyway.
+3. Nominal value, may be changed in case of [interrupt problems](../../../hard/dx/irq.md).
+4. Non-critical. Any **small signal** equivalent device (e.g. _1N914_ diodes, or _2N3904_ transistors) will do, but _make sure about alternative pinouts_.
+5. _Colours_ are personal preference, of course, but the proposed resistors expect the `POWER` LED to be a _high efficiency_ type (Gallium Nitride, e.g. blue) whereas the `ERROR` LED may use an older Gallium Arsenide-Phosphide (red) unit. _Resistors `R29 (POWER)` and `R6 (ERROR)` should be adapted to the LED type and preferred brightness_.
+6. While `R111` is **critical**, `R6` may be changed to suit `ERROR` LED and desired brightness (see _note 5_)
+7. If the _second video output_ is not fitted, or never to be used **simultaneously** with the main one, `R15` can be up to **330 ohm**. SCART-equipped Durangos may reduce power consumption by upping `R922` up to **220 ohm** or so, although some TVs may not switch into _RGB mode_ reliably.
+8. Change according to desired _piezo buzzer **volume**_. Could be down to a _zero-ohm **bridge**_, although it may overload `Q3`. Notice relatively high power dissipation!
 
 ## Logic families
 
