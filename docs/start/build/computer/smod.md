@@ -41,6 +41,12 @@ This hack affects components with designators like `3xx`-- actually, just `U321/
 -	Bridge **pins 12 and 13** on `U321` empty footprint
 -	(v2 only) Bridge **emitter and collector** (pins 1 & 3) on `Q307` empty footprint
 
+!!! tip
+
+	If you are building _Durango*·R*_ (HIRES mode only), since it generates no colour signal at all, it makes **no sense** to select the _Component Video_ option. If SCART is not available, use the **second video output** option for a suitable _monochrome_ signal thru an RCA jack. You may delete `C5` and `R30` as these provide the SCART output only.
+
+Since SCART is pretty much phased out in Europe (and was never a thing in other continents, anyway), a newly designed option has been included. The aforementioned PVM monitor do support Component Video as well, thus will remain compatible.
+
 ### Mods for colour-only _Durango·S_
 
 -	Do NOT fit `U204/U205/U321` neither any other `2xx` designated component
@@ -75,7 +81,7 @@ The empty footprint must be wired appropriately:
 -	Bridge **pins ? and ?** to **+5 V (pin 16)** for the _standard screen_ (**3**, at `$6000-$7FFF`).
 -	Bridge **pin ???** _the opposite way as pin 10_ (+5 V for colour, GND for HIRES). _This is not needed on **single-mode** Durangos, neither for greyscale/sync-on-green/component video versions_.
 
-Since _Emilio's LED_ is no longer available, the associated components (`R???` and `J???`) aren't needed.
+Since _Emilio's LED_ is no longer available, the associated components (`R32` and `J4`) aren't needed.
 
 ## Removing extra video features
 
