@@ -76,6 +76,10 @@ Originally intended for the **Sony PVM** range of monitors, quite popular within
 
 ### Component Video _(v2.x only)_
 
+!!! tip
+
+	If you are building _Durango*·R*_ (HIRES mode only), since it generates no colour signal at all, it makes **no sense** to select the _Component Video_ option. If SCART is not available, use the **second video output** option for a suitable _monochrome_ signal thru an RCA jack. You may delete `C5` and `R30` as these provide the SCART output only.
+
 Since SCART is pretty much phased out in Europe (and was never a thing in other continents, anyway), a newly designed option has been included. The aforementioned PVM monitor do support Component Video as well, thus will remain compatible.
 
 !!! note
