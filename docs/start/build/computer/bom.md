@@ -67,13 +67,14 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 3. Nominal value, may be changed in case of [interrupt problems](../../../hard/dx/irq.md).
 4. Non-critical. Any **small signal** equivalent device (e.g. _1N914_ diodes, or _2N3904_ transistors) will do, but _make sure about alternative pinouts_.
 5. _Colours_ are personal preference, of course, but the proposed resistors expect the `POWER` LED to be a _high efficiency_ type (Gallium Nitride, e.g. blue) whereas the `ERROR` LED may use an older Gallium Arsenide-Phosphide (red) unit. _Resistors `R29 (POWER)` and `R6 (ERROR)` should be adapted to the LED type and preferred brightness_.
-6. If the _second video output_ is not fitted, or never to be used **simultaneously** with the main one, `R15` can be up to **330 ohm**. SCART-equipped Durangos may reduce power consumption by upping `R922` up to **220 ohm** or so, although some TVs may not switch into _RGB mode_ reliably.
+6. If the _second video output_ is not fitted, or never to be used **simultaneously** with the main one, `R15` can be up to **330 ohm**. SCART-equipped Durangos may reduce power consumption by upping `R922` up to **220 ohm** or so, although some TVs may not switch reliably into _RGB mode_.
 7. Change according to desired _piezo buzzer **volume**_. Could be down to a _zero-ohm **bridge**_, although that might overload `Q3`. Notice relatively high power dissipation!
 8. `R3`,`R34` and, to some extent, `R337` are just _strong pull-ups_ and may be chosen from around **1 Kohm** up to 10 Kohm or so.
-9. `R32` is for _Emilio's LED_ and may be suited to the desired brightness (down to **680 ohm**). _If you intend to use this pin as a **general purpose output**, you may replace this with a jumper_.
+9. `R32` is for _Emilio's LED_ and may be suited to the desired brightness (down to **680 ohm**). _If you intend to use this pin as a **general purpose output**, you may replace this resistor with a **jumper**_.
 10. Theoretical value is **6.2 Kohm** from the _E24-series_, but the E12 standard _5.6 Kohm_ seems acceptable.
-11. Correct value (as per RS-170 standard) is 75 ohm from the _E24-series_, although the E12 standard **68 ohm** is acceptable.
-12. 
+11. Theoretical value is **62 Kohm** from the _E24-series_, but the E12 standard _56 Kohm_ seems acceptable.
+12. Correct value (as per RS-170 standard) is 75 ohm from the _E24-series_, although the E12 standard **68 ohm** is acceptable.
+13. 
 
 ## Logic families
 
