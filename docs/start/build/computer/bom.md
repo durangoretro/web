@@ -86,3 +86,9 @@ The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SR
 !!! warning
 
 	The use of _bipolar **TTL**_ logic circuits (e.g. 74**LS**) is **NOT** recommended. Neither is the use of an **NMOS 6502**, since the software library does not necessarily support it!
+ 
+### Component equivalences
+
+-	In this circuit, _any_ 74HC157 may be replaced by a 74HC**257** without any problems; note that [single-mode Durangos](smod.md) need no '257s at all, and may use '157 or '257 at any position.
+-	74HC688 has same pinout and functionality as any **'521** (usually available from _faster_ logic families)
+  
