@@ -14,7 +14,7 @@ For improved typing experience, you may consider adding the [keyboard overlay](.
 
 ## [BOM](kbd/bom.md)
 
-This is a _modular_ board which not only allows the choice of gamepad interface, but also makes the keyboard **optional**. Much like the [main computer board](), a _prefix_ on component designators indicate what option that component is needed:
+This is a _modular_ board which not only allows the choice of gamepad interface, but also makes the keyboard **optional**. Much like the [main computer board](durango.md), a _prefix_ on component designators indicate what option that component is needed:
 
 - **Single-digit designator:** _common_ components needed for _all configurations_.
 - **`1x` (`10` to `19`) designators:** if _keyboard_ is required.
@@ -31,7 +31,7 @@ This is a _modular_ board which not only allows the choice of gamepad interface,
 
 ## [Step by step](kbd/steps.md)
 
-As usual, follow all the [usual recommendations](../general.md). **Exert special caution when mounting the connection _to computer_ (`J5`)**, although this board can be used _externally_ (i.e., not sitting atop the Durango·X main PCB) by using an **IDC-16 cable**.
+As usual, follow all the [usual recommendations](general.md). **Exert special caution when mounting the connection _to computer_ (`J5`)**, although this board can be used _externally_ (i.e., not sitting atop the Durango·X main PCB) by using an **IDC-16 cable**.
 
 !!! bug
 
