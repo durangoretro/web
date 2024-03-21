@@ -43,12 +43,16 @@ Since this is a **modular** board which allows several [configuration options](c
 - **`3xx` (`300` to `399`) designators:** whenever _both_ video modes coexist (Durango**·X** only, otherwise is a [single-mode Durango](smod.md)).
 - **`4xx` (`400` to `499`) designators:** for the _video mode settings_ register (resolution, inverse, greyscale, screen-switching, _Emilio's LED_).
 - **`5xx` (`500` to `599`) designators:** for the _extra_ video features (_readable_ video mode, _horizontal & vertical blanking_ detection).
-- **`6xx` (`600` to `699`) designators:** if _Component Video output_ is required (v2 only).
-- **`7xx` (`700` to `799`) designators:** if the _second video output_ is required (includes _audio_ for the option above).
+- **`6xx` (`600` to `699`) designators:** components for _Component Video output_ (v2 only)/_PAL encoder_ option (v1 only)
+- **`7xx` (`700` to `799`) designators:** if the _second video output_ is required (includes _audio_ for the option above). _Range not used on v1_
 - **`8xx` (`800` to `899`) designators:** if _HIRES mode_ is NOT fitted (Durango**·S** only).
-- **`9xx` (`900` to `999`) designators:** if _SCART video output_ is required.
+- **`9xx` (`900` to `999`) designators:** if _SCART video output_ is required. _Range not used on v1_
 
-The **standard build** (SCART-equipped fully software-featured Durango·X) would use all components except designators `6xx`, `7xx` and `8xx`.
+v1 with _Sync-on-green_ option adds `J005` as well.
+
+!!! tip
+
+	The **standard build** (SCART-equipped fully software-featured Durango·X) would use all components except designators `6xx`, `7xx` and `8xx`.
 
 ## [Step by step](computer/steps.md)
 
