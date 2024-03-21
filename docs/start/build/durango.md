@@ -41,8 +41,8 @@ Since this is a **modular** board which allows several [configuration options](c
 - **`1xx` (`100` to `199`) designators:** if _colour mode_ is required (Durango**·S** and **·X**).
 - **`2xx` (`200` to `299`) designators:** if _HIRES mode_ is required (Durango**·R** and **·X**).
 - **`3xx` (`300` to `399`) designators:** whenever _both_ video modes coexist (Durango**·X** only, otherwise is a [single-mode Durango](smod.md)).
-- **`4xx` (`400` to `499`) designators:** for the _video mode settings_ (resolution, inverse, greyscale, screen-switching, _Emilio's LED_).
-- **`5xx` (`500` to `599`) designators:** for the _extra video features (_readable_ video mode, _horizontal & vertical blanking_ detection).
+- **`4xx` (`400` to `499`) designators:** for the _video mode settings_ register (resolution, inverse, greyscale, screen-switching, _Emilio's LED_).
+- **`5xx` (`500` to `599`) designators:** for the _extra_ video features (_readable_ video mode, _horizontal & vertical blanking_ detection).
 - **`6xx` (`600` to `699`) designators:** if _Component Video output_ is required (v2 only).
 - **`7xx` (`700` to `799`) designators:** if the _second video output_ is required (includes _audio_ for the option above).
 - **`8xx` (`800` to `899`) designators:** if _HIRES mode_ is NOT fitted (Durango**·S** only).
