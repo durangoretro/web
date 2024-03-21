@@ -26,13 +26,13 @@ _Somewhat **simpler** than the fully-featured version_, the display output is **
 
 If this option is chosen, **you don't need any component with `2xx` designators** (e.g. `U227`). Also, this is the _only configuration that **needs** components with `8xx` designators_ -- in fact, just a couple of _pull-up_ resistors. _Note that any **single video mode** Durango build **must** replace components with `3xx`designators by suitable **jumper wires**_; [check here for details](smod.md)
 
-!!! tip
+!!! note
 
 	Even if `R824` and `R825` are needed for this configuration _only_, they're _harmless_ in any case and could be fitted for **all options** with no ill effect.
 
 ### Durango·X
 
-!!! note
+!!! tip
 
 	This is the _full-featured, **recommended** option_.
 
@@ -60,7 +60,7 @@ Note that, in _colour (RGB) mode_, sync signals are expected to be present at th
 
 !!! warning
 
-	The _greyscale_ mode is **deprecated**, although all SCART-equipped Durangos up to 2.x do support it. Check the ***Composite output DAC** section below for details.
+	The _greyscale_ mode is **deprecated**, although all SCART-equipped Durangos up to 2.x do support it. Check the **Composite output DAC** section below for details.
 
 ### Sync-on-green _(v1 only)_
 
@@ -102,13 +102,10 @@ As an _afterthought_, a **greyscale mode** was added to v1 (**bit 3** of the _vi
 
 However, the SCART connector is hard to find on modern TVs, so an _alternative connection_ was needed. **Component Video** is widely supported nowadays, and it's relatively simple to obtain from the native RGB signals, thus this became a **built-in option in _v2_**, and an _external_ [Component Video converter](../../../hard/acc.html) was designed for improved compatibility on v1 units. But these converters just generate the needed `Pb` and `Pr` signals from the original RGB outputs, while the needed `Y` (luminance) signal is _taken directly from the composite output_, again from the crude DAC and intended for _greyscale_. On the other hand, **_proper_ luminance values** are expected on this signal when in Component Video mode for accurate colour display, thus a **new set of valued for `R107` thru `R110`** must be used. Check at the end of [palette considerations](../../../hard/dx/palette.md) for suitable replacement values.
 
-!!! tip
-
-	Since the _greyscale mode_ is seldom used and will still work with the _Luminance DAC_ values (even if slightly less linear), **these new values are always recommended** in any case.
-
 !!! note
 
-	v2 and beyond use **Luminance values** as standard. _Greyscale mode_ is still operative (when using the SCART option) but deprecated.
+	Since the _greyscale mode_ is seldom used and will still work with the _Luminance DAC_ values (even if somewhat less linear), **these new values are always recommended** in any case.
+	v2+ silkscreen uses **Luminance values** as standard. _Greyscale mode_ is still operative (when using the SCART option) but deprecated.
 
 ## PAL encoder
 
@@ -118,7 +115,7 @@ Since RGB signals are _natively generated_ in Durango·S/·X and they give **the
 
 ## Second video output
 
-Essentially the _same_ signal as the one available at the **composite** signal on the SCART (pin 19), but for _impedance matching_ reasons it's obtained thru a separate RC network (`R31` and `C9`). If these components are fitted, this signal is available at the yellow (leftmost) RCA jack on `J6`. The remaining RCA jacks (red & white) provide **monoaural audio** output for convenience, just in parallel with the SCART audio signal.
+Essentially the _same_ signal as the one available at the **composite** signal on the SCART (pin 19), but for _impedance matching_ reasons it's obtained thru a separate RC network (`R31` and `C9` on v1, `R731` and `C709` on v2+). If these components are fitted, this signal is available at the yellow (leftmost) RCA jack on `J6`. The remaining RCA jacks (red & white) provide **monoaural audio** output for convenience, just in parallel with the SCART audio signal.
 
 !!! tip
 
