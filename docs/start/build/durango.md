@@ -35,6 +35,21 @@ There are some _independent_ options as well, you may add them as desired:
 
 **Before** you begin soldering, please _make sure you've got both the **PCB** and **ALL of the components**_ needed, and that _they fit the footprints on the PCB_. Depending on the [chosen configuration](computer/options.md), some components may vary. In some cases, values are not mandatory and _might be changed_ to fit your stock.
 
+Since this is a **modular** board which allows several [configuration options](computer/options.md), make sure you get the right components for your choice. Generally speaking:
+
+- **Single-digit designator:** _common_ components needed for _all configurations_.
+- **`1xx` (`100` to `199`) designators:** if _colour mode_ is required (Durango**·S** and **·X**).
+- **`2xx` (`200` to `299`) designators:** if _HIRES mode_ is required (Durango**·R** and **·X**).
+- **`3xx` (`300` to `399`) designators:** whenever _both_ video modes coexist (Durango**·X** only, otherwise is a [single-mode Durango](smod.md)).
+- **`4xx` (`400` to `499`) designators:** for the _video mode settings_ (resolution, inverse, greyscale, screen-switching, _Emilio's LED_).
+- **`5xx` (`500` to `599`) designators:** for the _extra video features (_readable_ video mode, _horizontal & vertical blanking_ detection).
+- **`6xx` (`600` to `699`) designators:** if _Component Video output_ is required (v2 only).
+- **`7xx` (`700` to `799`) designators:** if the _second video output_ is required (includes _audio_ for the option above).
+- **`8xx` (`800` to `899`) designators:** if _HIRES mode_ is NOT fitted (Durango**·S** only).
+- **`9xx` (`900` to `999`) designators:** if _SCART video output_ is required.
+
+The **standard build** (SCART-equipped fully software-featured Durango·X) would use all components except designators `6xx`, `7xx` and `8xx`.
+
 ## [Step by step](computer/steps.md)
 
 !!! warning
