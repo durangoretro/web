@@ -20,7 +20,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 
 |Class       |Type   |Qty. (\*)|·S|·R|Component video|Second video output|Buzzer|Notes|
 |------------|-------|---------|--|--|---------------|-------------------|------|-----|
-|Piezo Buzzer|passive|**0**    |  |  |               |                   |**+1**|     |
+|Piezo Buzzer|passive|0        |  |  |               |                   |**+1**|     |
 |Capacitor   |_100 nF_|**1**   |  |  |               |                   |      |2    |
 |E.Capacitor |_10 µF_|**2**    |  |  |               |                   |      |1    |
 |E.Capacitor |_220 µF_|**1**   |  |  |               |                   |      |1    |
@@ -35,7 +35,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 |Resistor    |470    |**4**    |  |-2|               |                   |      |     |
 |Resistor    |680    |**2**    |  |-1|               |                   |      |5    |
 |Resistor    |_120_  |**5**    |  |-1|-1             |                   |      |6    |
-|Resistor    |_27 (0.5 W)_|**0**| |  |               |                   |**+1**|7    |
+|Resistor    |_27 (0.5 W)_|0   |  |  |               |                   |**+1**|7    |
 |Resistor    |_100 K_|**1**    |  |  |               |                   |      |3    |
 |Resistor    |12 K   |**2**    |  |-1|               |                   |      |5    |
 |Resistor    |8.2 K  |**1**    |  |-1|               |                   |      |     |
@@ -45,8 +45,8 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 |Resistor    |3.3 K  |**5**    |-2|-1|+2             |                   |      |8    |
 |Resistor    |6.8 K  |**2**    |  |  |+2             |                   |      |     |
 |Resistor    |1 K    |**2**    |  |  |+4             |                   |      |9    |
-|Resistor    |330    |**0**    |  |  |**+2**         |                   |      |     |
-|Resistor    |5.6 K  |**0**    |  |  |**+2**         |                   |      |10   |
+|Resistor    |330    |0        |  |  |**+2**         |                   |      |     |
+|Resistor    |5.6 K  |0        |  |  |**+2**         |                   |      |10   |
 |Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
 |Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
 |Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
@@ -78,11 +78,15 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 
 ## Logic families
 
+!!! warning
+
+	Some sellers on _eBay_, _AliExpress_ and the like, seem to be selling **non-compliant** parts -- they seem to work fine on less demanding circuits, but **fail** whenever they're "pushed" within spec. In the case of the _Durango_ computers, **U15** and **U125** are _particularly sensitive parts_, thus a **reputable source** is recommended or, at the very least, make sure you purchase under a reasonable _return policy_.
+
 The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SRAM_ chips are nearly always of such type, as is the _**65C02** CPU_; the rest of the circuit is made from standard **74HC** parts. Some considerations have to be done:
 
 -	Generally speaking, **74HC** and **74HC*T*** are both suitable and normally interchangeable. However, the use of an _HC**T**_ for `U32` (or `U8` on v1 boards) may affect interrupt performance, [check here for details](../../../hard/dx/irq.md).
 -	In case of `U14`, a _non-HC_ **CD4040** may be used without any ill effect. _In some cases_, `U19` can be replaced by a **CD** one as well, although **small glitches** on the screen might be seen.
--	Performance of **`U15`** is **critical**. v1 boards usually work fine with a _74HC_ unit but, in case of v2, a **74*AC*4040** is **highly recommended** -- some displays may become unstable with the HC part.
+-	Performance of **`U15`** is **critical**. v1 boards work fine with a _74HC_ unit but, in case of v2, a **74*AC*4040** is **highly recommended** -- some displays may become unstable with the HC part.
 
 !!! warning
 
@@ -91,5 +95,5 @@ The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SR
 ### Component equivalences
 
 -	In this circuit, _any_ 74HC157 may be replaced by a 74HC**257** without any problems; note that [single-mode Durangos](smod.md) need no '257s at all, and may use '157 or '257 at any position.
--	74HC688 has same pinout and functionality as any **'521** (usually available from _faster_ logic families)
-  
+-	74HC688 has same pinout and functionality as the **'521** (usually available from _faster_ logic families)
+
