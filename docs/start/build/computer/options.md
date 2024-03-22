@@ -58,7 +58,7 @@ Since some SCART-equipped devices (e.g. VCRs and _combos_) do NOT support RGB in
 
 Note that, in _colour (RGB) mode_, sync signals are expected to be present at the SCART _composite_ input in any case.
 
-!!! warning
+!!! note
 
 	The _greyscale_ mode is **deprecated**, although all SCART-equipped Durangos up to 2.x do support it. Check the **Composite output DAC** section below for details.
 
@@ -68,7 +68,7 @@ Originally intended for the **Sony PVM** range of monitors, quite popular within
 
 !!! bug
 
-	Despite what the schematics stated, `R111` and `R113` must be fitted (maybe with values down to 330 ohm) and pin 11 of `J105` must be **grounded** (easily done from the nearby pins 9 or 13) for utmost **colour accuracy**.
+	Despite what the schematics stated, `R111` and `R113` must be fitted (maybe with values down to 330 ohm) and pin 11 of `J105` must be **grounded** (easily done from the nearby pins 9 or 13) for best **colour accuracy**.
 
 !!! note
 
@@ -80,11 +80,15 @@ Originally intended for the **Sony PVM** range of monitors, quite popular within
 
 	If you are building _Durango*·R*_ (HIRES mode only), since it generates no colour signal at all, it makes **no sense** to select the _Component Video_ option. If SCART is not available, use the **second video output** option for a suitable _monochrome_ signal thru an RCA jack. You may delete `C5` and `R30` as these provide the SCART output only.
 
-Since SCART is pretty much phased out in Europe (and was never a thing in other continents, anyway), a newly designed option has been included. The aforementioned PVM monitor do support Component Video as well, thus will remain compatible.
+Since SCART is pretty much phased out in Europe (and was never a thing in other continents, anyway), this option has been included. The aforementioned PVM monitor do support Component Video as well, thus will remain compatible.
+
+!!! tip
+
+	You might want to add `J706` for the **audio output**, even if you don't fit `R731` and `C709`  (which enable the _second video output_ from the third RCA jack on it)
 
 !!! note
 
-	RGB is still the native video output of a Durango computer, thus _colours may differ a bit_ thru Component video.
+	RGB is still the native video output of a Durango computer, thus _colours may differ a bit_ thru Component video, but this is to be expected.
 
 !!! warning
 
@@ -105,13 +109,14 @@ However, the SCART connector is hard to find on modern TVs, so an _alternative c
 !!! note
 
 	Since the _greyscale mode_ is seldom used and will still work with the _Luminance DAC_ values (even if somewhat less linear), **these new values are always recommended** in any case.
-	v2+ silkscreen uses **Luminance values** as standard. _Greyscale mode_ is still operative (when using the SCART option) but deprecated.
+
+	v2+ silkscreen uses **Luminance values** as standard. _Greyscale mode_ is still operative (when using the SCART option) but **deprecated**.
 
 ## PAL encoder
 
 Since RGB signals are _natively generated_ in Durango·S/·X and they give **the highest picture quality**, initially no provision to add **chrominance** (colour) information on the _composite video_ output (both at the SCART and the optional _second video output_). But again, it might be desired for compatibility reasons.
 
-**v1 boards** provide space for a _PAL chrominance encoder_ (components with `6xx` designators) based around the `AD724` IC (unfortunately, only available as a less hobbyist-friendly _Surface-Mounted Device_). But being an afterthough and, specially, due to the _non-standard sync frequencies_ from the Durango video output, **performance might be poor _or not display any colour at all_**, depending on the particular TV set used. Thus, this option is **NOT recommended**.
+**v1 boards** provide space for a _PAL chrominance encoder_ (components with `6xx` designators) based around the `AD724` IC (unfortunately, only available as a less hobbyist-friendly _Surface-Mounted Device_). But being an _afterthough_ and, specially, due to the **non-standard sync frequencies** from the Durango v1 video output, **performance might be poor _or not display any colour at all_**, depending on the particular TV set used. Thus, this option is **NOT recommended**.
 
 ## Second video output
 
