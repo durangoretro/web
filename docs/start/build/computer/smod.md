@@ -21,11 +21,11 @@ Components with designators `1xx` are used for colour mode _only_, whereas desig
 
 However, since the RAM addresses are _multiplexed_ depending on the selected video mode (thru enabling either `U104/U105` or `U204/205`, accordingly), if the _unsupported_ video mode is selected via software, **the CPU will lose access to RAM**, immediately crashing the computer. Thus, some extra connections must be fitted in order to **ignore** the _selected_ resolution, allowing normal operation of the computer (within the _hardwired_ video mode, of course).
 
-This hack affects components with designators like `3xx`-- actually, just `U321/Q306` in v1 boards; but v2 adds `Q307`, `R336` and `R337`.
+This hack mainly affects components with designators like `3xx`-- check below for differences between v1 and v2.
 
 !!! tip
 
-	When a single-resolution configuration is fitted, either `U104/U105` or `U204/205` may be replaced by **74HC157** instead of the specified _'257_.
+	When a single-resolution configuration is fitted, either `U104/U105` or `U204/205` may be replaced by **74HC157** instead of the specified _'257_. Any of these types will do fine.
 
 ### Mods for HIRES-only _Durango·R_
 
@@ -39,7 +39,7 @@ This hack affects components with designators like `3xx`-- actually, just `U321/
 -	Bridge **pins 7 and 6** on `U321` empty footprint
 -	Bridge **pins 9 and 10** on `U321` empty footprint
 -	Bridge **pins 12 and 13** on `U321` empty footprint
--	(v2 only) Bridge **emitter and collector** (pins 1 & 3) on `Q307` empty footprint
+-	(v2 only) Bridge **emitter and collector** (pins 1 & 3) on `Q307` empty footprint -- you may bridge ALL of its pins as well, since `R336` is not fitted anyway.
 
 !!! tip
 
