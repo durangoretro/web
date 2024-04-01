@@ -85,8 +85,9 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SRAM_ chips are nearly always of such type, as is the _**65C02** CPU_; the rest of the circuit is made from standard **74HC** parts. Some considerations have to be done:
 
 -	Generally speaking, **74HC** and **74HC*T*** are both suitable and normally interchangeable. However, the use of an _HC**T**_ for `U32` (or `U8` on v1 boards) may affect interrupt performance, [check here for details](../../../hard/dx/irq.md).
--	In case of `U14`, a _non-HC_ **CD4040** may be used without any ill effect. _In some cases_, `U19` can be replaced by a **CD** one as well, although **small glitches** on the screen might be seen.
+-	In case of `U14`, a _non-HC_ **CD4040** may be used without any ill effect. _In some cases_, `U19` can be replaced by a _non-HC_ unit as well, although **some glitches** on the screen might be seen.
 -	Performance of **`U15`** is **critical**. v1 boards work fine with a _74HC_ unit but, in case of v2, a **74*AC*4040** is **highly recommended** -- some displays may become unstable with the HC part.
+-	Again, **`U125`'s** performance is **critical** for optimum display quality. Some _questionable_ parts may not be up to the official performance level, thus beware! Any other use of the `74HC157` seems more tolerant, though.
 
 !!! warning
 
@@ -96,4 +97,5 @@ The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SR
 
 -	In this circuit, _any_ 74HC157 may be replaced by a 74HC**257** without any problems; note that [single-mode Durangos](smod.md) need no '257s at all, and may use '157 or '257 at any position.
 -	74HC688 has same pinout and functionality as the **'521** (usually available from _faster_ logic families)
+-	**Transistors** and **diodes** are _not_ critical, and any _small signal_ reference may be used instead -- as long as you keep the **pinout** in mind.
 
