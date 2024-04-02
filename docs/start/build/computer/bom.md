@@ -18,37 +18,46 @@ Also, don't forget to check the **Notes** below for alternative values.
 
 If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md) 
 
+!!! note
+
+	Assume all resistors are rated **1/4 W** and capacitors **10 V** or higher, _unless noted otherwise_.
+
 |Class       |Type   |Qty. (\*)|·S|·R|Component video|Second video output|Buzzer|Notes|
 |------------|-------|---------|--|--|---------------|-------------------|------|-----|
 |Piezo Buzzer|passive|0        |  |  |               |                   |**+1**|     |
-|Capacitor   |_100 nF_|**1**   |  |  |               |                   |      |2    |
-|E.Capacitor |_10 µF_|**2**    |  |  |               |                   |      |1    |
-|E.Capacitor |_220 µF_|**1**   |  |  |               |                   |      |1    |
-|E.Capacitor |_100 µF_|**1**   |  |  |+2             |+1                 |      |1    |
-|E.Capacitor |_470 µF_|**1**   |  |  |+1             |                   |      |1    |
-|Capacitor   |_22 nF_|**1**    |  |  |               |                   |      |1    |
 |Capacitor   |_68 pF_|**1**    |  |  |               |                   |      |3    |
+|Capacitor   |_22 nF_|**1**    |  |  |               |                   |      |1    |
+|Capacitor   |_100 nF_|**1**   |  |  |               |                   |      |2    |
+|E.Capacitor |_1 µF_ |_0_      |  |  |               |                   |      |13   |
+|E.Capacitor |_10 µF_|**2**    |  |  |               |                   |      |1    |
+|E.Capacitor |_100 µF_|**1**   |  |  |+2             |+1                 |      |1    |
+|E.Capacitor |_220 µF_|**1**   |  |  |               |                   |      |1    |
+|E.Capacitor |_470 µF_|**1**   |  |  |+1             |                   |      |1    |
 |Diode       |_1N4148_|**6**   |  |  |               |                   |      |4    |
 |LED         |3 mm   |**2**    |  |  |               |                   |      |5    |
 |Transistor  |_BC548_|**7**    |-1|-1|+3             |                   |      |4    |
-|Resistor    |22 K   |**2**    |  |  |+1             |                   |      |     |
+|Resistor    |_27_ **(0.5 W)**|0| |  |               |                   |**+1**|7    |
+|Resistor    |75     |**1**    |  |  |**+2**         |+1                 |      |12   |
+|Resistor    |_120_  |**4**    |  |-1|-1             |                   |      |6, 13|
+|Resistor    |330    |0        |  |  |**+2**         |                   |      |     |
 |Resistor    |470    |**4**    |  |-2|               |                   |      |     |
 |Resistor    |680    |**2**    |  |-1|               |                   |      |5    |
-|Resistor    |_120_  |**5**    |  |-1|-1             |                   |      |6    |
-|Resistor    |_27 (0.5 W)_|0   |  |  |               |                   |**+1**|7    |
-|Resistor    |_100 K_|**1**    |  |  |               |                   |      |3    |
-|Resistor    |12 K   |**2**    |  |-1|               |                   |      |5    |
-|Resistor    |8.2 K  |**1**    |  |-1|               |                   |      |     |
-|Resistor    |18 K   |**1**    |  |-1|               |                   |      |     |
-|Resistor    |1.2 K  |**1**    |  |-1|               |                   |      |     |
-|Resistor    |33 K   |**2**    |-1|-2|+1             |                   |      |     |
-|Resistor    |3.3 K  |**5**    |-2|-1|+2             |                   |      |8    |
-|Resistor    |6.8 K  |**2**    |  |  |+2             |                   |      |     |
 |Resistor    |1 K    |**2**    |  |  |+4             |                   |      |9    |
-|Resistor    |330    |0        |  |  |**+2**         |                   |      |     |
+|Resistor    |1.2 K  |**1**    |  |-1|               |                   |      |     |
+|Resistor    |3.3 K  |**5**    |-2|-1|+2             |                   |      |8    |
 |Resistor    |5.6 K  |0        |  |  |**+2**         |                   |      |10   |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
+|Resistor    |6.8 K  |**2**    |  |  |+2             |                   |      |     |
+|Resistor    |8.2 K  |**1**    |  |-1|               |                   |      |     |
+|Resistor    |12 K   |**2**    |  |-1|               |                   |      |5    |
+|Resistor    |18 K   |**1**    |  |-1|               |                   |      |     |
+|Resistor    |22 K   |**2**    |  |  |+1             |                   |      |     |
+|Resistor    |33 K   |**2**    |-1|-2|+1             |                   |      |     |
+|Resistor    |39 K   |0        |  |  |**+1**         |                   |      |     |
+|Resistor    |47 K   |0        |  |  |**+1**         |                   |      |     |
+|Resistor    |56 K   |0        |  |  |**+1**         |                   |      |11   |
+|Resistor    |82 K   |0        |  |  |**+1**         |                   |      |     |
+|Resistor    |_100 K_|**1**    |  |  |               |                   |      |3    |
+|Resistor    |_220 K_|0        |**+2**| |            |                   |      |14   |
 |Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
 |Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
 |Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
@@ -74,7 +83,9 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 10. Theoretical value is **6.2 Kohm** from the _E24-series_, but the E12 standard _5.6 Kohm_ seems acceptable.
 11. Theoretical value is **62 Kohm** from the _E24-series_, but the E12 standard _56 Kohm_ seems acceptable.
 12. Correct value (as per RS-170 standard) is 75 ohm from the _E24-series_, although the E12 standard **68 ohm** is acceptable.
-13. 
+13. `C10` was originally 1 µF, but fitting it does _impair_ NMI debouncing, thus should **not** be used. `R35` can be safely replaced by a _jumper_ as well.
+14. These are just _weak pull-ups/pull-downs_ and may be chosen from around **1 Kohm** up to 330 Kohm or so. Even if they're only needed for the _Durango·S_ variant, fitting them won't harm in any case!
+
 
 ## Logic families
 
