@@ -1,5 +1,5 @@
 site_name: Durango Retro Computer
-site_description: Home of the Durango Computer Project. Create a 8 bit home computer with modern tools.
+site_description: Home of the Durango Computer Project. Create an 8 bit home computer with modern tools.
 site_author: Durango Computer Team
 site_url: https://www.durangoretro.com/
 nav:
@@ -8,19 +8,19 @@ nav:
  - Getting Started: started.md
  - FAQ: faq.md
  - The Hardware: 
-    - Hardware: hardware/hardware.md
-    - Durango: hardware/durango.md
-    - KeyBoard: hardware/keyboard.md
+    - Hardware: hardware.md
+    - Durango: hard/arch.md
+    - Keyboard: hardware/keyboard.md
     - Cartridge: hardware/cartidge.md
     - Development Cartridge: hardware/dev_cart.md
  - The Software:
-    - Software: software/software.md
+    - Software: software.md
     - Games: soft/games.md
     - Utility Software: software/roms.md
  - Troubleshoot: start/build/computer/troubleshoot.md
  - Development & Tools:
     - Development: tools/development.md
-    - Tools: tools/tools.md
+    - Tools: tools.md
     - Emulator (Perdita): start/run/emulation.md
     - Durango Lib: dev/lang/durangolib.md
     - Docker: tools/docker.md
