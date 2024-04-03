@@ -20,7 +20,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 
 !!! note
 
-	Assume all resistors are rated **1/4 W** and capacitors **10 V** or higher, _unless noted otherwise_.
+	Assume all ICs are in DIP package, resistors are rated **1/4 W** and capacitors **10 V** or higher, _unless noted otherwise_.
 
 |Class       |Type   |Qty. (\*)|·S|·R|Component video|Second video output|Buzzer|Notes|
 |------------|-------|---------|--|--|---------------|-------------------|------|-----|
@@ -58,14 +58,33 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 |Resistor    |82 K   |0        |  |  |**+1**         |                   |      |     |
 |Resistor    |_100 K_|**1**    |  |  |               |                   |      |3    |
 |Resistor    |_220 K_|0        |**+2**| |            |                   |      |14   |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-|Resistor    |    |**5**    |  |-1|-1             |                   |      |?    |
-
+|Res. network|8x _3.3 K_|**1** |  |  |               |                   |      |15   |
+|Res. network|4x _4.7 K_|**1** |  |  |               |                   |      |16   |
+|Variable Res.|5 K   |**1**    |  |-1|               |                   |      |17   |
+|Variable Res.|_10 K_|**2**    |-1|-1|               |                   |      |17, 18|
+|**Microprocessor**|65C02 |**1**|  |  |              |                   |      |     |
+|**Static RAM**|62256|**1**     |  |  |              |                   |      |     |
+|Integrated circuit|74HC00|**1**|  |  |              |                   |      |     |
+|Integrated circuit|74HC02|**1**|  |  |              |                   |      |     |
+|Integrated circuit|74HC20|**1**|-1|  |              |                   |      |     |
+|Integrated circuit|74HC21|**1**|  |  |              |                   |      |     |
+|Integrated circuit|74HC30|**1**|  |  |              |                   |      |     |
+|Integrated circuit|74HC32|**1**|  |  |              |                   |      |     |
+|Integrated circuit|74HC74|**1**|  |  |              |                   |      |     |
+|Integrated circuit|74HC85|**2**|  |  |              |                   |      |     |
+|Integrated circuit|74HC86|**2**|  |-1|              |                   |      |     |
+|Integrated circuit|74HC139|**2**|  |  |             |                   |      |     |
+|Integrated circuit|74HC157|**4**|-1|-2|             |                   |      |     |
+|Integrated circuit|74HC166|**1**|-1|  |             |                   |      |     |
+|Integrated circuit|74HC174|**1**|  |  |             |                   |      |19   |
+|Integrated circuit|74HC175|**1**|  |  |             |                   |      |     |
+|Integrated circuit|74HC245|**3**|  |-1|             |                   |      |     |
+|Integrated circuit|74HC257|**4**|-2|-2|             |                   |      |20   |
+|Integrated circuit|74HC367|**1**|  |  |             |                   |      |19   |
+|Integrated circuit|74HC574|**1**|-1|  |             |                   |      |     |
+|Integrated circuit|74HC688|**1**|  |  |             |                   |      |     |
+|Integrated circuit|74AC4040|**1**| |  |             |                   |      |21   |
+|Integrated circuit|74HC4040|**2**| |  |             |                   |      |21   |
 
 \*) Standard build is a **Durango·X** _v2.2_ with **SCART** output and no _second video output_, _piezo buzzer_ or any extra **simplifications**.
 
@@ -85,6 +104,13 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 12. Correct value (as per RS-170 standard) is 75 ohm from the _E24-series_, although the E12 standard **68 ohm** is acceptable.
 13. `C10` was originally 1 µF, but fitting it does _impair_ NMI debouncing, thus should **not** be used. `R35` can be safely replaced by a _jumper_ as well.
 14. These are just _weak pull-ups/pull-downs_ and may be chosen from around **1 Kohm** up to 330 Kohm or so. Even if they're only needed for the _Durango·S_ variant, fitting them won't harm in any case!
+15. _Strong pull-downs_ in **SIP-9** package. _This is the nominal value_ but could be modified slightly without any ill effect.
+16. _Strong pull-ups_ in **SIP-5** package. _Nominal_ value is 3.3 Kohm, but 4.7 has worked fine always.
+17. **PIHER PT-6-V** package.
+18. Originally specified as _5 K_, the new value allows for a broader adjustment margin.
+19. Could be ommited in certain configurations, see options.
+20. [Single-mode Durangos](smod.md) (·S, ·R) may use `74HC157` instead.
+21. Although _HC_ versions may serve well in any case, the faster **AC** version is recommended for `U15`, while `U14` may be safely replaced by a slower _non-HC_ **CD4040**. In some cases, `U19` could be of this slower type as well, but display may become slightly glitchy.
 
 
 ## Logic families
@@ -106,6 +132,7 @@ The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SR
  
 ### Component equivalences
 
+-	The 74HC00 may be replaced by a 74HC**132** (v1 had one of these too), but not the opposite.
 -	In this circuit, _any_ 74HC157 may be replaced by a 74HC**257** without any problems; note that [single-mode Durangos](smod.md) need no '257s at all, and may use '157 or '257 at any position.
 -	74HC688 has same pinout and functionality as the **'521** (usually available from _faster_ logic families)
 -	**Transistors** and **diodes** are _not_ critical, and any _small signal_ reference may be used instead -- as long as you keep the **pinout** in mind.
