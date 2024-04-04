@@ -1,8 +1,8 @@
-# Keyboard/Gamepad Interface v1 fix
+# Keyboard/Gamepad Interface v1.0 fix
 
 ## For Mega Drive version ONLY
 
-While the _NES flavour_ of the [Keyboard/Gamepad Interface board](keyboard.md) works flawlessly, a **bug** is present on the **MD version** _v1_ revision of this board. Please use the _workaround_ described below:
+While the _NES flavour_ of the [Keyboard/Gamepad Interface board](keyboard.md) works flawlessly, a **bug** is present on the **MD version** _v1.0_ revision of this board. Please use the _workaround_ described below:
 
 !!! warning
 
@@ -19,3 +19,12 @@ While the _NES flavour_ of the [Keyboard/Gamepad Interface board](keyboard.md) w
 ![Mega Drive interface fix](../assets/img/md_fix1.jpg)
 <figcaption>Solder bridge between pins 11 and 12</figcaption>
 </figure>
+
+!!! bug
+
+	This fix allows operation of a MD controller pad, although `C` and `START` buttons will be swapped.
+
+!!! note
+
+	All of these issues are already **fixed** on revision _v1.3_ or later.
+
