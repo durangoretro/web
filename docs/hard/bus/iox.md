@@ -27,7 +27,7 @@ connectors for testing purposes. If a board has more than one _IOx_ socket, they
 | #| `BA1`  | `PD2` |#       |
 |  | `BA2`  | `PD3` |#       |
 |  | `BA3`  | `PD4` |#       |
-| #| `/WE`  | `PD5` |#       |
+| #| `/WR`  | `PD5` |#       |
 | #| `/SEL` | `PD6` |#       |
 | #| `GND`  | `PD7` |#       |
 | #| #####  | ##### |#       |
@@ -41,12 +41,12 @@ Besides the IDC socket, Durango-X has a _right-angle pin socket_ for bigger peri
 
 |Signal|Description|Direction (rel. CPU)|Notes|
 |------|-----------|--------------------|-----|
-|`+5V` |Power      |Output              |Most peripherals could take power from this line. _Maximum recommended power draw: **350 mA (combined)**_.|
-|`GND` |Ground     |Output              |Mandatory connection, even is the peripheral is self-powered.|
+|`+5V` |Power      |Power Output        |Most peripherals could take power from this line. _Maximum recommended power draw: **350 mA (combined)**_.|
+|`GND` |**Ground** |Power Output        |**Mandatory** connection, even is the peripheral is self-powered.|
 |`PD0-PD7`|Peripheral Data Bus|Input/Output|**Must** be kept in _high-impedance_ state when `/SEL` is high.|
 |`BA0-BA3`|Buffered Address Bus|Output  |Constantly exposing the CPU's lower address bits.|
-|`/WE` |Write Enable|Output             |Either this _or_ `/SEL` **must** be _qualified_ via the Clock signal (usually the latter).|
-|`/SEL`|IOx Select |Output              |Active when the CPU interacts with the IOx bus.
+|`/WE` |Write Enable|Output             |_Active low_ when the CPU writes to the peripheral; **not** _qualified_, must be set around the same time as `BAx`.|
+|`/SEL`|IOx Select |Output              |_Active low_ when the CPU interacts with the IOx bus; **must** be _qualified_ via the Clock signal.|
 
 !!! note
 
