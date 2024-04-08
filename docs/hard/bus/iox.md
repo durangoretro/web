@@ -45,8 +45,12 @@ Besides the IDC socket, Durango-X has a _right-angle pin socket_ for bigger peri
 |`GND` |Ground     |Output              |Mandatory connection, even is the peripheral is self-powered.|
 |`PD0-PD7`|Peripheral Data Bus|Input/Output|**Must** be kept in _high-impedance_ state when `/SEL` is high.|
 |`BA0-BA3`|Buffered Address Bus|Output  |Constantly exposing the CPU's lower address bits.|
-|`/WE` |Write Enable|Output             |This _or_ `/SEL` **must** be _qualified_ via the Clock signal (usually the latter).|
-|`/SEL`|IOx Select |Output              |Active when the CPU interacts with the IOx bus. _Peripherals can **not** ask for CPU attention_, other than via **polling**.|
+|`/WE` |Write Enable|Output             |Either this _or_ `/SEL` **must** be _qualified_ via the Clock signal (usually the latter).|
+|`/SEL`|IOx Select |Output              |Active when the CPU interacts with the IOx bus.
+
+!!! note
+
+	Peripherals can **not** ask for CPU attention, other than _polling_.
 
 !!! warning
 
@@ -58,6 +62,10 @@ Besides the IDC socket, Durango-X has a _right-angle pin socket_ for bigger peri
 
 _IOx bus_ transactions are similar to regular memory accesses, thus Durango-X will assert the `/SEL` signal _(qualified)_ for _half a cycle_, or
 **about 325 nS**; but peripherals are expected to respond in a _reasonably **faster**_ fashion, to account for _glue logic delays_.
+
+!!! note
+
+	Most modern revisions of the _Durango_ computers are **faster**, down to a reasonable **125 nS** transaction time. On the other hand, some other devices _compatible with the **IOx expansion bus**_ (e.g. _Chihuahua_, _Rosario_ SBCs) may use _much longer transaction times_; in any case, the peripheral device **should keep the requested data until `/SEL` is negated** or, if on a _write_ transaction, **latch the data _at the rising edge_ of `/SEL`**.
 
 ### Address decoding
 
@@ -76,21 +84,19 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 
 |Address|Dir. (CPU)|Peripheral|Port description|
 |-------|----------|----------|----------------|
-|`$0`   |write     |_picoVDU_ |Address High Latch|
+|`$0`   |write     |external VDU|Address High Latch|
 |`$0`   |read      |**FREE**  |-|
-|`$1`   |write     |_picoVDU_ |Address Low Latch|
+|`$1`   |write     |external VDU|Address Low Latch|
 |`$1`   |read      |**FREE**  |-|
-|`$2`   |write     |_picoVDU_ |Data write      |
-|`$2`   |read      |FREE      |_might be used as I/O_|
+|`$2`   |write     |external VDU|Data write      |
+|`$2`   |read      |FREE      |_some external VDUs may **read** VRAM_|
 |`$3`   |I/O       |_Virtual Serial Port_\*|Data I/O|
 |`$4`   |I/O       |_Virtual Serial Port_|Configuration|
 |`$5`   |I/O       |**FREE**  |-|
 |`$6`   |I/O       |_FastSPI_ |SPI Data R/W|
-|`$7`   |write     |_FastSPI_ |`D0...D5 = /SPI_DEV`|
-|`$7`   |write     |_FastSPI **with I2C**_|`D0...D3 = /SPI_DEV`, `D4 = I2C_SCL`, `D5 = I2C_SDA`|
+|`$7`   |write     |_FastSPI_ **with I2C**|`D0...D3 = /SPI_DEV`, `D4 = I2C_SCL`, `D5 = I2C_SDA`|
 |`$7`   |write     |_nanoLink_ output (v1)|`D0=SERDAT`, `D1=SERCLK`|
-|`$7`   |read      |_FastSPI_ |send SPI clock|
-|`$7`   |read      |_FastSPI **with I2C**_|`D0...D3 = /SPI_DEV`, `D6 = I2C_SCL`, `D7 = I2C_SDA`; _also send SPI clock_|
+|`$7`   |read      |_FastSPI **with I2C**_|Send SPI clock; return value is `D0...D3 = /SPI_DEV`, `D6 = I2C_SCL`, `D7 = I2C_SDA`|
 |`$8`   |write     |_Static RAM storage_|Address High Latch|
 |`$0`   |read      |**FREE**  |-|
 |`$9`   |write     |_Static RAM storage_|Address Low Latch|
@@ -104,7 +110,7 @@ Here follows a list of _currently produced or projected **peripheral addresses**
 |`$D`   |write     |Gamepads  |Shift data _(NES only, but ignored by MD)_|
 |`$D`   |read      |Gamepad 1 |Read status     |
 |`$E`   |write     |_nanoLink_ output **(v2+)**|`D0=SERDAT`, `D1=SERCLK`|
-|`$E`   |read      |**FREE**  |-|
+|`$E`   |read      |**FREE**  |_may become **Parallel GPIO**_, combining _nanoLink_ and a bit-banged SPI interface|
 |`$F`   |I/O       |_RESERVED_|-|
 
 !!! note
