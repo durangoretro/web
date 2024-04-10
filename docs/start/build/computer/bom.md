@@ -14,7 +14,7 @@ Also, don't forget to check the **Notes** below for alternative values.
 
 !!! tip
 
-	If you are building _Durango*·R*_ (HIRES mode only), since it generates no colour signal at all, it makes **no sense** to select the _Component Video_ option. If SCART is not available, use the **second video output** option for a suitable _monochrome_ signal thru an RCA jack. You may delete `C5` and `R30` as these provide the SCART output only.
+	If you are building _Durango**·R**_ (HIRES mode only), since it generates no colour signal at all, it makes **no sense** to select the _Component Video_ option. If SCART is not available, use the **second video output** option for a suitable _monochrome_ signal thru an RCA jack. You may delete `C5` and `R30` as these provide the SCART output only.
 
 If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md) 
 
@@ -102,7 +102,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 10. Theoretical value is **6.2 Kohm** from the _E24-series_, but the E12 standard _5.6 Kohm_ seems acceptable.
 11. Theoretical value is **62 Kohm** from the _E24-series_, but the E12 standard _56 Kohm_ seems acceptable.
 12. Correct value (as per RS-170 standard) is 75 ohm from the _E24-series_, although the E12 standard **68 ohm** is acceptable.
-13. `C10` was originally 1 µF, but fitting it does _impair_ NMI debouncing, thus should **not** be used. `R35` can be safely replaced by a _jumper_ as well.
+13. `C10` was originally 1 µF, but fitting it does actually _impair_ NMI debouncing and should **not** be used. In this case, `R35` can be safely replaced by a _jumper_ as well.
 14. These are just _weak pull-ups/pull-downs_ and may be chosen from around **1 Kohm** up to 330 Kohm or so. Even if they're only needed for the _Durango·S_ variant, fitting them won't harm in any case!
 15. _Strong pull-downs_ in **SIP-9** package. _This is the nominal value_ but could be modified slightly without any ill effect.
 16. _Strong pull-ups_ in **SIP-5** package. _Nominal_ value is 3.3 Kohm, but 4.7 has worked fine always.
@@ -110,8 +110,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 18. Originally specified as _5 K_, the new value allows for a broader adjustment margin.
 19. Could be ommited in certain configurations, see options.
 20. [Single-mode Durangos](smod.md) (·S, ·R) may use `74HC157` instead.
-21. Although _HC_ versions may serve well in any case, the faster **AC** version is recommended for `U15`, while `U14` may be safely replaced by a slower _non-HC_ **CD4040**. In some cases, `U19` could be of this slower type as well, but display may become slightly glitchy.
-
+21. Although _HC_ versions may serve well in any case, the faster **AC** version is recommended for `U15`, while `U14` may be safely replaced by a slower _non-HC_ **CD4040**. In some cases, `U19` could be of this slower type as well, but display may become slightly _glitchy_.
 
 ## Logic families
 
@@ -119,7 +118,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 
 	Some sellers on _eBay_, _AliExpress_ and the like, seem to be selling **non-compliant** parts -- they seem to work fine on less demanding circuits, but **fail** whenever they're "pushed" within spec. In the case of the _Durango_ computers, **U15** and **U125** are _particularly sensitive parts_, thus a **reputable source** is recommended or, at the very least, make sure you purchase under a reasonable _return policy_.
 
-The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SRAM_ chips are nearly always of such type, as is the _**65C02** CPU_; the rest of the circuit is made from standard **74HC** parts. Some considerations have to be done:
+The _Durango·X_ computer is designed around **high-speed CMOS *(HC)*** technology. _SRAM_ chips are nearly always of such type, as is the *65**C**02* CPU_; the rest of the circuit is made from _standard **74HC**_ parts. Some considerations have to be done:
 
 -	Generally speaking, **74HC** and **74HC*T*** are both suitable and normally interchangeable. However, the use of an _HC**T**_ for `U32` (or `U8` on v1 boards) may affect interrupt performance, [check here for details](../../../hard/dx/irq.md).
 -	In case of `U14`, a _non-HC_ **CD4040** may be used without any ill effect. _In some cases_, `U19` can be replaced by a _non-HC_ unit as well, although **some glitches** on the screen might be seen.
@@ -128,12 +127,12 @@ The _Durango·X_ computer is designed around **high-speed CMOS** technology. _SR
 
 !!! warning
 
-	The use of _bipolar **TTL**_ logic circuits (e.g. 74**LS**) is **NOT** recommended. Neither is the use of an **NMOS 6502**, since the software library does not necessarily support it!
+	The use of _bipolar **TTL**_ logic circuits (e.g. 74**LS**) is **NOT** recommended. Neither is the use of an **NMOS 6502**, since the [software library](../../../software.md) does not necessarily support it!
  
 ### Component equivalences
 
--	The 74HC00 may be replaced by a 74HC**132** (v1 had one of these too), but not the opposite.
+-	The 74HC00 may be replaced by a 74HC**132** (v1 had one of these too), but the opposite is _not_ true.
 -	In this circuit, _any_ 74HC157 may be replaced by a 74HC**257** without any problems; note that [single-mode Durangos](smod.md) need no '257s at all, and may use '157 or '257 at any position.
--	74HC688 has same pinout and functionality as the **'521** (usually available from _faster_ logic families)
+-	74HC688 has same pinout and functionality as the **'521** (usually available from _faster_ logic families) and should be interchangeable.
 -	**Transistors** and **diodes** are _not_ critical, and any _small signal_ reference may be used instead -- as long as you keep the **pinout** in mind.
 
