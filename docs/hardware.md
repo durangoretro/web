@@ -88,6 +88,28 @@ _Durango_ even better.
 - Component Video output
 - _**Power**Durango_ adapter
 
+## Alternative architectures
+
+### With the 65C02
+
+-	**[Chihuahua](hard/alt/chihuahua.md):** small footprint (~98 x 72 mm) SBC with no built-in video, but sporting a [VIAbus]() interface. _For convenience, it shares the [IOx](hard/bus/iox.md) and [cartridge](hard/cart/pinout.md) connectors from Durango·X_.
+
+### Motorola 6800/Hitachi 6300
+
+-	**[Rosario](hard/alt/rosario.md):** Simple SBC based on the **Hitachi 6301/6303 _microcontroller_** in the same small form factor of _Chihuahua_. Can be configured to run _without cartridge_.
+
+### Other CPUs
+
+_To be done_
+
+### Alternative accessories
+
+The following devices share the common _Chihuahua/Rosario_ form factor (~98 x 72 mm):
+
+-	**[picoVDU](hard/alt/picovdu.md):** simple _video output_ for [Rosario](), [Chihuahua]() or even any other 6502 system.
+-	**[SimpleI/O](hard/alt/simpleio.md):** eight LEDs and eight pushbuttons for simple interaction with any device sporting the [VIAbus]() interface.
+-	**[LCD keypad](hard/alt/lcdpad.md):** connect an LCD character display easily.
+
 ## [Future projects](hard/future.md)
 
 We won't stop here...
