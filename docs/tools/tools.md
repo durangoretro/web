@@ -87,6 +87,8 @@ Remember to stick the nanoBoot ROM on Durango first.
 
     This software is under development and we are working to improve it. Of course, you can contribute in the github repository.
 
+For more information about the transmission format itself, check out the [nanoBoot specifics](nanoboot.md) page.
+
 ## CC65
 
 _CC65_ is a freeware C compiler and other tools to work with 6502 microprocessor.
