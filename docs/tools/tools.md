@@ -51,7 +51,7 @@ The nanoLink Interface its in the upper side of the durango board.
 
 This server uses the following GPIO pins:
 
-* 35: GND (G)
+* 34: GND (G)
 * 36: CLK (C)
 * 38: DAT (D)
 * 40: STB (NOT USED)
@@ -75,10 +75,10 @@ After installing you can compile the program, using make.
 make
 ```
 
-To use this program, you need to send as a parameter the Rom File Path:
+To use this program, you need to send as a parameter the File Path:
 
 ```bash
-nanobootServer Rom.dux
+nanoBootServer file
 ```
 
 Remember to stick the nanoBoot ROM on Durango first.
