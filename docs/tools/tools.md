@@ -51,32 +51,35 @@ The nanoLink Interface its in the upper side of the durango board.
 
 This server uses the following GPIO pins:
 
-* 34: GND (G)
+* 35: GND (G)
 * 36: CLK (C)
 * 38: DAT (D)
+* 40: STB (NOT USED)
 
 Or on BCM notation:
 
 * 16: CLK
 * 20: DAT
+* 21: STB
 
 You need to compile the source code downloaded from:
 
-[https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/server.c](https://github.com/zuiko21/minimOS/blob/master/forge/nanoboot/server.c)
+[https://github.com/durangoretro/nanobootserver/](https://github.com/durangoretro/nanobootserver/)
 
-to compile this program you need the library ```wiringpi```:
+To compile this program you need the library [WiringPI](https://github.com/WiringPi/WiringPi):
 
-```bash
-sudo apt-get install wiringpi
-```
 
-After installing you can compile the program.
+After installing you can compile the program, using make.
 
 ```bash
-gcc -lwiringPi server.c -o nanoserver
+make
 ```
 
-To use this program, launch and write in the prompt the file name you want to upload.
+To use this program, you need to send as a parameter the Rom File Path:
+
+```bash
+nanobootServer Rom.dux
+```
 
 Remember to stick the nanoBoot ROM on Durango first.
 
