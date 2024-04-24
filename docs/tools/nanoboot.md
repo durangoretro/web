@@ -17,7 +17,7 @@ The NMI routine should keep count of the times it was called, so after _eight ca
 
 !!! note
 
-	This is a **best effort** protocol, without any flow control, acknowledge or negotiation.
+	This is a **best effort** protocol, without any _flow control_, acknowledge or negotiation. Being a _simplex_ link, there's no way for the receiver to request any 'file' from the sender -- if the receiver is _ready_ when the sender transmits, transfer will be successful.
 
 ## The Hardware
 
@@ -54,17 +54,38 @@ Being a **synchronous serial** interface on a _simplex_ link, the output interfa
 -	A **VIA 6522** _shift register_ thru `CB1` and `CB2`.
 -	Another Durango with a couple of **latched output** pins -- a [suitable interface]() has been developed.
 
-Since **Durango·X** (as well as **Chihuahua** and **Rosario**) have the same receiving interface (BC548 _BJT_ with 22K base resistor), there's no need for a full 5V level at these inputs. To be on the conservative side, anything over **TTL levels** (2.0 v active _high_), probably much less (but definitely over ~0.7 v)
+Since **Durango·X** (as well as **Chihuahua** and **Rosario**) have the same receiving interface (BC548 _BJT_ with 22K base resistor), there's no need for a full 5V level at these inputs. To be on the conservative side, anything over **TTL levels** (2.0 v active _high_), probably much less (but definitely over ~0.7 v). These inputs will **sink 200 µA** at most, thus almost anything will be able to drive them.
 
 ## The software
 
 ### Required header
 
-TBD
+Prior to actual data transmission, a **40-bit header** must be sent in order to identify the _data type_, start _address_ and length. The receiver would be able to **reject** the transmission, although normal operation of the receiving computer might be affected by abnormal activity on interrupt lines.
+
+|Byte 1|Byte 2 & 3|Byte 4 & 5|
+|------|----------|----------|
+|_Magic_ number|**End** address (_BigEndian_)|**Start** address (_BigEndian_)|
+
+!!! note
+
+	Unlike all 6502 code, both addresses are in **Big Endian** format!
+
+ The **End** address is the first address that will **not** be loaded from transmission. If, for instance, the transmitted block is to be loaded into the `$6000-$7FFF` area, the _end address_ will be **`$8000`**, and thus bytes 2 to 5 will be sent as `$80`, `$00`, `$60`, `$00`.
 
 ### _Magic_ numbers
 
-TBD
+This is a byte to identify the activity as a valid _nanoBoot_ transmission, and also determine its format. As of 2024-04-24, **four** formats are defined.
+
+|_Magic_ number|Type|Load address|Execution address|
+|--------------|----|------------|-----------------|
+|`$4B`|RAM bootloader (legacy)|Specified to sender|Same as load address|
+|`$4C`|ROM image|`$10000`-image size|Vectored at `$FFFC`|
+|`$4D`|Generic data|Specificed to sender|_N/A_|
+|`$4E`|_Pocket_ executable|Offset `$3-4` in file header|Offset `$5-6` in file header|
+
+!!! warning
+
+	`$4B` was the only supported mode on older versions of nanoBoot client ROM, but timing and other details may be **incompatible** with modern implementations. Make sure you use recent (April 2024 and later) versions of both the server (sender) and receiver (client) software!
 
 ## Timing
 
