@@ -11,7 +11,7 @@ ___
 
 ## General operation
 
-The idea is pretty simple: by using the `NMI` (or similar) line as a **clock** signal, the sender quickly gets the receiver's attention for every transmitted bit. Upon servicing this prioritary interrupt, any lower-privilege ones are masked. Then, this mask is temporarily lifted so, _if the **data** line is asserted_, an `IRQ` (or other lower privilege/maskable interrupt) is issued and a **flag** is marked, and returns. After this brief interrupt enabling, the NMI checks for the aforementioned flag: if that flag is _not enabled_, a **zero** was received. Otherwise, it's a **one**.
+The idea is pretty simple: by using the `NMI` (or similar) line as a **clock** signal, the sender quickly gets the receiver's attention for every transmitted bit. Upon servicing this prioritary interrupt, any lower-privilege ones are masked. Then, this mask is temporarily lifted so, _if the **data** line is asserted_, an `IRQ` (or other lower privilege/maskable interrupt) is issued and a **flag** is marked, then returns. After this brief interrupt enabling, the NMI routine checks for the aforementioned flag: if that flag is _not enabled_, a **zero** was received. Otherwise, it's a **one**.
 
 The NMI routine should keep count of the times it was called, so after _eight calls_ a whole byte was received (_shifting_ the bits _in_ as soon as they're checked). Then, that byte is **written** into the corresponding address and a suitable _pointer_ is incremented to point to the following address, until the **address limit** is reached; at that point, loaded code is **executed**, if possible (more on this later).
 
@@ -50,17 +50,17 @@ The `SERCLK` (**C**lock) signal will drive _NMI_ or the interrupt with _highest 
 
 Being a **synchronous serial** interface on a _simplex_ link, the output interface is just a couple of pins for **clock** and **data** signals -- no need for _open collector_ or _tristate_. This can be achieved thru several ways, like:
 
--	Two **GPIO** pins, like those on the _RaspberryPi_ or _Arduino_ (3.3 V logic is OK).
+-	Two **GPIO *(output)*** pins, like those on the _RaspberryPi_ or _Arduino_ (3.3 V logic is OK).
 -	A **VIA 6522** _shift register_ thru `CB1` and `CB2`.
 -	Another Durango with a couple of **latched output** pins -- a [suitable interface]() has been developed.
 
-Since **Durango·X** (as well as **Chihuahua** and **Rosario**) have the same receiving interface (BC548 _BJT_ with 22K base resistor), there's no need for a full 5V level at these inputs. To be on the conservative side, anything over **TTL levels** (2.0 v active _high_), probably much less (but definitely over ~0.7 v). These inputs will **sink 200 µA** at most, thus almost anything will be able to drive them.
+Since **Durango·X** (as well as **Chihuahua** and **Rosario**) have the same receiving interface (BC548 _BJT_ with 22K base resistor), there's no need for a full 5V level at these inputs. To be on the conservative side, anything over **TTL levels** (2.0 v active _high_), probably much less (but definitely over ~0.7 v). These inputs will **sink 200 µA** at most, thus almost any kind of circuit will be able to drive them.
 
-## The software
+## Protocol
 
 ### Required header
 
-Prior to actual data transmission, a **40-bit header** must be sent in order to identify the _data type_, start _address_ and length. The receiver would be able to **reject** the transmission, although normal operation of the receiving computer might be affected by abnormal activity on interrupt lines.
+Prior to actual data transmission, a **40-bit header** must be sent in order to identify the _data type_, start _address_ and length. The receiver would be able to **reject** the transmission, although normal operation of the receiving computer might be affected by abnormal activity on interrupt lines during the rejected transfer, as _the sender has no way to know about the rejection_.
 
 |Byte 1|Byte 2 & 3|Byte 4 & 5|
 |------|----------|----------|
@@ -68,9 +68,9 @@ Prior to actual data transmission, a **40-bit header** must be sent in order to 
 
 !!! note
 
-	Unlike all 6502 code, both addresses are in **Big Endian** format!
+	Unlike 6502 code, both addresses are in **Big Endian** format!
 
- The **End** address is the first address that will **not** be loaded from transmission. If, for instance, the transmitted block is to be loaded into the `$6000-$7FFF` area, the _end address_ will be **`$8000`**, and thus bytes 2 to 5 will be sent as `$80`, `$00`, `$60`, `$00`.
+ The **End** address is the first address that will **not** be loaded from transmission. If, for instance, the transmitted block is to be loaded into the `$6000-$7FFF` area, the _end address_ will be **`$8000`**, and thus bytes 2 to 5 will be sent precisely as `$80`, `$00`, `$60`, `$00`.
 
 ### _Magic_ numbers
 
@@ -87,6 +87,37 @@ This is a byte to identify the activity as a valid _nanoBoot_ transmission, and 
 
 	`$4B` was the only supported mode on older versions of nanoBoot client ROM, but timing and other details may be **incompatible** with modern implementations. Make sure you use recent (April 2024 and later) versions of both the server (sender) and receiver (client) software!
 
+!!! note
+
+	`$4B`, `$4C` and `$4E` are intended for _executable_ code, when the receiver will keep waiting for something to be executed; whereas the `$4D` signature is about _generic data_ for **communication between Durangos** (or any other nanoLink-equipped device) and still under development.
+
+## Software
+
+### Sender
+
+According to the available hardware, there are many ways to write suitable code. Usually will be a matter of **generating the header** and sending out the bits **with suitable delays** (see _Timing_ section below for details). So far (until April 2024) a [simple C program for RaspberryPi]() has been used, although only _binary blobs_ (type `$4B`) are supported.
+
+### Receiver
+
+Since this is an **interrupt-driven** feature, _unless the target computer has no use for interrupts_ at all, your firmware will usually provide **user-defined interrupt vectors**. Two common ways are available for 6502 systems:
+
+-	Make the `IRQ/NMI` _hard_ vectors point to a `JMP` instruction in RAM, followed by the required ISR address.
+-	Make the `IRQ/NMI` _hard_ vectors point to an **indirect `JMP(abs)`** _in ROM_, which will take the ISR address from some RAM vectors.
+
+_Durango_ software takes the latter approach, with _soft_ IRQ vector at `$0200`, and _soft_ NMI vector at `$0202`. ***In any case, both the bootloader firmware and the executable code to be loaded are expected to set these vectors accordingly***.
+
+Also, since the normal IRQ generation will interfere with the _data_ line, the bootloader should **shut off** such generation before attempting to receive, ***and* restore it** just after loading has finished (or was aborted). In the case of **Durango·X** computer, this is done by clearing bit 0 at the _Interrupt Enable Register_ (`$DFAx`) and then setting it afterwards; the `ERROR` LED will stay lit while reception is enabled.
+
 ## Timing
+
+Generally speaking, _nanoBoot_ timing is very loose, _as long as **the receiver is fast enough** to handle the incoming data_. Designed more for **convenience and reliability** than _speed_, these are the _minimum_ times to be observed.
+
+### Header
+
+In order to allow for timeouts, feedback etc., the header is transmitted at a slow pace of **500 bits per second**. Current software waits ***2 ms** between bits*, of which the `SERCLK` pulse is kept for at least **15 µS** for reliability. After each byte is transmitted, and **extra 1 mS delay** is used for reliable operation, although not strictly necessary.
+
+The whole header takes about **85 mS** to be transmitted.
+
+### Data stream
 
 TBD
