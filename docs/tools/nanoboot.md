@@ -46,6 +46,10 @@ The `SERCLK` (**C**lock) signal will drive _NMI_ or the interrupt with _highest 
 
 	The **Durango·X** home computer fits all requirements for nanoBoot, as do the simpler [Chihuahua]() SBC and the recently developed [Rosario]() 6301 computer.
 
+!!! note
+
+	In case of the **Durango·X** computer, there's an `AUDIO_FB` jumper which _connects the `SERDAT` input to the **audio** output_, which makes a screeching sound during **nanoLink** transfers, as a crude (but sometimes helpful) form of feedback.
+
 ### Sender requisites
 
 Being a **synchronous serial** interface on a _simplex_ link, the output interface is just a couple of pins for **clock** and **data** signals -- no need for _open collector_ or _tristate_. This can be achieved thru several ways, like:
@@ -110,7 +114,7 @@ Also, since the normal IRQ generation will interfere with the _data_ line, the b
 
 ## Timing
 
-Generally speaking, _nanoBoot_ timing is very loose, _as long as **the receiver is fast enough** to handle the incoming data_. Designed more for **convenience and reliability** than _speed_, these are the _minimum_ times to be observed.
+Generally speaking, _nanoBoot_ timing is very loose, _as long as **the receiver is fast enough** to handle the incoming data_. Designed more for **convenience and reliability** than _speed_, these are the _recommended minimum_ times to be observed.
 
 ### Header
 
@@ -120,4 +124,12 @@ The whole header takes about **85 mS** to be transmitted.
 
 ### Data stream
 
-TBD
+Originally designed to work _reliably_ on a **1 MHz** computer, which is the minimum expected for any 6502 system, each bit takes a total of **80 µS**, of which the `SERCLK` pulse is kept for at least **15 µS** as before. After all 8 bits are transmitted, an extra **125 µS delay** is specified.
+
+However, unlike the header trasnmission, **page boundary crossing** may happen and **extra delay** must be added, especially if some kind of _feedback_ is desired. Originally stated at 1 mS, current version specifies **2 mS** allowing for graphic screens to be updated.
+
+All of this means the _nominal_ rate is **12.5 kbit per second**, although the needed overhead will get the _actual_ transfer rate a bit **over 1 KByte per second**, which is reasonable for its purpose.
+
+!!! note
+
+	You may **speed up** the transmission _if the receiving computer is fast enough_; but reliability might be affected. Experiments with **1 MHz 65C02** were able to make successful transmissions up to **18 kb/s** nominal rates, but sometimes it needed a few attempts to succeed.
