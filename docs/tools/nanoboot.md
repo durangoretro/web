@@ -85,7 +85,7 @@ This is a byte to identify the activity as a valid _nanoBoot_ transmission, and 
 |`$4B`|RAM bootloader (legacy)|Specified to sender|Same as load address|
 |`$4C`|ROM image|`$10000`-image size|Vectored at `$FFFC`|
 |`$4D`|Generic data|Specificed to sender|_N/A_|
-|`$4E`|_Pocket_ executable|Offset `$3-4` in file header|Offset `$5-6` in file header|
+|`$4E`|_Pocket_ executable|Vectored at offset `$3-4` in file header|Vectored at offset `$5-6` in file header|
 
 !!! warning
 
@@ -105,8 +105,8 @@ According to the available hardware, there are many ways to write suitable code.
 
 Since this is an **interrupt-driven** feature, _unless the target computer has no use for interrupts_ at all, your firmware will usually provide **user-defined interrupt vectors**. Two common ways are available for 6502 systems:
 
--	Make the `IRQ/NMI` _hard_ vectors point to a `JMP` instruction in RAM, followed by the required ISR address.
--	Make the `IRQ/NMI` _hard_ vectors point to an **indirect `JMP(abs)`** _in ROM_, which will take the ISR address from some RAM vectors.
+-	Make the `IRQ`/`NMI` _hard_ vectors point to a `JMP` instruction in RAM, followed by the required ISR address.
+-	Make the `IRQ`/`NMI` _hard_ vectors point to an **indirect `JMP(abs)`** _in ROM_, which will take the ISR address from some RAM vectors.
 
 _Durango_ software takes the latter approach, with _soft_ IRQ vector at `$0200`, and _soft_ NMI vector at `$0202`. ***In any case, both the bootloader firmware and the executable code to be loaded are expected to set these vectors accordingly***.
 
@@ -116,6 +116,10 @@ Also, since the normal IRQ generation will interfere with the _data_ line, the b
 
 Generally speaking, _nanoBoot_ timing is very loose, _as long as **the receiver is fast enough** to handle the incoming data_. Designed more for **convenience and reliability** than _speed_, these are the _recommended minimum_ times to be observed.
 
+!!! warning
+
+	Unlike a code bootloader, where the receiving computer keeps _waiting_ for the code to arrive (or until _cancelled_ by timeout or keystroke, if available), transmissions under the `$4D` signature (generic data) are intended to be serviced **during normal operation** of the receiving computer, thus must adhere to **much stricter timing** as most of the time the standard ISR should be kept available.
+ 
 ### Header
 
 In order to allow for timeouts, feedback etc., the header is transmitted at a slow pace of **500 bits per second**. Current software waits ***2 ms** between bits*, of which the `SERCLK` pulse is kept for at least **15 µS** for reliability. After each byte is transmitted, and **extra 1 mS delay** is used for reliable operation, although not strictly necessary.
@@ -133,3 +137,7 @@ All of this means the _nominal_ rate is **12.5 kbit per second**, although the n
 !!! note
 
 	You may **speed up** the transmission _if the receiving computer is fast enough_; but reliability might be affected. Experiments with **1 MHz 65C02** were able to make successful transmissions up to **18 kb/s** nominal rates, but sometimes it needed a few attempts to succeed.
+
+!!! tip
+
+	Generally speaking, the `SERDAT` line should be updated _before_ the `SERCLK` pulse is sent (`NMI` will be generated at the **leading** edge); but in most cases, there will be **at least a 7-cycle margin** while the NMI is acknowledged, allowing the use of a _VIA Shift Register_ as a sender, for instance. _This margin should be taken into account for the **hold** time_ as well, plus whatever delay creates your NMI code before briefly enabling the IRQ (`SERDAT`) line.
