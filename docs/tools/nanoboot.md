@@ -17,13 +17,13 @@ The NMI routine should keep count of the times it was called, so after _eight ca
 
 !!! note
 
-	This is a **best effort** protocol, without any _flow control_, acknowledge or negotiation. Being a _simplex_ link, there's no way for the receiver to request any 'file' from the sender -- if the receiver is _ready_ when the sender transmits, transfer will be successful.
+	This is a **best effort** protocol, without any _flow control_, acknowledge or negotiation. Being a _simplex_ link, there's no way for the receiver to request any 'file' from the sender -- if the receiver is _ready_ before the sender starts the transmission, it may succeed. Also, in case of any _framing error_ or link breakdown, the receiver will likely hang up.
 
 ## The Hardware
 
 ### Signals definition
 
-This is a **two-wire interface** (plus _ground_) based on a ***Synchronous Serial* link**. The main feature is that _the receiving side needs almost **no additional hardware**_, as it simply repurposes the regular `/IRQ` and `/NMI` _interrupt_ lines for DATA **(`SERDAT`)** and CLOCK **(`SERCLK`)** transmission, respectively. Note that, even if this was designed around the 6502 CPU, _it may be applied to almost any CPU_, as long as it has two interrupt lines with different privilege levels.
+This is a **two-wire interface** (plus _ground_) based on a ***Synchronous Serial* link**. The main feature is that _the receiving side needs almost **no additional hardware**_, as it simply repurposes the regular `/IRQ` and `/NMI` _interrupt_ lines for DATA **(`SERDAT`, *LSB first*)** and CLOCK **(`SERCLK`)** transmission, respectively. Note that, even if this was designed around the 6502 CPU, _it may be applied to almost any CPU_, as long as it has two interrupt lines with different privilege levels.
 
 ### Suggested connector
 
@@ -58,13 +58,17 @@ Being a **synchronous serial** interface on a _simplex_ link, the output interfa
 -	A **VIA 6522** _shift register_ thru `CB1` and `CB2`.
 -	Another Durango with a couple of **latched output** pins -- a [suitable interface]() has been developed.
 
+!!! note
+
+	The bits are sent with **the least significative (LSB) *first***. That's compatible with the use of a VIA's _shift register_ as a sender.
+
 Since **Durango·X** (as well as **Chihuahua** and **Rosario**) have the same receiving interface (BC548 _BJT_ with 22K base resistor), there's no need for a full 5V level at these inputs. To be on the conservative side, anything over **TTL levels** (2.0 v active _high_), probably much less (but definitely over ~0.7 v). These inputs will **sink 200 µA** at most, thus almost any kind of circuit will be able to drive them.
 
 ## Protocol
 
-### Required header
+### Transmission header
 
-Prior to actual data transmission, a **40-bit header** must be sent in order to identify the _data type_, start _address_ and length. The receiver would be able to **reject** the transmission, although normal operation of the receiving computer might be affected by abnormal activity on interrupt lines during the rejected transfer, as _the sender has no way to know about the rejection_.
+Prior to actual data transmission, a **40-bit header** must be sent in order to identify the _data type_, start _address_ and length. The receiver would be able to **reject** the transmission, although normal operation of the receiving computer might be affected by abnormal activity on interrupt lines during the rejected transfer, as _the sender has no way to know about the desired rejection_, an thus won't stop the transmission.
 
 |Byte 1|Byte 2 & 3|Byte 4 & 5|
 |------|----------|----------|
@@ -84,12 +88,12 @@ This is a byte to identify the activity as a valid _nanoBoot_ transmission, and 
 |--------------|----|------------|-----------------|
 |`$4B`|RAM bootloader (legacy)|Specified to sender|Same as load address|
 |`$4C`|ROM image|`$10000`-image size|Vectored at `$FFFC`|
-|`$4D`|Generic data|Specificed to sender|_N/A_|
+|`$4D`|Generic data|Specified to sender|_N/A_|
 |`$4E`|_Pocket_ executable|Vectored at offset `$3-4` in file header|Vectored at offset `$5-6` in file header|
 
 !!! warning
 
-	`$4B` was the only supported mode on older versions of nanoBoot client ROM, but timing and other details may be **incompatible** with modern implementations. Make sure you use recent (April 2024 and later) versions of both the server (sender) and receiver (client) software!
+	`$4B` was the only supported mode on older versions of nanoBoot client ROM, but timing and other details may be **incompatible** with modern implementations. Make sure you use recent (May 2024 and later) versions of both the server (sender) and receiver (client) software!
 
 !!! note
 
@@ -99,7 +103,7 @@ This is a byte to identify the activity as a valid _nanoBoot_ transmission, and 
 
 ### Sender
 
-According to the available hardware, there are many ways to write suitable code. Usually will be a matter of **generating the header** and sending out the bits **with suitable delays** (see _Timing_ section below for details). So far (until April 2024) a [simple C program for RaspberryPi]() has been used, although only _binary blobs_ (type `$4B`) are supported.
+According to the available hardware, there are many ways to write suitable code. Usually will be a matter of **generating the transmission header** and sending out the bits **with suitable delays** (see _Timing_ section below for details). So far (until April 2024) a [simple C program for RaspberryPi]() has been used, although only _binary blobs_ (type `$4B`) are supported.
 
 ### Receiver
 
@@ -131,6 +135,10 @@ The whole header takes about **85 mS** to be transmitted.
 Originally designed to work _reliably_ on a **1 MHz** computer, which is the minimum expected for any 6502 system, each bit takes a total of **80 µS**, of which the `SERCLK` pulse is kept for at least **15 µS** as before. After all 8 bits are transmitted, an extra **125 µS delay** is specified.
 
 However, unlike the header trasnmission, **page boundary crossing** may happen and **extra delay** must be added, especially if some kind of _feedback_ is desired. Originally stated at 1 mS, current version specifies **2 mS** allowing for graphic screens to be updated.
+
+!!! note
+
+	Albeit most transmissions will be _page-aligned_, note that this 2 mS delay is not necessarily done every 256 transmitted bytes, but **ever the next received byte will be stored at `$xx00`**, when the actual page boundary is crossed.
 
 All of this means the _nominal_ rate is **12.5 kbit per second**, although the needed overhead will get the _actual_ transfer rate a bit **over 1 KByte per second**, which is reasonable for its purpose.
 
