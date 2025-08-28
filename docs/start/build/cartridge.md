@@ -36,6 +36,8 @@ original [Development cartridge](hard/cart/dev.md) is recommended***
 
 Check any particular cartridge page (links above) for detailed component list and other advice.
 
+Check the BOM for the [Development Cartridge](cart/bom.md)
+
 ## [Step by step](cart/steps.md)
 
 !!! note

@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 [Site map](../../../sitemap.md))
-[Home](../../../index.md) > [Getting Started](../../../started.md) > [Building](../../building.md) > [KeyBoard](../cartridge.md) > **BOM**
+[Home](../../../index.md) > [Getting Started](../../../started.md) > [Building](../../building.md) > [Cart](../cartridge.md) > **BOM**
 
 ---
 # Bill Of Materials 
