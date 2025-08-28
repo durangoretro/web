@@ -16,7 +16,7 @@ Once you get the KeyBoard PCB, it's time to gather all the necessary **component
 
 
 
-| Class              | Type                | Qty. (\*) | NES | MD | Notes                                     |
+| Class              | Type                | Qty. (\*) | NES* | MD* | Notes                                     |
 |--------------------|---------------------|:---------:|-----|----|-------------------------------------------|
 | Res. Network       | 220K - 9 Pin        |     2     | 1   | 2  | Only one needed if Using NES controllers. |
 | Res. Network       | 6K8 - 9 Pin         |     1     | 1   | 1  |                                           |
@@ -32,6 +32,10 @@ Once you get the KeyBoard PCB, it's time to gather all the necessary **component
 | Integrated circuit | 74HC245             | 3         | 1   | 3  | Only one needed if using NES Controller   |
 | Integrated circuit | 74HC595             | 2         | 2   | 0  | Only for NES Controllers                  |
 | Integrated circuit | 74HC86              | 1         | 1   | 1  |                                           |
+
+!!! info
+    
+    The NES or MD columns show the total components needed for this configuration. Check the Board serigraphy for more information.
 
 !!! warning
 
