@@ -19,7 +19,7 @@ Once you get the KeyBoard PCB, it's time to gather all the necessary **component
 | Class              | Type                | Qty. (\*) | NES* | MD* | Notes                                     |
 |--------------------|---------------------|:---------:|-----|----|-------------------------------------------|
 | Res. Network       | 220K - 9 Pin        |     2     | 1   | 2  | Only one needed if Using NES controllers. |
-| Res. Network       | 6K8 - 9 Pin         |     1     | 1   | 1  |                                           |
+| Res. Network       | 6K8 - 9 Pin         |     1     | 1   | 1  |           10K can be used                      |
 | Diode              | 1N4148              |     8     | 8   | 8  |                                           |
 | Button             | Push Button 6x6x7mm |     40    | 40  | 40 |                                           |
 | MD Socket          | Dsub9               |     2     | 0   | 2  | Only for MD/atari Controllers             |
