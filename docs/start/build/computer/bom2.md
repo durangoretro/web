@@ -33,7 +33,7 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 | Resistor | 470           | 4   |                            |
 | Resistor | 680           | 2   |             5              |
 | Resistor | 100K          | 1   |             3              |
-| Resistor | 10K ajustable | 2   | PIHER PT-6-V package.      |
+| Variable Resistor | 10K Variable | 2   | PIHER PT-6-V package.      |
 | Resistor | 12K           | 2   |             5              |
 | Resistor | 18K           | 1   |                            |
 | Resistor | 1K            | 6   |             9              |
@@ -45,11 +45,11 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 | Resistor | 33K           | 3   |                            |
 | Resistor | 39K           | 1   |                            |
 | Resistor | 3K3           | 7   |             8              |
-| Resistor | 3K3x8 9-pin   | 1   |            15              |
+| Resistor Network | 3K3x8 9-pin   | 1   |            15              |
 | Resistor | 4K7           | 2   |                            |
-| Resistor | 4K7x4 5-pin   | 1   |             16             |
+| Resistor Network | 4K7x4 5-pin   | 1   |             16             |
 | Resistor | 56K           | 1   |             11             |
-| Resistor | 5K ajustable  | 1   | PIHER PT-6-V package 5KOhm |
+| Variable Resistor | 5K Variable  | 1   | PIHER PT-6-V package 5KOhm |
 | Resistor | 5K6           | 2   |              10            |
 | Resistor | 6K8           | 4   |                            |
 | Resistor | 75            | 4   |              12            |
@@ -63,10 +63,10 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 | Capacitor | 10 uF 25v  | 2        | 1     |
 | Capacitor | 100 nF     | 1        | 2     |
 | Capacitor | 100 uF 10v | 4        | 1     |
-| Capacitor | 22 nF      | 1        | 1     |
+| Passive Capacitor | 22 nF      | 1        | 1     |
 | Capacitor | 220 uF 50v | 1        | 1     |
 | Capacitor | 470 uF 10v | 2        | 1     |
-| Capacitor | 68 pF      | 1        | 3     |
+| Passive Capacitor | 68 pF      | 1        | 3     |
 
 ## Transistors and Diodes
 
@@ -75,8 +75,8 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 | Passive    | Buzzer    | 1        |       |
 | Diode      | 1N4148    | 6        | 4     |
 | Transistor | BC548     | 11       | 4     |
-| Diode Led  | Red Led   | 1        | 5     |
-| Diode Led  | Green Led | 1        | 5     |
+| LED | Red Led   | 1        | 5     |
+| LED | Green Led | 1        | 5     |
 
 ## Sockets DIP
 
