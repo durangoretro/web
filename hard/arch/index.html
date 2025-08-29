@@ -1,0 +1,2423 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home of the Durango Computer Project. Create an 8 bit home computer with modern tools.">
+      
+      
+        <meta name="author" content="Durango Computer Team">
+      
+      
+        <link rel="canonical" href="https://www.durangoretro.com/hard/arch/">
+      
+      
+        <link rel="prev" href="../../hardware/">
+      
+      
+        <link rel="next" href="../../hardware/keyboard/">
+      
+      
+      <link rel="icon" href="../../assets/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Durango - Durango Retro Computer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-durango-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Durango Retro Computer" class="md-header__button md-logo" aria-label="Durango Retro Computer" data-md-component="logo">
+      
+  <img src="../../assets/img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Durango Retro Computer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Durango
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/durangoretro/web" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    durangoretro/web
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../hardware/" class="md-tabs__link">
+          
+  
+  
+  The Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../software/" class="md-tabs__link">
+          
+  
+  
+  The Software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../start/build/computer/troubleshoot/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshoot
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tools/development/" class="md-tabs__link">
+          
+  
+  
+  Development & Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../other/other/" class="md-tabs__link">
+          
+  
+  
+  Other Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/durangoretro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contribute
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sitemap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SITE MAP
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Durango Retro Computer" class="md-nav__button md-logo" aria-label="Durango Retro Computer" data-md-component="logo">
+      
+  <img src="../../assets/img/logo.png" alt="logo">
+
+    </a>
+    Durango Retro Computer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/durangoretro/web" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    durangoretro/web
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    The Hardware
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            The Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Durango
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durango
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Range
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durangox-sbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durango·X SBC
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Durango·X SBC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improvements-for-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvements for v2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      Palette
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#irq-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRQ generation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theory of Operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hacks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-pause" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware PAUSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overclocking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overclocking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-oscillator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative oscillator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powerdurango" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerDurango
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cartridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartridges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cartridges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-pinout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview &amp; pinout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mini-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      mini-cartridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devcart" class="md-nav__link">
+    <span class="md-ellipsis">
+      devCart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bankswitching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bankswitching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-cartridge-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal cartridge (new)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riser-boards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Riser boards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veracruz-cartridge-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Veracruz cartridge format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peripherals-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peripherals &amp; Interfaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peripherals &amp; Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nanolink" class="md-nav__link">
+    <span class="md-ellipsis">
+      nanoLink
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iox-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      IOx bus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-gamepads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard &amp; Gamepads
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keyboard &amp; Gamepads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout &amp; matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-keyboard-under-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended keyboard (under development)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-iox-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other IOx devices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other IOx devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nanolink-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      nanoLink output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastspi-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastSPI &amp; I2C
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pask" class="md-nav__link">
+    <span class="md-ellipsis">
+      PASK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIO
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sidecar-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidecar devices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sidecar devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sd-rtc" class="md-nav__link">
+    <span class="md-ellipsis">
+      SD + RTC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard overlay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-video-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Video output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powerdurango-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerDurango adapter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/keyboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keyboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/cartidge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cartridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/dev_cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Cartridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    The Software
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            The Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/games/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Games
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/roms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utility Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/build/computer/troubleshoot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshoot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development & Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Development & Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/run/emulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emulator (Perdita)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/lang/durangolib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durango Lib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/tool/durangocode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durango Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Other Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Other Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../other/future/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Future Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Community
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/durangoretro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sitemap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SITE MAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Range
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durangox-sbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durango·X SBC
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Durango·X SBC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improvements-for-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvements for v2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      Palette
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#irq-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRQ generation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theory-of-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theory of Operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hacks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware-pause" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware PAUSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overclocking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overclocking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-oscillator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative oscillator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powerdurango" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerDurango
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cartridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartridges
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cartridges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-pinout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview &amp; pinout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mini-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      mini-cartridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devcart" class="md-nav__link">
+    <span class="md-ellipsis">
+      devCart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bankswitching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bankswitching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-cartridge-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal cartridge (new)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#riser-boards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Riser boards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veracruz-cartridge-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Veracruz cartridge format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peripherals-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peripherals &amp; Interfaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peripherals &amp; Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nanolink" class="md-nav__link">
+    <span class="md-ellipsis">
+      nanoLink
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iox-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      IOx bus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-gamepads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard &amp; Gamepads
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keyboard &amp; Gamepads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout &amp; matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-keyboard-under-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended keyboard (under development)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-iox-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other IOx devices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other IOx devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nanolink-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      nanoLink output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastspi-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastSPI &amp; I2C
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pask" class="md-nav__link">
+    <span class="md-ellipsis">
+      PASK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIO
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sidecar-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidecar devices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sidecar devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sd-rtc" class="md-nav__link">
+    <span class="md-ellipsis">
+      SD + RTC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard overlay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-video-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Video output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powerdurango-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      PowerDurango adapter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p><a href="../../sitemap/">Site map</a>)
+<a href="../../">Home</a> &gt; <a href="../../hardware/">Hardware</a> &gt; <strong>Architecture</strong></p>
+<hr />
+<h1 id="the-durango-architecture">The <em>Durango</em> architecture</h1>
+<p>The <em>Durango</em> project attempts to make a <em>80s-style</em> <strong>home computer</strong> based on
+<em>readily available</em> components: besides CPU and memory, everything else is just ordinary
+<em>logic circuits</em> (74xx series) -- no PIA, VIA, CRTC, ACIA etc.</p>
+<h2 id="range">Range</h2>
+<p>Since the <strong>Durango·X</strong> computer was designed with <em>modularity</em> in mind, you may
+choose the desired set of features, or deal with <em>alternative</em> models:</p>
+<ul>
+<li><strong>Durango·<em>X</em></strong>: Fully featured computer with both HIRES and colour video modes.</li>
+<li><strong>Durango·<em>S</em></strong>: No HIRES, only colour video mode (128 x 128 px, <a href="../dx/palette/">16 colours</a>).</li>
+<li><strong>Durango·<em>R</em></strong>: No colour, just HIRES video mode (256 x 256 px, monochrome) and <em>somewhat reduced component count</em>.</li>
+<li><strong>Durango·<em>C</em></strong>: Simplified, GAL-based version of <em>·X</em> with <em>a lot</em> less soldering. <strong><em>(under development)</em></strong></li>
+<li><strong>Durango <em>Pocket</em></strong>: <em>Handheld</em> <strong>2 MHz</strong> version, although not ~~fully~~ compatible. <strong><em>(under development)</em></strong></li>
+</ul>
+<h2 id="durangox-sbc"><a href="hard/durango.md"><strong>Durango·X</strong> SBC</a></h2>
+<h3 id="overview">Overview</h3>
+<p>As previously mentioned, this is a <em>80s-style</em> home computer made out of <em>readily
+available</em> components, with no computer-specific chips besides CPU and RAM.</p>
+<h3 id="specifications">Specifications</h3>
+<p>Main specs for the <em>original</em> (v1) version of this computer are:</p>
+<ul>
+<li><strong>CPU:</strong> 65C02 @ 1.536 MHz</li>
+<li><strong>ROM:</strong> on external <a href="cartridges.md">cartridge</a>, up to 32 KiB (more with <em>bankswitching</em>)</li>
+<li><strong>RAM:</strong> 32 KiB (static)</li>
+<li><strong>Expansion:</strong> <a href="../bus/iox/">parallel 8-bit bus</a> with 16 addresses for keyboards, joysticks, storage devices...</li>
+<li><strong>Video output:</strong> <em>RGB</em> SCART connector for a CCIR (PAL) TV, composite greyscale, composite PAL or <em>Sync-on-green</em> (options available).</li>
+<li><strong>Controls:</strong> Power switch (optional), <code>RESET</code> button, <code>NMI</code> (interrupt) button.</li>
+<li><strong>Connectivity:</strong> <em>nanoLink</em> input (synchronous serial) for reception of data &amp; code.</li>
+<li><strong>Footprint:</strong> 5.1" x 7", rounded corners (129.54 x 177.8 mm)</li>
+</ul>
+<h4 id="improvements-for-v2">Improvements for v2</h4>
+<p><em>Both issues are essentially 100% compatible</em>, but some improvements were made in v2:</p>
+<ul>
+<li><strong>CPU:</strong> now at 1.75 MHz with <em>switchable <strong>turbo</strong></em> mode (<strong>3.5 MHz</strong>)</li>
+<li><strong>Video output:</strong> <em>RGB</em> SCART connector for a CCIR (PAL) TV or <strong>component video</strong> options (PAL and sync-on-green deprecated).</li>
+<li><strong>Controls:</strong> <em>Built-in</em> power switch, <code>RESET</code> button, <strong>debounced</strong> <code>NMI</code> button.</li>
+</ul>
+<p>Otherwise, they are <strong>the same</strong> (including the <em>footprint</em>). <em><strong>v2.1</strong> is essentially an alternative, improved routing for the v2 PCB</em>,
+thus they're based on the very same schematic.</p>
+<h4 id="options"><a href="dx/options.md">Options</a></h4>
+<p><em>Whithin the same board</em>, you may choose from several building options:</p>
+<ul>
+<li>Supported video modes:<ul>
+<li>Colour only (<em>Durango·<strong>S</strong></em>)</li>
+<li>HIRES only (<em>Durango·<strong>R</strong></em>)</li>
+<li><strong>Both modes</strong> (<em>Durango·<strong>X</strong></em>, recommended option)</li>
+</ul>
+</li>
+<li>Monitor output:<ul>
+<li><strong>SCART</strong> (colour via <em>RGB</em>, recommended option)</li>
+<li>Sync-on-green (v1) / Component video (v2+)</li>
+<li>Second audio/video output</li>
+</ul>
+</li>
+<li>Composite encoding:<ul>
+<li>Greyscale (standard in v1)</li>
+<li><strong>Luminance</strong> (standard in v2+, recommended option)</li>
+</ul>
+</li>
+<li>PAL encoder (for composite output, v1 only, <em>NOT</em> recommended)</li>
+<li>Piezo buzzer for audio</li>
+<li>Debug port</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Together with the v2.1 issue, there is an alternative PCB for <strong>EIA (NTSC) 60 Hz</strong> countries.
+<a href="../dx/eia/">Main differences</a> include an <strong>1.57 MHz</strong> clock speed (<strong>3.15 with <em>turbo</em></strong> option)
+and a button for <em>momentarily displaying the bottom 64 rasters</em>, which normally cannot be displayed
+on a 60 Hz screen.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is known that <em>many</em> modern TVs are <strong>not</strong> compatible with the <strong>240p/288p</strong> signal supplied by Durango-X <em>thru the <strong>Component Video</strong> input</em>. In such cases, if a <em>suitable YPbPr-to-HDMI converter</em> is not available (we're researching on that), you may always use the <strong>composite video</strong> input, although in <em>greyscale</em> mode. Note that this will perform fine in HIRES mode.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you can hook a <em>PlayStation 2</em> <strong>thru Component video input</strong> and properly play a <strong><em>PS1</em> game</strong> on it, your TV is most likely <strong>compatible</strong> with Durango-X.</p>
+</div>
+<h4 id="palette"><a href="../dx/palette/">Palette</a></h4>
+<p>In <em>colour mode</em>, Durango·X uses a <strong>16-colour <em>fixed</em> palette</strong>, where <em>2 bits</em>
+are assigned to <strong>green</strong>, while the remaining two bits of each nybble represent
+the <strong>red</strong> and <strong>blue</strong> values in full.</p>
+<h4 id="irq-generation"><a href="../dx/irq/">IRQ generation</a></h4>
+<p><em>Durango·X</em> has a <strong>switchable interrupt generator</strong>, working at a fixed rate of
+<strong>250 Hz</strong> (4 ms period). <em>These are <strong>not</strong> latched</em> in any way, thus lost interrupts
+do <em>not</em> queue up.</p>
+<h3 id="theory-of-operation"><a href="../dx/theory/">Theory of Operation</a></h3>
+<p>This document deploys <strong>detailed information</strong> about the <em>Durango·X</em> computer operation.</p>
+<h3 id="hacks">Hacks</h3>
+<p>Some modifications for improved functionality:</p>
+<h4 id="hardware-pause">Hardware PAUSE</h4>
+<p>This is pretty simple: the 6502's <code>RDY</code> line (which was intended to allow synchronisation
+with slow memory chips) is <strong>not used</strong> in <em>Durango·X</em>, and simply connected to a
+<em>pull-up</em> resistor (on RN1). But the pin itself is available in the <code>STEP</code> connector
+(J10), thus <em>halting the CPU is as simple as <strong>grounding</strong> this pin</em>; you might
+use the <em>ground</em> pin (labelled <code>G</code>) on the nearby <strong>nanoLink</strong> connector (J1).
+<em>No debouncing or any additional hardware is needed</em>, and no ill effects are to be expected.</p>
+<h4 id="overclocking"><a href="dx/overclock.md">Overclocking</a></h4>
+<p>While most components on <em>Durango·X</em> are way faster than actually needed (except
+the U3 <strong>SRAM</strong>, because of <em>multiplexing</em>), <strong>overclocking</strong> this computer is <em>not</em>
+as simple as changing the <em>oscillator</em> (X1) as all <strong>video timings</strong> come from this,
+and would be thrown off otherwise.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>issue v2+</strong> includes a <strong>TURBO</strong> jumper as a built-in <em>overclocking</em> feature
+and doesn't need anything else, <em>as long as your CPU and RAM are <strong>fast enough</strong></em>
+to cope with it!</p>
+</div>
+<h4 id="alternative-oscillator"><a href="dx/oscil.md">Alternative oscillator</a></h4>
+<p><em>v2 issue</em> (for CCIR/PAL/<strong>50 Hz</strong> countries) is based on a <em>28 MHz</em> crystal oscillator
+intended for <strong>perfectly square pixels</strong>; but being a relatively odd frequency, it could be
+difficult to source. An <strong>alternative oscillator</strong> (of a <em>very common</em> 25.175 MHz frequency)
+can be used instead, with a bit of rewiring. <em>The newly designed EIA/NTSC/<strong>60 Hz</strong> version
+already uses this readily available oscillator</em>.</p>
+<h4 id="powerdurango"><a href="dx/power.md"><strong>Power</strong>Durango</a></h4>
+<p>Durango's 65C02 CPU can be replaced with a more advanced <strong>65C816</strong> -- an <em>adapter board</em>
+is needed because pinout and signals aren't fully compatible. From the software side,
+<em>the 65C816 is able to run 65C02 with <strong>100% compatibility</strong></em>, but not the opposite.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to get <em>any</em> performance improvement with the 65C816, <strong>specific <em>native</em>
+code</strong> must be used -- which won't be compatible with the regular 65C02. The
+computer's architecture also limits the memory map to <strong>64 KiB</strong>, <em>mirrored</em> to
+fill the whole <em>16 MiB</em> address space of the '816.</p>
+</div>
+<h2 id="cartridges"><a href="cartridges.md">Cartridges</a></h2>
+<p>Since there's <em>no ROM</em> in Durango·X, it's <strong>essential</strong> the use of a cartridge with
+suitable <em>firmware</em>. In case you want to load software off an SD card, <em>you'll need
+at least a cartridge</em> with a suitable <a href="../dev/6502/multiboot.md">bootloader</a>.</p>
+<h3 id="overview-pinout"><a href="../cart/pinout/">Overview &amp; pinout</a></h3>
+<p>A readily available <strong>36-pin edge connector</strong> is used for the cartridge. Most
+cartridge boards can be fitted inside a <em>Commodore 64</em> cartridge box.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Height constraints inside the C64 cartridge <em>preclude the use of <strong>sockets</strong></em>
+for the cartridge's ICs.</p>
+</div>
+<h3 id="mini-cartridge"><a href="cart/mini.md">mini-cartridge</a></h3>
+<p><em>Basic</em> cartridge to supply a ROM (8 - 64 KiB, up to <strong>32 KiB</strong> simultaneously).
+It's a very small and inexpensive board but <em>won't fit inside a C64 cartridge</em>.</p>
+<h3 id="devcart"><a href="cart/dev.md">devCart</a></h3>
+<p>This <strong>Development Cartridge</strong> is able to supply a 16 KiB ROM, but sports <strong>32 KiB
+of <em>shadow</em> RAM</strong> which can be loaded from the supplied <strong>SD card</strong> interface and
+be used to <em>emulate ROM</em>, for <strong>maximum convenience</strong>. This board is very tall and,
+once again, <em>won't fit inside a C64 cartridge</em>.</p>
+<p>The so-called <strong>ShadowRAM</strong> cartridge is the same but, thanks to the use of <em>Surface
+Mount Devices</em> and a pluggable SD card reader, <strong>reduced in size</strong>, so it does
+actually <strong>fit inside a C64 cartridge</strong>. Otherwise, it's functionally identical to
+the <em>devCart</em>, although it allows to access up to <strong>32 KiB of ROM</strong>.</p>
+<h3 id="bankswitching"><a href="cart/banks.md">Bankswitching</a></h3>
+<p><strong>Bankswitching</strong> was a common technique in the 8-bit era, extending beyond the
+<em>64 KiB addressing limit</em>. With bigger EPROM/EEPROM/Flash chips (<strong>128 KiB - 1 MiB</strong>)
+available in a still hobbyist-friendly <em>DIP-32</em> package, we developed a board that
+<em>fits inside a C64 cartridge</em> and <strong>splits the ROM into 16 or 32 KiB banks</strong> which
+are switched by <em>software</em> (bank <em>size</em> is configurable via a jumper)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>whole cartridge space</strong> is swapped when switching banks so, in case you're
+switching <em>from the ROM code itself</em>, care must be taken.</p>
+</div>
+<p>Another bankswitching cartridge is not controlled by software, but <strong>triggers a counter
+from the <code>RESET</code> signal</strong>. Once again configurable for <strong>16 or 32 KiB banks</strong>, allows
+the combination of <em>several software titles in <strong>one</strong> single cartridge</em>.</p>
+<h3 id="universal-cartridge-new"><a href="cart/universal.md">Universal cartridge <em>(new)</em></a></h3>
+<p>A newly designed cartridge which allows the use of <strong>almost any <em>EPROM/EEPROM/Flash</em> on
+<em>24, 28 or 32-pin</em> package, from 2 KiB to 1 MiB</strong>. It also includes <em>options</em> for both
+<strong>bankswitching</strong> and a <strong>Programmable Sound Generator</strong> like the one available as a <em>riser card</em>
+(see below), with <strong>improved audio output</strong>. <em>Fits inside a standard C64 cartridge, as well</em>.</p>
+<h3 id="riser-boards"><a href="cart/riser.md">Riser boards</a></h3>
+<p><em>These boards go <strong>between</strong> a regular cartridge and the Durango·X computer</em>, passing
+thru all signals but <strong>adding extra functionality</strong>. As of December 2023 they are:</p>
+<ul>
+<li>Extra sound capabilities with the SN76489A <strong>Programmable Sound Generator</strong>.</li>
+<li>A <em>breakout</em> board for easier probing of all of the cartridge's signals.</li>
+</ul>
+<h3 id="veracruz-cartridge-format">Veracruz cartridge format</h3>
+<p><em>Veracruz</em> will be a much more advanced <strong>65C816-based computer</strong> with huge memory
+and built-in firmware, although <em>extendable thru cartridges</em> with a new <strong>44-pin</strong>
+format. However, <em>it will be possible to fit a <strong>Durango</strong> (36-pin) cartridge into
+<strong>Veracruz</strong>'s 44-pin slot</em>, although actual compatibility is unknown. <em>Will physically
+fit inside a C64 cartridge</em> as well.</p>
+<h2 id="peripherals-interfaces"><a href="interfaces.md">Peripherals &amp; Interfaces</a></h2>
+<p><em>Durango·X</em> has some ports for <strong>peripheral</strong> connection:</p>
+<h3 id="nanolink">nanoLink</h3>
+<p>This is an <strong>input</strong> port, simply connected to the <strong><code>NMI</code> and <code>IRQ</code> interrupt lines</strong>
+thru discrete <em>open collector drivers</em>. Its main use is to form a <em>synchronous serial port</em>
+to <a href="../dev/6502/nanoboot.md"><strong>receive code from a Raspberry Pi</strong></a> via its GPIO pins.</p>
+<p><em>nanoLink</em> is also the <em>name</em> of a <strong>communications protocol</strong> (under development)
+which, by adding a suitable <strong>output</strong> port, will allow <strong>data transfers</strong> between Durangos.</p>
+<h3 id="iox-bus"><a href="../bus/iox/">IOx bus</a></h3>
+<p>This is the <strong>main Peripheral Bus</strong> with inexpensive <strong>IDC-16</strong> connectors, allowing
+daisy-chaining <strong>up to 16 devices</strong>.</p>
+<h3 id="keyboard-gamepads"><a href="hard/keyboard.md">Keyboard &amp; Gamepads</a></h3>
+<p>The <em>standard keyboard</em> for <strong>Durango·X</strong> fits <em>atop</em> the main board, covering it and
+providing <strong>two gamepad ports</strong>, in either <a href="kbd/nes.md">NES</a> or <a href="kbd/md.md">Megadrive</a>
+format.</p>
+<h4 id="layout-matrix"><a href="kbd/layout.md">Layout &amp; matrix</a></h4>
+<p>This keyboard is based on the <strong>ZX Spectrum</strong> layout and matrix, and is indeed
+<em>electrically compatible</em>. However, no <em>single-key commands</em> are available, and
+it has been adapted to <strong>support Spanish characters</strong>.</p>
+<h4 id="extended-keyboard-under-development"><a href="kbd/ext.md">Extended keyboard</a> (under development)</h4>
+<p>An improved, separate keyboard for <strong>more comfortable typing</strong>.</p>
+<h3 id="other-iox-devices"><a href="bus/periph.md">Other IOx devices</a></h3>
+<p>Thanks to the <em>versatility</em> of the <strong><em>IOx</em> Peripheral Bus</strong>, several devices have
+been developed -- with many more to come!</p>
+<h4 id="nanolink-output"><em>nanoLink</em> output</h4>
+<p>Allows intercommunication between Durangos.</p>
+<h4 id="fastspi-i2c"><em>FastSPI</em> &amp; I<sup>2</sup>C</h4>
+<p>Experimental board with <strong>much faster SPI</strong> for <em>improved SD card performance</em>. Now
+with an <strong>I<sup>2</sup>C</strong> port as well.</p>
+<h4 id="pask"><em>PASK</em></h4>
+<p>A <em>semi-intelligent</em> keyboard that never materialised, but did set some standards.
+Used for a Raspberry Pi-based <strong>keyboard emulator</strong>, might be considered as a
+<em>bidirectional paralell port</em>.</p>
+<h4 id="gpio">GPIO</h4>
+<p>Similar to the above, but with <em>non-latching</em> input. <strong>Jumper-selected</strong> pin directions.</p>
+<h3 id="sidecar-devices"><a href="bus/sidecar.md">Sidecar devices</a></h3>
+<p>Mechanically speaking, <strong>sidecar</strong> devices are boards that fit on Durango's <strong>left</strong> side.
+Electrically, is just another <strong>IOx</strong> port with a different connector <em>(2x8 pin socket)</em>.</p>
+<h4 id="sd-rtc">SD + RTC</h4>
+<p>This is essentially the <strong>FastSPI</strong> board in the <em>sidecar</em> form factor. The built-in
+<strong>I<sup>2</sup>C</strong> port allows the connection of an <em>inexpensive <strong>Real Time Clock</strong></em>,
+particularly useful when dealing with <strong>storage</strong> devices.</p>
+<h2 id="accessories"><a href="acc.md">Accessories</a></h2>
+<p>Things not necessarily computer-related, but they can account for a better experience:</p>
+<h3 id="keyboard-overlay">Keyboard overlay</h3>
+<p>A <em>Minstrel</em>-inspired board with <strong>bigger, clearer silkscreen</strong> atop the keyboard.</p>
+<h3 id="component-video-output">Component Video output</h3>
+<p><strong>Compatibility with modern TVs</strong> lacking the SCART connector!</p>
+<h3 id="powerdurango-adapter"><a href="dx/power.md"><em><strong>Power</strong>Durango</em> adapter</a></h3>
+<p>This accessory allows <em>Durango·X</em> (or almost <em>any</em> 6502-based computer) the use of a
+much more powerful <strong>65C816</strong> CPU, albeit limited to the usual <strong>64 KiB</strong> address space.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2025 Durango Computer Team <a href="https://librecounter.org/durangoretro.com/show" target="_blank" style="display:none"><img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" /></a>
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/durangoretro/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/2PNcatsHnn" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

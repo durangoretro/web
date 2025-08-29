@@ -1,0 +1,1604 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home of the Durango Computer Project. Create an 8 bit home computer with modern tools.">
+      
+      
+        <meta name="author" content="Durango Computer Team">
+      
+      
+        <link rel="canonical" href="https://www.durangoretro.com/hard/dx/theory/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Theory - Durango Retro Computer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#theory-of-operation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Durango Retro Computer" class="md-header__button md-logo" aria-label="Durango Retro Computer" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Durango Retro Computer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/durangoretro/web" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    durangoretro/web
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../hardware/" class="md-tabs__link">
+          
+  
+  
+  The Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../software/" class="md-tabs__link">
+          
+  
+  
+  The Software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../start/build/computer/troubleshoot/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshoot
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/development/" class="md-tabs__link">
+          
+  
+  
+  Development & Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../other/other/" class="md-tabs__link">
+          
+  
+  
+  Other Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/durangoretro/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contribute
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../sitemap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SITE MAP
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Durango Retro Computer" class="md-nav__button md-logo" aria-label="Durango Retro Computer" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    Durango Retro Computer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/durangoretro/web" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    durangoretro/web
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    The Hardware
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            The Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durango
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/keyboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keyboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/cartidge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cartridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/dev_cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development Cartridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    The Software
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            The Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../soft/games/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Games
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/roms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utility Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/build/computer/troubleshoot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshoot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development & Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Development & Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/run/emulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emulator (Perdita)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/lang/durangolib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durango Lib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/tool/durangocode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durango Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Other Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/other/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Other Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/future/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Future Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Community
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/durangoretro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sitemap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SITE MAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit description
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#60-hz-eia-ntsc-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      60 Hz EIA (NTSC) version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overclocking-durango-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overclocking Durango-X
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu" class="md-nav__link">
+    <span class="md-ellipsis">
+      VDU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scart" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCART
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interrupt-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interrupt generation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mux" class="md-nav__link">
+    <span class="md-ellipsis">
+      MUX
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base I/O
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extra features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<p><a href="../../../">Home</a> &gt; <a href="../../../hardware/">Hardware</a> &gt; <a href="../../arch/">Durango</a> &gt; <a href="../durango.md">Durango·X</a> &gt; <strong>Theory</strong></p>
+<hr />
+<h1 id="theory-of-operation">Theory of Operation</h1>
+<p>This document explains the way <strong>Durango-X</strong> is designed. Since one of its goals is the use of <em>standard 74xx logic circuits</em>, the <a href="[https://](https://github.com/zuiko21/minimOS/tree/master/hard/kicad/durango/full)">schematic</a> may appear pretty complex at first sight, but it's easily understood with the help of this guide.</p>
+<p>This is also a good complement to the <a href="../troubleshoot.md">Troubleshooting guide</a>.</p>
+<h2 id="block-diagram">Block Diagram</h2>
+<p>Unlike many Single Board retro-Computers, <strong>Durango-X</strong>'s main feature is the <strong><em>built-in</em> video output</strong>. This is achieved by <em>multiplexing</em> the RAM's address bus between the CPU and the video address generation circuit, for <strong>optimum performance</strong> -- no <em>wait states</em> nor <em>snow</em> during screen accesses!</p>
+<p>Here's a <em>simplified</em> <strong>Block Diagram</strong> showing Durango-X's major blocks and most of its interconnections:</p>
+<figure>
+<p><img alt="Durango-X block diagram" src="../assets/img/durango_arch.png" /></p>
+<figcaption>Simplified Block Diagram of the Durango-X computer</figcaption>
+</figure>
+<h2 id="circuit-description">Circuit description</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Details on this description apply to <em>Durango-X</em> <strong>revision v1</strong>. Changes included in the new <em>v2</em> revision will be noted; otherwise, it's all the same.</p>
+</div>
+<p>According to a <em>modular approach</em> as suggested by <a href="http://emiliollbb.net/">EmilioLB</a>, several big blocks can be isolated:</p>
+<ul>
+<li><strong>Clocks:</strong> generation of both <em>video</em> and <em>CPU</em> clock signals, as they're <strong>fully synchronised</strong> for optimum performance.</li>
+<li><strong>VDU:</strong> picks video data from SRAM and sends it to the monitor thru some analogue circuitry.</li>
+<li><strong>SCART:</strong> the actual analogue circutry for sending the video output.</li>
+<li><strong>CPU:</strong> the <strong>brains</strong> of the machine. Includes <em>interrupt</em> generation.</li>
+<li><strong>MUX:</strong> the RAM needs to be <em>multiplexed</em> between the CPU and the video circuitry.</li>
+<li><strong>Base I/O:</strong> basic on-board devices.</li>
+<li><strong>Extra features:</strong> not indispensable, but useful anyway.</li>
+<li><strong>Interface:</strong> external devices and connections.</li>
+</ul>
+<h3 id="clocks">Clocks</h3>
+<figure>
+<p><img alt="Clocks circuit" src="../assets/img/clocks.png" /></p>
+<figcaption>Clock circuit (and video address generation) on Durango-X</figcaption>
+</figure>
+<p>For <strong>optimum performance</strong>, the 24.576 MHz <em>master clock</em> <strong>X1</strong> is used to generate both <em>video addresses</em> and <strong>system clock</strong>, in perfect sync -- the later originally called <code>SCLK</code> but shown in most schematics as <code>VCLK</code>, since it's the same for both parts. Both sections run at <strong>1.536 MHz</strong>, from a <strong>divide-by-16 <em>prescaler</em></strong> included into <strong>U15</strong> (74HC4040), then inverted via <strong>U16</strong> (74HC02) for adequate phase against other high frequency signals (mainly used for the <em>HIRES</em> video mode).</p>
+<p><code>SCLK</code> is further divided thru the remaining stages of <strong>U15</strong>, together with the AND gate <strong>U17</strong> (74HC21) configured as a <strong>divide-by-98</strong> counter reset by the <code>LEND</code> signal. Thus, the <em>horizontal sync frequency</em> is generated, albeit at a <strong><em>slightly non-standard</em> 15673 Hz</strong>, which is near enough to the CCIR standard 15625 Hz. From these 98 clock cycles, <strong>the first 64 cycles</strong> define the <em>active region</em> of each scanline as the <code>/LINE</code> signal (directly from U15's <code>Q10</code> output), when the remaining U15's <code>Q4</code> to <code>Q9</code> outputs act as the <strong>video address lines <code>VA0</code> to <code>VA5</code></strong>. That <code>/LINE</code> signal is used as the clock signal of the <em>line counter</em> <strong>U19</strong> (another 74HC4040).</p>
+<p>About the aforementioned <strong>line counter</strong>, since a proper computer TV display output must be <strong>non-interlaced</strong>, <strong>U19</strong> together with the other AND gate in U17 is configured as a <strong>divide-by-312</strong> counter, which leads to a slight <em>vertical frequency</em> increase, as was common in most home computers. This counter emits the remaining <strong>video address lines <code>VA6</code> to <code>VA13</code></strong> from its <code>Q0</code> to <code>Q7</code> outputs. Accordingly, <code>Q8</code> generates the <code>/FRAME</code> signal in a similar way to <code>/LINE</code>, thus marking the <strong>256 active rasters</strong> period.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all video address lines are used <em>simultaneously</em>. Depending on the active <strong>video mode</strong>, the needed 74HC257 multiplexers are enabled (either <code>U104/U105</code> or <code>U204/U205</code>), plus the common-to-all-modes <strong><code>U6</code> and <code>U7</code></strong> (74HC157).</p>
+</div>
+<p>A proper <strong><em>horizontal</em> sync pulse</strong> must be generated within the 34 inactive clock cycles per raster. This pulse has a width of <strong>8 clock cycles</strong> or <strong>~5.2 µs</strong>, pretty close to the specified 4.7 µs, easily achieved by using the <code>Q7-Q10</code> outputs from U15 into a <strong><em>4-bit magnitude comparator</em> U18</strong> (74HC85) aginst a fixed number 9, so the sync pulse (<code>UHS</code>, active-high) will be sent while the count values are <strong>between 72 and 79</strong>, as 9 x 8 = 72. <em>This results in a slightly off-centre image to the right</em>, but good enough for most (if not all) monitors.</p>
+<p>A minor drawback of this simple approach is the inversion of the horizontal pulse during the <em>vertical sync</em>, as both signals get combined into <code>CSYNC</code> thru an EXOR gate <strong>U23</strong> (74HC86), which may cause <em>some instability</em> for some displays. Since most TVs do actually sync on the <em>high-to-low</em> sync flange, the remedy for this is quite simple: <em>during vertical sync, generate the <code>UHS</code> pulse <strong>8 clock cycles earlier</strong></em> (count 64 to 71), simply by applying the <em>inverted</em> <code>/VS</code> signal to the U18 comparator, in order to check whether the aforementioned video address bits stay at 8 during this stage.</p>
+<p>About the <strong><em>vertical</em> sync pulse</strong>, it is generated in a similar way within the <strong>56 inactive rasters</strong>. This pulse has a width of <strong>4 rasters</strong> or <strong>~256 µs</strong>, acceptably close to the specified 160 µs, once again achieved by using the <code>Q2-Q5</code> outputs from U19 into another <strong><em>4-bit magnitude comparator</em> U20</strong> (74HC85) aginst a fixed number 8, but <em>only enabled while <code>/FRAME</code> is <strong>high</strong></em> (blanking period), so the sync pulse (<code>UVS</code>, active-high) will be sent when the raster count is <strong>between 288 and 291</strong>, as (8 x 4)+256 = 288. <em>Vertical centering is usually OK</em>, although the 256 active raster area may be a <em>tight fit</em> for some monitors.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Revision v2</em> uses a <strong>28 MHz</strong> main oscillator which, after the prescaler and a <strong>divide-by-112</strong> horizontal counter, gets the <em>CCIR-specified</em> <strong>15625 Hz</strong> horizontal frequency. For better centering, <em>horizontal sync</em> is generated at clock count <strong>88</strong> instead of 72.
+No changes are made for the <em>vertical</em> counter.</p>
+</div>
+<h4 id="60-hz-eia-ntsc-version">60 Hz EIA (NTSC) version</h4>
+<p>This is <em>under development</em> as a derivative from v2. It's intended to use a readily available <strong>25.175 MHz</strong> oscillator and a <strong>divide-by-100</strong> horizontal counter for a nominal <strong>15734 Hz</strong> horizontal rate. The <em>line counter</em> is based on a <strong>divide-by-262</strong> counter but, since <em>there's no way to display 256 rasters on an EIA/NTSC screen</em>, the <code>\FRAME</code> signal needs an extra IC (74HC85) in order to make just <em>192 active rasters</em>.</p>
+<h4 id="overclocking-durango-x">Overclocking Durango-X</h4>
+<p><em>Although the v2 revision will include a TURBO setting</em> option, it is possible to <strong>overclock</strong> an existing v1 Durango-X with some mods, <em>while keeping the proper <strong>sync frequencies</strong> for a working display</em>. This involves some trace cutting, bodge wiring and even adding some extra circuitry. <a href="overclock.md">Check this other page for more information on the several overclocking methods available</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since the video clocks (and thus, the <strong>sync frequencies</strong>) are derived from the <em>master clock</em>, trying to overclock Durango by merely changing the main oscillator frequency will result in a <strong>non-functional video output</strong> -- in extreme cases, the display itself might be damaged!</p>
+</div>
+<h3 id="vdu">VDU</h3>
+<figure>
+<p><img alt="VDU circuit" src="../assets/img/vdu.png" /></p>
+<figcaption>VDU circuit on Durango-X</figcaption>
+</figure>
+<p>While the 65C02 CPU has full access to RAM during the <em>Phi2</em> clock phase (<code>SCLK</code> high), the <strong>Phi1</strong> phase (<code>SCLK</code> low) grants RAM access to <em>video circuitry</em>. Display data in RAM is read then according to the current <code>VAx</code> video address lines, at full clock rate in colour mode but half the speed (768 kHz) in HIRES. Thus, <strong>no video noise or performance penalty</strong> is made during CPU accesses to display data.</p>
+<p>Depending on the current <em>video mode</em>, this display data follows different paths. In <strong>HIRES</strong>, data is latched by the <strong><code>U224</code></strong> <em>shift register</em> (74HC166) at the precise moment determined by <code>U227A</code> (<code>/PE</code> signal) combining some of U15's highest bits. This data is shifted out at a 6.144 MHz <em>dot clock</em> rate (<code>HDOT</code>). This serial output (<code>HPIX</code>) may be inverted thru an XOR gate (<code>U23C</code>, 74HC86) for the actual pixel stream to be displayed (<code>HVID</code>). This signal might suffer a small delay from <code>RV231</code> for <strong>timing calibration</strong>, turning into <code>DHVD</code> which is <strong>gated</strong> thru <code>U227B</code> (74HC20) as requested during <em>blanking</em> periods by the <code>DHRDE</code> signal. Being a NAND gate, this <em>inverted</em> signal (<code>/HVG</code>) goes back to normal thru another XOR gate (<code>U23D</code>) configured as a fixed inverter, where the <em>definitive video stream</em> <strong><code>HVG</code></strong> is obtained.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Dot clock</em> on the v2 issue is <strong>7 MHz</strong> (the 1.75 MHz <code>SCLK</code> frequency times 4), allowing the display of <strong>perfectly <em>square</em> pixels</strong> with an 1:1 aspect ratio.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pull-up and pull-down resistors are used in a few U23 inputs, just in case <code>U227</code> is <strong>not</strong> installed (colour-only <em>Durango-S</em> option). <em>These are not needed otherwise</em>, but won't hurn anyway.</p>
+</div>
+<p>On the other hand, video data path in <strong>colour</strong> mode is somewhat less convoluted. Display data is latched via <strong><code>U124</code></strong> (74HC574) at <code>VCLK</code> rate. We're dealing with <strong><em>chunky</em> 4 bits per pixel</strong>, thus every byte contains <em>two pixels</em> which must be serialized at the same rate via the <strong><code>U125</code></strong> (74HC157) multiplexer, which has a slightly faster <em>propagation time</em> than the former IC. For <strong>optimum picture quality</strong>, <code>RV127</code> creates a slight delay (<code>DEV/ODD</code>) which may adjust the <code>Pixel Delay</code> between both nibbles. Finally, this 4 bpp stream (<code>XB</code>, <code>XR</code>, <code>XGL</code> and <code>XGH</code>) goes thru a dedicated XOR inverter (<strong><code>U126</code></strong>, 74HC86) in case the <em>Inverse video</em> mode is enabled, creating the desired pixel stream lines (<strong><code>IB</code> for blue, <code>IR</code> for red, <code>IGL</code> and <code>IGH</code> for green</strong>). <em>This stream is <strong>not</strong> gated</em> as that will be done on the SCART section.</p>
+<h3 id="scart">SCART</h3>
+<figure>
+<p><img alt="SCART circuit" src="../assets/img/scart.png" /></p>
+<figcaption>SCART and video output circuitry on Durango-X</figcaption>
+</figure>
+<p>This circuit creates the <strong>analog video signals</strong> from the <em>digital</em> streams provided by the VDU section, no matter the connector used. The main circuit is made around <strong><code>Q4</code> and <code>Q5</code> transistors</strong> (BC548). <code>Q4</code>is configured as a <strong>common-base mixer</strong> for <em>high bandwidth</em> and <em>negligible signal interaction</em>, taking the <strong>composite sync</strong> <code>/CSYNC</code> signal and mixing it with the HIRES video stream <code>HVG</code> at appropriate levels (actually around <strong>2 Vpp</strong> as common practice). This <code>ZMIX</code> signal is then <em>buffered</em> via <code>Q5</code> as an <strong>emitter follower</strong> for <em>low impedance</em> output (<code>MIX</code>). A <strong>75 ohm</strong> series resistor (68 is <em>acceptable</em> too) provides <em>short circuit protection</em> and gets the signal down to the standard <strong>1 Vpp</strong> level and impedance. Actually, <em>two</em> of these outputs are provided, for both SCART (<code>R30/C5</code>) and RCA (<code>R31/C9</code>) sockets.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>Q5</code> buffer uses a <em>bias resistor</em> (<code>R15</code>) whose <strong>330 ohm</strong> is determined for the use of <em>either</em> SCART or RCA output, but <em><strong>not</strong> simultaneously</em>. In case both outputs are needed at the same time, <code>R15</code> must be reduced accordingly (say, to <strong>150 ohm</strong>) for safe operation. <em>This lower value will work in any case</em>, at the expense of somewhat increased power consumption.</p>
+</div>
+<p>In colour mode, the above circuit is mainly used for <strong>sync signals</strong>. The SCART connector provides <strong>RGB inputs</strong> when switched via the <em>fast blanking</em> input. The colour bitstreams coming from VDU (<code>IB, IR, IGL, IGH</code>) are buffered by <strong><code>U127</code></strong> (74HC245) which in turn disables video output during <em>blanking</em> periods from the <strong><code>/DCDE</code></strong> signal. Together with the previous <code>DHRDE</code>, these signals come from <code>/CDE</code> and <code>HRDE</code> generated at <code>U3xx</code> (74HC175) after some <em>adjustable delay</em> via <code>VR128</code> and <code>VR221</code>, respectively. The buffers in the '245 are used <em>in pairs</em> for minimal output impedance, and the outputs go into two separate paths: main one is a simple DAC for each colour in order to attenuate the signals down to the <strong>nominal 0.7 Vpp</strong> expected by each RGB input's 75 ohm standard impedance -- in case of the <em>green</em> channel, two bits are in use, which account for approx. 1/3rd and 2/3rds of the full-scale output, rendering <em>three levels of green</em> plus black.</p>
+<p>The remaining path is sort of an afterthought... In case the RGB mode is not supported (or the SCART connection is missing altogether), an approximate <strong>luminance value</strong> is supplied to the composite output. A <em>crude</em> DAC is made upon <code>R107...R110</code> which apply a suitable current level to the common ground input <code>VIN</code> of the aforementioned <em>video mixer</em>, so at least a monochromatic image is displayed.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The DAC resistor values stated in the silkscreen (v1 issue) are intended for a reasonably <strong>linear greyscale</strong>, which may be enabled by clearing bit <code>D3</code> of the <em>video mode register</em> (<code>$DF80</code>, <em>not officially supported</em>). But since this mode seems of little use, and <em>might render somewhat inaccurate colours if the <strong>RGB-to-component</strong> video converter is used</em>, alternative values may be used. Check <a href="../palette/">the Palette article</a> for details.
+<strong>v2</strong> and later issues of Durango-X include the <strong>luminance DAC</strong> as standard.</p>
+</div>
+<p>The way for switching the TV between the composite and RGB inputs is via the <em>fast blanking</em> input in the SCART connector. This receives the <code>RGB</code> signal from U3xx (which is either <em>0</em> in HIRES mode, or the value of <code>D3</code> from the <em>video mode register</em>), buffered by <code>Q306</code> and applied thru <code>R312</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <em>fast blanking</em> signal does draw <strong>a lot</strong> of current, accounting for nearly <strong>one third (!)</strong> of Durango-X's total power consumption. Increasing the value of <code>R312</code> to suit your particular TV will decrease energy usage, but might be the cause of <em>unreliable mode switching</em>.
+This resistor is <strong>not used</strong> in <em>Composite</em>, <em>Sync-on-Green</em> or (for v2 and later) <em>Component video</em> outputs, thus <em>greyscale</em> mode is <em>not available</em>.</p>
+</div>
+<h3 id="cpu">CPU</h3>
+<figure>
+<p><img alt="CPU circuit" src="../assets/img/cpu.png" /></p>
+<figcaption>CPU and interrupts generation on Durango-X</figcaption>
+</figure>
+<p>The CPU section on the <strong>Durango-X</strong> computer is based around the <strong>65C02</strong> microprocessor <code>U1</code> and its associated circuitry -- mainly, <a href="../irq/">interrupt generation</a>. Please note that the Durango-X board has <em>no ROM at all</em>, relying on the one on the <strong>cartridge</strong>, which is essential for operation. <em>RAM</em> is also surrounded by the <strong>multiplexing</strong> circuitry described below.</p>
+<p><code>U9</code> (74HC00) generates the bare minimum <strong>control signals</strong>, according to these equations:</p>
+<ul>
+<li><strong><code>ROM /CS</code></strong> is <code>A15</code> NAND <code>/IO</code>, thus ROM will be disabled while accessing the <em>I/O area</em> (<code>$DF80-$DFFF</code>)</li>
+<li><strong><code>ROM /OE</code></strong> comes thru the NAND from <code>R/W</code>, but also gated via <code>SCLK</code>, as <em>ROM <strong>must</strong> leave the data bus free during _Phi1</em> phase (while <em>video data</em> is collected by the <strong>VDU</strong>)</li>
+<li><strong><code>/WE</code></strong> is generated the usual way, gating with <code>SCLK</code> the aforementioned <code>ROM /OE</code> signal, even if it's already SCLK-gated, as is a conveniently inverted <code>R/W</code>. This signal is sent to the corresponding pin on the cartridge slot but is <em><strong>not</strong> directly used by the RAM</em>, as being multiplexed calls for an <em>additional delay</em> for the address lines to settle.</li>
+</ul>
+<p>The remaining gate is used to invert the <code>HIRES</code> signal for selecting the adequate bank of multiplexers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the v2 issue, this spare gate has a different purpose, creating the <em><strong>3.5 MHz</strong> clock signal</em> for the <em>TURBO</em> option, whereas the <code>HIRES</code> signal is inverted thru a <em>transistor</em> <code>Q307</code>.</p>
+</div>
+<h4 id="interrupt-generation">Interrupt generation</h4>
+<p>The IRQ-generating circuit in Durango-X is designed around the <em>minimOS</em> standard <strong>250 Hz</strong> periodic interrupt (<strong>4 ms</strong> period). For accurate timing, the <code>VA0</code> signal (768 kHz) is further divided by 3072 thanks to <strong><code>U14</code></strong> (74HC4040) and one NAND gate from <code>U8</code> (74HC132), generating a brief reset pulse (<code>/250HZ</code>) which is then inverted by another <code>U8</code> gate, then <strong>stretched</strong> via the <code>C8/R26</code> network, thus creating the <strong><code>ST250</code></strong> signal which both serves as a <code>U14</code> counter reset and, after a diode to turn it <em>open-collector/open-drain</em>, as the main <strong><code>/IRQ</code></strong> generator for the 65C02, <em>without interfering other uses</em> of this signal (<em>nanoLink</em>, cartridge etc).</p>
+<p>Check the <a href="../irq/">interrupt troubleshooting guide</a> for extra information about this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>v2 issue has a somewhat faster system clock (1.75 MHz). Thus, <code>VA0</code> is more like <strong>875 KHz</strong>, so the division factor for the 74HC4040 becomes <strong>3500</strong> instead of 3072 <em>for the specified 250 Hz</em>. Being a much less nicer number in the binary sense, an 8-input NAND gate (74HC30) is used for generating <code>/250HZ</code> and half of <code>U29</code> (74HC139) is configured as an inverter for this pulse, then stretched in a similar way, although using one buffer from <code>U32</code> (74HC245) instead of a Schmitt-trigger gate.
+Note that the <em>TURBO</em> option does <strong>not</strong> affect the interrupt speed, as the counter is fed from <code>VA0</code>, which must run always at the same speed.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>simplified</strong>, <a href="compact.md"><em>Compact</em> version of Durango</a> <em>(under development)</em>, generates <code>ST250</code> thru a <em>flange detector</em> from <strong><code>VA11</code></strong> which, despite its <em>somewhat irregular</em> rhythm, does in the long term run at around the specified 250 Hz, although the 4 ms spacing is no longer guaranteed. This way, <strong><code>U14</code> is eliminated altogether</strong>.</p>
+</div>
+<h3 id="mux">MUX</h3>
+<figure>
+<p><img alt="MUX circuit" src="../assets/img/mux.png" /></p>
+<figcaption>Static RAM and MUX circuit on Durango-X</figcaption>
+</figure>
+<h3 id="base-io">Base I/O</h3>
+<figure>
+<p><img alt="Base I/O circuit" src="../assets/img/base_io.png" /></p>
+<figcaption>Base I/O devices on Durango-X</figcaption>
+</figure>
+<h3 id="extra-features">Extra features</h3>
+<figure>
+<p><img alt="Extra features circuit" src="../assets/img/extra.png" /></p>
+<figcaption>Extra features on Durango-X</figcaption>
+</figure>
+<h3 id="interface">Interface</h3>
+<figure>
+<p><img alt="Interface circuit" src="../assets/img/interface.png" /></p>
+<figcaption>Port interface on Durango-X</figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2025 Durango Computer Team <a href="https://librecounter.org/durangoretro.com/show" target="_blank" style="display:none"><img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" /></a>
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/durangoretro/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/2PNcatsHnn" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

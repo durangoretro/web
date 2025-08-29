@@ -1,0 +1,20 @@
+GIMP Palette
+Name: Durango-X
+Columns: 16
+#
+0 0 0	Index 0
+0 170 0	Index 1
+255 0 0	Index 2
+255 170 0	Index 3
+0 85 0	Index 4
+0 255 0	Index 5
+255 85 0	Index 6
+255 255 0	Index 7
+0 0 255	Index 8
+0 170 255	Index 9
+255 0 255	Index 10
+255 170 255	Index 11
+0 85 255	Index 12
+0 255 255	Index 13
+255 85 255	Index 14
+255 255 255	Index 15
