@@ -22,6 +22,8 @@ If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md)
 
 	Assume all ICs are in DIP package, resistors are rated **1/4 W** and capacitors **10 V** or higher, _unless noted otherwise_.
 
+!!! info
+	This BOM is used for only SCART Video Output and with the High Res and low Res mode (Durango-x); if You want to see how to create a Durango with multiple Video Output or only one Video Mode see the next [BOM](bom.md)
 
 ## Resistors
 

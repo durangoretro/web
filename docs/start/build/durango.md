@@ -31,7 +31,7 @@ There are some _independent_ options as well, you may add them as desired:
 - PAL encoder (for composite output, _NOT_ recommended)
 - Piezo buzzer for audio
 
-## [BOM](computer/bom.md)
+## [BOM](computer/bom2.md)
 
 **Before** you begin soldering, please _make sure you've got both the **PCB** and **ALL of the components**_ needed, and that _they fit the footprints on the PCB_. Depending on the [chosen configuration](computer/options.md), some components may vary. In some cases, values are not mandatory and _might be changed_ to fit your stock.
 

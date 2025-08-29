@@ -15,7 +15,7 @@ in a quite inexpensive way. And we already took the job of _designing_ them!
 ## [Assembly guide (computer)](build/durango.md)
 
 1. [Building options](build/computer/options.md)
-1. [BOM](build/computer/bom.md)
+1. [BOM](build/computer/bom2.md)
 1. [Step by step](build/computer/steps.md)
 1. [Video Output Calibration](build/computer/vdu_calib.md)
 1. [Troubleshooting](build/computer/troubleshoot.md)
