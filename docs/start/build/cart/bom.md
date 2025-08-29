@@ -16,7 +16,7 @@ Once you get the KeyBoard PCB, it's time to gather all the necessary **component
 | Class              | Type                 | Qty (\*) | Notes               |
 |--------------------|----------------------|----------|---------------------|
 | Static Memory      | 62256                | 1        | SMD surface welding |
-| EEPROM or Flash    | 27/28C256            | 1        | ROM                 |
+| EEPROM or Flash    | 27/28C256            | 1        | 32KB ROM                 |
 | DIP Socket         | 32 Pin DIP Socket    | 1        |                     |
 | DIP Socket         | 16 Pin DIP Socket    | 3        |                     |
 | DIP Socket         | 20 Pin DIP Socket    | 1        |                     |
