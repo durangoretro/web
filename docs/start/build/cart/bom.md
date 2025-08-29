@@ -7,7 +7,7 @@ hide:
 
 ---
 # Bill Of Materials 
-Once you get the KeyBoard PCB, it's time to gather all the necessary **components**. _Make sure you pick up all the component for a particular configuration_; some components differs due to the chose options and the desired configuration.
+Once you get the Development Cartridge (ShadowRAM) PCB, it's time to gather all the necessary **components**. _Make sure you pick up all the component for a particular configuration_; some components differs due to the chose options and the desired configuration.
 
 !!! note
 

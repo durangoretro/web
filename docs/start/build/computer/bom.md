@@ -18,6 +18,7 @@ Also, don't forget to check the **Notes** below for alternative values.
 
 If you want to build [the older v1 PCB](), check [this BOM instead!](bom1.md) 
 
+
 !!! note
 
 	Assume all ICs are in DIP package, resistors are rated **1/4 W** and capacitors **10 V** or higher, _unless noted otherwise_.
